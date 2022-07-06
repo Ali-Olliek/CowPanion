@@ -1,6 +1,6 @@
 from django.db import models
 
-class Performance(models.model):
+class Performance(models.Model):
     weight = models.IntegerField()
     status = models.CharField(max_length=40)
 

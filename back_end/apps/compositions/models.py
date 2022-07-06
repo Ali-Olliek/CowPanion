@@ -1,7 +1,7 @@
 from re import L
 from django.db import models
 
-class Composition(models.model):
+class Composition(models.Model):
     energy = models.DecimalField(max_digits=5, decimal_places=2)
     protein_content = models.DecimalField(max_digits=5, decimal_places=2)
     DM_content = models.DecimalField(max_digits=5, decimal_places=2)

@@ -1,6 +1,6 @@
 from django.db import models
 
-class milk(models.model):
+class milk(models.Model):
     quantity = models.IntegerField()
     
 
