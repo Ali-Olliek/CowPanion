@@ -1,3 +1,8 @@
 from django.db import models
 
-# Create your models here.
+class milk(models.model):
+    quantity = models.IntegerField()
+    
+
+    # foreign key
+    animal_Id = models.IntegerField()
