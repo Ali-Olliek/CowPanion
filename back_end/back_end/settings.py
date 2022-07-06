@@ -39,6 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework_simplejwt',
+    'src.animals',
+    'src.compositions',
+    'src.farms',
+    'src.feeds',
+    'src.medicals',
+    'src.milks',
+    'src.performances',
+    'src.reminders',
+    'src.users',
 ]
 
 MIDDLEWARE = [
