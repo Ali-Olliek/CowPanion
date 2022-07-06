@@ -7,3 +7,6 @@ class Medical(models.model):
 
     # foreing key
     animal_Id = models.IntegerField()
+
+    class Meta:
+        db_table = "Medical_Histories"
