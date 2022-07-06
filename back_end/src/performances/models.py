@@ -6,3 +6,6 @@ class Performance(models.model):
 
     # foreign key
     animal_Id = models.IntegerField()
+
+    class Meta:
+        db_table = "Performance_Profiles"
