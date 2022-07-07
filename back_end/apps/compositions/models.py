@@ -1,6 +1,5 @@
-from re import L
 from django.db import models
-from feeds.models import Feed
+from ..feeds.models import Feed
 
 class Composition(models.Model):
     
@@ -12,7 +11,7 @@ class Composition(models.Model):
     vitamins = models.CharField(max_length=255)
     
     # Foreign key
-    feeds_Id = models.ForeignKey(Feed)
+    feeds_Id = models.ForeignKey(Feed, on_delete=models.CASCADE)
 
     class Meta:
         db_table = "Feed_Compositions"

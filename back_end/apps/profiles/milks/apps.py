@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class MilksConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.milks'
+    name = 'apps.profiles.milks'

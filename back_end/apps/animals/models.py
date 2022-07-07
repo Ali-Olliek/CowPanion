@@ -1,5 +1,5 @@
 from django.db import models
-from farms.models import Farm
+from ..farms.models import Farm
 
 class Animal(models.Model):
     

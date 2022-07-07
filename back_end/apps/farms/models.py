@@ -1,6 +1,6 @@
 from django.db import models
-from users.models import User
-from feeds.models import Feed
+from ..users.models import User
+from ..feeds.models import Feed
 
 class Farm (models.Model):
     name = models.CharField(max_length=255) # => we can default farm name to farmer's name

@@ -1,5 +1,4 @@
 from django.db import models
-from compositions.models import Composition
 
 class Feed(models.Model):
     
