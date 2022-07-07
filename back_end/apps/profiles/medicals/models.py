@@ -1,5 +1,5 @@
 from django.db import models
-from animals.models import Animal
+from ...animals.models import Animal
 
 class Medical(models.Model):
     

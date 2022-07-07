@@ -1,11 +1,11 @@
 from django.db import models
-from animals.models import Animal
+from ...animals.models import Animal
 
 class Milk(models.Model):
 
     quantity = models.IntegerField()
     
-    # foreign key
+    # Milk Profile's foreign key
     animal_Id = models.ForeignKey(Animal, on_delete=models.CASCADE)
 
     class Meta:

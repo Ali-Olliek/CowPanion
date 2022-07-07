@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'apps.compositions',
     'apps.farms',
     'apps.feeds',
-    'apps.medicals',
-    'apps.milks',
-    'apps.performances',
+    'apps.profiles.medicals',
+    'apps.profiles.milks',
+    'apps.profiles.performances',
     'apps.reminders',
     'apps.users',
 ]

@@ -1,6 +1,6 @@
 from turtle import ondrag
 from django.db import models
-from animals.models import Animal
+from ...animals.models import Animal
 
 class Performance(models.Model):
     
