@@ -20,10 +20,13 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenVerifyView,
 )
+from apps.users import views as users_controller
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('api/signUp/', users_controller.sign_up, name='sign_up'),
+    path('api/signIn/', users_controller.sign_in, name='sign_in')
 ]
