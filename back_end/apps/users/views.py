@@ -1,30 +1,50 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 # Import necessary models
 from .models import User
 
 # Functions
 
-# Sign Up
+@csrf_exempt # Bypass CSRF
 
 def sign_up(request):
 
     if request.method == "POST":
-        name = (request.POST['name'])
-        email = (request.POST['email'])
-        password = hash(request.POST['password'])
-        DOB = (request.POST['DOB'])
-        user_type = (request.POST['user_type'])
+        
+        user_check = User.objects.check(email__exact=request.POST['email'])
+        
+        if user_check:
 
-        user = User(name, email, password, DOB, user_type)
-        user.save()
+            return JsonResponse({
+                "code": 208,
+                "status": "sser already registered",
+            })
 
-        return JsonResponse({
-            "code": 200,
-            "status": "success",
-            "message": "user registered"
-        })
+        elif not user_check:
+            data = request.POST
+            name = (data['name'])
+            email = (data['email'])
+            password = hash(data['password'])
+            DOB = (data['DOB'])
+            user_Type = (data.get('user_type', 2))
+
+            user = User (
+            name = name,
+            email = email,
+            password = password,
+            DOB = DOB,
+            user_Type = user_Type
+            )
+            
+            user.save()
+
+            return JsonResponse({
+                "code": 201,
+                "status": "success",
+                "message": "user registered"
+            })
 
     return JsonResponse({
         "code": 500,
