@@ -21,12 +21,44 @@ def sign_up(request):
         user.save()
 
         return JsonResponse({
-            "Code": 200,
-            "Status": "success",
+            "code": 200,
+            "status": "success",
             "message": "user registered"
         })
 
     return JsonResponse({
-        "Code": 500,
+        "code": 500,
         "Status": "Unsupported GET request"
     })
+
+def sign_in(request):
+    
+    if request.method == "POST":
+        
+        auth_user = User.objects.get(email__exact=request.POST['email'])
+        
+        if auth_user:
+            
+            password = hash(request.POST['password'])
+
+            if password == auth_user.password:
+
+                return JsonResponse({
+                    "code": 200,
+                    "status": "success",
+                    "User": auth_user,
+                })
+
+            # Incorrect password
+            return JsonResponse({
+                "code": 500,
+                "status": "unsuccessful",
+                "message": "Incorrect Password"
+            })
+            
+        # User not found
+        return JsonResponse({
+            "code": 500,
+            "status": "unsuccessful",
+            "message": "user not found"
+        })
