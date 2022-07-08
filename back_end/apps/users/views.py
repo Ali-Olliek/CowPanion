@@ -1,19 +1,23 @@
-from django.contrib.auth import logout
-from django.shortcuts import render
+from operator import ne
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password, make_password
 import jwt
+import datetime
 
 # Import necessary models
 
 from .models import User
 
-# Response Status Codes
-# 200 -- Request handled successfully
-# 201 -- Created
-# 208 -- Already Exists
-# 500 -- General Internal Error
+# Response Status Codes For Internal Error Handling:
+    # 200 -- Request handled successfully
+    # 201 -- Created
+    # 208 -- Already Exists
+    # 500 -- General Internal Error
+    # USGE -- Unsuccessful General Error
+    # USOP -- Unsuccessful Old Password
+    # USAR -- Unsuccessful Already Registered
+    # USIP -- Unsuccessful Incorrect Password
 
 # Functions
 
@@ -23,18 +27,20 @@ def sign_up(request):
 
     if request.method == "POST":
         
-        user_check = User.objects.get(email__exact=request.POST['email'])
+        data = request.POST
+
+        user_check = User.objects.filter(email__exact=data['email']).exists()
         
         if user_check:
 
             # Already Registered
             return JsonResponse({
                 "code": 208,
-                "status": "user already registered",
+                "status": "USAR",
             })
             
         elif not user_check:
-            data = request.POST
+
             name = (data['name'])
             email = (data['email'])
             password = make_password(data['password'])
@@ -61,7 +67,7 @@ def sign_up(request):
     # General Request Error
     return JsonResponse({
         "code": 500,
-        "Status": "Request Error"
+        "Status": "USGE"
     })
 
 
@@ -71,11 +77,13 @@ def sign_in(request):
     
     if request.method == "POST":
         
-        auth_user = User.objects.get(email__exact=request.POST['email'])
+        data = request.POST
+
+        auth_user = User.objects.get(email__exact=data['email'])
         
         if auth_user:
 
-            password_valid = check_password(request.POST['password'], auth_user.password)
+            password_valid = check_password(data['password'], auth_user.password)
 
             if password_valid:
                 
@@ -87,7 +95,6 @@ def sign_in(request):
                     '18795',
                     algorithm="HS256")
 
-                print(jwt_token)
                 # Success
                 return JsonResponse({
                     "code": 200,
@@ -100,13 +107,64 @@ def sign_in(request):
             # Incorrect password
             return JsonResponse({
                 "code": 500,
-                "status": "unsuccessful",
+                "status": "USIP",
                 "message": "Incorrect Password"
             })
             
         # User not found
         return JsonResponse({
             "code": 500,
-            "status": "unsuccessful",
+            "status": "USNA",
             "message": "user not found"
         })
+
+@csrf_exempt
+
+def update_user_info(request):
+    
+    if request.method == "POST":
+        
+        data = request.POST
+
+        new_info = {
+        "new_name" : data['new_name'],
+        "new_email" : data['new_email'],
+        }
+
+        user = User.objects.filter(id = data.user_id).update(new_info)
+
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "user": user,
+        }) 
+
+
+@csrf_exempt
+def update_password(request):
+    
+    if request.method == "POST":
+
+        data = request.POST
+        password_valid = check_password(data['old_password'], user.password)
+
+        if password_valid:
+            user = User.objects.filter(id=data.user_id).update(password=data['new_password'])
+
+            return JsonResponse({
+                "code": 200,
+                "status": "success",
+                "message": "password updated successfully"
+            })
+        
+        return JsonResponse({
+            "code": 500,
+            "status": "USOP",
+            "message": "old password doesn't match"
+        })
+    
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE",
+        "message": "General Error - Check request method"
+    })
