@@ -7,6 +7,7 @@ from ..middleware.usersmiddleware import user_type_authorizer
 # necessary models
 
 from ...farms.models import Farm
+from ..models import User
 
 # Functions 
 
@@ -23,11 +24,22 @@ def create_farm(request):
 
         data = request.POST
 
-        name = data['name']
-        farmer_Id = data['user_id']
+        farm_name = data['name']
+        farmer = User.objects.get(id = data['user_id'])
 
-        farm = Farm(
-            name=name,
-            farmer_Id=farmer_Id,
-            feeds_Id=None
+        farm = Farm (
+            name=farm_name,
+            farmer=farmer,
         )
+        
+        farm.save()
+
+        return JsonResponse({
+            "code": 201,
+            "status": "Farm Created Successfully"
+        })
+    
+    return JsonResponse({
+        "code": 500,
+        "status": "Check Request Method"
+    })

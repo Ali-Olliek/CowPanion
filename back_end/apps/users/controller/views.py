@@ -11,7 +11,7 @@ import datetime
 
 from ..models import User
 
-# Response Status Codes For Internal Error Handling:
+# Response Status Codes (For Internal Error Handling):
     # 200 -- Request handled successfully
     # 201 -- Created
     # 208 -- Already Exists
