@@ -1,21 +1,36 @@
 # Farmer Actions 
 
+import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from ..middleware.usersmiddleware import user_type_authorizer
 
+from ..middleware.usersmiddleware import user_authorizer
 
 # necessary models
 
 from ...farms.models import Farm
 from ..models import User
+from ...animals.models import Animal
+
+# Response Status Codes (For Internal Handling):
+    # 200 -- Request handled successfully
+    # 201 -- Created
+    # 208 -- Already Exists
+    # 500 -- General Internal Error
+
+    # Error Codes:
+    # USGE -- Unsuccessful General Error
+    # USOP -- Unsuccessful Old Password
+    # USAR -- Unsuccessful Already Registered
+    # USIP -- Unsuccessful Incorrect Password
+
 
 # Functions 
 
 @csrf_exempt
 def create_farm(request):
 
-    if not user_type_authorizer(request):
+    if not user_authorizer(request):
         return JsonResponse({
             "code": 401,
             "status": "UNAUTH"

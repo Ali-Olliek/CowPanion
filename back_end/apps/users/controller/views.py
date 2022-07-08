@@ -3,7 +3,7 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password, make_password
-from ..middleware.usersmiddleware import user_type_authorizer
+from ..middleware.usersmiddleware import user_authorizer
 import jwt
 import datetime
 
@@ -11,11 +11,13 @@ import datetime
 
 from ..models import User
 
-# Response Status Codes (For Internal Error Handling):
+# Response Status Codes (For Internal Handling):
     # 200 -- Request handled successfully
     # 201 -- Created
     # 208 -- Already Exists
     # 500 -- General Internal Error
+    
+    # Error Codes:
     # USGE -- Unsuccessful General Error
     # USOP -- Unsuccessful Old Password
     # USAR -- Unsuccessful Already Registered
@@ -124,7 +126,7 @@ def sign_in(request):
 @csrf_exempt
 def update_user_info(request):
     
-    if not user_type_authorizer(request):
+    if not user_authorizer(request):
 
         return JsonResponse({
             "code": 401,
@@ -156,7 +158,7 @@ def update_user_info(request):
 @csrf_exempt
 def update_password(request):
 
-    if not user_type_authorizer(request):
+    if not user_authorizer(request):
 
         return JsonResponse({
             "code": 401,

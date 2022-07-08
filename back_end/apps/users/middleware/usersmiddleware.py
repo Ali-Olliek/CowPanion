@@ -13,13 +13,13 @@ def jwt_validator (token):
     return payload
 
 
-def user_type_authorizer(request):
+def user_authorizer(request):
 
     token = request.headers['Authorization']
     data = jwt_validator(token)
 
     if data:
 
-        return data['user_type']
+        return data
     
     return False
