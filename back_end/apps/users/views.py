@@ -79,7 +79,13 @@ def sign_in(request):
 
             if password_valid:
                 
-                jwt_token = jwt.encode({'some': 'payload'}, "auth_user", algorithm="HS256")
+                jwt_token = jwt.encode({
+                    "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=30),
+                    "user_id": auth_user.id,
+                    "user_type": auth_user.user_Type,
+                    "user_name": auth_user.name}, 
+                    '18795',
+                    algorithm="HS256")
 
                 print(jwt_token)
                 # Success
