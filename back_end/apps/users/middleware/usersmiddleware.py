@@ -15,23 +15,10 @@ def jwt_validator (token):
 
 def user_type_authorizer(request):
 
-    if request.method == "POST":
-        data = request.POST
-        token = data['jwt_token']
+    token = request.headers['Authorization']
 
-        if jwt_validator(token):
+    if jwt_validator(token):
 
-            return True
-        
-        return False
-
-
-    elif request.method == "GET": 
-        data = request.GET
-        token = data['jwt_token']
-
-        if jwt_validator(token):
-
-            return True
-        
-        return False
+        return True
+    
+    return False
