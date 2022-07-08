@@ -7,6 +7,7 @@ class User(models.Model):
     password = models.CharField(max_length=255)
     DOB = models.CharField(max_length=30)
     user_Type = models.SmallIntegerField(default=2)
+    is_logged = models.BooleanField(default=False)
 
     # Change Default Naming of Tables
     class Meta:
