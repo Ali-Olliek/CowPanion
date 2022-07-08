@@ -10,7 +10,7 @@ class Animal(models.Model):
     status = models.SmallIntegerField()
 
     # Animal's Foreign Keys
-    farm_Id = models.ForeignKey(Farm, on_delete=models.CASCADE)
+    farm = models.ForeignKey(Farm, on_delete=models.CASCADE)
 
     class Meta: 
         db_table = "Animals" 
