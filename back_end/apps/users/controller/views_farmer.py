@@ -133,3 +133,27 @@ def get_all_animals (request):
         "status": "USGE"
     })
 
+def get_animal (request):
+
+    if not user_authorizer (request):
+        return JsonResponse({
+            "code": 401,
+            "status": "UNAUTH"
+        })
+    
+    if request.method == "GET":
+
+        data = request.GET
+
+        animal = Animal.objects.filter(id=data['animal_Id'])
+
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "animal": animal
+        })
+    
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })
