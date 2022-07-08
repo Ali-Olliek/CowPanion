@@ -1,13 +1,15 @@
+import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password, make_password
+from ..middleware.usersmiddleware import user_type_authorizer
 import jwt
 import datetime
-from .middleware.usersmiddleware import jwt_validator, user_type_authorizer
 
 # Import necessary models
 
-from .models import User
+from ..models import User
+from ...farms.models import Farm
 
 # Response Status Codes For Internal Error Handling:
     # 200 -- Request handled successfully
@@ -69,7 +71,6 @@ def sign_up(request):
         "code": 500,
         "Status": "USGE"
     })
-
 
 @csrf_exempt
 
@@ -181,3 +182,25 @@ def update_password(request):
         "status": "USGE",
         "message": "Check request method"
     })
+
+@csrf_exempt
+def create_farm(request):
+
+    if not user_type_authorizer(request):
+        return JsonResponse({
+            "code": 401,
+            "status": "UNAUTH"
+        })
+
+    if request.method == "POST":
+        
+        data = request.POST
+
+        name = data['name']
+        farmer_Id = data['user_id']
+
+        farm = Farm (
+            name=name,
+            farmer_Id=farmer_Id,
+            feeds_Id=None
+        )
