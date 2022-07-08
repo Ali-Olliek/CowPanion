@@ -1,9 +1,9 @@
-from operator import ne
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password, make_password
 import jwt
 import datetime
+from .middleware.usersmiddleware import jwt_validator, user_type_authorizer
 
 # Import necessary models
 
@@ -74,14 +74,23 @@ def sign_up(request):
 @csrf_exempt
 
 def sign_in(request):
-    
+
     if request.method == "POST":
         
         data = request.POST
-
-        auth_user = User.objects.get(email__exact=data['email'])
         
-        if auth_user:
+        try:
+            auth_user = User.objects.get(email__exact=data['email'])
+
+        except:
+            # User not found
+            return JsonResponse({
+                "code": 500,
+                "status": "USNA",
+                "message": "user not found"
+            })
+
+        else:
 
             password_valid = check_password(data['password'], auth_user.password)
 
@@ -111,34 +120,38 @@ def sign_in(request):
                 "message": "Incorrect Password"
             })
             
-        # User not found
-        return JsonResponse({
-            "code": 500,
-            "status": "USNA",
-            "message": "user not found"
-        })
-
 @csrf_exempt
-
 def update_user_info(request):
     
-    if request.method == "POST":
-        
-        data = request.POST
-
-        new_info = {
-        "new_name" : data['new_name'],
-        "new_email" : data['new_email'],
-        }
-
-        user = User.objects.filter(id = data.user_id).update(new_info)
+    if not user_type_authorizer(request):
 
         return JsonResponse({
-            "code": 200,
-            "status": "success",
-            "user": user,
-        }) 
+            "code": 401,
+            "status": "UNAUTH",
+        })
 
+    else:
+
+        if request.method == "POST":
+            
+            data = request.POST
+
+            new_name = data['new_name'],
+            new_email = data['new_email'],
+            print(new_email, new_name)
+            
+            user = User.objects.filter(id = data['user_id']).update(name=new_name, email=new_email)
+
+            return JsonResponse({
+                "code": 200,
+                "status": "success",
+                "user": user,
+            })
+
+        return JsonResponse({
+            "code": 500,
+            "status": "USGE",
+        })
 
 @csrf_exempt
 def update_password(request):
@@ -149,7 +162,7 @@ def update_password(request):
         password_valid = check_password(data['old_password'], user.password)
 
         if password_valid:
-            user = User.objects.filter(id=data.user_id).update(password=data['new_password'])
+            user = User.objects.filter(id=data['user_id']).update(password=data['new_password'])
 
             return JsonResponse({
                 "code": 200,
@@ -166,5 +179,5 @@ def update_password(request):
     return JsonResponse({
         "code": 500,
         "status": "USGE",
-        "message": "General Error - Check request method"
+        "message": "Check request method"
     })
