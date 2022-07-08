@@ -134,12 +134,11 @@ def update_user_info(request):
     else:
 
         if request.method == "POST":
-            
+
             data = request.POST
 
-            new_name = data['new_name'],
-            new_email = data['new_email'],
-            print(new_email, new_name)
+            new_name = data['new_name']
+            new_email = data['new_email']
             
             user = User.objects.filter(id = data['user_id']).update(name=new_name, email=new_email)
 
