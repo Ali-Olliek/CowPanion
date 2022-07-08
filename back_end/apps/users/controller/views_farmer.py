@@ -46,3 +46,37 @@ def create_farm(request):
     })
 
 
+def add_animal(request):
+
+    if not user_authorizer(request):
+        return JsonResponse({
+            "code": 401,
+            "status": "UNAUTH"
+        })
+    
+    if request.method == "POST":
+
+        data = request.POST
+
+        name = data['name']
+        species = data['species']
+        breed = data['breed']
+        DOB = data['2020']
+        status = data['status']
+
+        animal = Animal (
+            name = name,
+            species = species,
+            breed = breed,
+            DOB = DOB,
+            status = status
+        )
+
+        animal.save()
+
+        return JsonResponse({
+            "code" : 201,
+            "status" : "Success",
+            "animal" : animal
+        })
+
