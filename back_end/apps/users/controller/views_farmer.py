@@ -80,3 +80,30 @@ def add_animal(request):
             "animal" : animal
         })
 
+def update_animal_status (request):
+
+    if not user_authorizer(request):
+        return JsonResponse({
+            "code": 401,
+            "status": "UNAUTH"
+        })
+    
+    if request.method == "POST":
+        
+        data = request.POST
+
+        updated_status = data['status']
+
+        animal = Animal.objects.filter(id=data['id']).update(status = updated_status)
+
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "user": animal,
+        })
+
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE",
+    })
+
