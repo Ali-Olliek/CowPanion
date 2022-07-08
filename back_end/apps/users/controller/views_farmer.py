@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from ..middleware.usersmiddleware import user_type_authorizer
 
+
 # necessary models
 
 from ...farms.models import Farm
@@ -43,3 +44,5 @@ def create_farm(request):
         "code": 500,
         "status": "Check Request Method"
     })
+
+

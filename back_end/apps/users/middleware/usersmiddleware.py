@@ -16,9 +16,10 @@ def jwt_validator (token):
 def user_type_authorizer(request):
 
     token = request.headers['Authorization']
+    data = jwt_validator(token)
 
-    if jwt_validator(token):
+    if data:
 
-        return True
+        return data['user_type']
     
     return False

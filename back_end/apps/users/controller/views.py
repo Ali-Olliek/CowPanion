@@ -155,6 +155,13 @@ def update_user_info(request):
 
 @csrf_exempt
 def update_password(request):
+
+    if not user_type_authorizer(request):
+
+        return JsonResponse({
+            "code": 401,
+            "status": "UNAUTH",
+        })
     
     if request.method == "POST":
 
