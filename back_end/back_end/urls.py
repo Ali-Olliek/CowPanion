@@ -15,17 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-    TokenVerifyView,
-)
 from apps.users.controller import views as users_controller
+from apps.users.controller import views_farmer as farmers_controller
+from apps.users.controller import views_admin as admins_controller
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/signUp/', users_controller.sign_up, name='sign_up'),
     path('api/v1/signIn/', users_controller.sign_in, name='sign_in'),
     path('api/v1/EditProfile/', users_controller.update_user_info, name='update_user'),
-    path('api/v1/createFarm/', users_controller.create_farm, name='create_farm'),
+    path('api/v1/createFarm/', farmers_controller.create_farm , name='create_farm'),
 ]
