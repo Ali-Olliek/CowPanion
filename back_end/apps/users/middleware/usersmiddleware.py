@@ -35,5 +35,3 @@ def user_type_authorizer(request):
             return True
         
         return False
-
-
