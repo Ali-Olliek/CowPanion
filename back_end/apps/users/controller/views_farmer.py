@@ -68,49 +68,48 @@ def create_farm(request):
             "status": "UNAUTH"
         })
 
-
+# Assign Animal
 def add_animal(request):
 
-    if not user_authorizer(request):
-        return JsonResponse({
-            "code": 401,
-            "status": "UNAUTH"
-        })
+    farmer = user_type_authorizer(request)
+    if farmer == 2:
     
-    if request.method == "POST":
+        if request.method == "POST":
 
-        data = request.POST
+            data = request.POST
 
-        name = data['name']
-        species = data['species']
-        breed = data['breed']
-        DOB = data['2020']
-        status = data['status']
+            name = data['name']
+            species = data['species']
+            breed = data['breed']
+            DOB = data['2020']
+            status = data['status']
+            
+            animal = Animal (
+                name = name,
+                species = species,
+                breed = breed,
+                DOB = DOB,
+                status = status
+            )
 
-        animal = Animal (
-            name = name,
-            species = species,
-            breed = breed,
-            DOB = DOB,
-            status = status
-        )
+            animal.save()
 
-        animal.save()
+            return JsonResponse({
+                "code" : 201,
+                "status" : "Success",
+                "animal" : animal
+            })
 
         return JsonResponse({
-            "code" : 201,
-            "status" : "Success",
-            "animal" : animal
+            "code": 500,
+            "status": "Check Request Method"
         })
 
-def update_animal_status (request):
+    return JsonResponse({
+        "code": 401,
+        "status": "UNAUTH"
+    })
 
-    if not user_authorizer(request):
-        return JsonResponse({
-            "code": 401,
-            "status": "UNAUTH"
-        })
-    
     if request.method == "POST":
         
         data = request.POST
