@@ -140,31 +140,36 @@ def update_animal_status (request):
         "status": "UNAUTH"
     })
 
-    if request.method == "GET":
+# Get Animal List
+def get_all_animals (request):
 
-        data = request.GET
-        farm_id = data['farm_id']
+    farmer = user_type_authorizer(request)
 
-        animals = Animal.objects.all().filter(farm_id = farm_id)
+    if farmer == 2:
+
+        if request.method == "GET":
+
+            data = request.GET
+            farm_id = data['farm_id']
+
+            animals = Animal.objects.all().filter(farm_id = farm_id)
+
+            return JsonResponse({
+                "code": 200,
+                "status" : "success",
+                "animals": animals
+            })
 
         return JsonResponse({
-            "code": 200,
-            "status" : "success",
-            "animals": animals
+            "code": 500,
+            "status": "USGE"
         })
 
     return JsonResponse({
-        "code": 500,
-        "status": "USGE"
+        "code": 401,
+        "status": "UNAUTH"
     })
 
-def get_animal (request):
-
-    if not user_authorizer (request):
-        return JsonResponse({
-            "code": 401,
-            "status": "UNAUTH"
-        })
     
     if request.method == "GET":
 
