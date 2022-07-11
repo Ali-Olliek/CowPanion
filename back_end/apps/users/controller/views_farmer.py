@@ -1,10 +1,10 @@
 # Farmer Actions 
 
-import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
-from ..middleware.usersmiddleware import user_authorizer
+from ..middleware.usersmiddleware import user_type_authorizer
+from qrcode import make as makeQR
+from base64 import encode as encodeB64
 
 # necessary models
 
@@ -24,20 +24,13 @@ from ...animals.models import Animal
     # USAR -- Unsuccessful Already Registered
     # USIP -- Unsuccessful Incorrect Password
 
-
-# Functions 
-        # return JsonResponse({
-        #     "code": 401,
-        #     "status": "UNAUTH"
-        # })
-
+# Assign Farm
 @csrf_exempt
 def create_farm(request):
 
-    user = user_authorizer(request)
-    user_type = user['user_type']
+    farmer = user_type_authorizer(request)
 
-    if user and user_type == 2:
+    if farmer == 2:
 
         if request.method == "POST":
 
@@ -170,20 +163,35 @@ def get_all_animals (request):
         "status": "UNAUTH"
     })
 
+# Get A Single Animal
+def get_animal (request):
+
+    farmer = user_type_authorizer(request)
+    if farmer == 2:
     
-    if request.method == "GET":
+        if request.method == "GET":
 
-        data = request.GET
+            data = request.GET
 
-        animal = Animal.objects.filter(id=data['animal_Id'])
+            animal = Animal.objects.filter(id=data['animal_Id'])
 
+            QR_code = makeQR(f'http://localhost/api/v1/animal/{animal}')
+            B64_QR = encodeB64(QR_code)
+
+            return JsonResponse({
+                "code": 200,
+                "status": "success",
+                "animal": animal,
+                "QR_CODE": B64_QR
+            })
+        
         return JsonResponse({
-            "code": 200,
-            "status": "success",
-            "animal": animal
+            "code": 500,
+            "status": "USGE"
         })
-    
+
     return JsonResponse({
-        "code": 500,
-        "status": "USGE"
+        "code": 401,
+        "status": "UNAUTH"
     })
+
