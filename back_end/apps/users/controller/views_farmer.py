@@ -110,32 +110,35 @@ def add_animal(request):
         "status": "UNAUTH"
     })
 
-    if request.method == "POST":
-        
-        data = request.POST
+# Update Status
+def update_animal_status (request):
 
-        updated_status = data['status']
+    farmer = user_type_authorizer(request)
+    if farmer == 2:
+    
+        if request.method == "POST":
+            
+            data = request.POST
 
-        animal = Animal.objects.filter(id=data['id']).update(status = updated_status)
+            updated_status = data['status']
+
+            animal = Animal.objects.filter(id=data['id']).update(status = updated_status)
+
+            return JsonResponse({
+                "code": 200,
+                "status": "success",
+                "user": animal,
+            })
 
         return JsonResponse({
-            "code": 200,
-            "status": "success",
-            "user": animal,
+            "code": 500,
+            "status": "USGE",
         })
 
     return JsonResponse({
-        "code": 500,
-        "status": "USGE",
+        "code": 401,
+        "status": "UNAUTH"
     })
-
-def get_all_animals (request):
-
-    if not user_authorizer(request):
-        return JsonResponse({
-            "code": 401,
-            "status": "UNAUTH"
-        })
 
     if request.method == "GET":
 
