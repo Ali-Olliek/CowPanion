@@ -75,7 +75,6 @@ def sign_up(request):
     })
 
 @csrf_exempt
-
 def sign_in(request):
 
     if request.method == "POST":

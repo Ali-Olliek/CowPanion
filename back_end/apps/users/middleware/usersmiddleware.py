@@ -4,22 +4,22 @@
 
 import jwt
 
+# JSON WEB TOKEN VALIDATION
 def jwt_validator (token):
 
     payload = jwt.decode(token, '18795', algorithms=['HS256'])
 
-    if payload: return payload
-    
     return payload
 
-
-def user_authorizer(request):
+# USER TYPE AUTHORIZATION
+def user_type_authorizer(request):
 
     token = request.headers['Authorization']
     data = jwt_validator(token)
 
     if data:
+        user_type = data['user_type']
 
-        return data
-    
+        return user_type
+
     return False
