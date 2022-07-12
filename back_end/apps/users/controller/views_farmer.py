@@ -1,15 +1,18 @@
 # Farmer Actions 
 
+from datetime import datetime
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from ..middleware.usersmiddleware import user_type_authorizer
 from qrcode import make as makeQR
-from base64 import encode as encodeB64
+import base64
+from io import BytesIO
+from PIL import Image
 
-# necessary models
+# Necessary models
 
-from ...farms.models import Farm
 from ..models import User
+from ...farms.models import Farm
 from ...animals.models import Animal
 
 # Response Status Codes (For Internal Handling):
@@ -61,11 +64,20 @@ def create_farm(request):
             "status": "UNAUTH"
         })
 
-# Assign Animal
+
+def get_base64(image):
+    buffered = BytesIO()
+    image.save(buffered, format="JPEG")
+    img_str = base64.b64encode(buffered.getvalue())
+    return "data:image/jpeg;base64," + img_str.decode()
+
+# Assign Animall
+@csrf_exempt
 def add_animal(request):
 
-    farmer = user_type_authorizer(request)
-    if farmer == 2:
+
+    # farmer = user_type_authorizer(request)
+    # if farmer == 2:
     
         if request.method == "POST":
 
@@ -74,15 +86,25 @@ def add_animal(request):
             name = data['name']
             species = data['species']
             breed = data['breed']
-            DOB = data['2020']
+            DOB = data['DOB']
             status = data['status']
-            
+            Farm_id = data['farm_id']
+
+            last_animal = Animal.objects.order_by('-id', 'pk').first()
+
+            # Create QR CODE Using QR_PYPI
+            QR_code = makeQR(f'http://localhost/api/v1/animal/{last_animal.id + 1}')
+            B64_QR = get_base64(QR_code)
+           
+
             animal = Animal (
                 name = name,
                 species = species,
                 breed = breed,
                 DOB = DOB,
-                status = status
+                status = status,
+                farm_id = Farm_id,
+                QR_code = B64_QR
             )
 
             animal.save()
@@ -98,10 +120,10 @@ def add_animal(request):
             "status": "Check Request Method"
         })
 
-    return JsonResponse({
-        "code": 401,
-        "status": "UNAUTH"
-    })
+    # return JsonResponse({
+    #     "code": 401,
+    #     "status": "UNAUTH"
+    # })
 
 # Update Status
 def update_animal_status (request):
@@ -174,9 +196,6 @@ def get_animal (request):
             data = request.GET
 
             animal = Animal.objects.filter(id=data['animal_Id'])
-
-            QR_code = makeQR(f'http://localhost/api/v1/animal/{animal}')
-            B64_QR = encodeB64(QR_code)
 
             return JsonResponse({
                 "code": 200,
