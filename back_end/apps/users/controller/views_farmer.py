@@ -164,15 +164,18 @@ def get_all_animals (request):
 
         if request.method == "GET":
 
-            data = request.GET
-            farm_id = data['farm_id']
+            farm_id = request.GET['farm_id']
 
-            animals = Animal.objects.all().filter(farm_id = farm_id)
+            animals = Animal.objects.all().filter(farm_id = farm_id).values('name', 'status', 'id', 'DOB')
 
+            animals_list = []
+            for animal in animals:
+                animals_list.append(animal)
+            
             return JsonResponse({
                 "code": 200,
                 "status" : "success",
-                "animals": animals
+                "animals": animals_list
             })
 
         return JsonResponse({
