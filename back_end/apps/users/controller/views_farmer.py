@@ -1,13 +1,15 @@
 # Farmer Actions 
 
+import base64
+import json
+from io import BytesIO
 from datetime import datetime
+from qrcode import make as makeQR
+from urllib.request import Request
 from django.http import JsonResponse
+from django.core.serializers import serialize
 from django.views.decorators.csrf import csrf_exempt
 from ..middleware.usersmiddleware import user_type_authorizer
-from qrcode import make as makeQR
-import base64
-from io import BytesIO
-from PIL import Image
 
 # Necessary models
 
@@ -64,7 +66,7 @@ def create_farm(request):
             "status": "UNAUTH"
         })
 
-
+# Utility Function To Create B64 Format
 def get_base64(image):
     buffered = BytesIO()
     image.save(buffered, format="JPEG")
@@ -76,8 +78,8 @@ def get_base64(image):
 def add_animal(request):
 
 
-    # farmer = user_type_authorizer(request)
-    # if farmer == 2:
+    farmer = user_type_authorizer(request)
+    if farmer == 2:
     
         if request.method == "POST":
 
@@ -90,12 +92,12 @@ def add_animal(request):
             status = data['status']
             Farm_id = data['farm_id']
 
+            # Get The Last Record in DB
             last_animal = Animal.objects.order_by('-id', 'pk').first()
 
-            # Create QR CODE Using QR_PYPI
+            # Create QR CODE For The Current Record (Previous + 1)
             QR_code = makeQR(f'http://localhost/api/v1/animal/{last_animal.id + 1}')
             B64_QR = get_base64(QR_code)
-           
 
             animal = Animal (
                 name = name,
@@ -120,10 +122,10 @@ def add_animal(request):
             "status": "Check Request Method"
         })
 
-    # return JsonResponse({
-    #     "code": 401,
-    #     "status": "UNAUTH"
-    # })
+    return JsonResponse({
+        "code": 401,
+        "status": "UNAUTH"
+    })
 
 # Update Status
 def update_animal_status (request):
@@ -190,21 +192,21 @@ def get_all_animals (request):
 
 # Get A Single Animal
 def get_animal (request):
-
     farmer = user_type_authorizer(request)
     if farmer == 2:
     
         if request.method == "GET":
+            animal_id = request.GET['animal_id']
+            
+            animal = Animal.objects.filter(id=animal_id)
 
-            data = request.GET
-
-            animal = Animal.objects.filter(id=data['animal_Id'])
+            to_json = serialize("json", animal)
+            animal_json = json.loads(to_json)
 
             return JsonResponse({
                 "code": 200,
                 "status": "success",
-                "animal": animal,
-                "QR_CODE": B64_QR
+                "animal": animal_json
             })
         
         return JsonResponse({
@@ -216,4 +218,3 @@ def get_animal (request):
         "code": 401,
         "status": "UNAUTH"
     })
-

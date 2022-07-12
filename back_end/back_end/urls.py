@@ -18,6 +18,7 @@ from django.urls import path
 from apps.users.controller import views as users_controller
 from apps.users.controller import views_farmer as farmers_controller
 from apps.users.controller import views_admin as admins_controller
+import re
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,7 +26,8 @@ urlpatterns = [
     path('api/v1/signIn/', users_controller.sign_in, name='sign_in'),
     path('api/v1/EditProfile/', users_controller.update_user_info, name='update_user'),
     path('api/v1/createFarm/', farmers_controller.create_farm , name='create_farm'),
-    path('api/v1/addAnimal', farmers_controller.add_animal, name='add_animal'),
-    path('api/v1/animal/?id', farmers_controller.get_animal, name='get_animal'),
+    path('api/v1/addAnimal/', farmers_controller.add_animal, name='add_animal'),
+    path('api/v1/animals/', farmers_controller.get_all_animals, name='get_animals'),
+    path('api/v1/animal/', farmers_controller.get_animal, name='get_animal'),
     path('api/v1/animal/update/?id', farmers_controller.update_animal_status, name='update_status'),
 ]
