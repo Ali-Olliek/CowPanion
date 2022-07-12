@@ -3,7 +3,7 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password, make_password
-from ..middleware.usersmiddleware import user_authorizer
+from ..middleware.usersmiddleware import user_type_authorizer
 import jwt
 import datetime
 
@@ -99,7 +99,7 @@ def sign_in(request):
             if password_valid:
                 
                 jwt_token = jwt.encode({
-                    "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=30),
+                    "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=120),
                     "user_id": auth_user.id,
                     "user_type": auth_user.user_Type,
                     "user_name": auth_user.name}, 
@@ -125,7 +125,7 @@ def sign_in(request):
 @csrf_exempt
 def update_user_info(request):
     
-    if not user_authorizer(request):
+    if not user_type_authorizer(request):
 
         return JsonResponse({
             "code": 401,
@@ -157,7 +157,7 @@ def update_user_info(request):
 @csrf_exempt
 def update_password(request):
 
-    if not user_authorizer(request):
+    if not user_type_authorizer(request):
 
         return JsonResponse({
             "code": 401,
