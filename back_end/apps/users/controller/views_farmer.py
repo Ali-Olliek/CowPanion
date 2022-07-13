@@ -1,12 +1,10 @@
 # Farmer Actions 
 
-import base64
 import json
-from io import BytesIO
 from qrcode import make as makeQR
 from django.http import JsonResponse
 from django.core.serializers import serialize
-from django.views.decorators.csrf import csrf_exempt
+from utils.utility_functions import get_base64
 
 # Necessary models
 
@@ -26,14 +24,6 @@ from ...reminders.models import Reminder
     # USOP -- Unsuccessful Old Password
     # USAR -- Unsuccessful Already Registered
     # USIP -- Unsuccessful Incorrect Password
-
-
-# Utility Function To Create B64 Format
-def get_base64(image):
-    buffered = BytesIO()
-    image.save(buffered, format="JPEG")
-    img_str = base64.b64encode(buffered.getvalue())
-    return "data:image/jpeg;base64," + img_str.decode()
 
 # Assign Farm
 def create_farm(request):
