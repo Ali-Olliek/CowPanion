@@ -35,11 +35,14 @@ def create_farm(request):
             data = request.POST
 
             farm_name = data['name']
+            location = data['location']
+
             farmer = User.objects.get(id = data['user_id'])
 
             farm = Farm (
                 name=farm_name,
                 farmer=farmer,
+                location = location,
             )
             
             farm.save()

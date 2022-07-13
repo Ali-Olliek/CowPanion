@@ -4,6 +4,7 @@ from ..feeds.models import Feed
 
 class Farm (models.Model):
     name = models.CharField(max_length=255) # => we can default farm name to farmer's name
+    location = models.CharField(max_length=255, default=0)
     
     #Foreign Key 
     farmer = models.ForeignKey(User, on_delete=models.CASCADE)
