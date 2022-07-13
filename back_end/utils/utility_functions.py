@@ -1,8 +1,8 @@
+import csv
+import json 
+import tabula
 import base64
 from io import BytesIO
-import tabula
-import json 
-import csv
 
 # Function To Create B64 Format
 def get_base64(image):
