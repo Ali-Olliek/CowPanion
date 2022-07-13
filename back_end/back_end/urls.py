@@ -6,14 +6,17 @@ from apps.users.controller import views_admin as admins_controller
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # All Users
     path('api/v1/signUp/', users_controller.sign_up, name='sign_up'),
     path('api/v1/signIn/', users_controller.sign_in, name='sign_in'),
     path('api/v1/EditProfile/', users_controller.update_user_info, name='update_user'),
+    # Farmer
     path('api/v1/createFarm/', farmers_controller.create_farm , name='create_farm'),
     path('api/v1/addAnimal/', farmers_controller.add_animal, name='add_animal'),
     path('api/v1/animals/', farmers_controller.get_all_animals, name='get_animals'),
     path('api/v1/animal/', farmers_controller.get_animal, name='get_animal'),
     path('api/v1/animal/update/?id', farmers_controller.update_animal_status, name='update_status'),
+    # Admin
     path('api/v1/adminGetUsers/', admins_controller.get_users, name='admin_get_users'),
     path('api/v1/adminGetAnimals/', admins_controller.get_all_animals, name='admin_get_animals'),
     path('api/v1/adminFarmAnimals/', admins_controller.get_farm_animals, name='admin_farm_animals'),
