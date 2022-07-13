@@ -1,4 +1,3 @@
-from turtle import ondrag
 from django.db import models
 from ...animals.models import Animal
 
