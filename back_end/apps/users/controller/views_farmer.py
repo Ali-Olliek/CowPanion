@@ -3,9 +3,7 @@
 import base64
 import json
 from io import BytesIO
-from datetime import datetime
 from qrcode import make as makeQR
-from urllib.request import Request
 from django.http import JsonResponse
 from django.core.serializers import serialize
 from django.views.decorators.csrf import csrf_exempt
