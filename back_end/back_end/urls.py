@@ -33,4 +33,5 @@ urlpatterns = [
     path('api/v1/adminGetUsers/', admins_controller.get_users, name='admin_get_users'),
     path('api/v1/adminGetAnimals/', admins_controller.get_all_animals, name='admin_get_animals'),
     path('api/v1/adminFarmAnimals/', admins_controller.get_farm_animals, name='admin_farm_animals'),
+    path('api/v1/adminGetFarms/', admins_controller.get_farms, name='get_farms')
 ]

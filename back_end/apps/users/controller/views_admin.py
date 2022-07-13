@@ -17,7 +17,6 @@ from ...animals.models import Animal
 def get_users(request):
 
     admin = user_type_authorizer(request)
-
     if admin == 1:
 
         if request.method == "GET":
@@ -48,7 +47,6 @@ def get_users(request):
 def get_all_animals(request):
 
     admin = user_type_authorizer(request)
-
     if admin == 1:
 
         if request.method == "GET":
@@ -80,7 +78,6 @@ def get_all_animals(request):
 def get_farm_animals(request):
     
     admin = user_type_authorizer(request)
-
     if admin == 1:
 
         if request.method == "GET":
@@ -107,3 +104,32 @@ def get_farm_animals(request):
         "code": 401,
         "status": "UNAUTH"
     })
+
+def get_farms (request):
+
+    admin = user_type_authorizer(request)
+    if admin == 1:
+
+        if request.method == "GET":
+
+            farms = Farm.objects.all().values('id','name')
+            farms_list = []
+            for farm in farms:
+                farms_list.append(farm)
+
+            return JsonResponse({
+                "code":200,
+                "status": "success",
+                "farms": farms_list
+            })
+
+        return JsonResponse({
+            "code": 500,
+            "status": "USGE"
+        })
+
+    return JsonResponse({
+        "code": 401,
+        "status": "UNAUTH"
+    })
+        
