@@ -1,0 +1,244 @@
+Ingredient,CP (%),,EE (%),,CF (%),,NFE (%),,Ash (%),,NDF (%),,ADF (%),,Lignin (%),,ME(Mcal/kg)
+Grains and seeds,,,,,,,,,,,,,,,,,
+Maize,9.0,,4.2,,2.0,,81.6,,2.0,,15.6,,3.5,,1.0,,3.1
+Sorghum,8.7,,2.5,,3.0,,81.6,,2.8,,10.9,,5.9,,1.1,,3.0
+Wheat,11,,2.6,,2.0,,81.5,,2.4,,16.0,,4.0,,1.2,,2.9
+Barley,12,,2.5,,5.9,,79.0,,2.5,,20.0,,7.0,,2.0,,2.8
+Oats,11,,4.4,,15.5,,63.3,,5.0,,13.8,,5.0,,2.9,,2.6
+Rice,9,,1.5,,10.1,,72.5,,8.4,,12.5,,4.3,,1.5,,2.8
+Bajra,12,,3.5,,2.0,,78.4,,4.9,,15.3,,5.3,,2.5,,2.2
+Black gram,29.0,,1.0,,5.3,,62.1,,5.6,,17.0,,2.0,,7.0,,2.5
+Whole Cottonseed,22.0,,17.3,,18.0,,40.0,,3.7,,48.0,,42.7,,17.45,,3.3
+Milling by-products,,,,,,,,,,,,,,,,,
+Wheat bran,16.0,,2.2,,15.0,,59.9,,8.4,,64.0,,14.5,,3.6,,2.7
+Rice bran (de-oiled),17.0,,1.5,,18.0,,48.1,,18.2,,38.2,,11.9,,4.3,,2.1
+Rice polish,14.0,,14.0,,12.0,,49.2,,11.8,,19.4,,15.0,,3.0,,2.7
+Brewer’s grain,25.4,,6.5,,14.9,,48.4,,4.8,,44.0,,23.0,,5.5,,2.4
+Molasses,,,,,,,,,,,,,,,,,
+Cane molasses,2.0,,8.5,,-,,84.2,,3.5,,-,,-,,-,,2.6
+Plant protein concentrates,,,,,,,,,,,,,,,,,
+Soybean meal,53.0,,1.4,,7.0,,36.0,,8.6,,18.6,,8.8,,1.5,,2.5
+Groundnut oil cake,40.0,,8.2,,7.4,,35.9,,7.5,,23.3,,18.2,,3.6,,2.8
+Groundnut meal,44.0,,1.0,,13.2,,35.4,,6.1,,31.2,,22.1,,3.0,,2.7
+Cottonseed meal (decorticated),41.0,,9.2,,6.3,,37.8,,8.2,,28.0,,20.0,,6.0,,2.8
+Cottonseed meal (undecorticated),22.8,,9.2,,24.1,,36.6,,7.3,,53.9,,41.2,,11.5,,2.5
+Rapeseed meal,42.0,,1.0,,8.5,,48.2,,4.7,,23.8,,15.4,,2.4,,2.5
+Rape seed cake,38.0,,7.5,,7.9,,45.1,,4.3,,25.6,,18.6,,6.3,,2.9
+Sunflower meal (undecorticated),31.0,,6.7,,25.3,,27.2,,14.0,,39.9,,26.9,,8.2,,1.9
+Sesame oil cake,30.0,,10.0,,8.0,,39.2,,8.6,,14.3,,8.2,,1.3,,2.3
+Coconut meal,30.0,,0.5,,9.0,,54.5,,9.0,,37.6,,22.2,,3.1,,2.3
+Sorghum (Soghum bicolor),7.0,1.2,38.9,47.1,8.5,56.5,40.3,1.9
+Wheat (Triticum aestivum),3.5,1.0,41.5,43.0,11.0,72.3,43.5,1.9
+Maize (Zea mays),3.6,0.8,33.2,51.9,10.5,62.2,37.4,2.1
+Oats (Avena sativa),5.6,1.7,35.9,48.5,8.3,58.0,36.4,2.0
+Cowpea (Vigna sinensis),15.0,1.1,34.8,35.5,13.3,54.0,48.0,1.8
+Peanut (Arachis hypogaea),10.8,3.4,33.2,44.0,8.6,45.0,36.0,2.0
+Rice (Oryza sativa),8.2,1.0,32.0,43.1,15.7,71.7,48.7,1.9
+Soybean (Glycine max),15.0,1.3,29.1,42.6,12.0,59.0,42.8,1.9
+Cassava (Manihot esculenta),15.4,12.2,22.8,41.1,8.5,40.2,30.7,2.5
+Lucerne (Medicago sativa),16,1.4,29.4,35.2,12.7,43.6,35.8,2.0
+Guar (Cyamopsis tetragonoloba),25.2,0.9,13.8,43.6,16.5,48.9,33.3,1.8
+Moth bean (Phaseolus aconitifolius),15.0,1.2,29.1,42.7,12.0,61.6,45.0,2.1
+Chickpea (Cicer arietinum),12.2,2.3,33.0,42.3,10.2,55.1,40.5,1.8
+Berseem (Trifolium alexandrinum),15,6.6,30.6,36.0,12.1,49.6,50.4,2.4
+Cogon grass (Imperata cylindrica),4.7,1.7,38.1,49.2,6.3,63.3,43.6,1.1
+Para grass (Brachiaria mutica),5.3,2.0,34.6,45.8,12.3,64.4,30.4,1.7
+Guinea grass (Panicum maximum),7.6,1.2,38.1,37.1,16.0,60.5,39.7,1.7
+Rhodes grass (Chloris gayana),9.4,1.2,36.2,42.1,11.1,72.0,39.8,2.1
+Pigeon pea (Cajanus cajan),9.3,2.5,29.7,49.2,9.3,78.6,60.2,2.2
+Garden pea (Pisum sativum),10.9,1.9,29.2,50.3,7.7,67.2,45.9,1.8
+Lemon grass (Cymbopogon citratus),6.6,1.0,34.3,51.9,6.2,72.6,44.1,1.9
+Marvel grass (Dichanthium annulatum),4.6,0.9,38.9,46.1,9.5,63.8,41.1,2.1
+CP,EE,CF,NFE,Ash,NDF,ADF,ME
+(%),(%),(%),(%),(%),(%),(%),(Mcal/kg)
+"",(%),(%),(%),(%),(%),(%),(%),(Mcal
+Rice grass (Leersia hexandra),6.3,1.5,31.4,45.9,14.9,66.2,36.2,2.2
+Ulla grass (Themeda arundinacea),1.9,1.0,49.0,43.5,4.6,-,-,1.7
+Molasses grass (Melinis minutiflora),4.4,1.1,37.8,46.6,10.1,69.8,40.4,1.9
+Natal grass (Rhynchelytrum roseum),5.6,1.4,41.6,43.4,8.0,66.8,36.9,1.9
+Bermuda grass (Cynodon dactylon),8.4,1.4,20.2,58.4,11.6,71.1,38.2,1.8
+Plume grass (Erianthus ravennae),1.9,1.6,43.9,45.7,6.9,78.5,50.7,1.6
+Pili grass (Heteropogon contortus),7.0,1.4,34.5,47.9,9.2,72.1,43.1,2.0
+Dal grass (Hymenachne interrupta),7.5,1.4,29.3,52.6,9.2,64.7,34.4,2.0
+Sain grass (Sehima nervosum),4.5,1.0,24.5,61.1,8.9,73.7,44.9,1.9
+Mauritian (Apluda mutica),5.5,1.0,34.8,51.0,7.7,-,-,1.3
+Giant reed (Arundo donax),8.8,1.1,33.0,44.7,12.4,68.3,38.6,1.9
+Atylosia scarabaeoides,10.0,2.0,36.0,44.5,7.5,-,-,-
+Musal grass (Iseilema laxum),6.4,0.6,35.6,50.6,6.8,71.1,41.9,2.0
+Baib grass (Eulaliopsis binata),4.1,1.6,38.3,48.3,7.7,-,-,-
+Chloris polydactyla,6.0,1.4,30.9,49.8,11.9,-,-,1.7
+Chrysopogon lancearius,4.7,1.2,27.6,50.2,16.3,70.4,41.1,1.7
+Anjan Grass (Cenchrus ciliaris),4.9,0.8,32.9,51.2,10.2,-,-,1.9
+East African stargrass (Cynodon plectostachyus),5.4,0.9,37.6,45.3,10.8,-,-,1.8
+Dolichos biflorus,10.6,1.8,16.2,58.3,13.1,69.8,45.2,1.7
+Shama Millet (Echinochloa colona),7.3,2.0,40.5,42.2,8.0,72.6,43.6,1.7
+Ghiabati (Ipomea pes trigis),13.6,3.5,27.0,44.0,11.9,-,-,1.8
+Dropseed (Marginatus sporobolus),6.1,1.0,34.3,49.8,8.8,66.4,40.6,1.4
+"",CP,EE,CF,NFE,Ash,NDF,ADF,ME
+Ingredient,,,,,,,,
+"",(%),(%),(%),(%),(%),(%),(%),(Mcal/kg)
+"",,CP,EE,CF,NFE,Ash,NDF,ADF,M
+"",Ingredient,,,,,,,,
+"",,(%),(%),(%),(%),(%),(%),(%),(Mcal
+Straws,,,,,,,,,
+Wheat (Triticum aestivum),,3.0,1.0,35.2,50.8,10.0,74.2,49.6,1.4
+Millet (Setaria spp.),,4.0,1.0,34.0,52.3,8.7,78.0,56.0,1.7
+Proso millet (Panicum miliaceum),,4.5,1.2,33.1,45.9,15.3,65.8,39.9,1.5
+Koda millet (Paspalum scrobiculatum),,2.3,1.4,34.3,49.4,12.6,69.1,41.2,1.9
+Oats (Avena sativa),,3.4,0.9,34.9,53.3,7.5,74.2,49.6,1.6
+Barley (Hordeum vulgare),,4.0,0.9,47.4,40.4,9.1,65.8,39.9,1.7
+Rice (Oryza sativa),,4.6,1.5,42.2,32.1,20.6,66.2,51.6,1.4
+Ragi (Eleusine coracana),,3.4,1.1,33.0,51.2,11.0,61.5,49.5,2.0
+Peanut (Arachis hypogaea),,15.0,2.9,27.6,43.7,10.8,64.4,54.3,1.9
+Pigeon pea (Cajanus cajan),,10.7,2.0,36.2,39.1,12.0,57.5,41.4,1.5
+Chickpea (Cicer arietinum),,10.1,0.4,28.8,46.5,14.2,64.8,41.4,1.7
+Dolichos biflorus,,10.5,1.2,44.8,38.2,5.3,-,-,-
+Pili grass (Heteropogon contortus),,3.2,1.5,37.4,48.2,9.7,73.7,45.0,1.8
+Reed-grass (Phragmites karka),,3.8,1.0,29.8,49.6,15.8,-,-,-
+Rottboellia exaltata,,5.3,0.8,31.1,52.0,10.8,-,-,-
+Schizachyrium brevifolium,,4.7,1.0,26.1,56.1,12.1,-,-,-
+"Pasture, Range Plants and Forages Fed Fresh",,,,,,,,,
+Maize (Zea Mays),,,,,,,,,
+Early vegetative,,12.1,1.1,29.6,44.2,13.0,52.47,32.8,2.2
+Late vegetative,,8.2,0.9,27.2,51.9,11.8,-,-,-
+Milk stage,,6.4,0.9,29.9,51.2,11.6,-,-,-
+"Silage, milk stage",,7.9,1.1,24.6,55.1,11.3,-,-,-
+"",(%),(%),(%),(%),(%),(%),(%),(Mcal
+Oats (Avena sativa),,,,,,,,
+Early vegetative,18.8,3.6,18.0,37.5,22.1,53.4,30.2,2.3
+Late vegetative,14.6,2.1,32.9,36.5,13.9,-,-,-
+Early bloom,10.8,1.8,31.0,46.0,10.4,-,-,-
+Late bloom,9.2,1.8,34.8,44.8,9.4,-,-,-
+Milk stage,6.4,2.3,28.7,53.3,9.3,-,-,-
+Ripe,5.3,2.5,34.2,47.1,10.9,-,-,-
+"Silage, late bloom",7.3,1.6,40.8,40.6,9.7,-,-,-
+Wheat (Non-irrigated),,,,,,,,
+Early vegetative,11.2,2.6,25.2,50.4,10.6,-,-,-
+Milk stage,9.3,2.3,15.3,65.4,7.4,-,-,-
+Dough stage,7.3,1.3,34.7,48.0,8.7,-,-,-
+Wheat (Irrigated),,,,,,,,
+Early vegetative,23.3,3.4,21.5,40.2,11.6,58.1,29.8,2.6
+Milk stage,11.8,2.0,31.6,41.7,12.9,-,-,-
+Dough stage,6.4,1.4,26.3,56.2,9.7,-,-,-
+Wheat straw silage,3.5,0.5,39.4,42.0,14.6,,-,1.7
+Pearl millet (Pennisetum typhoides),,,,,,,,
+Full bloom,2.4,1.3,37.1,48.7,10.5,64.8,34.5,2.2
+Mature,2.3,1.1,36.7,49.8,10.1,-,-,
+Rice (Oryza sativa),,,,,,,,
+Early vegetative,7.0,1.8,25.9,47.3,18.0,-,-,1.9
+Dough stage,5.8,2.2,29.5,44.2,18.3,-,-,-
+Rice straw silage,5.9,1.7,30,51.0,11.4,-,-,-
+"",CP,EE,CF,NFE,Ash,NDF,ADF,M
+Ingredient,,,,,,,,
+"",(%),(%),(%),(%),(%),(%),(%),(Mcal
+Sweet clover (Melilotus indica),,,,,,,,
+Early vegetative,25.3,3.0,21.2,35.9,14.6,-,-,-
+Late vegetative,23.3,2.7,19.3,40.3,14.4,-,-,-
+Early bloom,23.0,2.5,27.4,33.5,13.6,-,-,-
+Mature,16.0,1.9,35.2,38.0,8.9,-,-,2.1
+"Soybean (Glycine max), early vegetative",13.0,1.7,31.3,45.2,8.8,-,-,2.1
+"Sunflower (Helianthus annuus), late vegetative",11.0,3.4,24.0,46.2,15.4,-,-,2.3
+Barley (Hordeum vulgare),8.4,1.9,31.8,43.4,11.4,47.7,29.3,2.2
+Bluestem (Dichanthium annulatum),,,,,,,,
+Early vegetative,8.8,1.2,35.0,45.1,9.9,-,-,-
+Late vegetative,4.8,0.8,36.3,48.3,9.8,-,-,-
+Early bloom,4.7,1.3,41.1,43.8,9.1,-,-,-
+Late bloom,4.7,1.3,40.7,42.4,10.9,-,-,-
+Milk stage,3.8,1.2,35.0,50.9,9.9,-,-,-
+Mature stage,3.1,1.1,35.2,50.6,10.0,76.1,47.8,1.8
+Guar (Cyamopsis tetragonoloba),,,,,,,,
+Early vegetative,18.1,1.9,31.9,37.7,10.4,42.3,37.3,2.1
+Late vegetative,12.8,1.5,29.5,49.3,6.9,48.4,42.5,-
+Mature,8.6,1.7,30.0,47.0,12.7,55,47.7,-
+Chick pea (Cicer arietinum),,,,,,,,
+Late vegetative,11.3,2.2,27.2,47.9,11.4,-,-,2.2
+Mid bloom,10.9,2.1,33.1,44.8,9.1,-,-,-
+Milk stage,8.6,0.8,36.8,43.0,10.8,-,-,-
+"",(%),(%),(%),(%),(%),(%),(%),(Mcal
+Early vegetative,17.0,1.6,10.9,58.3,12.2,-,-,-
+Late vegetative,15.1,1.7,16.4,55.3,11.5,-,-,2.2
+Milk stage,15.6,1.9,23.6,47.7,11.2,-,-,-
+Mid bloom,12.2,2.1,25,50.4,10.3,-,-,-
+Peanut (Arachis hypogaea),9.8,0.7,34.1,48.1,7.3,-,-,2.4
+"Bluestem, Pitted (Andropogon pertussis)",,,,,,,,
+Late vegetative,5.4,1.2,36.5,44.6,12.3,-,-,-
+Late bloom,3.9,1.1,35.7,48.0,11.3,-,-,-
+Mature,3.2,1.3,36.5,47.7,11.3,-,-,-
+"Bluestem, Eastindies (Andropogon ischaemum),",,,,,,,,
+"",3.9,1.5,38.5,46.0,10.1,-,-,-
+mature,,,,,,,,
+"Beet root (Beta vulgaris), early vegetative",13.6,2.8,6.3,60.3,17.0,-,-,2.8
+"Tickclover (Desmodium gyroides),",,,,,,,,
+"",11.5,0.7,45.2,34.1,8.5,-,-,-
+late vegetative,,,,,,,,
+"Tickclover, silver lead (Desmodium uncinatum)",12.8,3.4,29.6,45.1,9.1,-,-,-
+"Hyacinth bean (Dolichos lablab), early vegetative",16.5,13.1,25.9,34.5,10.0,44.6,34.0,2.2
+Water hyacinth (Eichhorna crassipes),,,,,,,,
+Early vegetative,9.8,1.5,21.6,51.2,15.9,-,-,-
+Whole silage,7.3,1.2,25.4,45.8,20.3,-,-,-
+Koda millet (Paspalum scrobiculatum),,,,,,,,
+Early vegetative,11.4,1.4,28.8,44.1,14.3,68.8,39.2,2.0
+Early bloom,6.7,1.2,36.5,43.7,11.9,-,-,-
+Dough stage,5.7,1.5,31.6,49.1,12.1,-,-,-
+Sorghum (Sorghum bicolor) Silage,5.9,1.8,37.3,44.4,10.6,65.9,42.3,2.1
+"Fenugreek (Trigonella foenum graecum), early",,,,,,,,
+"",15.7,2.1,13.1,60.3,8.8,-,-,2.1
+"",CP,EE,CF,NFE,Ash,NDF,ADF,M
+Ingredient,,,,,,,,
+"",(%),(%),(%),(%),(%),(%),(%),(Mcal
+Berseem (Trifolium alexandrinum),17.4,1.9,25.9,40.6,14.2,42.4,30.5,2.3
+"Cowpea (Vigna sinensis), mature",25.5,2.6,25.3,32.4,14.2,46.3,31.2,2.3
+Fresh,15.4,1.2,32.3,49.9,1.2,64.4,30.6,-
+Early vegetative,12.0,2.9,28.2,45.1,11.2,-,-,-
+Early bloom,6.9,0.8,35.4,46.1,10.8,-,-,-
+Rhodes grass (Chloris gayana),,,,,,,,
+Early vegetative,11.9,1.5,33.5,43.0,10.1,-,-,-
+Late vegetative,8.5,1.7,34.7,45.1,10.0,65.2,32.2,1.9
+"Signal grass (Brachiaria eruci formis, B.",,,,,,,,
+"",6.4,1.0,32.0,47.0,13.6,67.7,38.0,2.1
+erucaeformis),,,,,,,,
+Ginger grass (Cymbopogon caesius),5.9,5.2,37.1,42.4,9.4,-,-,-
+Bermuda grass (Cynodon dactylon),,,,,,,,
+Fresh,10.5,1.8,28.2,47.7,11.8,71.1,38.1,2.1
+Early vegetative,21.9,2.7,18.0,44.8,12.6,-,-,-
+Late vegetative,10.0,1.4,31.9,44.1,12.6,-,-,-
+Mature,4.9,1.2,39.7,46.1,8.1,-,-,-
+Stargrass (Cynodon plectostachyus),,,,,,,,
+Early vegetative,9.4,0.9,30.4,48.1,11.2,72.0,43.0,2.0
+Milk stage,7.2,0.9,32.7,51.0,8.2,-,-,-
+Late bloom,5.4,0.9,37.6,45.3,10.8,-,-,-
+Nut grass (Cyperus rotundus),8.9,2.4,26.7,49.0,13.0,-,-,-
+Crowfoot grass (Dactyloctenium aegyptium),,,,,,,,
+Early vegetative,8.3,2.5,35.2,40.5,13.5,-,-,-
+Milk stage,7.2,1.2,33.7,45.4,12.5,-,-,-
+Mature,5.7,1.2,27.7,49.8,15.6,69.3,39.8,2.0
+CP,EE,CF,NFE,Ash,NDF,ADF,ME
+(%),(%),(%),(%),(%),(%),(%),(Mcal/kg)
+"",(%),(%),(%),(%),(%),(%),(%),(Mcal
+"Kikiuyu grass (Pennisetum clandestinum),  early",,,,,,,,
+"",15.7,1.7,27.6,40.2,14.8,65.3,35.1,2.3
+vegetative,,,,,,,,
+"Pennisetum orientale, early vegetative",8.2,3.2,27.9,44.6,16.1,71.6,42.5,2.0
+"Pennisetum pedicellatum, late vegetative",2.9,1.6,35.8,49.6,10.1,75.8,47.4,1.8
+Napier grass (Pennisetum purpureum),,,,,,,,
+Early vegetative,15.6,1.2,27.4,36.7,19.1,-,-,-
+Late vegetative,14.5,2.2,27.9,38.3,17.1,-,-,-
+Mature,9.2,1.9,29.2,43.1,16.6,71.7,42.6,1.9
+Post ripe,6.2,2.3,28.1,47.4,16.0,71.0,31.8,-
+Mission grass (Pennisetum polystachion),,,,,,,,
+Early vegetative,17.4,1.4,23,42.3,15.9,72.7,43.8,1.9
+Late vegetative,12.2,1.7,31.4,44.3,10.4,-,-,-
+Early bloom,6.4,1.1,28.6,46.3,17.6,-,-,-
+Late bloom,5.4,0.8,33.0,47.3,13.5,-,-,-
+Milk stage,4.9,0.9,29.9,49.7,14.6,-,-,-
+Mature,2.8,1.1,34.5,49.8,11.8,-,-,-
+Canary grass (Phalaris minor),,,,,,,,
+Early vegetative,13.9,5.2,9.9,51.3,19.7,57.2,25.6,2.2
+Mid bloom,10,3.7,21.2,47.6,17.5,-,-,-
+Napier grass (Pennisetum purpureum x,,,,,,,,
+"",2.9,1.8,37.2,51.1,7.0,-,-,-
+"Pennisetum glaucum), mature",,,,,,,,
+Cabbage (Brassica oleracea capitata) Outside,,,,,,,,
+"",20,3.5,10.3,39.0,27.2,-,-,-
+leaves,,,,,,,,
+"Cauliflower (Brassica oleracea botrytis), Leaves",18.8,3.6,10.8,52.9,13.9,-,-,-
