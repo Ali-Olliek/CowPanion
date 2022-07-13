@@ -4,6 +4,7 @@
 from django.http import JsonResponse
 import jwt
 
+# No-Authentication URLs
 whitelisted_urls = [
     '/api/v1/signUp/',
     '/api/v1/signIn/'
@@ -28,7 +29,9 @@ farmer_urls = [
 ]
 
 vet_urls = [
-
+    '/api/v1/animals/',
+    '/api/v1/animal/',
+    '/api/v1/updateMedicalRecord/'
 ]
 
 def user_type_middleware(get_response):

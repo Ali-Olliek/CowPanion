@@ -3,9 +3,11 @@ from django.urls import path, re_path
 from apps.users.controller import views as users_controller
 from apps.users.controller import views_farmer as farmers_controller
 from apps.users.controller import views_admin as admins_controller
+from apps.users.controller import views_vet as vet_controller
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
     # All Users
     path('api/v1/signUp/', users_controller.sign_up, name='sign_up'),
     path('api/v1/signIn/', users_controller.sign_in, name='sign_in'),
@@ -26,4 +28,7 @@ urlpatterns = [
     path('api/v1/adminGetAnimals/', admins_controller.get_all_animals, name='admin_get_animals'),
     path('api/v1/adminFarmAnimals/', admins_controller.get_farm_animals, name='admin_farm_animals'),
     path('api/v1/adminGetFarms/', admins_controller.get_farms, name='get_farms'),
+
+    # Vet
+    path('api/v1/updateMedicalRecord/', vet_controller.update_medical_history, name='update_medicals')
 ]
