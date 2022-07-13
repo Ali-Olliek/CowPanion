@@ -78,4 +78,32 @@ def get_all_animals(request):
 # Get all animals of a specific farm/farmer
 
 def get_farm_animals(request):
-    pass
+    
+    admin = user_type_authorizer(request)
+
+    if admin == 1:
+
+        if request.method == "GET":
+            
+            farm_id = request.GET['farm_id']
+            animals = Animal.objects.all().filter(farm_id=farm_id).values('id', 'farm_id', 'name', 'DOB', 'status', 'breed')
+
+            animals_list = []
+            for animal in animals:
+                animals_list.append(animal)
+
+            return JsonResponse({
+                "code": 200,
+                "status": "success",
+                "animals": animals_list
+            })
+
+        return JsonResponse({
+            "code": 500,
+            "status": "USGE"
+        })
+
+    return JsonResponse({
+        "code": 401,
+        "status": "UNAUTH"
+    })
