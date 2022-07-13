@@ -25,8 +25,6 @@ from ..models import User
 
 # Functions
 
-@csrf_exempt # Bypass CSRF
-
 def sign_up(request):
 
     if request.method == "POST":
@@ -74,7 +72,6 @@ def sign_up(request):
         "Status": "USGE"
     })
 
-@csrf_exempt
 def sign_in(request):
 
     if request.method == "POST":
@@ -122,48 +119,32 @@ def sign_in(request):
                 "message": "Incorrect Password"
             })
             
-@csrf_exempt
+
 def update_user_info(request):
-    
-    if not user_type_authorizer(request):
+
+    if request.method == "POST":
+
+        data = request.POST
+
+        new_name = data['new_name']
+        new_email = data['new_email']
+        
+        user = User.objects.filter(id = data['user_id']).update(name=new_name, email=new_email)
 
         return JsonResponse({
-            "code": 401,
-            "status": "UNAUTH",
+            "code": 200,
+            "status": "success",
+            "user": user,
         })
 
-    else:
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE",
+    })
 
-        if request.method == "POST":
 
-            data = request.POST
-
-            new_name = data['new_name']
-            new_email = data['new_email']
-            
-            user = User.objects.filter(id = data['user_id']).update(name=new_name, email=new_email)
-
-            return JsonResponse({
-                "code": 200,
-                "status": "success",
-                "user": user,
-            })
-
-        return JsonResponse({
-            "code": 500,
-            "status": "USGE",
-        })
-
-@csrf_exempt
 def update_password(request):
 
-    if not user_type_authorizer(request):
-
-        return JsonResponse({
-            "code": 401,
-            "status": "UNAUTH",
-        })
-    
     if request.method == "POST":
 
         data = request.POST

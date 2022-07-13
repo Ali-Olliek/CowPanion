@@ -28,12 +28,8 @@ from ...animals.models import Animal
     # USIP -- Unsuccessful Incorrect Password
 
 # Assign Farm
-@csrf_exempt
+
 def create_farm(request):
-
-    farmer = user_type_authorizer(request)
-
-    if farmer == 2:
 
         if request.method == "POST":
 
@@ -58,11 +54,6 @@ def create_farm(request):
             "code": 500,
             "status": "Check Request Method"
         })
-        
-    return JsonResponse({
-            "code": 401,
-            "status": "UNAUTH"
-        })
 
 # Utility Function To Create B64 Format
 def get_base64(image):
@@ -72,64 +63,53 @@ def get_base64(image):
     return "data:image/jpeg;base64," + img_str.decode()
 
 # Assign Animall
-@csrf_exempt
+
 def add_animal(request):
 
+    if request.method == "POST":
 
-    farmer = user_type_authorizer(request)
-    if farmer == 2:
-    
-        if request.method == "POST":
+        data = request.POST
 
-            data = request.POST
+        name = data['name']
+        species = data['species']
+        breed = data['breed']
+        DOB = data['DOB']
+        status = data['status']
+        Farm_id = data['farm_id']
 
-            name = data['name']
-            species = data['species']
-            breed = data['breed']
-            DOB = data['DOB']
-            status = data['status']
-            Farm_id = data['farm_id']
+        # Get The Last Record in DB
+        last_animal = Animal.objects.order_by('-id', 'pk').first()
 
-            # Get The Last Record in DB
-            last_animal = Animal.objects.order_by('-id', 'pk').first()
+        # Create QR CODE For The Current Record (Previous + 1)
+        QR_code = makeQR(f'http://localhost/api/v1/animal/{last_animal.id + 1}')
+        B64_QR = get_base64(QR_code)
 
-            # Create QR CODE For The Current Record (Previous + 1)
-            QR_code = makeQR(f'http://localhost/api/v1/animal/{last_animal.id + 1}')
-            B64_QR = get_base64(QR_code)
+        animal = Animal (
+            name = name,
+            species = species,
+            breed = breed,
+            DOB = DOB,
+            status = status,
+            farm_id = Farm_id,
+            QR_code = B64_QR
+        )
 
-            animal = Animal (
-                name = name,
-                species = species,
-                breed = breed,
-                DOB = DOB,
-                status = status,
-                farm_id = Farm_id,
-                QR_code = B64_QR
-            )
-
-            animal.save()
-
-            return JsonResponse({
-                "code" : 201,
-                "status" : "Success",
-                "animal" : animal
-            })
+        animal.save()
 
         return JsonResponse({
-            "code": 500,
-            "status": "Check Request Method"
+            "code" : 201,
+            "status" : "Success",
+            "animal" : animal
         })
 
     return JsonResponse({
-        "code": 401,
-        "status": "UNAUTH"
+        "code": 500,
+        "status": "Check Request Method"
     })
+
 
 # Update Status
 def update_animal_status (request):
-
-    farmer = user_type_authorizer(request)
-    if farmer == 2:
     
         if request.method == "POST":
             
@@ -150,69 +130,49 @@ def update_animal_status (request):
             "status": "USGE",
         })
 
-    return JsonResponse({
-        "code": 401,
-        "status": "UNAUTH"
-    })
 
 # Get Animal List
 def get_all_animals (request):
 
-    farmer = user_type_authorizer(request)
+    if request.method == "GET":
 
-    if farmer == 2:
+        farm_id = request.GET['farm_id']
 
-        if request.method == "GET":
+        animals = Animal.objects.all().filter(farm_id = farm_id).values('name', 'status', 'id', 'DOB')
 
-            farm_id = request.GET['farm_id']
-
-            animals = Animal.objects.all().filter(farm_id = farm_id).values('name', 'status', 'id', 'DOB')
-
-            animals_list = []
-            for animal in animals:
-                animals_list.append(animal)
-            
-            return JsonResponse({
-                "code": 200,
-                "status" : "success",
-                "animals": animals_list
-            })
-
+        animals_list = []
+        for animal in animals:
+            animals_list.append(animal)
+        
         return JsonResponse({
-            "code": 500,
-            "status": "USGE"
+            "code": 200,
+            "status" : "success",
+            "animals": animals_list
         })
 
     return JsonResponse({
-        "code": 401,
-        "status": "UNAUTH"
+        "code": 500,
+        "status": "USGE"
     })
 
 # Get A Single Animal
 def get_animal (request):
-    farmer = user_type_authorizer(request)
-    if farmer == 2:
     
-        if request.method == "GET":
-            animal_id = request.GET['animal_id']
-            
-            animal = Animal.objects.filter(id=animal_id)
-
-            to_json = serialize("json", animal)
-            animal_json = json.loads(to_json)
-
-            return JsonResponse({
-                "code": 200,
-                "status": "success",
-                "animal": animal_json
-            })
+    if request.method == "GET":
+        animal_id = request.GET['animal_id']
         
-        return JsonResponse({
-            "code": 500,
-            "status": "USGE"
-        })
+        animal = Animal.objects.filter(id=animal_id)
 
+        to_json = serialize("json", animal)
+        animal_json = json.loads(to_json)
+
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "animal": animal_json
+        })
+    
     return JsonResponse({
-        "code": 401,
-        "status": "UNAUTH"
+        "code": 500,
+        "status": "USGE"
     })

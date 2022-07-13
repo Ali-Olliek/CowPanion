@@ -1,25 +1,38 @@
 # Users Middleware
 # Checks JWT Token
-# Checks user_Type
 
+from django.http import JsonResponse
 import jwt
 
-# JSON WEB TOKEN VALIDATION
-def jwt_validator (token):
+whitelisted_urls = [
+    '/api/v1/signUp/',
+    '/api/v1/signIn/'
+]
 
-    payload = jwt.decode(token, '18795', algorithms=['HS256'])
+def users_middleware(get_response):
+    
+    # Actual Middleware
+    def middleware(request):
 
-    return payload
+        url = request.get_full_path()
 
-# USER TYPE AUTHORIZATION
-def user_type_authorizer(request):
+        # If requested URL doesn't need Authentication --> Pass Request
+        if url in whitelisted_urls:
+        
+            response = get_response(request)
+            return response
+        
+        # If requested URL needs Authentication
+        token = request.headers['Authorization']
+        payload = jwt.decode(token, '18795', algorithms=['HS256'])
+        
+        if payload:
+            return get_response(request)
 
-    token = request.headers['Authorization']
-    data = jwt_validator(token)
+        return JsonResponse({
+            "code": 401,
+            "status":"UNAUTH"
+        })
 
-    if data:
-        user_type = data['user_type']
-
-        return user_type
-
-    return False
+    # Calls The Middleware
+    return middleware
