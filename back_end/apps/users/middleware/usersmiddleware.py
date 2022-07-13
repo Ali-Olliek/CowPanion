@@ -22,6 +22,9 @@ farmer_urls = [
     '/api/v1/animals/',
     '/api/v1/animal/',
     '/api/v1/animal/update/?id',
+    '/api/v1/createReminder/',
+    '/api/v1/farmReminders/',
+    '/api/v1/animalReminders/'
 ]
 
 vet_urls = [
@@ -32,10 +35,21 @@ def user_type_middleware(get_response):
 
     def middleware(request):
 
-        url = request.get_full_path()
+        # URL sanitizing
+        request_url = request.get_full_path()
+
+        # Rsplit at the last forward slash
+        # To exclude the params
+        splitted_url = request_url.rsplit('/', 1)
+
+        # Re-add the slash to the URL
+        splitted_url[0] += "/"
+
+        # Take the URL (Example: /api/v1/XXXXXX/)
+        sanitized_url = splitted_url[0]
 
         # If requested URL does not require Authentication
-        if url in whitelisted_urls:
+        if sanitized_url in whitelisted_urls:
 
             return get_response(request)
 
@@ -49,16 +63,15 @@ def user_type_middleware(get_response):
         # Conditionals to check which request gets forwarded to which controller/view
 
         # If Admin
-        if url in admin_urls and user_type == 1:
-
+        if sanitized_url in admin_urls and user_type == 1:
             return get_response(request)
+
         # If Farmer
-        elif url in farmer_urls and user_type == 2:
-
+        elif sanitized_url in farmer_urls and user_type == 2:
             return get_response(request)
-        # If Vet
-        elif url in vet_urls and user_type == 3:
 
+        # If Vet
+        elif sanitized_url in vet_urls and user_type == 3:
             return get_response(request)
 
         return JsonResponse({
