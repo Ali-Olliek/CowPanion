@@ -3,7 +3,6 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password, make_password
-from ..middleware.usersmiddleware import user_type_authorizer
 import jwt
 import datetime
 

@@ -3,7 +3,6 @@
 import json
 from django.http import JsonResponse
 from django.core.serializers import serialize
-from ..middleware.usersmiddleware import user_type_authorizer
 
 # Necessary Models
 

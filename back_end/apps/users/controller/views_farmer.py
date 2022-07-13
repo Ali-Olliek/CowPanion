@@ -7,7 +7,6 @@ from qrcode import make as makeQR
 from django.http import JsonResponse
 from django.core.serializers import serialize
 from django.views.decorators.csrf import csrf_exempt
-from ..middleware.usersmiddleware import user_type_authorizer
 
 # Necessary models
 
@@ -99,7 +98,6 @@ def add_animal(request):
         return JsonResponse({
             "code" : 201,
             "status" : "Success",
-            "animal" : animal
         })
 
     return JsonResponse({
