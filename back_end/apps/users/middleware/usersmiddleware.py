@@ -1,5 +1,4 @@
 # Users Middleware
-# Checks JWT Token
 
 from django.http import JsonResponse
 import jwt

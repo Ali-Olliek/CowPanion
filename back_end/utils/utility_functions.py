@@ -36,4 +36,7 @@ def scrape_data():
 
     convert_to_json(csvfile, jsonfile)
 
-scrape_data()
+# To populate the 
+# Json file we will
+# invoke the function
+# through an Admin API
