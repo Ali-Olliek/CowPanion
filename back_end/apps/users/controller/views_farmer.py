@@ -13,6 +13,7 @@ from django.views.decorators.csrf import csrf_exempt
 from ..models import User
 from ...farms.models import Farm
 from ...animals.models import Animal
+from ...reminders.models import Reminder
 
 # Response Status Codes (For Internal Handling):
     # 200 -- Request handled successfully
@@ -26,8 +27,15 @@ from ...animals.models import Animal
     # USAR -- Unsuccessful Already Registered
     # USIP -- Unsuccessful Incorrect Password
 
-# Assign Farm
 
+# Utility Function To Create B64 Format
+def get_base64(image):
+    buffered = BytesIO()
+    image.save(buffered, format="JPEG")
+    img_str = base64.b64encode(buffered.getvalue())
+    return "data:image/jpeg;base64," + img_str.decode()
+
+# Assign Farm
 def create_farm(request):
 
         if request.method == "POST":
@@ -57,15 +65,7 @@ def create_farm(request):
             "status": "Check Request Method"
         })
 
-# Utility Function To Create B64 Format
-def get_base64(image):
-    buffered = BytesIO()
-    image.save(buffered, format="JPEG")
-    img_str = base64.b64encode(buffered.getvalue())
-    return "data:image/jpeg;base64," + img_str.decode()
-
-# Assign Animall
-
+# Assign Animal
 def add_animal(request):
 
     if request.method == "POST":
@@ -173,6 +173,89 @@ def get_animal (request):
             "animal": animal_json
         })
     
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })
+
+# Create Reminders
+def create_reminder(request):
+
+    if request.method == "POST":
+
+        data = request.POST
+
+        due_time = data['due_time']
+        task_description = data['task_description']
+        farm_id = data['farm_id']
+        animal_id = data['animal_id']
+
+        if not farm_id and not animal_id:
+            return JsonResponse({
+                "code": 500,
+                "status": "USGE",
+                "message": "Reminder needs either to be linked to either farm or animal"
+            })
+
+        reminder = Reminder (
+            due_time = due_time,
+            task_description = task_description,
+            farm_id = farm_id,
+            animal_id = animal_id
+        )
+
+        reminder.save()
+
+        return JsonResponse({
+            "code": 201,
+            "status": "success",
+        })
+
+    return JsonResponse({
+        "code":500,
+        "status": "USGE"
+    })
+
+# Get Reminders Per Farm
+def get_farm_reminders(request):
+    
+    if request.method == "GET":
+        farm_id = request.GET['farm_id']
+
+        reminders = Reminder.objects.all().filter(farm_id = farm_id)
+
+        to_json = serialize("json", reminders)
+        reminder_json = json.loads(to_json)
+
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "reminders": reminder_json
+        })
+
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })
+
+# Get Reminders Per Animal
+def get_animal_reminders(request):
+
+    if request.method == "GET":
+
+        animal_id = request.GET['animal_id']
+
+        reminders = Reminder.objects.all().filter(animal_id = animal_id)
+
+        to_json = serialize("json", reminders)
+        reminder_json = json.loads(to_json)
+
+        return JsonResponse({
+            "code":200,
+            "status": "success",
+            "reminders":reminder_json 
+        })
+
     return JsonResponse({
         "code": 500,
         "status": "USGE"
