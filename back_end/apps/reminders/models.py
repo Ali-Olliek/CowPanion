@@ -1,5 +1,6 @@
 from django.db import models
 from ..animals.models import Animal
+from ..farms.models import Farm
 
 class Reminder(models.Model):
     
@@ -8,7 +9,8 @@ class Reminder(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     
     # foreign keys
-    animal_Id = models.ForeignKey(Animal, on_delete=models.CASCADE)
+    animal = models.ForeignKey(Animal, on_delete=models.CASCADE, null=True, blank=True, default=None)
+    farm = models.ForeignKey(Farm, on_delete=models.CASCADE, default=None)
     
     class Meta:
         db_table = "Reminders"
