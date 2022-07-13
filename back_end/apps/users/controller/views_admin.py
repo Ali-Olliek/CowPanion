@@ -1,6 +1,8 @@
 # Admin Actions
 
+import json
 from django.http import JsonResponse
+from django.core.serializers import serialize
 from ..middleware.usersmiddleware import user_type_authorizer
 
 # Necessary Models
@@ -11,7 +13,6 @@ from ...animals.models import Animal
 
 #Functions
 
-
 # Get all users in database (Farmers, and Vets)
 def get_users(request):
 
@@ -19,14 +20,18 @@ def get_users(request):
 
     if admin == 1:
 
-        if request.method == "POST":
+        if request.method == "GET":
 
-            users = User.objects.all()
-        
+            users = User.objects.all().values('name', 'email', 'DOB', 'id')
+            
+            users_list = []
+            for user in users:
+                users_list.append(user)
+
             return JsonResponse({
                 "code": 200,
                 "status": "success",
-                "users": users,
+                "users": users_list,
             })
 
         return JsonResponse({
@@ -48,12 +53,16 @@ def get_all_animals(request):
 
         if request.method == "GET":
 
-            animals = Animal.objects.all()
+            animals = Animal.objects.all().values('id','farm_id' ,'name', 'DOB', 'status', 'breed')
 
+            animals_list = []
+            for animal in animals:
+                animals_list.append(animal)
+            
             return JsonResponse({
                 "code": 200,
                 "status": "success",
-                "animals": animals
+                "animals": animals_list
             })
 
         return JsonResponse({
@@ -68,3 +77,5 @@ def get_all_animals(request):
 
 # Get all animals of a specific farm/farmer
 
+def get_farm_animals(request):
+    pass
