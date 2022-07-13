@@ -3,7 +3,7 @@
 import json
 from django.http import JsonResponse
 from django.core.serializers import serialize
-
+from utils.utility_functions import scrape_data
 # Necessary Models
 
 from ...users.models import User
@@ -58,7 +58,6 @@ def get_all_animals(request):
     })
 
 # Get all animals of a specific farm/farmer
-
 def get_farm_animals(request):
     
     if request.method == "GET":
@@ -81,8 +80,7 @@ def get_farm_animals(request):
         "status": "USGE"
     })
 
-
-
+# Get All Farms
 def get_farms (request):
 
     if request.method == "GET":
@@ -96,6 +94,22 @@ def get_farms (request):
             "code":200,
             "status": "success",
             "farms": farms_list
+        })
+
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })
+
+# Call Function to Update Data
+def update_feed_data(request):
+
+    if request.method == "GET":
+        scrape_data()
+
+        return JsonResponse({
+            "code": 200,
+            "status": "success"
         })
 
     return JsonResponse({
