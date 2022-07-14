@@ -1,12 +1,14 @@
 # Veterinary Actions
 
+from django.http import JsonResponse
+from utils.utility_functions import convert_to_json
+
 # Necessary Models
 
-from django.http import JsonResponse
+from ...animals.models import Animal
 from apps.profiles.medicals.models import Medical
 
 # Functions
-
 
 def update_medical_history(request):
     
@@ -33,6 +35,27 @@ def update_medical_history(request):
             "status": "success"
         })
     
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })
+
+# get medical history
+def get_medical_history(request):
+    
+    if request.method == "GET":
+
+        animal_id = request.GET['animal_id']
+        medical_history = Medical.objects.filter(animal_id = animal_id)
+
+        medical_history_json = convert_to_json(medical_history)
+        
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "medical_history": medical_history_json
+        })
+
     return JsonResponse({
         "code": 500,
         "status": "USGE"
