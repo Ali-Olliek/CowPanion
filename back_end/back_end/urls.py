@@ -1,5 +1,5 @@
+from django.urls import path
 from django.contrib import admin
-from django.urls import path, re_path
 from apps.users.controller import views as users_controller
 from apps.users.controller import views_farmer as farmers_controller
 from apps.users.controller import views_admin as admins_controller
@@ -13,7 +13,7 @@ urlpatterns = [
     path('api/v1/signIn/', users_controller.sign_in, name='sign_in'),
     path('api/v1/EditProfile/', users_controller.update_user_info, name='update_user'),
 
-    # Farmer
+    # Farmers
     path('api/v1/createFarm/', farmers_controller.create_farm , name='create_farm'),
     path('api/v1/addAnimal/', farmers_controller.add_animal, name='add_animal'),
     path('api/v1/animals/', farmers_controller.get_all_animals, name='get_animals'),
@@ -23,13 +23,15 @@ urlpatterns = [
     path('api/v1/farmReminders/', farmers_controller.get_farm_reminders, name='get_farm_reminders'),
     path('api/v1/animalReminders/', farmers_controller.get_animal_reminders, name='get_animal_reminders'),
 
-    # Admin
+    # Admins
     path('api/v1/adminGetUsers/', admins_controller.get_users, name='admin_get_users'),
     path('api/v1/adminGetAnimals/', admins_controller.get_all_animals, name='admin_get_animals'),
     path('api/v1/adminFarmAnimals/', admins_controller.get_farm_animals, name='admin_farm_animals'),
     path('api/v1/adminGetFarms/', admins_controller.get_farms, name='get_farms'),
     path('api/v1/addFeed/', admins_controller.add_feed_data, name='add_feed'),
+    path('api/v1/getFeeds/', admins_controller.get_feeds, name='get_feeds'),
 
-    # Vet
-    path('api/v1/updateMedicalRecord/', vet_controller.update_medical_history, name='update_medicals')
+    # Vets
+    path('api/v1/updateMedicalRecord/', vet_controller.update_medical_history, name='update_medicals'),
+    path('api/v1/getMedicalRecord/', vet_controller.get_medical_history, name='get_history'),
 ]

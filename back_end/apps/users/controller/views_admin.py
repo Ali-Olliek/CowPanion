@@ -1,7 +1,7 @@
 # Admin Actions
 import re
 import json
-from django.http import HttpResponse, JsonResponse
+from django.http import  JsonResponse
 from django.core.serializers import serialize
 from utils.utility_functions import scrape_data
 
@@ -11,6 +11,18 @@ from ...users.models import User
 from ...farms.models import Farm
 from ...animals.models import Animal
 from ...feeds.models import Feed
+
+# Response Status Codes (For Internal Handling):
+    # 200 -- Request handled successfully
+    # 201 -- Created
+    # 208 -- Already Exists
+    # 500 -- General Internal Error
+
+    # Error Codes:
+    # USGE -- Unsuccessful General Error
+    # USOP -- Unsuccessful Old Password
+    # USAR -- Unsuccessful Already Registered
+    # USIP -- Unsuccessful Incorrect Password
 
 #Functions
 
@@ -162,3 +174,24 @@ def add_feed_data(request):
             "code": 201,
             "status": "success"
         })
+
+# get Feeds Data
+def get_feeds(request):
+
+    if request.method == "GET":
+
+        feeds_list = Feed.objects.all()
+
+        to_json = serialize("json", feeds_list)
+        feeds_json = json.loads(to_json)
+
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "feeds_list": feeds_json
+        })
+    
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })

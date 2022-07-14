@@ -14,7 +14,8 @@ admin_urls = [
     '/api/v1/adminGetAnimals/',
     '/api/v1/adminFarmAnimals/',
     '/api/v1/adminGetFarms/',
-    '/api/v1/addFeed/'
+    '/api/v1/addFeed/',
+    '/api/v1/getFeeds/',
 ]
 
 farmer_urls = [
@@ -26,12 +27,14 @@ farmer_urls = [
     '/api/v1/createReminder/',
     '/api/v1/farmReminders/',
     '/api/v1/animalReminders/',
+    '/api/v1/getFeeds/',
 ]
 
 vet_urls = [
     '/api/v1/animals/',
     '/api/v1/animal/',
-    '/api/v1/updateMedicalRecord/'
+    '/api/v1/updateMedicalRecord/',
+    '/api/v1/getMedicalRecord/'
 ]
 
 def user_type_middleware(get_response):
