@@ -1,10 +1,10 @@
 # Farmer Actions 
 
 import json
+from lib2to3.pytree import convert
 from qrcode import make as makeQR
 from django.http import JsonResponse
-from django.core.serializers import serialize
-from utils.utility_functions import get_base64
+from utils.utility_functions import get_base64, convert_to_json
 
 # Necessary models
 
@@ -154,8 +154,7 @@ def get_animal (request):
         
         animal = Animal.objects.filter(id=animal_id)
 
-        to_json = serialize("json", animal)
-        animal_json = json.loads(to_json)
+        animal_json = convert_to_json(animal)
 
         return JsonResponse({
             "code": 200,
@@ -214,13 +213,12 @@ def get_farm_reminders(request):
 
         reminders = Reminder.objects.all().filter(farm_id = farm_id)
 
-        to_json = serialize("json", reminders)
-        reminder_json = json.loads(to_json)
+        reminders_json = convert_to_json(reminders)
 
         return JsonResponse({
             "code": 200,
             "status": "success",
-            "reminders": reminder_json
+            "reminders": reminders_json
         })
 
     return JsonResponse({
@@ -237,13 +235,12 @@ def get_animal_reminders(request):
 
         reminders = Reminder.objects.all().filter(animal_id = animal_id)
 
-        to_json = serialize("json", reminders)
-        reminder_json = json.loads(to_json)
+        reminders_json = convert_to_json(reminders)
 
         return JsonResponse({
             "code":200,
             "status": "success",
-            "reminders":reminder_json 
+            "reminders":reminders_json 
         })
 
     return JsonResponse({

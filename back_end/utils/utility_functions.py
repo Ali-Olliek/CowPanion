@@ -3,6 +3,7 @@ import json
 import tabula
 import base64
 from io import BytesIO
+from django.core.serializers import serialize
 
 # Function To Create B64 Format
 def get_base64(image):
@@ -40,3 +41,10 @@ def scrape_data():
 # Json file we will
 # invoke the function
 # through an Admin API
+
+# serialize Json
+def convert_to_json(object):
+    to_json = serialize("json", object)
+    feeds_json = json.loads(to_json)
+
+    return feeds_json
