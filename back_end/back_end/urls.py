@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/v1/adminGetAnimals/', admins_controller.get_all_animals, name='admin_get_animals'),
     path('api/v1/adminFarmAnimals/', admins_controller.get_farm_animals, name='admin_farm_animals'),
     path('api/v1/adminGetFarms/', admins_controller.get_farms, name='get_farms'),
+    path('api/v1/addFeed/', admins_controller.add_feed_data, name='add_feed'),
 
     # Vet
     path('api/v1/updateMedicalRecord/', vet_controller.update_medical_history, name='update_medicals')

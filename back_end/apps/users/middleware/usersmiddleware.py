@@ -14,6 +14,7 @@ admin_urls = [
     '/api/v1/adminGetAnimals/',
     '/api/v1/adminFarmAnimals/',
     '/api/v1/adminGetFarms/',
+    '/api/v1/addFeed/'
 ]
 
 farmer_urls = [
@@ -24,7 +25,7 @@ farmer_urls = [
     '/api/v1/animal/update/?id',
     '/api/v1/createReminder/',
     '/api/v1/farmReminders/',
-    '/api/v1/animalReminders/'
+    '/api/v1/animalReminders/',
 ]
 
 vet_urls = [

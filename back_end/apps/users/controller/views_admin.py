@@ -1,14 +1,16 @@
 # Admin Actions
-
+import re
 import json
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.core.serializers import serialize
 from utils.utility_functions import scrape_data
+
 # Necessary Models
 
 from ...users.models import User
 from ...farms.models import Farm
 from ...animals.models import Animal
+from ...feeds.models import Feed
 
 #Functions
 
@@ -116,3 +118,47 @@ def update_feed_data(request):
         "code": 500,
         "status": "USGE"
     })
+
+# fill data to database
+def add_feed_data(request):
+
+    with open('utils/feeds.json') as file:
+        
+        data = json.load(file)
+
+        for i in data:
+            
+            name = i['Ingredient']
+            CP = i['CP (%)']
+            EE = i['EE (%)']
+            CF = i['CF (%)']
+            NFE = i['NFE (%)']
+            ASH = i['Ash (%)']
+            NDF = i['NDF (%)']
+            ADF = i['ADF (%)']
+            Lignin = i['Lignin (%)']
+            ME = i['ME(Mcal/kg)']
+
+            # If a row has no values, it is a category title
+            if None in (name, CP, EE, CF, NFE, ASH, NDF, ADF, Lignin, ME):
+                continue
+            
+            feed = Feed(
+                name = name,
+                crude_protein_CP = CP,
+                ether_extract_EE = EE,
+               	crude_fibre_CF = CF,
+                nitrogen_free_extract_NFE = NFE,
+                mineral_content_ASH = ASH,
+                neutral_detergent_fibre_NDF = NDF,
+               	acid_detergent_fibre_ADF = ADF,
+                Lignin = Lignin,
+                Metabolizable_Energy_ME = ME,
+            )
+            
+            feed.save()
+        
+        return JsonResponse({
+            "code": 201,
+            "status": "success"
+        })
