@@ -43,7 +43,7 @@ def scrape_data():
 # through an Admin API
 
 # serialize Json
-def convert_to_json(object):
+def object_to_json(object):
     to_json = serialize("json", object)
     feeds_json = json.loads(to_json)
 

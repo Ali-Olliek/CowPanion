@@ -3,7 +3,7 @@ import re
 import json
 from django.http import  JsonResponse
 from django.core.serializers import serialize
-from utils.utility_functions import scrape_data
+from utils.utility_functions import scrape_data, object_to_json
 
 # Necessary Models
 
@@ -182,8 +182,7 @@ def get_feeds(request):
 
         feeds_list = Feed.objects.all()
 
-        to_json = serialize("json", feeds_list)
-        feeds_json = json.loads(to_json)
+        feeds_json = object_to_json(feeds_list)
 
         return JsonResponse({
             "code": 200,

@@ -4,7 +4,7 @@ import json
 from lib2to3.pytree import convert
 from qrcode import make as makeQR
 from django.http import JsonResponse
-from utils.utility_functions import get_base64, convert_to_json
+from utils.utility_functions import get_base64, object_to_json
 
 # Necessary models
 
@@ -154,7 +154,7 @@ def get_animal (request):
         
         animal = Animal.objects.filter(id=animal_id)
 
-        animal_json = convert_to_json(animal)
+        animal_json = object_to_json(animal)
 
         return JsonResponse({
             "code": 200,
@@ -213,7 +213,7 @@ def get_farm_reminders(request):
 
         reminders = Reminder.objects.all().filter(farm_id = farm_id)
 
-        reminders_json = convert_to_json(reminders)
+        reminders_json = object_to_json(reminders)
 
         return JsonResponse({
             "code": 200,
@@ -235,7 +235,7 @@ def get_animal_reminders(request):
 
         reminders = Reminder.objects.all().filter(animal_id = animal_id)
 
-        reminders_json = convert_to_json(reminders)
+        reminders_json = object_to_json(reminders)
 
         return JsonResponse({
             "code":200,

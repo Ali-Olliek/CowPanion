@@ -1,7 +1,7 @@
 # Veterinary Actions
 
 from django.http import JsonResponse
-from utils.utility_functions import convert_to_json
+from utils.utility_functions import object_to_json
 
 # Necessary Models
 
@@ -48,7 +48,7 @@ def get_medical_history(request):
         animal_id = request.GET['animal_id']
         medical_history = Medical.objects.filter(animal_id = animal_id)
 
-        medical_history_json = convert_to_json(medical_history)
+        medical_history_json = object_to_json(medical_history)
         
         return JsonResponse({
             "code": 200,
