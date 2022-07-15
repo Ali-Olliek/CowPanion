@@ -12,6 +12,7 @@ from ..models import User
 from ...farms.models import Farm
 from ...animals.models import Animal
 from ...reminders.models import Reminder
+from ...profiles.milks.models import Milk
 
 # Response Status Codes (For Internal Handling):
     # 200 -- Request handled successfully
@@ -34,6 +35,8 @@ def create_farm(request):
 
             farm_name = data['name']
             location = data['location']
+            milk_container_volume = data['milk_container_volume']
+            farm_password = data['farm_password']
 
             farmer = User.objects.get(id = data['user_id'])
 
@@ -41,6 +44,8 @@ def create_farm(request):
                 name=farm_name,
                 farmer=farmer,
                 location = location,
+                milk_container_volume = milk_container_volume,
+                farm_password = farm_password
             )
             
             farm.save()
