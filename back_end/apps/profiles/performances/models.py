@@ -7,7 +7,7 @@ class Performance(models.Model):
     status = models.CharField(max_length=40)
     updated_at = models.DateTimeField(auto_now_add=True)
 
-    # Performance's foreign key
+    # Model Relations
     animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
 
     class Meta:

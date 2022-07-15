@@ -1,6 +1,7 @@
 from django.db import models
 from ..users.models import User
 from ..feeds.models import Feed
+from ..recipes.models import Recipe
 
 class Farm (models.Model):
     name = models.CharField(max_length=255) # => we can default farm name to farmer's name
@@ -8,7 +9,7 @@ class Farm (models.Model):
     milk_container_volume = models.IntegerField(default=None)
     farm_password = models.CharField(max_length=255, default=None) # => This Password will authenticate the Arduino Code Later On
     
-    #Foreign Key 
+    # Model Relations
     farmer = models.ForeignKey(User, on_delete=models.CASCADE)
     feeds = models.ManyToManyField(Feed)
 

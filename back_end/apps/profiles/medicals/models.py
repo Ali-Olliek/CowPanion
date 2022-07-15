@@ -7,7 +7,7 @@ class Medical(models.Model):
     medication = models.CharField(max_length=255)
     done_at = models.DateTimeField(auto_now_add=True)
 
-    # foreing key
+    # Model Relations
     animal = models.ForeignKey(Animal, on_delete=models.CASCADE)
 
     class Meta:

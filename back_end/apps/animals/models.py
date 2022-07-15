@@ -13,7 +13,7 @@ class Animal(models.Model):
     weight = models.IntegerField()
     QR_code = models.TextField(default=None, null=True, blank=True)
 
-    # Animal's Foreign Keys
+    # Model Relations
     farm = models.ForeignKey(Farm, on_delete=models.CASCADE)
 
     class Meta: 

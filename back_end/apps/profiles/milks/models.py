@@ -8,7 +8,7 @@ class Milk(models.Model):
     fat_content = models.IntegerField(null=True, blank=True)
     day = models.DateField(auto_now_add=True, blank=True, null=True)
     
-    # Milk Profile's foreign key
+    # Model Relations
     Farm = models.ForeignKey(Farm, on_delete=models.CASCADE)
 
     class Meta:
