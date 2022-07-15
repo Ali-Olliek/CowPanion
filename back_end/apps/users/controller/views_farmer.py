@@ -1,6 +1,5 @@
 # Farmer Actions 
 
-import json
 from lib2to3.pytree import convert
 from qrcode import make as makeQR
 from django.http import JsonResponse
@@ -252,3 +251,52 @@ def get_animal_reminders(request):
         "code": 500,
         "status": "USGE"
     })
+
+# function to get data from Arduino Sensor
+def update_sensor(request):
+
+    if request.method == "POST":
+
+        data = request.POST
+
+        user_id = data['user_id']
+        distance = data['distance']
+        farm_password = data['farm_password']
+
+        farm = Farm.objects.filter(farmer_id = user_id)
+
+        # If there is only one farm (currently not allowed to have more than one)
+        if len(farm) == 1:
+            if farm_password != farm.farm_password:
+                return JsonResponse({
+                    "code": 401,
+                    "status": "forbidden",
+                })
+
+            # For simplicity we will assume that the container is a cube of equal sizes
+            volume = farm.milk_container_volume
+            container_sides = volume**(1/3) # The side of a cube equals volume root 3
+            # The UltraSonic sensor has 4cm inaccuracy, and doesn't measure below 19cm, so 19 is our base-line
+            milk_quantity = (distance - 14)*container_sides**2
+            milk = Milk (
+                Farm_id = farm.id,
+                quantity = milk_quantity,
+            )
+
+            milk.save()
+
+            return JsonResponse({
+                "code": 201,
+                "status": "success",
+            })
+        else:
+            return JsonResponse({
+                "code": 500,
+                "status": "USGE",
+                "message": "this farmer has multiple farms"
+            })
+    else:
+        return JsonResponse({
+            "code": 500,
+            "status": "USGE",
+        })
