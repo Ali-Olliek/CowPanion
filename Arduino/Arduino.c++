@@ -7,12 +7,15 @@
 #include <ESP8266WebServer.h>
 #include <ESP8266HTTPClient.h>
 
-const char *ssid = "tenda4";  //ENTER YOUR WIFI ssid
-const char *password = "Moh@oll@3#";  //ENTER YOUR WIFI password
+// WIFI
+const char *ssid = "SSID";  //ENTER YOUR WIFI ssid
+const char *password = "PASSWORD";  //ENTER YOUR WIFI password
+
+String user_id = "2"; // Enter Farmer's ID Here
+String farm_password = "123"; // ONE TIME CONFIGURATION TO VERIFY FARM
 
 const int trigPin = D5; // Define the TrigPin (Sensor Pin) connected to D5 (Arduino Pin)
 const int echoPin = D6; // Define the EchoPin (Sensor Pin) connected to D6 (Arduino Pin)
-
 long duration; // Duration to measure the time it took for the sensor to return a signal
 int distance; // Distance Calculated by Centimeters = ((Microseconds / 2) / 29)
 
@@ -72,7 +75,7 @@ void SendSensorData() {
   
   //Post Data
 
-  String data = "distance="+ String(distance);
+  String data = "distance="+ String(distance) + "&user_id=" + user_id + "&farm_password" + farm_password;
 
   http.begin(clientt, "http://192.168.1.6:8000/api/v1/updateSensor/");     //change ip to your device's ip address
   http.addHeader("Content-Type", "application/x-www-form-urlencoded");    //Specify content-type header
