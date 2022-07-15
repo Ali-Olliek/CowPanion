@@ -2,7 +2,7 @@
 
 from lib2to3.pytree import convert
 from qrcode import make as makeQR
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from utils.utility_functions import get_base64, object_to_json
 
 # Necessary models
@@ -304,3 +304,24 @@ def update_sensor(request):
             "code": 500,
             "status": "USGE",
         })
+
+# Get Milk Records 
+def get_milk (request):
+
+    if request.method == "GET":
+        user_id = request.GET['user_id']
+
+        farm = Farm.objects.all().filter(farmer_id = user_id)
+
+        milk_profile = Milk.objects.all().filter(Farm_id = farm[0].id)
+        milk_profile_json = object_to_json(milk_profile)
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "milk profiles": milk_profile_json
+        })
+
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE",
+    })
