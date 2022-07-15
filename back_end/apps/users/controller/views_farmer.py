@@ -265,21 +265,25 @@ def update_sensor(request):
 
         farm = Farm.objects.filter(farmer_id = user_id)
 
+
         # If there is only one farm (currently not allowed to have more than one)
         if len(farm) == 1:
-            if farm_password != farm.farm_password:
+            if farm_password != farm[0].farm_password:
                 return JsonResponse({
                     "code": 401,
-                    "status": "forbidden",
+                    "status": "forbidden, Arduino Password Doesn't Match Farm Password",
                 })
 
             # For simplicity we will assume that the container is a cube of equal sizes
-            volume = farm.milk_container_volume
+            volume = farm[0].milk_container_volume
             container_sides = volume**(1/3) # The side of a cube equals volume root 3
-            # The UltraSonic sensor has 4cm inaccuracy, and doesn't measure below 19cm, so 19 is our base-line
-            milk_quantity = (distance - 14)*container_sides**2
+
+            # The UltraSonic sensor has 4cm inaccuracy, and doesn't measure below 19cm, so 14 is our base-line
+
+            milk_quantity = abs((int(distance) - 14))*container_sides**2
+
             milk = Milk (
-                Farm_id = farm.id,
+                Farm_id = farm[0].id,
                 quantity = milk_quantity,
             )
 
