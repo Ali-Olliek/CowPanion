@@ -22,6 +22,8 @@ urlpatterns = [
     path('api/v1/createReminder/', farmers_controller.create_reminder, name='create_reminder' ),
     path('api/v1/farmReminders/', farmers_controller.get_farm_reminders, name='get_farm_reminders'),
     path('api/v1/animalReminders/', farmers_controller.get_animal_reminders, name='get_animal_reminders'),
+    path('api/v1/updateSensor/', farmers_controller.update_sensor, name='update_sensor'),
+    path('api/v1/getMilkProfiles/', farmers_controller.get_milk, name='get_milk'),
 
     # Admins
     path('api/v1/adminGetUsers/', admins_controller.get_users, name='admin_get_users'),

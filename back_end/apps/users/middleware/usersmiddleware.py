@@ -6,7 +6,8 @@ import jwt
 # No-Authentication URLs
 whitelisted_urls = [
     '/api/v1/signUp/',
-    '/api/v1/signIn/'
+    '/api/v1/signIn/',
+    '/api/v1/updateSensor/'
 ]
 
 admin_urls = [
@@ -28,6 +29,7 @@ farmer_urls = [
     '/api/v1/farmReminders/',
     '/api/v1/animalReminders/',
     '/api/v1/getFeeds/',
+    '/api/v1/getMilkProfiles/',
 ]
 
 vet_urls = [
