@@ -29,7 +29,7 @@ def convert_to_json(csvfile, jsonfile):
 # scrape pdf tables 
 def scrape_data():
     file = "C:/Users/Ollie/Desktop/feeds.pdf"
-    tabula.read_pdf(file, pages=92)
+    tabula.read_pdf(file, pages=92-100)
     tabula.convert_into(file, "utils/feeds.csv", pages="92-100", output_format="csv", stream=True)
 
     csvfile = 'utils/feeds.csv'

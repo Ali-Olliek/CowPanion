@@ -41,12 +41,12 @@ INSTALLED_APPS = [
     'apps.profiles.performances',
     'apps.profiles.medicals',
     'apps.profiles.milks',
-    'apps.compositions',
     'apps.reminders',
     'apps.animals',
     'apps.farms',
     'apps.feeds',
     'apps.users',
+    'apps.recipes',
 ]
 
 MIDDLEWARE = [

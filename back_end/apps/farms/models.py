@@ -1,6 +1,5 @@
 from django.db import models
 from ..users.models import User
-from ..feeds.models import Feed
 from ..recipes.models import Recipe
 
 class Farm (models.Model):
@@ -11,7 +10,7 @@ class Farm (models.Model):
     
     # Model Relations
     farmer = models.ForeignKey(User, on_delete=models.CASCADE)
-    feeds = models.ManyToManyField(Feed)
+    recipe = models.OneToOneField(Recipe, on_delete=models.CASCADE)
 
     class Meta:
         db_table = "Farms"

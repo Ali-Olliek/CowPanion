@@ -1,4 +1,3 @@
-from unicodedata import category
 from django.db import models
 
 class Feed(models.Model):
@@ -22,6 +21,7 @@ class Feed(models.Model):
         max_length=50, null=True, blank=True, default=0)
     Metabolizable_Energy_ME = models.CharField(
         max_length=50, null=True, blank=True, default=0)
+
 
     class Meta:
         db_table = "Feeds"

@@ -1,7 +1,5 @@
 from django.db import models
 from ..farms.models import Farm
-import datetime
-from django.utils.timezone import now
 class Animal(models.Model):
     
     name = models.CharField(max_length=55)
@@ -14,7 +12,7 @@ class Animal(models.Model):
     QR_code = models.TextField(default=None, null=True, blank=True)
 
     # Model Relations
-    farm = models.ForeignKey(Farm, on_delete=models.CASCADE)
+    farm = models.ForeignKey(Farm, on_delete=models.DO_NOTHING)
 
     class Meta: 
         db_table = "Animals" 
