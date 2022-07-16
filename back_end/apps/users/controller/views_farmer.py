@@ -12,6 +12,7 @@ from ...farms.models import Farm
 from ...animals.models import Animal
 from ...reminders.models import Reminder
 from ...profiles.milks.models import Milk
+from ...recipes.models import Recipe
 
 # Response Status Codes (For Internal Handling):
     # 200 -- Request handled successfully
@@ -44,7 +45,7 @@ def create_farm(request):
                 farmer=farmer,
                 location = location,
                 milk_container_volume = milk_container_volume,
-                farm_password = farm_password
+                farm_password = farm_password,
             )
             
             farm.save()
@@ -325,3 +326,41 @@ def get_milk (request):
         "code": 500,
         "status": "USGE",
     })
+
+# Create A Feed Recipe 
+def create_recipe(request):
+    if request.method == "POST":
+        data = request.POST
+        farmer_id = data['user_id']
+        description = data['description']
+        # Sanitize the data
+        ingredients = data['ingredients'] # Should be an array of ingredient ids
+        ingredients = ingredients.strip('[]')
+        ingredients = ingredients.split(',')
+
+        
+        farm = Farm.objects.filter(farmer_id = farmer_id).get()
+        print(farm.id)
+        recipe = Recipe(
+            farm_id = farm.id,
+            description = description,
+        )
+        recipe.save()
+
+        for ingredient in ingredients:
+            recipe.ingredients.add(int(ingredient))
+
+        return JsonResponse({
+            "code": 201,
+            "status": "success"
+        })
+
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })
+
+# get farm Recipe
+def get_recipe(request): 
+    if request.method == "GET":
+        user_id = request.GET['user_id']

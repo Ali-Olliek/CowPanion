@@ -30,6 +30,7 @@ farmer_urls = [
     '/api/v1/animalReminders/',
     '/api/v1/getFeeds/',
     '/api/v1/getMilkProfiles/',
+    '/api/v1/createRecipe/',
 ]
 
 vet_urls = [
