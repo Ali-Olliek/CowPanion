@@ -1,7 +1,6 @@
 # User Authentication View
 
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.hashers import check_password, make_password
 import jwt
 import datetime
@@ -42,16 +41,18 @@ def sign_up(request):
             
         elif not user_check:
 
-            name = (data['name'])
-            email = (data['email'])
+            name = data['name']
+            email = data['email']
             password = make_password(data['password'])
-            DOB = (data['DOB'])
-            user_Type = (data.get('user_type', 2))
+            phone_number = data['phone_number']
+            DOB = data['DOB']
+            user_Type = data.get('user_type', 2)
 
             user = User (
             name = name,
             email = email,
             password = password,
+            phone_number = phone_number,
             DOB = DOB,
             user_Type = user_Type
             )
