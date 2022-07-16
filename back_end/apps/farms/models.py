@@ -1,6 +1,5 @@
 from django.db import models
 from ..users.models import User
-from ..recipes.models import Recipe
 
 class Farm (models.Model):
     name = models.CharField(max_length=255) # => we can default farm name to farmer's name
@@ -10,7 +9,6 @@ class Farm (models.Model):
     
     # Model Relations
     farmer = models.ForeignKey(User, on_delete=models.CASCADE)
-    recipe = models.OneToOneField(Recipe, on_delete=models.CASCADE)
 
     class Meta:
         db_table = "Farms"
