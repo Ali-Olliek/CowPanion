@@ -364,9 +364,22 @@
     "ME(Mcal/kg)": "2.3"
   },
   {
+    "Ingredient": "Sorghum (Soghum bicolor)",
+    "CP (%)": "7.0",
+    "": null,
+    "EE (%)": "38.9",
+    "CF (%)": "8.5",
+    "NFE (%)": "40.3",
+    "Ash (%)": null,
+    "NDF (%)": null,
+    "ADF (%)": null,
+    "Lignin (%)": null,
+    "ME(Mcal/kg)": null
+  },
+  {
     "Ingredient": "Wheat (Triticum aestivum)",
     "CP (%)": "3.5",
-    "": "",
+    "": null,
     "EE (%)": "41.5",
     "CF (%)": "11.0",
     "NFE (%)": "43.5",
@@ -379,7 +392,7 @@
   {
     "Ingredient": "Maize (Zea mays)",
     "CP (%)": "3.6",
-    "": "",
+    "": null,
     "EE (%)": "33.2",
     "CF (%)": "10.5",
     "NFE (%)": "37.4",
@@ -2355,6 +2368,7 @@
   {
     "Ingredient": "Fenugreek (Trigonella foenum graecum), early",
     "CP (%)": "",
+    "": null,
     "EE (%)": "",
     "CF (%)": "",
     "NFE (%)": "",

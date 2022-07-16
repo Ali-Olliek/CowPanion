@@ -17,7 +17,7 @@ def convert_to_json(csvfile, jsonfile):
 
     data = []
 
-    with open(csvfile, encoding='ISO 8859-1') as csvf:
+    with open(csvfile,'r', encoding='ISO 8859-1') as csvf:
         csvReader = csv.DictReader(csvf)
 
         for rows in csvReader:
@@ -27,10 +27,10 @@ def convert_to_json(csvfile, jsonfile):
         jsonf.write(json.dumps(data))
 
 # scrape pdf tables 
-def scrape_data():
-    file = "C:/Users/Ollie/Desktop/feeds.pdf"
-    tabula.read_pdf(file, pages=92-100)
-    tabula.convert_into(file, "utils/feeds.csv", pages="92-100", output_format="csv", stream=True)
+file = "C:/Users/Ollie/Desktop/feeds.pdf" # directory of the pdf file
+def scrape_data(file):
+    tabula.read_pdf(file, pages=92) # Pages to read
+    tabula.convert_into(file, "utils/feeds.csv", pages="92-100", output_format="csv", stream=True) # pages to convert
 
     csvfile = 'utils/feeds.csv'
     jsonfile = 'utils/feeds.json'
