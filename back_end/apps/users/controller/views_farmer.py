@@ -13,6 +13,7 @@ from ...animals.models import Animal
 from ...reminders.models import Reminder
 from ...profiles.milks.models import Milk
 from ...recipes.models import Recipe
+from ...feeds.models import Feed
 
 # Response Status Codes (For Internal Handling):
     # 200 -- Request handled successfully
@@ -364,3 +365,12 @@ def create_recipe(request):
 def get_recipe(request): 
     if request.method == "GET":
         user_id = request.GET['user_id']
+        farm = Farm.objects.filter(farmer_id = user_id)
+        recipe = Recipe.objects.filter(farm_id = farm[0].id).get()
+        ingredients = recipe.ingredients.all()
+        ingredients_json = object_to_json(ingredients)
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "Feed Recipe": ingredients_json
+        })
