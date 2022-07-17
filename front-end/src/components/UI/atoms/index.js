@@ -3,6 +3,8 @@ import { CowsListButton } from "./CowsListButton";
 import { HomeButton } from "./HomeButton";
 import { ProfileButton } from "./ProfileButton";
 import { TodoListButton } from "./TodoListButton";
+import { HeaderTitle } from "./HeaderTitle";
+import { WeatherCard } from "./WeatherCard";
 
 export {
   CameraButton,
@@ -10,4 +12,6 @@ export {
   HomeButton,
   ProfileButton,
   TodoListButton,
+  HeaderTitle,
+  WeatherCard,
 };
