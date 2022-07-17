@@ -1,8 +1,6 @@
 import { View } from "react-native";
 import React from "react";
-import { WeatherCard } from "../atoms/WeatherCard";
-import { HeaderTitle } from "../atoms/HeaderTitle";
-
+import { WeatherCard, HeaderTitle } from "../atoms";
 export function FirstPageHeader() {
   return (
     <View>

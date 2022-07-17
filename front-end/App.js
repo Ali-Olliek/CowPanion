@@ -1,11 +1,16 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
+import {
+  BottomNavBarButtons,
+  FirstPageHeader,
+} from "./src/components/UI/organisms";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>hello world</Text>
+      <FirstPageHeader />
       <StatusBar style="auto" />
+      <BottomNavBarButtons />
     </View>
   );
 }
