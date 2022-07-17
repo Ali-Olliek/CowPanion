@@ -5,5 +5,13 @@ import * as Colors from "./colors";
 import * as Spacing from "./spacing";
 import * as Typography from "./typography";
 import * as bottomNavBarStyle from "./bottomNavBarStyle";
+import * as LandingPageStyle from "./landingPageStyle";
 
-export { Buttons, Colors, Spacing, Typography, bottomNavBarStyle };
+export {
+  Buttons,
+  Colors,
+  Spacing,
+  Typography,
+  bottomNavBarStyle,
+  LandingPageStyle,
+};

@@ -1,17 +1,20 @@
 import { StyleSheet, Dimensions } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 const bottomNavBarStyle = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingVertical: 20,
-    flexDirection: "row",
-    justifyContent: "space-evenly",
-    width: windowWidth,
     position: "absolute",
-    bottom: 0,
+    flex: 1,
+    flexDirection: "row",
+    width: windowWidth,
+    justifyContent: "space-evenly",
+    top: 0.95 * windowHeight, // Check why bottom: 0 not working
     backgroundColor: "#ACC0B3",
+    height: 0.05 * windowHeight,
+    alignItems: "center",
+    zIndex: 1,
   },
 });
 

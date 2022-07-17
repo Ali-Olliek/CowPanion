@@ -1,25 +1,22 @@
 import { View, Text } from "react-native";
-import { stats } from "../../../styles/stats";
+import { stats } from "../../../styles/statsStyle";
 
 export function GeneralStatsCard() {
+  const titles = ["Cows", "Milking Cows", "Milk", "Dry Cows"];
+  const stat = ["30", "12", "400", "4"];
+
   return (
     <View style={stats.container}>
-      <View style={stats.card}>
-        <Text style={stats.stat}>30</Text>
-        <Text style={stats.title}>Cows</Text>
-      </View>
-      <View style={stats.card}>
-        <Text style={stats.stat}>40</Text>
-        <Text style={stats.title}>Milking Cows</Text>
-      </View>
-      <View style={stats.card}>
-        <Text style={stats.stat}> 400L/Day</Text>
-        <Text style={stats.title}>Milk</Text>
-      </View>
-      <View style={stats.card}>
-        <Text style={stats.stat}>8</Text>
-        <Text style={stats.title}>Dry Cows</Text>
-      </View>
+      {titles.map((title, index) => {
+        return (
+          <View style={stats.card}>
+            <Text key={index} style={stats.stat}>
+              {title}
+            </Text>
+            <Text style={stats.title}>test</Text>
+          </View>
+        );
+      })}
     </View>
   );
 }

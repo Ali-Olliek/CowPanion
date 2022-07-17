@@ -7,8 +7,9 @@ const stats = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    position: "absolute",
     justifyContent: "center",
+    position: "absolute",
+    top: 0.45 * windowHeight,
     flexWrap: "wrap",
     paddingHorizontal: 20,
     height: 100,
