@@ -1,10 +1,10 @@
 import { TouchableWithoutFeedback } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-export default function CowsListButton() {
+export function CowsListButton() {
   return (
     <TouchableWithoutFeedback>
-      <MaterialCommunityIcons name="cow" size={24} color="black" />
+      <MaterialCommunityIcons name="cow" size={26} color="black" />
     </TouchableWithoutFeedback>
   );
 }
