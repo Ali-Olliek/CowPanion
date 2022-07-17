@@ -7,9 +7,11 @@ import {
   TodoListButton,
 } from "../atoms";
 
+import { bottomNavBarStyle } from "front-end/src/styles/bottomNavBarStyle.js";
+
 export function BottomNavBarButtons() {
   return (
-    <View>
+    <View style={bottomNavBarStyle.container}>
       <HomeButton />
       <CowsListButton />
       <CameraButton />
