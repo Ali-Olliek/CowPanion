@@ -1,6 +1,5 @@
 import { View, Text, Image } from "react-native";
 import { headerSectionStyle } from "../../../styles/headerSectionStyle";
-import { HumiditySensor, Thermostat, WindSock } from "../../../assets/svgs";
 
 export function WeatherCard() {
   return (
