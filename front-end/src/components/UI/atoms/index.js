@@ -5,10 +5,14 @@ import { ProfileButton } from "./ProfileButton";
 import { TodoListButton } from "./TodoListButton";
 import { HeaderTitle } from "./HeaderTitle";
 import { WeatherCard } from "./WeatherCard";
-import { EmailInput } from "./EmailInput";
-import { PasswordInput } from "./PasswordInput";
-import { NameInput } from "./NameInput";
-import { PhoneNumberInput } from "./PhoneNumberInput";
+import { EmailInput } from "./Auth/EmailInput";
+import { PasswordInput } from "./Auth/PasswordInput";
+import { NameInput } from "./Auth/NameInput";
+import { PhoneNumberInput } from "./Auth/PhoneNumberInput";
+import { AnimalListTitle } from "./AnimalListTitle";
+import { MainHeaderTitle } from "./MainHeaderTitle";
+import { PrimaryAuthButton } from "./Auth/PrimaryAuthButton";
+import { SecondaryAuthButton } from "./Auth/SecondaryAuthButton";
 
 export {
   CameraButton,
@@ -22,4 +26,8 @@ export {
   PasswordInput,
   NameInput,
   PhoneNumberInput,
+  AnimalListTitle,
+  MainHeaderTitle,
+  PrimaryAuthButton,
+  SecondaryAuthButton,
 };

@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import { SignupInputs } from "../UI/molecules/SignupInputs";
-import { PrimaryAuthButton } from "../UI/atoms/PrimaryAuthButton";
-import { SecondaryAuthButton } from "../UI/atoms/SecondaryAuthButton";
+import { PrimaryAuthButton } from "../UI/atoms/Auth/PrimaryAuthButton";
+import { SecondaryAuthButton } from "../UI/atoms/Auth/SecondaryAuthButton";
 
 export function SignUpPage() {
   return (
