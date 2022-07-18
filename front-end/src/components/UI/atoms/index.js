@@ -5,6 +5,10 @@ import { ProfileButton } from "./ProfileButton";
 import { TodoListButton } from "./TodoListButton";
 import { HeaderTitle } from "./HeaderTitle";
 import { WeatherCard } from "./WeatherCard";
+import { EmailInput } from "./EmailInput";
+import { PasswordInput } from "./PasswordInput";
+import { NameInput } from "./NameInput";
+import { PhoneNumberInput } from "./PhoneNumberInput";
 
 export {
   CameraButton,
@@ -14,4 +18,8 @@ export {
   TodoListButton,
   HeaderTitle,
   WeatherCard,
+  EmailInput,
+  PasswordInput,
+  NameInput,
+  PhoneNumberInput,
 };

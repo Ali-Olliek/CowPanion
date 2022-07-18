@@ -1,20 +1,12 @@
 import { View, Text, TextInput, TouchableWithoutFeedback } from "react-native";
 import { LoginPageStyle } from "../../styles/LoginPageStyle";
+import { LoginInputs } from "../UI/molecules/LoginInputs";
 
 export function LoginPage() {
   return (
     <View style={LoginPageStyle.container}>
       <View style={LoginPageStyle.mainCard}>
-        <TextInput
-          textContentType="email"
-          placeholder="Enter Your Email"
-          style={LoginPageStyle.input}
-        ></TextInput>
-        <TextInput
-          textContentType="password"
-          placeholder="Enter Your Password"
-          style={LoginPageStyle.input}
-        ></TextInput>
+        <LoginInputs />
         <TouchableWithoutFeedback>
           <Text style={LoginPageStyle.primaryButton}>Sign In</Text>
         </TouchableWithoutFeedback>
