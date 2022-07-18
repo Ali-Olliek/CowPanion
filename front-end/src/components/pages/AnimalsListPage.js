@@ -3,6 +3,7 @@ import { MainHeaderTitle } from "../UI/atoms";
 import { AttributeBoxes } from "../UI/molecules/AttributeBoxes";
 import { AnimalRecord } from "../UI/molecules/AnimalRecord";
 import { styles } from "../../styles/AnimalsListStyle";
+import { BottomNavBarButtons } from "../UI/organisms";
 
 export function AnimalsListPage() {
   return (
@@ -16,6 +17,7 @@ export function AnimalsListPage() {
       <View style={styles.list}>
         <AnimalRecord />
       </View>
+      <BottomNavBarButtons />
     </View>
   );
 }
