@@ -3,11 +3,11 @@ import { StyleSheet, Dimensions } from "react-native";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-const createReminderStyle = StyleSheet.create({
+const createMed = StyleSheet.create({
   midSection: {
     alignItems: "center",
     marginVertical: 20,
-    height: windowHeight * 0.5,
+    height: windowHeight * 0.2,
   },
   inputs: {
     width: 0.8 * windowWidth,
@@ -18,21 +18,6 @@ const createReminderStyle = StyleSheet.create({
     marginVertical: 5,
     backgroundColor: "#DAD7CD",
     paddingHorizontal: 10,
-  },
-  categories: {
-    flexDirection: "row",
-    width: windowWidth * 0.8,
-    height: 40,
-    justifyContent: "space-evenly",
-    marginVertical: 30,
-  },
-  categoryBox: {
-    width: 80,
-    height: 40,
-    backgroundColor: "#DAD7CD",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 8,
   },
   dueDate: {
     width: 100,
@@ -65,4 +50,4 @@ const createReminderStyle = StyleSheet.create({
   },
 });
 
-export { createReminderStyle };
+export { createMed };
