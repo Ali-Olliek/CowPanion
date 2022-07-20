@@ -1,5 +1,5 @@
 // React
-import { View } from "react-native";
+import { FlatList, View, Text } from "react-native";
 
 // Styles
 import { styles } from "../../styles/AnimalsListStyle";
@@ -9,6 +9,7 @@ import { infoStyles } from "../../styles/AnimalInfoStyle";
 import { MainHeaderTitle } from "../UI/atoms";
 import { BottomNavBarButtons, AnimalCard } from "../UI/organisms";
 import { AnimalActions } from "../UI/molecules/AnimalActions";
+import { MedicalRecord } from "../UI/organisms/MedicalRecord";
 
 export function AnimalInformationPage() {
   return (
@@ -16,11 +17,10 @@ export function AnimalInformationPage() {
       <View style={styles.header}>
         <MainHeaderTitle title={"Animal Information"} />
       </View>
-      <View style={infoStyles.infoCard}>
-        <AnimalCard />
-      </View>
       <View>
+        <AnimalCard />
         <AnimalActions />
+        <MedicalRecord />
       </View>
       <BottomNavBarButtons />
     </>

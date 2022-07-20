@@ -3,7 +3,7 @@ import { infoStyles } from "../../../styles/AnimalInfoStyle";
 import { AnimalAction } from "../atoms/AnimalAction";
 
 export function AnimalActions() {
-  const actions = ["Update Status", "Quarantine"];
+  const actions = ["Update Status", "New Medical Record"];
 
   const displayActions = actions.map((action) => {
     return <AnimalAction action={action} />;
