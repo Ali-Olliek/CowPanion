@@ -1,3 +1,4 @@
+// React
 import { View, Text, Image } from "react-native";
 import { infoStyles } from "../../../styles/AnimalInfoStyle";
 

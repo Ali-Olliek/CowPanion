@@ -1,12 +1,17 @@
+// React
 import { View, Text, TouchableHighlight } from "react-native";
-import { MainHeaderTitle } from "../UI/atoms";
-import { BottomNavBarButtons } from "../UI/organisms";
-import { styles } from "../../styles/AnimalsListStyle";
 import { TextInput } from "react-native-paper";
-import { CheckCategory } from "../UI/molecules/CheckCategory";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { useState } from "react";
+
+// Styles
+import { styles } from "../../styles/AnimalsListStyle";
 import { createReminderStyle } from "../../styles/createReminderStyle";
+
+// Components
+import { CheckCategory } from "../UI/molecules/CheckCategory";
+import { BottomNavBarButtons } from "../UI/organisms";
+import { MainHeaderTitle } from "../UI/atoms";
 
 export function CreateReminderPage() {
   const [datePickerDisplay, setDatePickerDisplay] = useState(false);

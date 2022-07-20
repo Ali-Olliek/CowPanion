@@ -1,3 +1,4 @@
+// React
 import { View } from "react-native";
 import {
   CameraButton,

@@ -13,6 +13,11 @@ import { AnimalListTitle } from "./AnimalListTitle";
 import { MainHeaderTitle } from "./MainHeaderTitle";
 import { PrimaryAuthButton } from "./Auth/PrimaryAuthButton";
 import { SecondaryAuthButton } from "./Auth/SecondaryAuthButton";
+import { AnimalAction } from "./AnimalAction";
+import { CategoryBox } from "./CategoryBox";
+import { GeneralStatsCard } from "./GeneralStatsCard";
+import { SearchBar } from "./SearchBar";
+import { Todo } from "./Todo";
 
 export {
   CameraButton,
@@ -30,4 +35,9 @@ export {
   MainHeaderTitle,
   PrimaryAuthButton,
   SecondaryAuthButton,
+  AnimalAction,
+  CategoryBox,
+  GeneralStatsCard,
+  SearchBar,
+  Todo,
 };

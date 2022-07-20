@@ -1,9 +1,13 @@
+// React
 import { View } from "react-native";
-import { MainHeaderTitle } from "../UI/atoms";
+
+// Styles
 import { styles } from "../../styles/AnimalsListStyle";
-import { AnimalCard } from "../UI/organisms/AnimalCard";
-import { BottomNavBarButtons } from "../UI/organisms";
 import { infoStyles } from "../../styles/AnimalInfoStyle";
+
+// Components
+import { MainHeaderTitle } from "../UI/atoms";
+import { BottomNavBarButtons, AnimalCard } from "../UI/organisms";
 import { AnimalActions } from "../UI/molecules/AnimalActions";
 
 export function AnimalInformationPage() {

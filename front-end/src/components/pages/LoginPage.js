@@ -1,8 +1,12 @@
-import { View, Text, TextInput, TouchableWithoutFeedback } from "react-native";
+//React
+import { View } from "react-native";
+
+//Styles
 import { LoginPageStyle } from "../../styles/LoginPageStyle";
+
+// Components
 import { LoginInputs } from "../UI/molecules/LoginInputs";
-import { PrimaryAuthButton } from "../UI/atoms/PrimaryAuthButton";
-import { SecondaryAuthButton } from "../UI/atoms/SecondaryAuthButton";
+import { PrimaryAuthButton, SecondaryAuthButton } from "../UI/atoms/Auth";
 
 export function LoginPage() {
   return (

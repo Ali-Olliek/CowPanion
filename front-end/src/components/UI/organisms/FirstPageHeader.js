@@ -1,7 +1,12 @@
+// React
 import { View } from "react-native";
 import React from "react";
-import { WeatherCard, HeaderTitle } from "../atoms";
+
+// Styles
 import { headerSectionStyle } from "../../../styles/headerSectionStyle";
+
+// Components
+import { WeatherCard, HeaderTitle } from "../atoms";
 
 export function FirstPageHeader() {
   return (
