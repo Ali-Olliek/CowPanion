@@ -5,15 +5,12 @@ export function Todo({ description, due }) {
   return (
     <View style={Todos.TodoContainer}>
       <View style={Todos.TodoInfo}>
-        <Text>{description}</Text>
-        <Text>{due}</Text>
+        <Text style={Todos.TodoDesc}>{description}</Text>
+        <Text style={Todos.TodoDue}>{due}</Text>
       </View>
       <View style={Todos.TodoAction}>
         <TouchableWithoutFeedback>
-          <Text>✓</Text>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback>
-          <Text>X</Text>
+          <Text style={Todos.Check}>✓</Text>
         </TouchableWithoutFeedback>
       </View>
     </View>
