@@ -5,8 +5,8 @@ import { styles } from "../../../styles/AnimalsListStyle";
 
 export function AttributeBoxes() {
   const titles = ["Status ↑↓", "ID ↑↓", "Name ↑↓", "Age ↑↓"];
-  const displayTitles = titles.map((title) => {
-    return <AnimalListTitle Attribute={title} />;
+  const displayTitles = titles.map((title, index) => {
+    return <AnimalListTitle key={index} Attribute={title} />;
   });
 
   return (

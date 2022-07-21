@@ -1,9 +1,11 @@
-// Import the files within the folder and export them as one package
-
-import * as Buttons from "./buttons";
-import * as Spacing from "./spacing";
-import * as Typography from "./typography";
-import * as bottomNavBarStyle from "./bottomNavBarStyle";
-import * as LandingPageStyle from "./landingPageStyle";
-
-export { Buttons, Spacing, Typography, bottomNavBarStyle, LandingPageStyle };
+export { infoStyles } from "./AnimalInfoStyle";
+export { styles } from "./AnimalsListStyle";
+export { bottomNavBarStyle } from "./bottomNavBarStyle";
+export { createFarmStyle } from "./createFarmStyle";
+export { createMed } from "./createMedicalRecordStyle";
+export { createReminderStyle } from "./createReminderStyle";
+export { headerSectionStyle } from "./headerSectionStyle";
+export { LandingPageStyle } from "./landingPageStyle";
+export { LoginPageStyle } from "./LoginPageStyle";
+export { stats } from "./statsStyle";
+export { Todos } from "./TodosStyle";
