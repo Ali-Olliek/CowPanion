@@ -11,8 +11,20 @@ const AuthStyles = StyleSheet.create({
   },
   mainCard: {
     width: 0.8 * windowWidth,
-    height: 0.5 * windowHeight,
+    height: 0.7 * windowHeight,
     justifyContent: "space-around",
+  },
+  imagesContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginVertical: 20,
+  },
+  image: {
+    borderColor: "#D46C4E",
+    borderWidth: 2,
+    borderRadius: 8,
+    width: 80,
+    height: 80,
   },
 });
 

@@ -1,4 +1,5 @@
-import { View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
+import { AuthStyles } from "../../../styles/AuthPagesStyle";
 import {
   PasswordInput,
   EmailInput,
@@ -13,6 +14,16 @@ export function SignupInputs() {
       <EmailInput />
       <PhoneNumberInput />
       <PasswordInput />
+      <View style={AuthStyles.imagesContainer}>
+        <Image
+          style={AuthStyles.image}
+          source={require("../../../assets/images/farmer.png")}
+        ></Image>
+        <Image
+          style={AuthStyles.image}
+          source={require("../../../assets/images/veterinarian.png")}
+        ></Image>
+      </View>
     </View>
   );
 }
