@@ -1,15 +1,6 @@
-import { EmailInput } from "./EmailInput";
-import { NameInput } from "./NameInput";
-import { PasswordInput } from "./PasswordInput";
-import { PhoneNumberInput } from "./PhoneNumberInput";
-import { PrimaryAuthButton } from "./PrimaryAuthButton";
-import { SecondaryAuthButton } from "./SecondaryAuthButton";
-
-export {
-  EmailInput,
-  NameInput,
-  PasswordInput,
-  PhoneNumberInput,
-  PrimaryAuthButton,
-  SecondaryAuthButton,
-};
+export { EmailInput } from "./EmailInput";
+export { NameInput } from "./NameInput";
+export { PasswordInput } from "./PasswordInput";
+export { PhoneNumberInput } from "./PhoneNumberInput";
+export { PrimaryAuthButton } from "./PrimaryAuthButton";
+export { SecondaryAuthButton } from "./SecondaryAuthButton";

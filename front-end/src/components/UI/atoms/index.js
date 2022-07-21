@@ -1,43 +1,20 @@
-import { CameraButton } from "./CameraButton";
-import { CowsListButton } from "./CowsListButton";
-import { HomeButton } from "./HomeButton";
-import { ProfileButton } from "./ProfileButton";
-import { TodoListButton } from "./TodoListButton";
-import { HeaderTitle } from "./HeaderTitle";
-import { WeatherCard } from "./WeatherCard";
-import { EmailInput } from "./Auth/EmailInput";
-import { PasswordInput } from "./Auth/PasswordInput";
-import { NameInput } from "./Auth/NameInput";
-import { PhoneNumberInput } from "./Auth/PhoneNumberInput";
-import { AnimalListTitle } from "./AnimalListTitle";
-import { MainHeaderTitle } from "./MainHeaderTitle";
-import { PrimaryAuthButton } from "./Auth/PrimaryAuthButton";
-import { SecondaryAuthButton } from "./Auth/SecondaryAuthButton";
-import { AnimalAction } from "./AnimalAction";
-import { CategoryBox } from "./CategoryBox";
-import { GeneralStatsCard } from "./GeneralStatsCard";
-import { SearchBar } from "./SearchBar";
-import { Todo } from "./Todo";
-
-export {
-  CameraButton,
-  CowsListButton,
-  HomeButton,
-  ProfileButton,
-  TodoListButton,
-  HeaderTitle,
-  WeatherCard,
-  EmailInput,
-  PasswordInput,
-  NameInput,
-  PhoneNumberInput,
-  AnimalListTitle,
-  MainHeaderTitle,
-  PrimaryAuthButton,
-  SecondaryAuthButton,
-  AnimalAction,
-  CategoryBox,
-  GeneralStatsCard,
-  SearchBar,
-  Todo,
-};
+export { CameraButton } from "./CameraButton";
+export { CowsListButton } from "./CowsListButton";
+export { HomeButton } from "./HomeButton";
+export { ProfileButton } from "./ProfileButton";
+export { TodoListButton } from "./TodoListButton";
+export { HeaderTitle } from "./HeaderTitle";
+export { WeatherCard } from "./WeatherCard";
+export { EmailInput } from "./Auth/EmailInput";
+export { PasswordInput } from "./Auth/PasswordInput";
+export { NameInput } from "./Auth/NameInput";
+export { PhoneNumberInput } from "./Auth/PhoneNumberInput";
+export { AnimalListTitle } from "./AnimalListTitle";
+export { MainHeaderTitle } from "./MainHeaderTitle";
+export { PrimaryAuthButton } from "./Auth/PrimaryAuthButton";
+export { SecondaryAuthButton } from "./Auth/SecondaryAuthButton";
+export { AnimalAction } from "./AnimalAction";
+export { CategoryBox } from "./CategoryBox";
+export { GeneralStatsCard } from "./GeneralStatsCard";
+export { SearchBar } from "./SearchBar";
+export { Todo } from "./Todo";

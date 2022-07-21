@@ -1,6 +1,4 @@
-import { FirstPageHeader } from "./FirstPageHeader";
-import { BottomNavBarButtons } from "./BottomNavBarButtons";
-import { AnimalCard } from "./AnimalCard";
-import { MainHeader } from "./MainHeader";
-
-export { FirstPageHeader, BottomNavBarButtons, AnimalCard, MainHeader };
+export { FirstPageHeader } from "./FirstPageHeader";
+export { BottomNavBarButtons } from "./BottomNavBarButtons";
+export { AnimalCard } from "./AnimalCard";
+export { MainHeader } from "./MainHeader";

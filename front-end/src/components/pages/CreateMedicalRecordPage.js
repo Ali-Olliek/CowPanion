@@ -10,7 +10,7 @@ import { styles } from "../../styles/AnimalsListStyle";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { MainHeaderTitle } from "../UI/atoms";
 
-export default function CreateMedicalRecordPage() {
+export function CreateMedicalRecordPage() {
   const [datePickerDisplay, setDatePickerDisplay] = useState(false);
   return (
     <View>

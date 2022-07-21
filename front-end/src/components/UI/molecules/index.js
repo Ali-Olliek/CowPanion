@@ -1,19 +1,7 @@
-import { AnimalActions } from "./AnimalActions";
-import { AnimalRecord } from "./AnimalRecord";
-import { AttributeBoxes } from "./AttributeBoxes";
-import { CheckCategory } from "./CheckCategory";
-import { GeneralStatsList } from "./GeneralStatsList";
-import { LoginInputs } from "./LoginInputs";
-import { SignupInputs } from "./SignupInputs";
-import { TodosList } from "./TodosList";
-
-export {
-  AnimalActions,
-  AnimalRecord,
-  AttributeBoxes,
-  CheckCategory,
-  GeneralStatsList,
-  LoginInputs,
-  SignupInputs,
-  TodosList,
-};
+export { AnimalActions } from "./AnimalActions";
+export { AnimalRecord } from "./AnimalRecord";
+export { AttributeBoxes } from "./AttributeBoxes";
+export { CheckCategory } from "./CheckCategory";
+export { LoginInputs } from "./LoginInputs";
+export { SignupInputs } from "./SignupInputs";
+export { TodosList } from "./TodosList";
