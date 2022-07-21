@@ -1,22 +1,35 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import { LandingPage } from "./src/components/pages/LandingPage";
-import { SignUpPage } from "./src/components/pages/SignUpPage";
-import { AttributeBoxes } from "./src/components/UI/molecules/AttributeBoxes";
-import { AnimalRecord } from "./src/components/UI/molecules/AnimalRecord";
-import { AnimalsListPage } from "./src/components/pages/AnimalsListPage";
+import {
+  AnimalInformationPage,
+  AnimalsListPage,
+  CreateFarmPage,
+  CreateMedicalRecordPage,
+  CreateReminderPage,
+  LandingPage,
+  LoginPage,
+  SignUpPage,
+  RemindersPage,
+} from "./src/components/pages";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export default function App() {
+  const Stack = createNativeStackNavigator();
   return (
-    <View>
-      <StatusBar style="auto" />
-      {/* <SignUpPage /> */}
-      {/* <LoginPage /> */}
-      {/* <LandingPage /> */}
-      {/* <AttributeBoxes /> */}
-      {/* <AnimalRecord /> */}
-      <AnimalsListPage />
-    </View>
+    <>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="SignIn"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="SignIn" component={LoginPage} />
+          <Stack.Screen name="SignUp" component={SignUpPage} />
+          <Stack.Screen name="LandingPage" component={LandingPage} />
+          <Stack.Screen name="AnimalsListPage" component={AnimalsListPage} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 
