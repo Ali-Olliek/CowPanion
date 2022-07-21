@@ -1,8 +1,12 @@
 import { TextInput } from "react-native";
 import React from "react";
-
+import { inputFields } from "../../../../styles/InputFields";
 export function NameInput() {
   return (
-    <TextInput textContentType="text" placeholder="Enter Your Name"></TextInput>
+    <TextInput
+      style={inputFields.AuthInput}
+      textContentType="text"
+      placeholder="Enter Your Name"
+    ></TextInput>
   );
 }

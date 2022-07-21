@@ -1,11 +1,11 @@
-import { View, Text, TouchableWithoutFeedback } from "react-native";
-
+import { View, Text, TouchableHighlight } from "react-native";
+import { buttons } from "../../../../styles/ButtonsStyle";
 export function PrimaryAuthButton({ placeholder }) {
   return (
     <View>
-      <TouchableWithoutFeedback>
+      <TouchableHighlight style={buttons.primary}>
         <Text>{placeholder}</Text>
-      </TouchableWithoutFeedback>
+      </TouchableHighlight>
     </View>
   );
 }
