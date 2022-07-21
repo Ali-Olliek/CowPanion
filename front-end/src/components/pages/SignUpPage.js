@@ -13,7 +13,11 @@ export function SignUpPage({ navigation }) {
     <View style={AuthStyles.container}>
       <View style={AuthStyles.mainCard}>
         <SignupInputs />
-        <PrimaryAuthButton placeholder={"Sign Up"} />
+        <PrimaryAuthButton
+          navigation={navigation}
+          nav={"SignIn"}
+          placeholder={"Sign Up"}
+        />
         <SecondaryAuthButton
           navigation={navigation}
           nav={"SignIn"}

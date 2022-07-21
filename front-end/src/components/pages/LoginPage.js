@@ -13,7 +13,11 @@ export function LoginPage({ navigation }) {
     <View style={AuthStyles.container}>
       <View style={AuthStyles.mainCard}>
         <LoginInputs />
-        <PrimaryAuthButton placeholder={"Sign In"} />
+        <PrimaryAuthButton
+          navigation={navigation}
+          nav={"LandingPage"}
+          placeholder={"Sign In"}
+        />
         <SecondaryAuthButton
           navigation={navigation}
           nav={"SignUp"}
