@@ -7,7 +7,6 @@ import { infoStyles } from "../../styles/AnimalInfoStyle";
 
 // Components
 import { MainHeaderTitle } from "../UI/atoms";
-import { BottomNavBarButtons, AnimalCard } from "../UI/organisms";
 import { AnimalActions } from "../UI/molecules/AnimalActions";
 import { MedicalRecord } from "../UI/organisms/MedicalRecord";
 
@@ -22,7 +21,6 @@ export function AnimalInformationPage() {
         <AnimalActions />
         <MedicalRecord />
       </View>
-      <BottomNavBarButtons />
     </>
   );
 }

@@ -6,7 +6,6 @@ import { styles } from "../../styles/AnimalsListStyle";
 
 // Components
 import { MainHeaderTitle } from "../UI/atoms";
-import { BottomNavBarButtons } from "../UI/organisms";
 import { AnimalRecord, AttributeBoxes } from "../UI/molecules";
 
 export function AnimalsListPage() {
@@ -21,7 +20,6 @@ export function AnimalsListPage() {
       <View style={styles.list}>
         <AnimalRecord />
       </View>
-      <BottomNavBarButtons />
     </View>
   );
 }

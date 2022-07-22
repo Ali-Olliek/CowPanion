@@ -7,7 +7,6 @@ import { Todos } from "../../styles/TodosStyle";
 
 // Components
 import { MainHeaderTitle } from "../UI/atoms";
-import { BottomNavBarButtons } from "../UI/organisms";
 import { TodosList } from "../UI/molecules/TodosList";
 
 export function RemindersPage() {
@@ -29,7 +28,6 @@ export function RemindersPage() {
         </TouchableHighlight>
       </View>
       <TodosList />
-      <BottomNavBarButtons />
     </>
   );
 }

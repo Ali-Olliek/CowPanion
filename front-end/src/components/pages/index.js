@@ -7,3 +7,5 @@ export { LandingPage } from "./LandingPage";
 export { LoginPage } from "./LoginPage";
 export { RemindersPage } from "./RemindersPage";
 export { SignUpPage } from "./SignUpPage";
+export { ProfilePage } from "./ProfilePage";
+export { MainPage } from "./MainPage";

@@ -10,7 +10,6 @@ import { createReminderStyle } from "../../styles/createReminderStyle";
 
 // Components
 import { CheckCategory } from "../UI/molecules/CheckCategory";
-import { BottomNavBarButtons } from "../UI/organisms";
 import { MainHeaderTitle } from "../UI/atoms";
 
 export function CreateReminderPage() {
@@ -55,7 +54,6 @@ export function CreateReminderPage() {
           </View>
         </TouchableHighlight>
       </View>
-      <BottomNavBarButtons />
     </View>
   );
 }
