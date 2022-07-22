@@ -1,5 +1,11 @@
 // React
-import { View, Text, TextInput, TouchableHighlight } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+  TouchableHighlight,
+} from "react-native";
 import React, { useState } from "react";
 
 // Styles
@@ -10,7 +16,7 @@ import { styles } from "../../styles/AnimalsListStyle";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { MainHeaderTitle } from "../UI/atoms";
 
-export function CreateMedicalRecordPage() {
+export function CreateMedicalRecordPage({ navigation }) {
   const [datePickerDisplay, setDatePickerDisplay] = useState(false);
   return (
     <View>
@@ -40,16 +46,16 @@ export function CreateMedicalRecordPage() {
         ) : null}
       </View>
       <View style={createMed.actions}>
-        <TouchableHighlight>
+        <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
           <View style={createMed.save}>
             <Text>Save</Text>
           </View>
-        </TouchableHighlight>
-        <TouchableHighlight>
+        </TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
           <View style={createMed.cancel}>
             <Text>Cancel</Text>
           </View>
-        </TouchableHighlight>
+        </TouchableWithoutFeedback>
       </View>
     </View>
   );

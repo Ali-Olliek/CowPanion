@@ -3,14 +3,15 @@ import { View, TouchableHighlight, Text } from "react-native";
 
 // Styles
 import { styles } from "../../styles/AnimalsListStyle";
-import { infoStyles, Todos } from "../../styles";
+import { infoStyles } from "../../styles";
+
 // Components
 import { MainHeaderTitle } from "../UI/atoms";
 import { AnimalActions } from "../UI/molecules/AnimalActions";
 import { MedicalRecord } from "../UI/organisms/MedicalRecord";
 import { AnimalCard } from "../UI/organisms";
 
-export function AnimalInformationPage({ animal, navigation }) {
+export function AnimalInformationPage({ navigation }) {
   return (
     <>
       <View style={styles.header}>
@@ -25,7 +26,7 @@ export function AnimalInformationPage({ animal, navigation }) {
           <Text>back</Text>
         </TouchableHighlight>
         <AnimalCard />
-        <AnimalActions />
+        <AnimalActions navigation={navigation} />
         <MedicalRecord />
       </View>
     </>

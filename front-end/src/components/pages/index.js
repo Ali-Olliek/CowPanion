@@ -10,3 +10,4 @@ export { SignUpPage } from "./SignUpPage";
 export { ProfilePage } from "./ProfilePage";
 export { MainPage } from "./MainPage";
 export { CameraPage } from "./Camera";
+export { UpdateStatusPage } from "./UpdateStatusPage";
