@@ -1,13 +1,23 @@
-import { View } from "react-native";
+import { View, Text, TouchableHighlight } from "react-native";
 import { infoStyles } from "../../../styles/AnimalInfoStyle";
-import { AnimalAction } from "../atoms/AnimalAction";
 
-export function AnimalActions() {
+export function AnimalActions({ navigation }) {
   const actions = ["Update Status", "New Medical Record"];
 
-  const displayActions = actions.map((action) => {
-    return <AnimalAction action={action} />;
-  });
-
-  return <View style={infoStyles.actionsContainer}>{displayActions}</View>;
+  return (
+    <View style={infoStyles.actionsContainer}>
+      {actions.map((action, index) => {
+        return (
+          <TouchableHighlight
+            onPress={() => navigation.navigate(action)}
+            underlayColor={"white"}
+          >
+            <View key={index} style={infoStyles.actionCard}>
+              <Text>{action}</Text>
+            </View>
+          </TouchableHighlight>
+        );
+      })}
+    </View>
+  );
 }

@@ -17,7 +17,6 @@ const headerSectionStyle = StyleSheet.create({
   },
   title: {
     color: "red",
-    fontFamily: "PoppinsNormal",
     borderRadius: 5,
     paddingHorizontal: 10,
     height: 0.05 * windowHeight,
@@ -44,7 +43,6 @@ const headerSectionStyle = StyleSheet.create({
     marginHorizontal: 0.01 * windowWidth,
   },
   weatherReading: {
-    fontFamily: "PoppinsBold",
     color: "#ffff",
     fontSize: 24,
   },
