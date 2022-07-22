@@ -12,7 +12,7 @@ import { createReminderStyle } from "../../styles/createReminderStyle";
 import { CheckCategory } from "../UI/molecules/CheckCategory";
 import { MainHeaderTitle } from "../UI/atoms";
 
-export function CreateReminderPage() {
+export function CreateReminderPage({ navigation }) {
   const [datePickerDisplay, setDatePickerDisplay] = useState(false);
   return (
     <View>
@@ -43,15 +43,17 @@ export function CreateReminderPage() {
         ) : null}
       </View>
       <View style={createReminderStyle.actions}>
-        <TouchableHighlight>
-          <View style={createReminderStyle.save}>
-            <Text>Save</Text>
-          </View>
+        <TouchableHighlight
+          onPress={() => navigation.navigate("Reminders")}
+          style={createReminderStyle.save}
+        >
+          <Text>Save</Text>
         </TouchableHighlight>
-        <TouchableHighlight>
-          <View style={createReminderStyle.cancel}>
-            <Text>Cancel</Text>
-          </View>
+        <TouchableHighlight
+          style={createReminderStyle.cancel}
+          onPress={() => navigation.navigate("Reminders")}
+        >
+          <Text>Cancel</Text>
         </TouchableHighlight>
       </View>
     </View>

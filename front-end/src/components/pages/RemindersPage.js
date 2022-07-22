@@ -9,22 +9,26 @@ import { Todos } from "../../styles/TodosStyle";
 import { MainHeaderTitle } from "../UI/atoms";
 import { TodosList } from "../UI/molecules/TodosList";
 
-export function RemindersPage() {
+export function RemindersPage({ navigation }) {
   return (
     <>
       <View style={styles.header}>
         <MainHeaderTitle style={styles.headertitle} title={"Todo List"} />
       </View>
       <View style={Todos.midSec}>
-        <TouchableHighlight underlayColor={"white"}>
-          <View style={Todos.backButton}>
-            <Text>back</Text>
-          </View>
+        <TouchableHighlight
+          style={Todos.backButton}
+          onPress={() => navigation.navigate("Home")}
+          underlayColor={"white"}
+        >
+          <Text>back</Text>
         </TouchableHighlight>
-        <TouchableHighlight underlayColor={"white"}>
-          <View style={Todos.createTodoButton}>
-            <Text>Create Reminder</Text>
-          </View>
+        <TouchableHighlight
+          style={Todos.createTodoButton}
+          onPress={() => navigation.navigate("createReminder")}
+          underlayColor={"white"}
+        >
+          <Text>Create Reminder</Text>
         </TouchableHighlight>
       </View>
       <TodosList />

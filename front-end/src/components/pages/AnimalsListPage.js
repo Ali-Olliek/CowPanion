@@ -9,6 +9,21 @@ import { MainHeaderTitle } from "../UI/atoms";
 import { AnimalRecord, AttributeBoxes } from "../UI/molecules";
 
 export function AnimalsListPage() {
+  const animals = [
+    {
+      Status: "PR",
+      ID: "6",
+      Name: "Betsy",
+      Age: "4",
+    },
+    {
+      Status: "D",
+      ID: "2",
+      Name: "Kiky",
+      Age: "2",
+    },
+  ];
+
   return (
     <View>
       <View style={styles.header}>
@@ -18,7 +33,7 @@ export function AnimalsListPage() {
         <AttributeBoxes />
       </View>
       <View style={styles.list}>
-        <AnimalRecord />
+        <AnimalRecord animals={animals} />
       </View>
     </View>
   );

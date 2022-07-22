@@ -1,22 +1,7 @@
 import { View, Text, FlatList } from "react-native";
 import { styles } from "../../../styles/AnimalsListStyle";
 
-export function AnimalRecord() {
-  const animals = [
-    {
-      Status: "PR",
-      ID: "6",
-      Name: "Betsy",
-      Age: "4",
-    },
-    {
-      Status: "PR",
-      ID: "2",
-      Name: "Kiky",
-      Age: "2",
-    },
-  ];
-
+export function AnimalRecord({ animals }) {
   return (
     <FlatList
       data={Object.keys(animals)}
