@@ -6,10 +6,10 @@ import { Ionicons } from "@expo/vector-icons";
 // Pages
 import {
   AnimalsListPage,
-  CreateFarmPage,
   RemindersPage,
   ProfilePage,
   MainPage,
+  CameraPage,
 } from "../../pages";
 
 export function BottomNavBarButtons() {
@@ -24,9 +24,9 @@ export function BottomNavBarButtons() {
     >
       <Tab.Screen
         options={{
-          tabBarLabel: "Home",
+          tabBarLabel: "",
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <Feather name="home" size={24} color={color} />
           ),
         }}
         name={"Home"}
@@ -34,7 +34,7 @@ export function BottomNavBarButtons() {
       />
       <Tab.Screen
         options={{
-          tabBarLabel: "Animals",
+          tabBarLabel: "",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="cow" size={26} color={color} />
           ),
@@ -44,7 +44,17 @@ export function BottomNavBarButtons() {
       />
       <Tab.Screen
         options={{
-          tabBarLabel: "Reminders",
+          tabBarLabel: "",
+          tabBarIcon: ({ color }) => (
+            <Feather name="camera" size={24} color={color} />
+          ),
+        }}
+        name={"Camera"}
+        component={CameraPage}
+      />
+      <Tab.Screen
+        options={{
+          tabBarLabel: "",
           tabBarIcon: ({ color }) => (
             <Feather name="list" size={24} color={color} />
           ),
@@ -54,9 +64,9 @@ export function BottomNavBarButtons() {
       />
       <Tab.Screen
         options={{
-          tabBarLabel: "Reminders",
+          tabBarLabel: "",
           tabBarIcon: ({ color }) => (
-            <Ionicons name="person" size={24} color={color} />
+            <Ionicons name="person-outline" size={24} color={color} />
           ),
         }}
         name={"Profile"}

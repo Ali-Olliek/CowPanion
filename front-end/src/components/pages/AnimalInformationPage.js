@@ -1,9 +1,8 @@
 // React
-import { FlatList, View, Text } from "react-native";
+import { View } from "react-native";
 
 // Styles
 import { styles } from "../../styles/AnimalsListStyle";
-import { infoStyles } from "../../styles/AnimalInfoStyle";
 
 // Components
 import { MainHeaderTitle } from "../UI/atoms";
