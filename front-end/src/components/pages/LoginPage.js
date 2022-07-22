@@ -1,5 +1,5 @@
 //React
-import { View } from "react-native";
+import { View, Image } from "react-native";
 
 //Styles
 import { AuthStyles } from "../../styles/AuthPagesStyle";
@@ -11,6 +11,9 @@ import { PrimaryAuthButton, SecondaryAuthButton } from "../UI/atoms/Auth";
 export function LoginPage({ navigation }) {
   return (
     <View style={AuthStyles.container}>
+      <View>
+        <Image></Image>
+      </View>
       <View style={AuthStyles.mainCard}>
         <LoginInputs />
         <PrimaryAuthButton

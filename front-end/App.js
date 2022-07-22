@@ -1,5 +1,4 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import {
   AnimalInformationPage,
   AnimalsListPage,
@@ -26,7 +25,6 @@ export default function App() {
           <Stack.Screen name="SignIn" component={LoginPage} />
           <Stack.Screen name="SignUp" component={SignUpPage} />
           <Stack.Screen name="LandingPage" component={LandingPage} />
-          <Stack.Screen name="AnimalsListPage" component={AnimalsListPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
