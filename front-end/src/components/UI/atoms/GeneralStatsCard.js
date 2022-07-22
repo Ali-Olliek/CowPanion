@@ -11,7 +11,7 @@ export function GeneralStatsCard() {
 
   const displayStatistics = Object.entries(statistics).map(([title, value]) => {
     return (
-      <View style={stats.card}>
+      <View key={title} style={stats.card}>
         <Text style={stats.stat}>{title}</Text>
         <Text style={stats.stat}>{value}</Text>
       </View>

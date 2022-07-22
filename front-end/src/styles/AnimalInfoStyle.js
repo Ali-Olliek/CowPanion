@@ -24,6 +24,7 @@ const infoStyles = StyleSheet.create({
   list: {
     flex: 1,
     flexDirection: "column",
+    justifyContent: "space-between",
   },
   picture: {
     justifyContent: "center",
@@ -90,6 +91,10 @@ const infoStyles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 8,
     paddingHorizontal: 20,
+  },
+  password: {
+    borderBottomWidth: 1,
+    width: 115,
   },
 });
 
