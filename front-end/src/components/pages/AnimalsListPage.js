@@ -8,7 +8,7 @@ import { styles } from "../../styles/AnimalsListStyle";
 import { MainHeaderTitle } from "../UI/atoms";
 import { AnimalRecord, AttributeBoxes } from "../UI/molecules";
 
-export function AnimalsListPage() {
+export function AnimalsListPage({ navigation }) {
   const animals = [
     {
       Status: "PR",
@@ -33,7 +33,7 @@ export function AnimalsListPage() {
         <AttributeBoxes />
       </View>
       <View style={styles.list}>
-        <AnimalRecord animals={animals} />
+        <AnimalRecord navigation={navigation} animals={animals} />
       </View>
     </View>
   );

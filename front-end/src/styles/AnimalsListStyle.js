@@ -74,6 +74,11 @@ const styles = StyleSheet.create({
     width: windowWidth,
     borderBottomWidth: 1,
   },
+  container: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: windowHeight,
+  },
 });
 
 export { styles };

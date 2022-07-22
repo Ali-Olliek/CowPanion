@@ -96,6 +96,16 @@ const infoStyles = StyleSheet.create({
     borderBottomWidth: 1,
     width: 115,
   },
+  backButton: {
+    backgroundColor: "#ACC0B3",
+    width: 80,
+    height: 40,
+    borderWidth: 1,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 20,
+  },
 });
 
 export { infoStyles };

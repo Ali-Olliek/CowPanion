@@ -26,8 +26,8 @@ export default function App() {
           <Stack.Screen name="SignUp" component={SignUpPage} />
           <Stack.Screen name="LandingPage" component={LandingPage} />
           <Stack.Screen name="createReminder" component={CreateReminderPage} />
-          <Stack.Screen name="Animal" component={AnimalsListPage} />
-          <Stack.Screen name="Animals" component={AnimalInformationPage} />
+          <Stack.Screen name="Animals" component={AnimalsListPage} />
+          <Stack.Screen name="Animal" component={AnimalInformationPage} />
           <Stack.Screen name="Reminders" component={RemindersPage} />
         </Stack.Navigator>
       </NavigationContainer>

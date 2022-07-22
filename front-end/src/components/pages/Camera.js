@@ -18,7 +18,11 @@ export function CameraPage() {
     return <View />;
   }
   if (hasPermission === false) {
-    return <Text style={styles.noAccess}>No access to camera</Text>;
+    return (
+      <View style={styles.container}>
+        <Text>No access to camera</Text>
+      </View>
+    );
   }
   return (
     <View style={styles.container}>
