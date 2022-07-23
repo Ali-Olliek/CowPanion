@@ -10,27 +10,28 @@ import datetime
 from ..models import User
 
 # Response Status Codes (For Internal Handling):
-    # 200 -- Request handled successfully
-    # 201 -- Created
-    # 208 -- Already Exists
-    # 500 -- General Internal Error
-    
-    # Error Codes:
-    # USGE -- Unsuccessful General Error
-    # USOP -- Unsuccessful Old Password
-    # USAR -- Unsuccessful Already Registered
-    # USIP -- Unsuccessful Incorrect Password
+# 200 -- Request handled successfully
+# 201 -- Created
+# 208 -- Already Exists
+# 500 -- General Internal Error
+
+# Error Codes:
+# USGE -- Unsuccessful General Error
+# USOP -- Unsuccessful Old Password
+# USAR -- Unsuccessful Already Registered
+# USIP -- Unsuccessful Incorrect Password
 
 # Functions
+
 
 def sign_up(request):
 
     if request.method == "POST":
-        
+
         data = request.POST
 
         user_check = User.objects.filter(email__exact=data['email']).exists()
-        
+
         if user_check:
 
             # Already Registered
@@ -38,7 +39,7 @@ def sign_up(request):
                 "code": 208,
                 "status": "USAR",
             })
-            
+
         elif not user_check:
 
             name = data['name']
@@ -48,15 +49,15 @@ def sign_up(request):
             DOB = data['DOB']
             user_Type = data.get('user_type', 2)
 
-            user = User (
-            name = name,
-            email = email,
-            password = password,
-            phone_number = phone_number,
-            DOB = DOB,
-            user_Type = user_Type
+            user = User(
+                name=name,
+                email=email,
+                password=password,
+                phone_number=phone_number,
+                DOB=DOB,
+                user_Type=user_Type
             )
-            
+
             user.save()
 
             # Success
@@ -72,12 +73,13 @@ def sign_up(request):
         "Status": "USGE"
     })
 
+
 def sign_in(request):
 
     if request.method == "POST":
-        
+
         data = request.POST
-        
+
         try:
             auth_user = User.objects.get(email__exact=data['email'])
 
@@ -91,15 +93,16 @@ def sign_in(request):
 
         else:
 
-            password_valid = check_password(data['password'], auth_user.password)
+            password_valid = check_password(
+                data['password'], auth_user.password)
 
             if password_valid:
-                
+
                 jwt_token = jwt.encode({
                     "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=120),
                     "user_id": auth_user.id,
                     "user_type": auth_user.user_Type,
-                    "user_name": auth_user.name}, 
+                    "user_name": auth_user.name},
                     '18795',
                     algorithm="HS256")
 
@@ -119,7 +122,7 @@ def sign_in(request):
                 "status": "USIP",
                 "message": "Incorrect Password"
             })
-            
+
 
 def update_user_info(request):
 
@@ -129,8 +132,9 @@ def update_user_info(request):
 
         new_name = data['new_name']
         new_email = data['new_email']
-        
-        user = User.objects.filter(id = data['user_id']).update(name=new_name, email=new_email)
+
+        user = User.objects.filter(id=data['user_id']).update(
+            name=new_name, email=new_email)
 
         return JsonResponse({
             "code": 200,
@@ -152,20 +156,21 @@ def update_password(request):
         password_valid = check_password(data['old_password'], user.password)
 
         if password_valid:
-            user = User.objects.filter(id=data['user_id']).update(password=data['new_password'])
+            user = User.objects.filter(id=data['user_id']).update(
+                password=data['new_password'])
 
             return JsonResponse({
                 "code": 200,
                 "status": "success",
                 "message": "password updated successfully"
             })
-        
+
         return JsonResponse({
             "code": 500,
             "status": "USOP",
             "message": "old password doesn't match"
         })
-    
+
     return JsonResponse({
         "code": 500,
         "status": "USGE",
