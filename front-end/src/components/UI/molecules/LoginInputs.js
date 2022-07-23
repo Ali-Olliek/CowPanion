@@ -1,11 +1,11 @@
 import { View } from "react-native";
 import { EmailInput, PasswordInput } from "../atoms";
 
-export function LoginInputs() {
+export function LoginInputs({ setEmailInput, setPasswordInput }) {
   return (
     <View>
-      <EmailInput />
-      <PasswordInput />
+      <EmailInput setEmailInput={setEmailInput} />
+      <PasswordInput setPasswordInput={setPasswordInput} />
     </View>
   );
 }
