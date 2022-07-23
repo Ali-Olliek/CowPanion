@@ -18,12 +18,12 @@ export function LoginPage({ navigation }) {
   // Constructing Data Request
   const data = { email: emailInput, password: passwordInput };
 
-  const login_url = "http://10.0.2.2:8000/api/v1/signIn/";
+  const loginUrl = "http://10.0.2.2:8000/api/v1/signIn/";
 
   const login = () => {
     axios({
       method: "POST",
-      url: login_url,
+      url: loginUrl,
       headers: { "content-type": "multipart/form-data" },
       data: data,
     }).then((response) => {
@@ -44,7 +44,7 @@ export function LoginPage({ navigation }) {
           setPasswordInput={setPasswordInput}
         />
         <PrimaryAuthButton
-          login={login}
+          action={login}
           navigation={navigation}
           nav={"LandingPage"}
           placeholder={"Sign In"}
