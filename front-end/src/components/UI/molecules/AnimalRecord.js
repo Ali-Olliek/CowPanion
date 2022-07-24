@@ -12,17 +12,17 @@ export function AnimalRecord({ animals, navigation }) {
     <View>
       <SafeAreaView>
         <FlatList
-          data={Object.keys(animals)}
+          data={animals}
           renderItem={({ item }) => (
             <>
               <TouchableOpacity
                 style={styles.recordContainer}
                 onPress={() => navigation.navigate("Animal")}
               >
-                <Text style={styles.status}>{animals[item].Status}</Text>
-                <Text style={styles.animalAttr}>{animals[item].ID}</Text>
-                <Text style={styles.animalAttr}>{animals[item].Name}</Text>
-                <Text style={styles.animalAttr}>{animals[item].Age}</Text>
+                <Text style={styles.status}>{item.status}</Text>
+                <Text style={styles.animalAttr}>{item.id}</Text>
+                <Text style={styles.animalAttr}>{item.name}</Text>
+                <Text style={styles.animalAttr}>{item.DOB}</Text>
               </TouchableOpacity>
               <View style={styles.hr}></View>
             </>
