@@ -4,14 +4,14 @@ import { MainHeaderTitle } from "../UI/atoms";
 import { styles } from "../../styles/AnimalsListStyle";
 import { ProfileCard } from "../UI/organisms/ProfileCard";
 
-export function ProfilePage() {
+export function ProfilePage({ setUserData }) {
   return (
     <>
       <View style={styles.header}>
         <MainHeaderTitle title={"Profile"} />
       </View>
       <View>
-        <ProfileCard />
+        <ProfileCard setUserData={setUserData} />
       </View>
     </>
   );

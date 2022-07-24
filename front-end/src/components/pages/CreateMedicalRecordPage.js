@@ -13,7 +13,6 @@ import { createMed } from "../../styles/createMedicalRecordStyle";
 import { styles } from "../../styles/AnimalsListStyle";
 
 // Components
-import DateTimePicker from "@react-native-community/datetimepicker";
 import { MainHeaderTitle } from "../UI/atoms";
 
 export function CreateMedicalRecordPage({ navigation }) {
@@ -35,15 +34,6 @@ export function CreateMedicalRecordPage({ navigation }) {
           placeholder="Medications"
           placeholderTextColor={"grey"}
         ></TextInput>
-        <TouchableHighlight
-          style={createMed.dueDate}
-          onPress={(e) => setDatePickerDisplay(true)}
-        >
-          <Text>Done On</Text>
-        </TouchableHighlight>
-        {datePickerDisplay ? (
-          <DateTimePicker value={new Date(2022, 1, 1)} />
-        ) : null}
       </View>
       <View style={createMed.actions}>
         <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
