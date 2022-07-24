@@ -1,8 +1,9 @@
 // Modules
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { View, Text, TouchableHighlight } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
 // Styles
 import { styles } from "../../styles/AnimalsListStyle";
 // Components
@@ -37,7 +38,13 @@ export function AnimalsListPage({ navigation }) {
       }
     });
   };
-  getAnimals();
+
+  useFocusEffect(
+    useCallback(() => {
+      getAnimals();
+    }, [])
+  );
+
   return (
     <>
       <View>
@@ -61,9 +68,12 @@ export function AnimalsListPage({ navigation }) {
           )}
         </View>
       </View>
-      <View style={styles.AddAnimal}>
+      <TouchableHighlight
+        onPress={() => navigation.navigate("AddAnimal")}
+        style={styles.AddAnimal}
+      >
         <Text>+</Text>
-      </View>
+      </TouchableHighlight>
     </>
   );
 }
