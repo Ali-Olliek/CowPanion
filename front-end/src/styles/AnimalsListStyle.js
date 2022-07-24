@@ -27,11 +27,9 @@ const styles = StyleSheet.create({
   list: {
     height: "auto",
     width: "auto",
-    flexDirection: "row",
   },
   Attributescontainer: {
     flexDirection: "row",
-    marginTop: 20,
   },
   attributeBox: {
     width: 0.2 * windowWidth,
@@ -73,11 +71,33 @@ const styles = StyleSheet.create({
   hr: {
     width: windowWidth,
     borderBottomWidth: 1,
+    opacity: 0.2,
   },
   container: {
     justifyContent: "center",
     alignItems: "center",
     height: windowHeight,
+  },
+  AddAnimal: {
+    width: 42,
+    height: 42,
+    borderWidth: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
+    bottom: 20,
+    right: 10,
+    borderRadius: 40,
+    marginHorizontal: 20,
+    marginVertical: 10,
+    backgroundColor: "#D46C4E",
+  },
+  messagePrimary: { fontSize: 20 },
+  messageSecondary: { fontSize: 10, color: "grey" },
+  messageContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: windowHeight * 0.5,
   },
 });
 
