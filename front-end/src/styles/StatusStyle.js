@@ -8,12 +8,12 @@ const statusStyles = StyleSheet.create({
     justifyContent: "space-evenly",
     alignItems: "center",
     flexDirection: "row",
-    height: windowHeight * 0.5,
+    marginVertical: 20,
     width: windowWidth,
   },
   circle: {
     height: 60,
-    width: 60,
+    width: 80,
     borderRadius: 10,
     borderWidth: 1,
     textAlign: "center",
@@ -21,7 +21,7 @@ const statusStyles = StyleSheet.create({
     alignItems: "center",
   },
   PR: {
-    backgroundColor: "#f08080",
+    backgroundColor: "#ffcccb",
   },
   D: {
     backgroundColor: "#778899",
@@ -30,7 +30,7 @@ const statusStyles = StyleSheet.create({
     backgroundColor: "#87cefa",
   },
   Q: {
-    backgroundColor: "#708090",
+    backgroundColor: "#f08080",
   },
 });
 export { statusStyles };
