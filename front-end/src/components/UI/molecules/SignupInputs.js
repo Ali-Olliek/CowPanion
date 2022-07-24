@@ -1,5 +1,4 @@
 import { View, Image, Text, TouchableHighlight } from "react-native";
-import { useState } from "react";
 import { AuthStyles } from "../../../styles/AuthPagesStyle";
 
 import {
@@ -10,13 +9,12 @@ import {
 } from "../atoms";
 
 export function SignupInputs({ props }) {
-  const [datePickerDisplay, setDatePickerDisplay] = useState(false);
   return (
     <View>
-      <NameInput setName={props.setNameInput} />
-      <EmailInput setEmail={props.setEmailInput} />
-      <PhoneNumberInput setPhoneNumber={props.setPhoneNumberInput} />
-      <PasswordInput setPassword={props.setPasswordInput} />
+      <NameInput setNameInput={props.setNameInput} />
+      <EmailInput setEmailInput={props.setEmailInput} />
+      <PhoneNumberInput setPhoneNumberInput={props.setPhoneNumberInput} />
+      <PasswordInput setPasswordInput={props.setPasswordInput} />
       <View style={AuthStyles.imagesContainer}>
         <TouchableHighlight
           underlayColor={"white"}

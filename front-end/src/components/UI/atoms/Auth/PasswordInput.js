@@ -1,10 +1,10 @@
 import { TextInput } from "react-native";
 import React from "react";
 import { inputFields } from "../../../../styles/InputFields";
-export function PasswordInput({ setPassword }) {
+export function PasswordInput({ setPasswordInput }) {
   return (
     <TextInput
-      onChangeText={(password) => setPassword(password)}
+      onChangeText={(password) => setPasswordInput(password)}
       style={inputFields.AuthInput}
       textContentType="password"
       placeholder="Enter Your Password"

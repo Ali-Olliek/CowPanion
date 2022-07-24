@@ -1,10 +1,10 @@
 import { TextInput } from "react-native";
 import React from "react";
 import { inputFields } from "../../../../styles/InputFields";
-export function NameInput({ setName }) {
+export function NameInput({ setNameInput }) {
   return (
     <TextInput
-      onChangeText={(name) => setName(name)}
+      onChangeText={(name) => setNameInput(name)}
       style={inputFields.AuthInput}
       textContentType="name"
       placeholder="Enter Your Name"
