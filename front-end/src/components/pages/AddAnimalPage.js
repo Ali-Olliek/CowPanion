@@ -1,11 +1,52 @@
-import { View, Text, TextInput, TouchableWithoutFeedback } from "react-native";
-import React from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+  TouchableHighlight,
+} from "react-native";
+import React, { useState } from "react";
 import { MainHeaderTitle } from "../UI/atoms";
 import { AddAnimalStyle } from "../../styles/AddAnimalStyle";
 import { statusStyles } from "../../styles/StatusStyle";
 import { createMed } from "../../styles/createMedicalRecordStyle";
 import { styles } from "../../styles";
-export function AddAnimalPage() {
+import { useSelector } from "react-redux";
+import axios from "axios";
+
+export function AddAnimalPage({ navigation }) {
+  // States
+  const [nameInput, setNameInput] = useState("");
+  const [yearInput, setYearInput] = useState("");
+  const [breedInput, setBreedInput] = useState("");
+  const [statusInput, setStatusInput] = useState("");
+  const { id, token } = useSelector((state) => state.user.user);
+
+  // Create Request
+
+  const addAnimalUrl = "http://10.0.2.2:8000/api/v1/addAnimal/";
+  const data = {
+    name: nameInput,
+    species: "Cow",
+    breed: breedInput,
+    DOB: yearInput,
+    status: statusInput,
+    user_id: id,
+  };
+
+  const AddAnimal = () => {
+    axios({
+      method: "POST",
+      url: addAnimalUrl,
+      data: data,
+      headers: {
+        Authorization: token,
+        "content-type": "multipart/form-data",
+      },
+    }).then((response) => {
+      console.log(response.data);
+    });
+  };
   return (
     <View style={AddAnimalStyle.main}>
       <View style={styles.header}>
@@ -14,34 +55,48 @@ export function AddAnimalPage() {
       <View style={AddAnimalStyle.container}>
         <View style={AddAnimalStyle.container}>
           <TextInput
+            onChangeText={(name) => setNameInput(name)}
             style={AddAnimalStyle.inputs}
             placeholder="Name"
           ></TextInput>
           <TextInput
+            onChangeText={(year) => setYearInput(year)}
             style={AddAnimalStyle.inputs}
             placeholder="Year of Birth"
           ></TextInput>
           <TextInput
-            style={AddAnimalStyle.inputs}
-            placeholder="Current Status"
-          ></TextInput>
-          <TextInput
+            onChangeText={(breed) => setBreedInput(breed)}
             style={AddAnimalStyle.inputs}
             placeholder="Breed"
           ></TextInput>
           <View style={statusStyles.container}>
-            <View style={[statusStyles.PR, statusStyles.circle]}>
-              <Text>PR</Text>
-            </View>
-            <View style={[statusStyles.D, statusStyles.circle]}>
-              <Text>DRY</Text>
-            </View>
-            <View style={[statusStyles.H, statusStyles.circle]}>
+            <TouchableHighlight
+              onPress={() => setStatusInput("Pregnant")}
+              underlayColor={"#c7a09f"}
+              style={[statusStyles.PR, statusStyles.circle]}
+            >
+              <Text>Pregnant</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => setStatusInput("Dry")}
+              underlayColor={"#8da1b5"}
+              style={[statusStyles.D, statusStyles.circle]}
+            >
+              <Text>Dry</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => setStatusInput("Heifer")}
+              style={[statusStyles.H, statusStyles.circle]}
+            >
               <Text>Heifer</Text>
-            </View>
-            <View style={[statusStyles.Q, statusStyles.circle]}>
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => setStatusInput("Quarantined")}
+              underlayColor={"#bf6767"}
+              style={[statusStyles.Q, statusStyles.circle]}
+            >
               <Text>Quarantined</Text>
-            </View>
+            </TouchableHighlight>
           </View>
           <View style={AddAnimalStyle.nav}>
             <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
@@ -49,7 +104,7 @@ export function AddAnimalPage() {
                 <Text>Cancel</Text>
               </View>
             </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
+            <TouchableWithoutFeedback onPress={AddAnimal}>
               <View style={createMed.save}>
                 <Text>Save</Text>
               </View>
