@@ -77,11 +77,12 @@ def add_animal(request):
         breed = data['breed']
         DOB = data['DOB']
         status = data['status']
-        Farm_id = data['farm_id']
-
+        user_id = data['user_id']
+        farm = Farm.objects.filter(farmer_id=user_id).get()
+        farm_id = farm.id
         # Get The Last Record in DB
         last_animal = Animal.objects.order_by('-id', 'pk').first()
-        print(last_animal)
+
         # Create QR CODE For The Current Record (Previous + 1)
         if not last_animal:
             QR_code = makeQR(
@@ -98,7 +99,7 @@ def add_animal(request):
             breed=breed,
             DOB=DOB,
             status=status,
-            farm_id=Farm_id,
+            farm_id=farm_id,
             QR_code=B64_QR
         )
 
