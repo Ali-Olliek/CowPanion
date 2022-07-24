@@ -20,6 +20,7 @@ export function AddAnimalPage({ navigation }) {
   const [yearInput, setYearInput] = useState("");
   const [breedInput, setBreedInput] = useState("");
   const [statusInput, setStatusInput] = useState("");
+  const [success, setSuccess] = useState(false);
   const { id, token } = useSelector((state) => state.user.user);
 
   // Create Request
@@ -44,7 +45,12 @@ export function AddAnimalPage({ navigation }) {
         "content-type": "multipart/form-data",
       },
     }).then((response) => {
-      console.log(response.data);
+      if (response.data.code === 201) {
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+        }, 500);
+      }
     });
   };
   return (
@@ -53,6 +59,9 @@ export function AddAnimalPage({ navigation }) {
         <MainHeaderTitle title={"Add An Animal"} />
       </View>
       <View style={AddAnimalStyle.container}>
+        {success ? (
+          <Text style={AddAnimalStyle.success}>Animal Added</Text>
+        ) : null}
         <View style={AddAnimalStyle.container}>
           <TextInput
             onChangeText={(name) => setNameInput(name)}
