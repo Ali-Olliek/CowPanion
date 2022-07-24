@@ -81,11 +81,16 @@ def add_animal(request):
 
         # Get The Last Record in DB
         last_animal = Animal.objects.order_by('-id', 'pk').first()
-
+        print(last_animal)
         # Create QR CODE For The Current Record (Previous + 1)
-        QR_code = makeQR(
-            f'http://localhost/api/v1/animal/{last_animal.id + 1}')
-        B64_QR = get_base64(QR_code)
+        if not last_animal:
+            QR_code = makeQR(
+                f'http://localhost/api/v1/animal/{1}')
+            B64_QR = get_base64(QR_code)
+        else:
+            QR_code = makeQR(
+                f'http://localhost/api/v1/animal/{last_animal.id + 1}')
+            B64_QR = get_base64(QR_code)
 
         animal = Animal(
             name=name,
@@ -136,7 +141,7 @@ def update_animal_status(request):
 
 # Get Animal List
 def get_all_animals(request):
-    print(request.GET)
+
     if request.method == "GET":
 
         user_id = request.GET['user_id']
