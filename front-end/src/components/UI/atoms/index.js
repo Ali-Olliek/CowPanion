@@ -13,3 +13,4 @@ export { CategoryBox } from "./CategoryBox";
 export { GeneralStatsCard } from "./GeneralStatsCard";
 export { SearchBar } from "./SearchBar";
 export { Todo } from "./Todo";
+export { FixingError } from "./FixingError";
