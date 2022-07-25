@@ -37,7 +37,9 @@ export function Todo({ props, index }) {
   };
   // when Id changes
   useEffect(() => {
-    deleteReminder();
+    if (id) {
+      deleteReminder();
+    }
   }, [id]);
 
   return (
