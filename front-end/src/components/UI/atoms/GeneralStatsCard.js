@@ -1,21 +1,64 @@
-import { View, Text } from "react-native";
-import { stats } from "../../../styles/statsStyle";
+// Modules
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { View, Text, TouchableHighlight } from "react-native";
+import { useSelector } from "react-redux";
+// Styles
+import { statsStyle } from "../../../styles/statsStyle";
 
 export function GeneralStatsCard() {
-  const statistics = {
-    cows: 30,
-    "Milking Cows": 12,
-    "Milk Production": 500,
-    "Dry Cows": 4,
+  //
+  // States and Variables
+  const [stats, setStats] = useState(null);
+  const { token, id } = useSelector((state) => state.user.user);
+
+  //
+  // Create Request
+  const statsUrl = `http://10.0.2.2:8000/api/v1/getGeneralStats/?user_id=${id}`;
+  const getGeneralStats = () => {
+    axios({
+      url: statsUrl,
+      method: "GET",
+      headers: { Authorization: token },
+    }).then((response) => {
+      setStats(response.data);
+    });
   };
 
-  const displayStatistics = Object.entries(statistics).map(([title, value]) => {
+  useEffect(() => {
+    getGeneralStats();
+  }, []);
+
+  const page = () => {
     return (
-      <View key={title} style={stats.card}>
-        <Text style={stats.stat}>{title}</Text>
-        <Text style={stats.stat}>{value}</Text>
+      <View style={statsStyle.container}>
+        <TouchableHighlight>
+          <View style={statsStyle.card}>
+            <Text style={statsStyle.title}>Animals</Text>
+            <Text style={statsStyle.stat}>{stats.animal_count}</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight>
+          <View style={statsStyle.card}>
+            <Text style={statsStyle.title}>Lactating Cows</Text>
+            <Text style={statsStyle.stat}>{stats.lactating_cows}</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight>
+          <View style={statsStyle.card}>
+            <Text style={statsStyle.title}>Dry Cows</Text>
+            <Text style={statsStyle.stat}>{stats.dry_cows}</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight>
+          <View style={statsStyle.card}>
+            <Text style={statsStyle.title}>Milk Quantity</Text>
+            <Text style={statsStyle.stat}>{stats.milk_quantity}</Text>
+          </View>
+        </TouchableHighlight>
       </View>
     );
-  });
-  return <View style={stats.container}>{displayStatistics}</View>;
+  };
+
+  return <View>{stats && page()}</View>;
 }
