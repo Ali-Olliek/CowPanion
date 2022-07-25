@@ -253,6 +253,26 @@ def get_farm_reminders(request):
         "status": "USGE"
     })
 
+# Delete Reminder
+
+
+def delete_farm_reminder(request):
+
+    if request.method == "GET":
+        reminder_id = request.GET['reminder_id']
+        Reminder.objects.filter(id=reminder_id).delete()
+
+        return JsonResponse({
+            "code": 200,
+            "status": "success"
+        })
+
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })
+
+
 # Get Reminders Per Animal
 
 

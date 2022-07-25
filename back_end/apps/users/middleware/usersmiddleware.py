@@ -34,6 +34,7 @@ farmer_urls = [
     '/api/v1/getRecipe/',
     '/api/v1/getMedicalRecord/',
     '/api/v1/updateMedicalRecord/',
+    '/api/v1/deleteReminder/',
 ]
 
 vet_urls = [
