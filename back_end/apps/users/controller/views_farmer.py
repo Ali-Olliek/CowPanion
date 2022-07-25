@@ -211,7 +211,7 @@ def get_general_stats(request):
         if milk:
             milk = Milk.objects.filter(Farm_id=farm.id).order_by('-id')[0]
         else:
-            milk = "no data present yet"
+            milk = "no data"
         return JsonResponse({
             "code": 200,
             "status": "success",
