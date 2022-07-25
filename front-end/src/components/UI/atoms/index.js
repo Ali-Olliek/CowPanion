@@ -4,7 +4,6 @@ export { EmailInput } from "./Auth/EmailInput";
 export { PasswordInput } from "./Auth/PasswordInput";
 export { NameInput } from "./Auth/NameInput";
 export { PhoneNumberInput } from "./Auth/PhoneNumberInput";
-export { AnimalListTitle } from "./AnimalListTitle";
 export { MainHeaderTitle } from "./MainHeaderTitle";
 export { PrimaryAuthButton } from "./Auth/PrimaryAuthButton";
 export { SecondaryAuthButton } from "./Auth/SecondaryAuthButton";
