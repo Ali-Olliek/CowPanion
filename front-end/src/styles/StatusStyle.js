@@ -20,16 +20,16 @@ const statusStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  PR: {
+  Calf: {
     backgroundColor: "#ffcccb",
   },
-  D: {
+  Heifer: {
     backgroundColor: "#778899",
   },
-  H: {
+  Dry: {
     backgroundColor: "#87cefa",
   },
-  Q: {
+  Lactating: {
     backgroundColor: "#f08080",
   },
   main: {
