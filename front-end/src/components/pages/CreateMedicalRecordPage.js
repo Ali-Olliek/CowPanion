@@ -19,7 +19,11 @@ import { MainHeaderTitle } from "../UI/atoms";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-export function CreateMedicalRecordPage({ navigation, route }) {
+export function CreateMedicalRecordPage({
+  navigation,
+  route,
+  setMedicalRecord,
+}) {
   // State and Variables
   const { id } = route.params;
   const [datePickerDisplay, setDatePickerDisplay] = useState(false);
@@ -28,6 +32,7 @@ export function CreateMedicalRecordPage({ navigation, route }) {
   const [medications, setMedications] = useState("");
   const { token } = useSelector((state) => state.user.user);
   const [auth, setAuth] = useState(true);
+  const [success, setSuccess] = useState(false);
   // Functions
 
   const showDatePicker = () => {
@@ -56,7 +61,9 @@ export function CreateMedicalRecordPage({ navigation, route }) {
       data: data,
       headers: { "content-type": "multipart/form-data", Authorization: token },
     }).then((response) => {
-      console.log(response.data);
+      if (response.data.code === 201) {
+        setSuccess(true);
+      }
       if (response.data.code === 401) {
         setAuth(false);
         setTimeout(() => {
@@ -115,6 +122,7 @@ export function CreateMedicalRecordPage({ navigation, route }) {
         </View>
       ) : (
         <>
+          {success ? <Text>Record Added</Text> : null}
           <View style={styles.header}>
             <MainHeaderTitle title="Create Medical Record" />
           </View>
