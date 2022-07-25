@@ -12,12 +12,12 @@ import {
 import { styles } from "../../../styles/AnimalsListStyle";
 import { statusStyles } from "../../../styles/StatusStyle";
 
-export function AnimalRecord({ animals, navigation }) {
+export function AnimalRecord({ animals, navigation, sorted }) {
   return (
     <View>
       <SafeAreaView>
         <FlatList
-          data={animals}
+          data={sorted ? sorted : animals}
           renderItem={({ item }) => (
             <>
               <TouchableOpacity
