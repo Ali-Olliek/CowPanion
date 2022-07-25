@@ -1,3 +1,5 @@
+//
+// Modules
 import {
   View,
   Text,
@@ -5,7 +7,10 @@ import {
   TouchableOpacity,
   SafeAreaView,
 } from "react-native";
+//
+// Styles
 import { styles } from "../../../styles/AnimalsListStyle";
+import { statusStyles } from "../../../styles/StatusStyle";
 
 export function AnimalRecord({ animals, navigation }) {
   return (
@@ -18,10 +23,18 @@ export function AnimalRecord({ animals, navigation }) {
               <TouchableOpacity
                 style={styles.recordContainer}
                 onPress={() => {
-                  navigation.navigate("Animal", { id: item.id });
+                  navigation.navigate("Animal", { id: item.id }); // Passing the id with navigation
                 }}
               >
-                <Text style={styles.status}>{item.status}</Text>
+                {item.status === "Lactating" ? (
+                  <Text style={[styles.status, statusStyles.Lactating]}>L</Text>
+                ) : item.status === "Heifer" ? (
+                  <Text style={[styles.status, statusStyles.Heifer]}>H</Text>
+                ) : item.status === "Calf" ? (
+                  <Text style={[styles.status, statusStyles.Calf]}>C</Text>
+                ) : (
+                  <Text style={[styles.status, statusStyles.Dry]}>D</Text>
+                )}
                 <Text style={styles.animalAttr}>{item.id}</Text>
                 <Text style={styles.animalAttr}>{item.name}</Text>
                 <Text style={styles.animalAttr}>{item.DOB}</Text>
