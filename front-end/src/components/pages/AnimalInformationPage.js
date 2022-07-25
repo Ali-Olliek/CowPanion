@@ -1,6 +1,9 @@
-// React
+// Modules
 import { View, TouchableHighlight, Text } from "react-native";
-
+import axios from "axios";
+import { useFocusEffect } from "@react-navigation/native";
+import { useSelector } from "react-redux";
+import { useCallback, useState } from "react";
 // Styles
 import { styles } from "../../styles/AnimalsListStyle";
 import { infoStyles } from "../../styles";
@@ -11,7 +14,61 @@ import { AnimalActions } from "../UI/molecules/AnimalActions";
 import { MedicalRecord } from "../UI/organisms/MedicalRecord";
 import { AnimalCard } from "../UI/organisms";
 
-export function AnimalInformationPage({ navigation }) {
+export function AnimalInformationPage({ navigation, route }) {
+  const { id } = route.params;
+  const { token } = useSelector((state) => state.user.user);
+  const [animalData, setAnimalData] = useState({});
+  const [medicalRecord, setMedicalRecord] = useState([]);
+  console.log(animalData);
+  // Create Requests
+
+  const animalInformationUrl = `http://10.0.2.2:8000/api/v1/animal/?animal_id=${id}`;
+  const animalMedicalRecordUrl = `http://10.0.2.2:8000/api/v1/getMedicalRecord/?animal_id=${id}`;
+
+  // get Information
+  const getAnimalInfo = () => {
+    axios({
+      method: "GET",
+      url: animalInformationUrl,
+      data: { animal_id: id },
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then((response) => {
+        setAnimalData(response.data.animal[0].fields);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  // get Medical Records
+  const getMedicalRecord = () => {
+    axios({
+      method: "GET",
+      url: animalMedicalRecordUrl,
+      data: { animal_id: id },
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then((response) => {
+        setMedicalRecord(response.data.medical_history);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  // Call on Navigation
+  useFocusEffect(
+    useCallback(() => {
+      getAnimalInfo();
+      getMedicalRecord();
+    }, [])
+  );
+
+  // Main
   return (
     <>
       <View style={styles.header}>
@@ -20,14 +77,14 @@ export function AnimalInformationPage({ navigation }) {
       <View>
         <TouchableHighlight
           style={infoStyles.backButton}
-          onPress={() => navigation.navigate("Home")}
+          onPress={() => navigation.goBack()}
           underlayColor={"white"}
         >
           <Text>back</Text>
         </TouchableHighlight>
-        <AnimalCard />
+        <AnimalCard info={animalData} />
         <AnimalActions navigation={navigation} />
-        <MedicalRecord />
+        <MedicalRecord records={medicalRecord} />
       </View>
     </>
   );
