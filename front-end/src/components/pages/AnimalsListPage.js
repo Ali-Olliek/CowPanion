@@ -12,10 +12,13 @@ import { FixingError } from "../UI/atoms";
 import { AnimalRecord, AttributeBoxes } from "../UI/molecules";
 
 export function AnimalsListPage({ navigation }) {
+  // States and Variables
   const { token, id } = useSelector((state) => state.user.user);
   const [animals, setAnimals] = useState([]);
+  const [sortedAnimals, setSortedAnimals] = useState([]);
   const [fetchError, setFetchError] = useState(false);
-
+  const [attr, setAttr] = useState("Id");
+  //
   // Constructing Request
   const animalsListUrl = `http://10.0.2.2:8000/api/v1/animals/?user_id=${id}`;
   const getAnimals = () => {
@@ -41,9 +44,27 @@ export function AnimalsListPage({ navigation }) {
 
   useFocusEffect(
     useCallback(() => {
-      getAnimals();
+      animals.length === 0 ? getAnimals() : null; // Stops getting data from server
     }, [])
   );
+  //
+  // Sorting
+  const idDescending = () => {
+    setSortedAnimals([...animals].sort((a, b) => b.id - a.id));
+  };
+  const strDescending = () => {
+    setSortedAnimals([...animals].sort((a, b) => (a.name > b.name ? -1 : 1)));
+  };
+  const ageDescending = () => {
+    setSortedAnimals([...animals].sort((a, b) => (b.DOB > a.DOB ? -1 : 1)));
+  };
+  useEffect(() => {
+    attr === "id"
+      ? idDescending()
+      : attr === "name"
+      ? strDescending()
+      : ageDescending();
+  }, [attr]);
 
   return (
     <>
@@ -52,7 +73,7 @@ export function AnimalsListPage({ navigation }) {
           <MainHeaderTitle title={"Animals List"} />
         </View>
         <View style={styles.titles}>
-          <AttributeBoxes />
+          <AttributeBoxes setAttr={setAttr} />
         </View>
         {fetchError ? <FixingError /> : null}
         <View style={styles.list}>
@@ -64,7 +85,11 @@ export function AnimalsListPage({ navigation }) {
               </Text>
             </View>
           ) : (
-            <AnimalRecord navigation={navigation} animals={animals} />
+            <AnimalRecord
+              navigation={navigation}
+              sorted={sortedAnimals}
+              animals={animals}
+            />
           )}
         </View>
       </View>
