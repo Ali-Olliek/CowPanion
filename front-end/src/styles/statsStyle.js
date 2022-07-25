@@ -3,7 +3,7 @@ import { StyleSheet, Dimensions } from "react-native";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-const stats = StyleSheet.create({
+const statsStyle = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
@@ -28,11 +28,13 @@ const stats = StyleSheet.create({
   },
   stat: {
     textAlign: "center",
+    fontSize: 20,
   },
   title: {
     textAlign: "center",
     color: "#D46C4E",
+    fontSize: 12,
   },
 });
 
-export { stats };
+export { statsStyle };
