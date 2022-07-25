@@ -131,7 +131,7 @@ def update_animal_status(request):
         return JsonResponse({
             "code": 200,
             "status": "success",
-            "user": animal,
+            "animal_id": animal,
         })
 
     return JsonResponse({
