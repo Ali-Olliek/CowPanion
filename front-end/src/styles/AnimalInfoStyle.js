@@ -31,7 +31,6 @@ const infoStyles = StyleSheet.create({
     width: 75,
     height: 75,
     alignItems: "center",
-    backgroundColor: "#D46C4E",
     borderRadius: 8,
   },
   actionCard: {
@@ -106,7 +105,38 @@ const infoStyles = StyleSheet.create({
     justifyContent: "center",
     margin: 20,
   },
+  messageContainer: {
+    width: windowWidth,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   message: { textAlign: "center" },
+  success: {
+    backgroundColor: "#ACC0B3",
+    textAlignVertical: "center",
+    width: 120,
+    height: 30,
+    borderRadius: 8,
+  },
+  error: {
+    backgroundColor: "#B00020",
+    textAlignVertical: "center",
+    width: 120,
+    height: 30,
+    borderRadius: 8,
+  },
+  enlarge: {
+    backgroundColor: "#DAD7CD",
+    borderColor: "#2A432A",
+    flexDirection: "column",
+    justifyContent: "space-around",
+    borderWidth: 1,
+    width: 0.8 * windowWidth,
+    alignItems: "center",
+    marginVertical: 5,
+    height: 80,
+    borderRadius: 8,
+  },
 });
 
 export { infoStyles };
