@@ -1,19 +1,95 @@
-// React
-import { View, Text, TouchableHighlight } from "react-native";
-import { TextInput } from "react-native-paper";
-import DateTimePicker from "@react-native-community/datetimepicker";
+// Modules
+import {
+  View,
+  Text,
+  TouchableHighlight,
+  SafeAreaView,
+  Button,
+} from "react-native";
+import axios from "axios";
 import { useState } from "react";
+import { TextInput } from "react-native-paper";
+import { useSelector } from "react-redux";
 
 // Styles
 import { styles } from "../../styles/AnimalsListStyle";
+import { createMed } from "../../styles/createMedicalRecordStyle";
 import { createReminderStyle } from "../../styles/createReminderStyle";
 
 // Components
-import { CheckCategory } from "../UI/molecules/CheckCategory";
 import { MainHeaderTitle } from "../UI/atoms";
+import DateTimePickerAndroid from "@react-native-community/datetimepicker";
 
 export function CreateReminderPage({ navigation }) {
+  //
+  // States and Variables
+  const [date, setDate] = useState(new Date());
   const [datePickerDisplay, setDatePickerDisplay] = useState(false);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const { token, id } = useSelector((state) => state.user.user);
+  //
+  // Functions and handlers
+  const showDatePicker = () => {
+    setDatePickerDisplay(true);
+  };
+  const onDateSelected = (event, value) => {
+    setDate(value);
+    setDatePickerDisplay(false);
+  };
+  //
+  // Create Request
+  const createReminderUrl = "http://10.0.2.2:8000/api/v1/createReminder/";
+  const data = {
+    user_id: id,
+    task_title: title,
+    task_description: description,
+    due_time: date,
+  };
+  const createReminder = () => {
+    axios({
+      method: "POST",
+      url: createReminderUrl,
+      headers: { "content-type": "multipart/form-data", Authorization: token },
+      data: data,
+    }).then((response) => {
+      console.log(response.data);
+    });
+  };
+
+  //
+  // Date Picker
+  const dateComponent = () => {
+    return (
+      <SafeAreaView>
+        <View style={createMed.MainContainer}>
+          <Text style={createMed.text}>{date.toDateString()}</Text>
+
+          {datePickerDisplay && (
+            <DateTimePickerAndroid
+              value={date}
+              mode={"date"}
+              display={Platform.OS === "ios" ? "spinner" : "default"}
+              dateFormat={"day month year"}
+              onChange={onDateSelected}
+            />
+          )}
+
+          {!datePickerDisplay && (
+            <View style={createMed.button}>
+              <Button
+                title="Select Date"
+                color="green"
+                onPress={showDatePicker}
+              />
+            </View>
+          )}
+        </View>
+      </SafeAreaView>
+    );
+  };
+  //
+  //Main
   return (
     <View>
       <View style={styles.header}>
@@ -21,37 +97,29 @@ export function CreateReminderPage({ navigation }) {
       </View>
       <View style={createReminderStyle.midSection}>
         <TextInput
+          onChangeText={(newTitle) => setTitle(newTitle)}
           style={createReminderStyle.inputs}
-          input
           placeholder="Reminder Title"
           placeholderTextColor={"grey"}
         ></TextInput>
         <TextInput
+          onChangeText={(newDesc) => setDescription(newDesc)}
           style={createReminderStyle.inputs}
           placeholder="Reminder Description"
           placeholderTextColor={"grey"}
         ></TextInput>
-        <CheckCategory />
-        <TouchableHighlight
-          style={createReminderStyle.dueDate}
-          onPress={(e) => setDatePickerDisplay(true)}
-        >
-          <Text>Due Date</Text>
-        </TouchableHighlight>
-        {datePickerDisplay ? (
-          <DateTimePicker value={new Date(2022, 1, 1)} />
-        ) : null}
+        {dateComponent()}
       </View>
       <View style={createReminderStyle.actions}>
         <TouchableHighlight
-          onPress={() => navigation.navigate("Reminders")}
+          onPress={createReminder}
           style={createReminderStyle.save}
         >
           <Text>Save</Text>
         </TouchableHighlight>
         <TouchableHighlight
           style={createReminderStyle.cancel}
-          onPress={() => navigation.navigate("Reminders")}
+          onPress={() => navigation.goBack()}
         >
           <Text>Cancel</Text>
         </TouchableHighlight>
