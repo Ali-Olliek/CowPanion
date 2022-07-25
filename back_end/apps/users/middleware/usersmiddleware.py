@@ -32,6 +32,7 @@ farmer_urls = [
     '/api/v1/getMilkProfiles/',
     '/api/v1/createRecipe/',
     '/api/v1/getRecipe/',
+    '/api/v1/getMedicalRecord/'
 ]
 
 vet_urls = [
@@ -40,6 +41,7 @@ vet_urls = [
     '/api/v1/updateMedicalRecord/',
     '/api/v1/getMedicalRecord/'
 ]
+
 
 def user_type_middleware(get_response):
 
@@ -91,4 +93,3 @@ def user_type_middleware(get_response):
 
     # Calls The Middleware
     return middleware
-        

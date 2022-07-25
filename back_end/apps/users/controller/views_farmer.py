@@ -368,7 +368,7 @@ def create_recipe(request):
         ingredients = ingredients.split(',')
 
         farm = Farm.objects.filter(farmer_id=farmer_id).get()
-        print(farm.id)
+
         recipe = Recipe(
             farm_id=farm.id,
             description=description,
