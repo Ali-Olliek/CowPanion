@@ -32,7 +32,7 @@ farmer_urls = [
     '/api/v1/getMilkProfiles/',
     '/api/v1/createRecipe/',
     '/api/v1/getRecipe/',
-    '/api/v1/getMedicalRecord/'
+    '/api/v1/getMedicalRecord/',
 ]
 
 vet_urls = [
