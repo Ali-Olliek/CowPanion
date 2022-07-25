@@ -1,5 +1,5 @@
 // Modules
-import { View, TouchableHighlight, Text, Image } from "react-native";
+import { View, TouchableHighlight, Text } from "react-native";
 import axios from "axios";
 import { useFocusEffect } from "@react-navigation/native";
 import { useSelector } from "react-redux";

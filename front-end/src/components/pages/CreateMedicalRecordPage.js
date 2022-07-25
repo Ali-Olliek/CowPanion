@@ -63,6 +63,7 @@ export function CreateMedicalRecordPage({
     }).then((response) => {
       if (response.data.code === 201) {
         setSuccess(true);
+        navigation.goBack();
       }
       if (response.data.code === 401) {
         setAuth(false);
@@ -85,7 +86,7 @@ export function CreateMedicalRecordPage({
               value={date}
               mode={"date"}
               display={Platform.OS === "ios" ? "spinner" : "default"}
-              is24Hour={true}
+              dateFormat={"day month year"}
               onChange={onDateSelected}
             />
           )}
