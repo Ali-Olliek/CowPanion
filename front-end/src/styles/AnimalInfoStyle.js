@@ -106,6 +106,7 @@ const infoStyles = StyleSheet.create({
     justifyContent: "center",
     margin: 20,
   },
+  message: { textAlign: "center" },
 });
 
 export { infoStyles };
