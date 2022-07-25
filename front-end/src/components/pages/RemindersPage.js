@@ -52,29 +52,24 @@ export function RemindersPage({ navigation }) {
       <View style={styles.header}>
         <MainHeaderTitle style={styles.headertitle} title={"Todo List"} />
       </View>
-      <View style={Todos.midSec}>
-        <TouchableHighlight
-          style={Todos.backButton}
-          onPress={() => navigation.navigate("Home")}
-          underlayColor={"white"}
-        >
-          <Text>back</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          style={Todos.createTodoButton}
-          onPress={() => navigation.navigate("createReminder")}
-          underlayColor={"white"}
-        >
-          <Text>Create Reminder</Text>
-        </TouchableHighlight>
-      </View>
+      <View style={Todos.midSec}></View>
       {remindersList.length !== 0 ? (
         <TodosList todos={remindersList} />
       ) : (
         <View style={Todos.empty}>
-          <Text>No Reminders to Display</Text>
+          <Text style={Todos.messagePrimary}>No reminders to display</Text>
+          <Text style={Todos.messageSecondary}>
+            Press + to create reminders
+          </Text>
         </View>
       )}
+      <TouchableHighlight
+        style={Todos.addReminder}
+        onPress={() => navigation.navigate("createReminder")}
+        underlayColor={"white"}
+      >
+        <Text>+</Text>
+      </TouchableHighlight>
     </>
   );
 }

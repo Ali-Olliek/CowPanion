@@ -57,7 +57,7 @@ const Todos = StyleSheet.create({
     width: windowWidth,
     paddingHorizontal: 20,
     flexDirection: "row",
-    marginVertical: 20,
+    marginVertical: 5,
   },
   backButton: {
     backgroundColor: "#ACC0B3",
@@ -67,6 +67,25 @@ const Todos = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
+  },
+  empty: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: 0.24 * windowHeight,
+  },
+  addReminder: {
+    width: 42,
+    height: 42,
+    borderWidth: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
+    bottom: 20,
+    right: 10,
+    borderRadius: 40,
+    marginHorizontal: 20,
+    marginVertical: 10,
+    backgroundColor: "#D46C4E",
   },
 });
 
