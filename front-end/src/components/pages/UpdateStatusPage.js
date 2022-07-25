@@ -91,28 +91,28 @@ export function UpdateStatusPage({ navigation, route }) {
         </Text>
         <View style={statusStyles.container}>
           <TouchableHighlight
-            onPress={() => setStatus("pregnant")}
-            style={[statusStyles.PR, statusStyles.circle]}
+            onPress={() => setStatus("Calf")}
+            style={[statusStyles.Calf, statusStyles.circle]}
           >
-            <Text>Pregnant</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => setStatus("Dry")}
-            style={[statusStyles.D, statusStyles.circle]}
-          >
-            <Text>Dry</Text>
+            <Text>Calf</Text>
           </TouchableHighlight>
           <TouchableHighlight
             onPress={() => setStatus("Heifer")}
-            style={[statusStyles.H, statusStyles.circle]}
+            style={[statusStyles.Heifer, statusStyles.circle]}
           >
             <Text>Heifer</Text>
           </TouchableHighlight>
           <TouchableHighlight
-            onPress={() => setStatus("Quarantined")}
-            style={[statusStyles.Q, statusStyles.circle]}
+            onPress={() => setStatus("Dry")}
+            style={[statusStyles.Dry, statusStyles.circle]}
           >
-            <Text>Quarantined</Text>
+            <Text>Dry</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            onPress={() => setStatus("Lactating")}
+            style={[statusStyles.Lactating, statusStyles.circle]}
+          >
+            <Text>Lactating</Text>
           </TouchableHighlight>
         </View>
       </View>
