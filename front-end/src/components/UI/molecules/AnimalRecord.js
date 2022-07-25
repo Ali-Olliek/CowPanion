@@ -17,7 +17,7 @@ export function AnimalRecord({ animals, navigation }) {
             <>
               <TouchableOpacity
                 style={styles.recordContainer}
-                onPress={() => navigation.navigate("Animal")}
+                onPress={() => navigation.navigate("Animal", { id: item.id })}
               >
                 <Text style={styles.status}>{item.status}</Text>
                 <Text style={styles.animalAttr}>{item.id}</Text>
