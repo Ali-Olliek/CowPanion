@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/v1/createRecipe/', farmers_controller.create_recipe, name='create_recipe'),
     path('api/v1/getRecipe/', farmers_controller.get_recipe, name='get_recipe'),
     path('api/v1/deleteReminder/', farmers_controller.delete_farm_reminder, name='delete_reminder'),
+    path('api/v1/getGeneralStats/', farmers_controller.get_general_stats, name="general_stats"),
 
     # Admins
     path('api/v1/adminGetUsers/',admins_controller.get_users, name='admin_get_users'),

@@ -1,5 +1,6 @@
 # Farmer Actions
 
+from datetime import date
 from lib2to3.pytree import convert
 from qrcode import make as makeQR
 from django.http import HttpResponse, JsonResponse
@@ -181,6 +182,43 @@ def get_animal(request):
             "code": 200,
             "status": "success",
             "animal": animal_json
+        })
+
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })
+
+# Get General Stats
+
+
+def get_general_stats(request):
+    if request.method == "GET":
+        farmer_id = request.GET['user_id']
+
+        farm = Farm.objects.filter(farmer_id=farmer_id).get()
+        if not farm:
+            return JsonResponse({
+                "code": 203,
+                "status": "user has no farm"
+            })
+
+        animals = Animal.objects.filter(farm_id=farm.id).all()
+        animalsCount = len(animals)
+        lactating_cows = Animal.objects.filter(status="Lactating").count()
+        dry_cows = Animal.objects.filter(status="Dry").count()
+        milk = Milk.objects.filter(Farm_id=farm.id)
+        if milk:
+            milk = Milk.objects.filter(Farm_id=farm.id).order_by('-id')[0]
+        else:
+            milk = "no data present yet"
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "lactating_cows": lactating_cows,
+            "dry_cows": dry_cows,
+            "milk_quantity": milk,
+            "animal_count": animalsCount
         })
 
     return JsonResponse({
