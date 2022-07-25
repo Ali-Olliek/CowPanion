@@ -1,17 +1,33 @@
-import { View, TouchableWithoutFeedback } from "react-native";
+// Modules
+import { View, TouchableWithoutFeedback, Text } from "react-native";
 import React from "react";
-import { AnimalListTitle } from "../atoms";
+
+// Styles
 import { styles } from "../../../styles/AnimalsListStyle";
 
-export function AttributeBoxes() {
-  const titles = ["Status ↑↓", "ID ↑↓", "Name ↑↓", "Age ↑↓"];
-  const displayTitles = titles.map((title, index) => {
-    return <AnimalListTitle key={index} Attribute={title} />;
-  });
-
+export function AttributeBoxes({ setAttr }) {
   return (
-    <TouchableWithoutFeedback>
-      <View style={styles.Attributescontainer}>{displayTitles}</View>
-    </TouchableWithoutFeedback>
+    <View style={styles.Attributescontainer}>
+      <TouchableWithoutFeedback>
+        <View style={styles.attributeBox}>
+          <Text>Status</Text>
+        </View>
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={() => setAttr("id")}>
+        <View style={styles.attributeBox}>
+          <Text>ID ↑↓</Text>
+        </View>
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={() => setAttr("name")}>
+        <View style={styles.attributeBox}>
+          <Text>Name ↑↓</Text>
+        </View>
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={() => setAttr("DOB")}>
+        <View style={styles.attributeBox}>
+          <Text>Age ↑↓</Text>
+        </View>
+      </TouchableWithoutFeedback>
+    </View>
   );
 }
