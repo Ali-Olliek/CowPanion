@@ -32,5 +32,12 @@ const statusStyles = StyleSheet.create({
   Q: {
     backgroundColor: "#f08080",
   },
+  main: {
+    height: windowHeight * 0.3,
+    justifyContent: "center",
+  },
+  prompt: {
+    marginHorizontal: 20,
+  },
 });
 export { statusStyles };
