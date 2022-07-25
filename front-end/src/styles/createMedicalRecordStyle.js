@@ -31,6 +31,7 @@ const createMed = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-end",
     alignContent: "flex-end",
+    marginTop: 40,
   },
   save: {
     width: 80,
@@ -47,6 +48,35 @@ const createMed = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginRight: 20,
+  },
+  MainContainer: {
+    flex: 1,
+    padding: 6,
+    alignItems: "center",
+    height: 10,
+  },
+  text: {
+    fontSize: 14,
+    padding: 3,
+    marginBottom: 10,
+    textAlign: "center",
+  },
+  button: {
+    height: 50,
+  },
+  Auth: {
+    height: windowHeight,
+    width: windowWidth,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  image: {
+    width: 200,
+    height: 200,
+  },
+  messsageSecondary: {
+    fontSize: 12,
+    marginVertical: 20,
   },
 });
 
