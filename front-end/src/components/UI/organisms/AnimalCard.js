@@ -1,26 +1,26 @@
 // React
 import { View, Text, Image } from "react-native";
 import { infoStyles } from "../../../styles/AnimalInfoStyle";
+import { useState } from "react";
 
-export function AnimalCard() {
+export function AnimalCard({ info }) {
   return (
     <View style={infoStyles.infoCard}>
       <View style={infoStyles.attr}>
         <View style={infoStyles.list}>
-          <Text>ID</Text>
+          <Text>Animal Id: {info.pk}</Text>
           <View style={infoStyles.hr}></View>
-          <Text>Name</Text>
+          <Text>Name: {info.fields.name}</Text>
           <View style={infoStyles.hr}></View>
-          <Text>Status</Text>
+          <Text>Status: {info.fields.status}</Text>
           <View style={infoStyles.hr}></View>
-          <Text>Age</Text>
+          <Text>Date of Birth: {info.fields.DOB}</Text>
           <View style={infoStyles.hr}></View>
         </View>
-        <View style={infoStyles.picture}>
-          <Image
-            source={require("../../../assets/images/humidity.png")}
-          ></Image>
-        </View>
+        <Image
+          source={{ uri: info.fields.QR_code }}
+          style={{ width: 75, height: 75 }}
+        ></Image>
       </View>
     </View>
   );
