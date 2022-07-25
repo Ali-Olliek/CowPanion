@@ -1,26 +1,15 @@
-import { View, Text, FlatList, SafeAreaView } from "react-native";
+// Modules
+import { FlatList, SafeAreaView } from "react-native";
+//
+// Components
 import { Todo } from "../atoms/Todo";
-import { Todos } from "../../../styles/TodosStyle";
 
-export function TodosList() {
-  const TodosArr = [
-    {
-      description: "Hello There",
-      due: "Tomorrow",
-    },
-    {
-      description: "Bye There",
-      due: "Week ahead",
-    },
-  ];
-
+export function TodosList({ todos }) {
   return (
     <SafeAreaView style={{ justifyContent: "center", alignItems: "center" }}>
       <FlatList
-        data={TodosArr}
-        renderItem={({ item }) => (
-          <Todo description={item.description} due={item.due} />
-        )}
+        data={todos}
+        renderItem={({ item, index }) => <Todo index={index} props={item} />}
       />
     </SafeAreaView>
   );
