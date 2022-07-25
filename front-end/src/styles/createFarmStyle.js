@@ -27,6 +27,11 @@ const createFarmStyle = StyleSheet.create({
     marginTop: 100,
     backgroundColor: "#ACC0B3",
   },
+  inputsContainer: {
+    height: 0.2 * windowHeight,
+    justifyContent: "space-between",
+    marginVertical: 20,
+  },
 });
 
 export { createFarmStyle };
