@@ -80,31 +80,31 @@ export function AddAnimalPage({ navigation }) {
           ></TextInput>
           <View style={statusStyles.container}>
             <TouchableHighlight
-              onPress={() => setStatusInput("Pregnant")}
+              onPress={() => setStatusInput("Lactating")}
               underlayColor={"#c7a09f"}
-              style={[statusStyles.PR, statusStyles.circle]}
+              style={[statusStyles.Lactating, statusStyles.circle]}
             >
-              <Text>Pregnant</Text>
+              <Text>Lactating</Text>
             </TouchableHighlight>
             <TouchableHighlight
               onPress={() => setStatusInput("Dry")}
               underlayColor={"#8da1b5"}
-              style={[statusStyles.D, statusStyles.circle]}
+              style={[statusStyles.Dry, statusStyles.circle]}
             >
               <Text>Dry</Text>
             </TouchableHighlight>
             <TouchableHighlight
               onPress={() => setStatusInput("Heifer")}
-              style={[statusStyles.H, statusStyles.circle]}
+              style={[statusStyles.Heifer, statusStyles.circle]}
             >
               <Text>Heifer</Text>
             </TouchableHighlight>
             <TouchableHighlight
               onPress={() => setStatusInput("Quarantined")}
               underlayColor={"#bf6767"}
-              style={[statusStyles.Q, statusStyles.circle]}
+              style={[statusStyles.Calf, statusStyles.circle]}
             >
-              <Text>Quarantined</Text>
+              <Text>Calf</Text>
             </TouchableHighlight>
           </View>
           <View style={AddAnimalStyle.nav}>

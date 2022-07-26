@@ -12,9 +12,9 @@ const statusStyles = StyleSheet.create({
     width: windowWidth,
   },
   circle: {
-    height: 60,
+    height: 80,
     width: 80,
-    borderRadius: 10,
+    borderRadius: 40,
     borderWidth: 1,
     textAlign: "center",
     justifyContent: "center",
