@@ -1,10 +1,9 @@
 # Farmer Actions
 
-from datetime import date
-from lib2to3.pytree import convert
+
 from qrcode import make as makeQR
 from django.http import HttpResponse, JsonResponse
-from utils.utility_functions import get_base64, object_to_json
+from utils.utility_functions import get_base64, object_to_json, convert_to_json
 
 # Necessary models
 
@@ -209,9 +208,11 @@ def get_general_stats(request):
         dry_cows = Animal.objects.filter(status="Dry").count()
         milk = Milk.objects.filter(Farm_id=farm.id)
         if milk:
-            milk = Milk.objects.filter(Farm_id=farm.id).order_by('-id')[0]
+            milk = Milk.objects.filter(Farm_id=farm.id).order_by(
+                '-id').values('quantity').get()
         else:
             milk = "no data"
+
         return JsonResponse({
             "code": 200,
             "status": "success",
@@ -405,7 +406,7 @@ def get_milk(request):
         return JsonResponse({
             "code": 200,
             "status": "success",
-            "milk profiles": milk_profile_json
+            "milk_profiles": milk_profile_json
         })
 
     return JsonResponse({
