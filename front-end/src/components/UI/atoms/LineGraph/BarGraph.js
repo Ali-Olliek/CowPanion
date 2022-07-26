@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, useState } from "react";
 import { Dimensions, View } from "react-native";
 import { Svg, G, Rect, Text, Line } from "react-native-svg";
 import * as d3 from "d3";
@@ -6,6 +6,7 @@ import * as d3 from "d3";
 export function BarChart({ milkData }) {
   //
   // States and Variables
+  const [tooltipDisplay, setTooltipDisplay] = useState(false);
   const quantityPerDay = milkData.map((record) => {
     return { value: record.fields.quantity, day: record.fields.day };
   });
@@ -14,6 +15,8 @@ export function BarChart({ milkData }) {
     return quantityPerDay[key].value;
   });
 
+  //
+  // Graph Dimensions
   const GRAPH_BAR_WIDTH = 5;
   const GRAPH_MARGIN = 20;
   const colors = {
@@ -24,12 +27,12 @@ export function BarChart({ milkData }) {
   const SVGWidth = Dimensions.get("screen").width * 0.9;
   const graphHeight = SVGHeight - 2 * GRAPH_MARGIN;
   const graphWidth = SVGWidth - 2 * GRAPH_MARGIN;
-
+  //
   // X scale point
   const xDomain = quantityPerDay.map((item) => item.day);
   const xRange = [0, graphWidth];
   const x = d3.scalePoint().domain(xDomain).range(xRange).padding(1);
-
+  //
   // Y scale linear
   const maxValue = d3.max(values);
   const topValue = Math.ceil(maxValue);
@@ -39,10 +42,6 @@ export function BarChart({ milkData }) {
   //
   // Mid Value
   const middleValue = maxValue / 2;
-
-  console.log({ mid: middleValue, top: topValue, max: maxValue });
-  console.log(quantityPerDay.map((item) => item.day));
-  console.log(quantityPerDay.map((item) => item.value));
 
   const displayGraph = () => {
     return (
@@ -81,15 +80,29 @@ export function BarChart({ milkData }) {
           />
           {/* bars */}
           {quantityPerDay.map((item) => (
-            <Rect
-              key={item.day}
-              x={x(item.day) - GRAPH_BAR_WIDTH / 2}
-              y={y(item.value) * -1}
-              rx={1}
-              width={GRAPH_BAR_WIDTH}
-              height={y(item.value)}
-              fill={colors.bars}
-            />
+            <>
+              {tooltipDisplay ? (
+                <Text
+                  y={y(item.value) * -1 - 10}
+                  x={x(item.day) - GRAPH_BAR_WIDTH / 2}
+                  fontSize="8"
+                  fill={"black"}
+                >
+                  {item.value}
+                </Text>
+              ) : null}
+              <Rect
+                onPressIn={() => setTooltipDisplay(true)}
+                onPressOut={() => setTooltipDisplay(false)}
+                key={item.day}
+                x={x(item.day) - GRAPH_BAR_WIDTH / 2}
+                y={y(item.value) * -1}
+                rx={1}
+                width={GRAPH_BAR_WIDTH}
+                height={y(item.value)}
+                fill={colors.bars}
+              />
+            </>
           ))}
           {/* labels */}
           {quantityPerDay.map((item) => (
