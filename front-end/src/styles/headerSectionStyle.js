@@ -16,7 +16,6 @@ const headerSectionStyle = StyleSheet.create({
     backgroundColor: "#344E41",
   },
   title: {
-    color: "red",
     borderRadius: 5,
     paddingHorizontal: 10,
     height: 0.05 * windowHeight,

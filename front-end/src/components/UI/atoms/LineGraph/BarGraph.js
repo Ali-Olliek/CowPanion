@@ -17,14 +17,14 @@ export function BarChart({ milkData }) {
 
   //
   // Graph Dimensions
-  const GRAPH_BAR_WIDTH = 5;
+  const GRAPH_BAR_WIDTH = 25;
   const GRAPH_MARGIN = 20;
   const colors = {
     axis: "black",
     bars: "#344E41",
   };
   const SVGHeight = 200;
-  const SVGWidth = Dimensions.get("screen").width * 0.9;
+  const SVGWidth = Dimensions.get("screen").width;
   const graphHeight = SVGHeight - 2 * GRAPH_MARGIN;
   const graphWidth = SVGWidth - 2 * GRAPH_MARGIN;
   //
@@ -78,17 +78,17 @@ export function BarChart({ milkData }) {
             stroke={colors.axis}
             strokeWidth="0.5"
           />
-          {/* bars */}
+          {/* bars & Tooltip */}
           {quantityPerDay.map((item) => (
             <>
               {tooltipDisplay ? (
                 <Text
                   y={y(item.value) * -1 - 10}
-                  x={x(item.day) - GRAPH_BAR_WIDTH / 2}
+                  x={x(item.day) - GRAPH_BAR_WIDTH / 2 - 5}
                   fontSize="8"
                   fill={"black"}
                 >
-                  {item.value}
+                  {item.value} cm3
                 </Text>
               ) : null}
               <Rect
@@ -100,7 +100,7 @@ export function BarChart({ milkData }) {
                 rx={1}
                 width={GRAPH_BAR_WIDTH}
                 height={y(item.value)}
-                fill={colors.bars}
+                fill={tooltipDisplay ? "#D46C4E" : colors.bars}
               />
             </>
           ))}

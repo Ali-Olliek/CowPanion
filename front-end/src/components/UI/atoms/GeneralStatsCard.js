@@ -27,7 +27,7 @@ export function GeneralStatsCard() {
       }, 100);
     });
   };
-  console.log(stats);
+
   useEffect(() => {
     getGeneralStats();
   }, []);
