@@ -1,35 +1,35 @@
-import React, { PureComponent, useState } from "react";
+import React, { useState } from "react";
 import { Dimensions, View } from "react-native";
 import { Svg, G, Rect, Text, Line } from "react-native-svg";
 import * as d3 from "d3";
 
-export function BarChart({ milkData }) {
+export function FeedsChart({ feedData }) {
   //
   // States and Variables
   const [tooltipDisplay, setTooltipDisplay] = useState(false);
-  const quantityPerDay = milkData.map((record) => {
-    return { value: record.fields.quantity, day: record.fields.day };
+  const proteinPerIngredient = feedData.map((record) => {
+    return { value: record.crude_protein_CP, name: record.name };
   });
 
-  const values = Object.keys(quantityPerDay).map(function (key) {
-    return quantityPerDay[key].value;
+  const values = Object.keys(proteinPerIngredient).map(function (key) {
+    return proteinPerIngredient[key].value;
   });
 
   //
   // Graph Dimensions
-  const GRAPH_BAR_WIDTH = 25;
+  const GRAPH_BAR_WIDTH = 10;
   const GRAPH_MARGIN = 20;
   const colors = {
     axis: "black",
     bars: "#344E41",
   };
-  const SVGHeight = 200;
+  const SVGHeight = 140;
   const SVGWidth = Dimensions.get("screen").width;
   const graphHeight = SVGHeight - 2 * GRAPH_MARGIN;
   const graphWidth = SVGWidth - 2 * GRAPH_MARGIN;
   //
   // X scale point
-  const xDomain = quantityPerDay.map((item) => item.day);
+  const xDomain = proteinPerIngredient.map((item) => item.name);
   const xRange = [0, graphWidth];
   const x = d3.scalePoint().domain(xDomain).range(xRange).padding(1);
   //
@@ -68,6 +68,12 @@ export function BarChart({ milkData }) {
             strokeDasharray={[3, 3]}
             strokeWidth="0.5"
           />
+          <Text fontSize="8" y={y(middleValue * -1 - 1)} fill="black">
+            {middleValue}
+          </Text>
+          <Text fontSize="8" y={y(topValue * -1 - 1)} fill="black">
+            {topValue}
+          </Text>
 
           {/* bottom axis */}
           <Line
@@ -79,41 +85,43 @@ export function BarChart({ milkData }) {
             strokeWidth="0.5"
           />
           {/* bars & Tooltip */}
-          {quantityPerDay.map((item) => (
-            <>
+          {proteinPerIngredient.map((item, index) => (
+            <G key={index}>
               {tooltipDisplay ? (
                 <Text
-                  y={y(item.value) * -1 - 10}
-                  x={x(item.day) - GRAPH_BAR_WIDTH / 2 - 5}
+                  key={proteinPerIngredient[item]}
+                  y={y(item.value) * -1}
+                  x={x(item.name) - GRAPH_BAR_WIDTH / 2 - 5}
                   fontSize="8"
                   fill={"black"}
                 >
-                  {item.value} cm3
+                  {item.value} %
                 </Text>
               ) : null}
               <Rect
                 onPressIn={() => setTooltipDisplay(true)}
                 onPressOut={() => setTooltipDisplay(false)}
-                key={item.day}
-                x={x(item.day) - GRAPH_BAR_WIDTH / 2}
+                key={proteinPerIngredient[item]}
+                x={x(item.name) - GRAPH_BAR_WIDTH / 2}
                 y={y(item.value) * -1}
                 rx={1}
                 width={GRAPH_BAR_WIDTH}
                 height={y(item.value)}
                 fill={tooltipDisplay ? "#D46C4E" : colors.bars}
               />
-            </>
+            </G>
           ))}
           {/* labels */}
-          {quantityPerDay.map((item) => (
+          {proteinPerIngredient.map((item, index) => (
             <Text
+              key={proteinPerIngredient[item]}
               fontSize="8"
-              x={x(item.day)}
+              x={x(item.name)}
               y="10"
               fill={"black"}
               textAnchor="middle"
             >
-              {item.day}
+              {item.name}
             </Text>
           ))}
         </G>
@@ -123,7 +131,7 @@ export function BarChart({ milkData }) {
 
   return (
     <View>
-      {(quantityPerDay, topValue, middleValue, maxValue)
+      {(proteinPerIngredient, topValue, middleValue, maxValue)
         ? displayGraph()
         : null}
     </View>
