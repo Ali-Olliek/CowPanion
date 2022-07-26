@@ -208,8 +208,8 @@ def get_general_stats(request):
         dry_cows = Animal.objects.filter(status="Dry").count()
         milk = Milk.objects.filter(Farm_id=farm.id)
         if milk:
-            milk = Milk.objects.filter(Farm_id=farm.id).order_by(
-                '-id').values('quantity').get()
+            milk = Milk.objects.filter(
+                Farm_id=farm.id).order_by('-id', 'pk').values('quantity').first()
         else:
             milk = "no data"
 
