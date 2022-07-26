@@ -2,6 +2,7 @@
 import { View, Image } from "react-native";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 //Styles
 import { AuthStyles } from "../../styles/AuthPagesStyle";
 
@@ -10,7 +11,7 @@ import { LoginInputs } from "../UI/molecules/LoginInputs";
 import { PrimaryAuthButton, SecondaryAuthButton } from "../UI/atoms/Auth";
 import { useState } from "react";
 import { ErrorBox } from "../UI/atoms/ErrorBox";
-import { loginRedux } from "../../redux/features/user";
+import { loginRedux, saveUserData } from "../../redux/features/user";
 
 // Login Page
 export function LoginPage({ navigation }) {
@@ -18,6 +19,14 @@ export function LoginPage({ navigation }) {
   // Hooks
   const dispatch = useDispatch();
 
+  const saveUserData = async (userId) => {
+    await AsyncStorage.setItem(
+      "userData",
+      JSON.stringify({
+        userId: userId,
+      })
+    );
+  };
   // States
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
@@ -51,6 +60,7 @@ export function LoginPage({ navigation }) {
             isLogged: true,
           })
         );
+        saveUserData(response.data.user_id);
         navigation.navigate("LandingPage");
       } else {
         setDisplayError(true);
