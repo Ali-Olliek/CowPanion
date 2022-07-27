@@ -11,7 +11,6 @@ import { createMed } from "../../styles";
 import { SignupInputs } from "../UI/molecules/SignupInputs";
 import { PrimaryAuthButton, SecondaryAuthButton } from "../UI/atoms/Auth";
 import { ErrorBox } from "../UI/atoms/ErrorBox";
-import { DatePicker } from "../UI/atoms/DatePicker";
 import DateTimePickerAndroid from "@react-native-community/datetimepicker";
 
 export function SignUpPage({ navigation }) {

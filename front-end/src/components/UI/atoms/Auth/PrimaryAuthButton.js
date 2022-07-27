@@ -1,9 +1,12 @@
 import { View, Text, TouchableHighlight } from "react-native";
 import { buttons } from "../../../../styles/ButtonsStyle";
-export function PrimaryAuthButton({ placeholder, nav, navigation, action }) {
+export function PrimaryAuthButton({ placeholder, setSendRequest }) {
   return (
     <View>
-      <TouchableHighlight onPress={action} style={buttons.primary}>
+      <TouchableHighlight
+        onPressIn={() => setSendRequest(true)}
+        style={buttons.primary}
+      >
         <Text>{placeholder}</Text>
       </TouchableHighlight>
     </View>

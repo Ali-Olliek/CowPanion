@@ -1,17 +1,18 @@
 // Modules
-import { View, Image } from "react-native";
+
 import axios from "axios";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { View, Image } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { loginRedux, saveUserData } from "../../redux/features/user";
 //Styles
 import { AuthStyles } from "../../styles/AuthPagesStyle";
 
 // Components
 import { LoginInputs } from "../UI/molecules/LoginInputs";
 import { PrimaryAuthButton, SecondaryAuthButton } from "../UI/atoms/Auth";
-import { useState } from "react";
 import { ErrorBox } from "../UI/atoms/ErrorBox";
-import { loginRedux, saveUserData } from "../../redux/features/user";
 
 // Login Page
 export function LoginPage({ navigation }) {
@@ -31,10 +32,14 @@ export function LoginPage({ navigation }) {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [displayError, setDisplayError] = useState(false);
-
+  const [sendRequest, setSendRequest] = useState(false);
   // Constructing Data Request
   const data = { email: emailInput, password: passwordInput };
   const loginUrl = "http://10.0.2.2:8000/api/v1/signIn/";
+
+  useEffect(() => {
+    login();
+  }, [sendRequest]);
 
   // Login Function
   const login = () => {
@@ -85,7 +90,7 @@ export function LoginPage({ navigation }) {
         />
         {displayError ? <ErrorBox description={"Log In Failed"} /> : null}
         <PrimaryAuthButton
-          action={login}
+          setSendRequest={setSendRequest}
           navigation={navigation}
           nav={"LandingPage"}
           placeholder={"Sign In"}
