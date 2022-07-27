@@ -62,7 +62,8 @@ const createMed = StyleSheet.create({
     textAlign: "center",
   },
   button: {
-    height: 50,
+    height: 40,
+    marginVertical: -40,
   },
   Auth: {
     height: windowHeight,

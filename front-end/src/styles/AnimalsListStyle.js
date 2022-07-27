@@ -7,12 +7,12 @@ const styles = StyleSheet.create({
   header: {
     height: windowHeight * 0.15,
     width: windowWidth,
-    backgroundColor: "#344E41",
+    backgroundColor: "white",
     justifyContent: "center",
     paddingHorizontal: 20,
   },
   headertitle: {
-    backgroundColor: "#D9D9D9",
+    backgroundColor: "white",
     height: 35,
     paddingHorizontal: 30,
     justifyContent: "center",
