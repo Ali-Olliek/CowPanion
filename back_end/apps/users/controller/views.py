@@ -60,11 +60,23 @@ def sign_up(request):
 
             user.save()
 
+            jwt_token = jwt.encode({
+                "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=1440),
+                "user_id": user.id,
+                "user_type": user.user_Type,
+                "user_name": user.name},
+                '18795',
+                algorithm="HS256")
+
             # Success
             return JsonResponse({
                 "code": 201,
                 "status": "success",
-                "message": "user registered"
+                "message": "user registered",
+                "user_name": user.name,
+                "user_type": user.user_Type,
+                "user_id": user.id,
+                "token": jwt_token,
             })
 
     # General Request Error
