@@ -4,7 +4,7 @@ import { UtilityStyles } from "../../../styles/UtilityStyles";
 export function FixingError() {
   return (
     <View style={UtilityStyles.Error}>
-      <Text>Something Went Wronggg</Text>
+      <Text>Something Went Wrong</Text>
       <Image
         style={{ width: 220, height: 220 }}
         source={require("../../../assets/images/Error.png")}
