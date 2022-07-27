@@ -42,7 +42,8 @@ vet_urls = [
     '/api/v1/animals/',
     '/api/v1/animal/',
     '/api/v1/updateMedicalRecord/',
-    '/api/v1/getMedicalRecord/'
+    '/api/v1/getMedicalRecord/',
+    '/api/v1/getAssignedAnimals/'
 ]
 
 
@@ -71,7 +72,7 @@ def user_type_middleware(get_response):
         # If requested URL requires Authentication
         # Process the JWT Token and get the User Type
         token = request.headers['Authorization']
-        print(token)
+
         payload = jwt.decode(token, '18795', algorithms=['HS256'])
         user_type = payload['user_type']
 

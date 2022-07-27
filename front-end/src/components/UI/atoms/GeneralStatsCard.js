@@ -36,7 +36,7 @@ export function GeneralStatsCard() {
       if (!stats) {
         getGeneralStats();
       }
-    }, [stats])
+    }, [])
   );
 
   const page = () => {

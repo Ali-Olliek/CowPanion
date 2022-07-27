@@ -1,11 +1,13 @@
 import csv
-import json 
+import json
 import tabula
 import base64
 from io import BytesIO
 from django.core.serializers import serialize
 
 # Function To Create B64 Format
+
+
 def get_base64(image):
     buffered = BytesIO()
     image.save(buffered, format="JPEG")
@@ -13,36 +15,44 @@ def get_base64(image):
     return "data:image/jpeg;base64," + img_str.decode()
 
 # turn csv to json
+
+
 def convert_to_json(csvfile, jsonfile):
 
     data = []
 
-    with open(csvfile,'r', encoding='ISO 8859-1') as csvf:
+    with open(csvfile, 'r', encoding='ISO 8859-1') as csvf:
         csvReader = csv.DictReader(csvf)
 
         for rows in csvReader:
             data.append(rows)
-    
+
     with open(jsonfile, 'w', encoding='utf-8') as jsonf:
         jsonf.write(json.dumps(data))
 
-# scrape pdf tables 
-file = "C:/Users/Ollie/Desktop/feeds.pdf" # directory of the pdf file
+
+# scrape pdf tables
+file = "C:/Users/Ollie/Desktop/feeds.pdf"  # directory of the pdf file
+
+
 def scrape_data(file):
-    tabula.read_pdf(file, pages=92) # Pages to read
-    tabula.convert_into(file, "utils/feeds.csv", pages="92-100", output_format="csv", stream=True) # pages to convert
+    tabula.read_pdf(file, pages=92)  # Pages to read
+    tabula.convert_into(file, "utils/feeds.csv", pages="92-100",
+                        output_format="csv", stream=True)  # pages to convert
 
     csvfile = 'utils/feeds.csv'
     jsonfile = 'utils/feeds.json'
 
     convert_to_json(csvfile, jsonfile)
 
-# To populate the 
+# To populate the
 # Json file we will
 # invoke the function
 # through an Admin API
 
 # serialize Json
+
+
 def object_to_json(object):
     to_json = serialize("json", object)
     feeds_json = json.loads(to_json)

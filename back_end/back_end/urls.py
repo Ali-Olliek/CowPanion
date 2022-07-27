@@ -43,4 +43,5 @@ urlpatterns = [
     
     path('api/v1/updateMedicalRecord/', vet_controller.update_medical_history, name='update_medicals'),
     path('api/v1/getMedicalRecord/', vet_controller.get_medical_history, name='get_history'),
+    path('api/v1/getAssignedAnimals/', vet_controller.get_farm_animals, name='get_assigned_animals'),
 ]
