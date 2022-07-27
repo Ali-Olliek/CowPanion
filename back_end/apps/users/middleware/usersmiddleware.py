@@ -70,23 +70,23 @@ def user_type_middleware(get_response):
 
         # If requested URL requires Authentication
         # Process the JWT Token and get the User Type
-
         token = request.headers['Authorization']
+        print(token)
         payload = jwt.decode(token, '18795', algorithms=['HS256'])
         user_type = payload['user_type']
 
         # Conditionals to check which request gets forwarded to which controller/view
 
         # If Admin
-        if sanitized_url in admin_urls and user_type == 1:
+        if sanitized_url in admin_urls and (user_type == '1' or user_type == 1):
             return get_response(request)
 
         # If Farmer
-        elif sanitized_url in farmer_urls and user_type == 2:
+        elif sanitized_url in farmer_urls and (user_type == '2' or user_type == 2):
             return get_response(request)
 
         # If Vet
-        elif sanitized_url in vet_urls and user_type == 3:
+        elif sanitized_url in vet_urls and (user_type == '3' or user_type == 3):
             return get_response(request)
 
         return JsonResponse({
