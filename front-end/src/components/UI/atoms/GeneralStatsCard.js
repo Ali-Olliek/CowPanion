@@ -1,8 +1,10 @@
 // Modules
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState, useCallback } from "react";
 import { View, Text, TouchableHighlight } from "react-native";
 import { useSelector } from "react-redux";
+import { useFocusEffect } from "@react-navigation/native";
+
 // Styles
 import { statsStyle } from "../../../styles/statsStyle";
 
@@ -28,10 +30,13 @@ export function GeneralStatsCard() {
     });
   };
 
-  useEffect(() => {
-    getGeneralStats();
-  }, []);
+  useFocusEffect(
+    useCallback(() => {
+      getGeneralStats();
+    }, [])
+  );
 
+  console.log(stats);
   const page = () => {
     return (
       <View style={statsStyle.container}>
