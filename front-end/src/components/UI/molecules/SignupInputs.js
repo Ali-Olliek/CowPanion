@@ -18,7 +18,7 @@ export function SignupInputs({ props }) {
       <View style={AuthStyles.imagesContainer}>
         <TouchableHighlight
           underlayColor={"white"}
-          onPress={() => props.setUserType(1)}
+          onPress={() => props.setUserType(2)}
         >
           <Image
             style={AuthStyles.image}
@@ -27,7 +27,7 @@ export function SignupInputs({ props }) {
         </TouchableHighlight>
         <TouchableHighlight
           underlayColor={"white"}
-          onPress={() => props.setUserType(2)}
+          onPress={() => props.setUserType(3)}
         >
           <Image
             style={AuthStyles.image}
