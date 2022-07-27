@@ -5,7 +5,8 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { View, Image } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { loginRedux, saveUserData } from "../../redux/features/user";
+import { loginRedux } from "../../redux/features/user";
+
 //Styles
 import { AuthStyles } from "../../styles/AuthPagesStyle";
 
@@ -20,14 +21,6 @@ export function LoginPage({ navigation }) {
   // Hooks
   const dispatch = useDispatch();
 
-  const saveUserData = async (userId) => {
-    await AsyncStorage.setItem(
-      "userData",
-      JSON.stringify({
-        userId: userId,
-      })
-    );
-  };
   // States
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
@@ -58,6 +51,22 @@ export function LoginPage({ navigation }) {
       data: data,
     }).then((response) => {
       if (response.data.code === 200) {
+        if (response.data.user_type == 2) {
+          navigation.navigate("LandingPage");
+        } else if (response.data.user_type == 3) {
+          navigation.navigate("Animals");
+        }
+        const storeData = async () => {
+          try {
+            await AsyncStorage.setItem(
+              "userType",
+              String(response.data.user_type)
+            );
+          } catch (error) {
+            console.log(error);
+          }
+        };
+        storeData();
         dispatch(
           loginRedux({
             id: response.data.user_id,
@@ -67,8 +76,6 @@ export function LoginPage({ navigation }) {
             isLogged: true,
           })
         );
-        saveUserData(response.data.user_id);
-        navigation.navigate("LandingPage");
       } else {
         setDisplayError(true);
         setTimeout(() => {
@@ -93,13 +100,11 @@ export function LoginPage({ navigation }) {
         {displayError ? <ErrorBox description={"Log In Failed"} /> : null}
         <PrimaryAuthButton
           setSendRequest={setSendRequest}
-          navigation={navigation}
-          nav={"LandingPage"}
           placeholder={"Sign In"}
         />
         <SecondaryAuthButton
-          navigation={navigation}
           nav={"SignUp"}
+          navigation={navigation}
           placeholder={"Sign Up"}
         />
       </View>

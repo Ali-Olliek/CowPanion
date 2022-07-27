@@ -11,8 +11,8 @@ export function SecondaryAuthButton({ placeholder, nav, navigation }) {
   return (
     <View>
       <TouchableHighlight
-        style={buttons.secondary}
         onPress={() => navigation.navigate(nav)}
+        style={buttons.secondary}
         underlayColor={"#D46C4E"}
       >
         <Text>{placeholder}</Text>

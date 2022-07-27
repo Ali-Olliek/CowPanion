@@ -33,6 +33,7 @@ export function CreateMedicalRecordPage({
   const { token } = useSelector((state) => state.user.user);
   const [auth, setAuth] = useState(true);
   const [success, setSuccess] = useState(false);
+
   // Functions
 
   const showDatePicker = () => {

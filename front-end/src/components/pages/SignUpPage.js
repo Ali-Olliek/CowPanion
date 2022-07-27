@@ -2,8 +2,9 @@
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
-import { View, Text, SafeAreaView, Button } from "react-native";
 import { loginRedux } from "../../redux/features/user";
+import { View, Text, SafeAreaView, Button } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 // Styles
 import { AuthStyles } from "../../styles/AuthPagesStyle";
 import { createMed } from "../../styles";
@@ -86,7 +87,17 @@ export function SignUpPage({ navigation }) {
     })
       .then((response) => {
         if (response.status === 200) {
-          navigation.navigate("OnBoarding");
+          const storeData = async () => {
+            try {
+              await AsyncStorage.setItem(
+                "userType",
+                String(response.data.user_type)
+              );
+            } catch (error) {
+              console.log(error);
+            }
+          };
+          storeData();
           dispatch(
             loginRedux({
               id: response.data.user_id,
@@ -96,6 +107,11 @@ export function SignUpPage({ navigation }) {
               isLogged: true,
             })
           );
+          if (response.data.user_type == 2) {
+            navigation.navigate("OnBoarding");
+          } else if (response.data.user_type == 3) {
+            navigation.navigate("Animals");
+          }
         } else {
           setDisplayError(true);
           setTimeout(() => {

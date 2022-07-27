@@ -18,7 +18,6 @@ export function RemindersPage({ navigation }) {
   // States and variables
   const [remindersList, setRemindersList] = useState([]);
   const { id, token } = useSelector((state) => state.user.user);
-
   //
   // Create Request
   const getRemindersUrl = `http://10.0.2.2:8000/api/v1/farmReminders/?user_id=${id}`;

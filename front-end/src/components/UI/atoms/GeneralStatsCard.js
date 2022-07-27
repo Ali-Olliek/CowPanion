@@ -7,6 +7,7 @@ import { useFocusEffect } from "@react-navigation/native";
 
 // Styles
 import { statsStyle } from "../../../styles/statsStyle";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function GeneralStatsCard() {
   //
@@ -32,11 +33,12 @@ export function GeneralStatsCard() {
 
   useFocusEffect(
     useCallback(() => {
-      getGeneralStats();
-    }, [])
+      if (!stats) {
+        getGeneralStats();
+      }
+    }, [stats])
   );
 
-  console.log(stats);
   const page = () => {
     return (
       <View style={statsStyle.container}>
