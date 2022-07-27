@@ -13,7 +13,7 @@ import { Map } from "../UI/organisms";
 import { MainHeaderTitle } from "../UI/atoms";
 // Generate Password For Farm and Send it with the post request
 
-export function CreateFarmPage() {
+export function CreateFarmPage({ navigation }) {
   //
   // States and variables
   const [name, setName] = useState("");
@@ -21,16 +21,18 @@ export function CreateFarmPage() {
   const [coordinate, setCoordinate] = useState();
   const { id, token } = useSelector((state) => state.user.user);
   const farm_password = Math.floor(Math.random() * 100);
+
   //
   // Create Request
   const createFarmUrl = "http://10.0.2.2:8000/api/v1/createFarm/";
   const data = {
     name: name,
-    location: coordinate,
+    location: JSON.stringify(coordinate),
     milk_container_volume: container,
     farm_password: farm_password,
     user_id: id,
   };
+
   const createFarm = () => {
     axios({
       method: "POST",
@@ -40,7 +42,7 @@ export function CreateFarmPage() {
     })
       .then((response) => {
         if (response.data.code === 201) {
-          console.log("created farm");
+          navigation.navigate("LandingPage");
         }
       })
       .catch((error) => {
