@@ -27,11 +27,8 @@ const AuthStyles = StyleSheet.create({
     height: 80,
   },
   ErrorBox: {
-    height: 50,
+    height: 20,
     margin: 0,
-    position: "absolute",
-    bottom: 0.37 * windowHeight,
-    width: 0.8 * windowWidth,
     justifyContent: "center",
     alignItems: "center",
   },
