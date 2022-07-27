@@ -3,6 +3,7 @@
 from django.http import HttpResponse, JsonResponse
 from utils.utility_functions import object_to_json
 
+
 # Necessary Models
 
 from ...animals.models import Animal
@@ -73,18 +74,22 @@ def get_farm_animals(request):
         vet_id = request.GET['vet_id']
         assigned_farms = Farm.objects.all().filter(vet=vet_id)
         all_animals = []
+        # From this I get QuerySets with Values In them (Value is the record itself)
         for farm in assigned_farms:
-            animals = Animal.objects.all().filter(farm_id=farm.pk)
+            animals = Animal.objects.all().filter(
+                farm_id=farm.pk).values('name', 'status', 'id', 'DOB')
             all_animals.append(animals)
+        # I take the value from each querySet and append it to a new list
+        animal_data = []
+        for querySet in all_animals:
+            for value in querySet:
+                animal_data.append(value)
 
-        serialized_animals = []
-        for animal in all_animals:
-            serialized_animals.append(object_to_json(animal))
-
-        return JsonResponse(
-            {"code": 200,
-             "status": "success",
-             "animals": serialized_animals})
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "animals": animal_data
+        })
 
     return JsonResponse({
         "code": 500,
