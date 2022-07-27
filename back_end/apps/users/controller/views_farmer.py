@@ -40,6 +40,7 @@ def create_farm(request):
         location = data['location']
         milk_container_volume = data['milk_container_volume']
         farm_password = data['farm_password']
+        vet = data['vet_id']
 
         farmer = User.objects.get(id=data['user_id'])
 
@@ -49,6 +50,7 @@ def create_farm(request):
             location=location,
             milk_container_volume=milk_container_volume,
             farm_password=farm_password,
+            vet=vet
         )
 
         farm.save()
@@ -465,3 +467,22 @@ def get_recipe(request):
             "status": "success",
             "Feed Recipe": ingredients_json
         })
+
+# get Veterinarians
+
+
+def get_all_vets(request):
+    if request.method == "GET":
+        vets = User.objects.filter(user_Type=3).all()
+        vets_json = object_to_json(vets)
+
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "vet_list": vets_json
+        })
+
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })

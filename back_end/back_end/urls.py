@@ -27,7 +27,9 @@ urlpatterns = [
     path('api/v1/createRecipe/', farmers_controller.create_recipe, name='create_recipe'),
     path('api/v1/getRecipe/', farmers_controller.get_recipe, name='get_recipe'),
     path('api/v1/deleteReminder/', farmers_controller.delete_farm_reminder, name='delete_reminder'),
-    path('api/v1/getGeneralStats/', farmers_controller.get_general_stats, name="general_stats"),
+    path('api/v1/getGeneralStats/', farmers_controller.get_general_stats, name="general_stats"),    
+    path('api/v1/getVets/', farmers_controller.get_all_vets, name="get_vets"),    
+
 
     # Admins
     path('api/v1/adminGetUsers/',admins_controller.get_users, name='admin_get_users'),
@@ -38,6 +40,7 @@ urlpatterns = [
     path('api/v1/getFeeds/', admins_controller.get_feeds, name='get_feeds'),
 
     # Vets
+    
     path('api/v1/updateMedicalRecord/', vet_controller.update_medical_history, name='update_medicals'),
     path('api/v1/getMedicalRecord/', vet_controller.get_medical_history, name='get_history'),
 ]
