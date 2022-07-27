@@ -44,7 +44,7 @@ export function AnimalsListPage({ navigation }) {
   };
 
   useEffect(() => {
-    if (userType == 3 && vetAnimals) {
+    if (userType == 3) {
       getVetAnimals();
     }
   }, []);

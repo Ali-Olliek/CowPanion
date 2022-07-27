@@ -1,20 +1,19 @@
 // Modules
 import axios from "axios";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { View, Text, TouchableHighlight } from "react-native";
 import { useSelector } from "react-redux";
 import { useFocusEffect } from "@react-navigation/native";
 
 // Styles
 import { statsStyle } from "../../../styles/statsStyle";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export function GeneralStatsCard() {
   //
   // States and Variables
-  const [stats, setStats] = useState({});
-  const { token, id } = useSelector((state) => state.user.user);
   const [milk, setMilk] = useState("");
+  const [stats, setStats] = useState({});
+  const { token, id, userType } = useSelector((state) => state.user.user);
   //
   // Create Requestt
   const statsUrl = `http://10.0.2.2:8000/api/v1/getGeneralStats/?user_id=${id}`;
@@ -31,13 +30,19 @@ export function GeneralStatsCard() {
     });
   };
 
-  useFocusEffect(
-    useCallback(() => {
-      if (!stats) {
-        getGeneralStats();
-      }
-    }, [])
-  );
+  if (userType == 2) {
+    useFocusEffect(
+      useCallback(() => {
+        if (stats) {
+          getGeneralStats();
+        }
+      }, [])
+    );
+  } else if (userType == 3) {
+    useEffect(() => {
+      getGeneralStats();
+    }, []);
+  }
 
   const page = () => {
     return (
