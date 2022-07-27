@@ -204,8 +204,9 @@ def get_general_stats(request):
 
         animals = Animal.objects.filter(farm_id=farm.id).all()
         animalsCount = len(animals)
-        lactating_cows = Animal.objects.filter(status="Lactating").count()
-        dry_cows = Animal.objects.filter(status="Dry").count()
+        lactating_cows = Animal.objects.filter(
+            farm_id=farm.id, status="Lactating").count()
+        dry_cows = Animal.objects.filter(farm_id=farm.id, status="Dry").count()
         milk = Milk.objects.filter(Farm_id=farm.id)
         if milk:
             milk = Milk.objects.filter(
