@@ -13,11 +13,12 @@ import { AnimalRecord, AttributeBoxes } from "../UI/molecules";
 
 export function AnimalsListPage({ navigation }) {
   // States and Variables
-  const { token, id } = useSelector((state) => state.user.user);
+  const { token, id, userType } = useSelector((state) => state.user.user);
   const [animals, setAnimals] = useState([]);
   const [sortedAnimals, setSortedAnimals] = useState([]);
   const [fetchError, setFetchError] = useState(false);
   const [attr, setAttr] = useState("Id");
+  const [vetAnimals, setVetAnimals] = useState([]);
   //
   // Constructing Request
   const animalsListUrl = `http://10.0.2.2:8000/api/v1/animals/?user_id=${id}`;
@@ -42,9 +43,15 @@ export function AnimalsListPage({ navigation }) {
     });
   };
 
+  useEffect(() => {
+    if (userType == 3 && vetAnimals) {
+      getVetAnimals();
+    }
+  }, []);
+
   useFocusEffect(
     useCallback(() => {
-      animals.length === 0 ? getAnimals() : null; // Stops getting data from server
+      animals.length === 0 && userType == 2 ? getAnimals() : null; // Stops getting data from server
     }, [])
   );
   //
@@ -66,6 +73,25 @@ export function AnimalsListPage({ navigation }) {
       : ageDescending();
   }, [attr]);
 
+  // Creating Vet Request
+  const vetAnimalsUrl = `http://10.0.2.2:8000/api/v1/getAssignedAnimals/?vet_id=${id}`;
+  const getVetAnimals = () => {
+    axios({
+      method: "GET",
+      headers: { Authorization: token },
+      url: vetAnimalsUrl,
+    })
+      .then((response) => {
+        if (response.data.code === 200) {
+          setVetAnimals(response.data.animals);
+          setFetchError(false);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <View>
@@ -77,7 +103,7 @@ export function AnimalsListPage({ navigation }) {
         </View>
         {fetchError ? <FixingError /> : null}
         <View style={styles.list}>
-          {animals.length === 0 && !fetchError ? (
+          {animals.length === 0 && fetchError ? (
             <View style={styles.messageContainer}>
               <Text style={styles.messagePrimary}>No Animals</Text>
               <Text style={styles.messageSecondary}>
@@ -88,7 +114,7 @@ export function AnimalsListPage({ navigation }) {
             <AnimalRecord
               navigation={navigation}
               sorted={sortedAnimals}
-              animals={animals}
+              animals={userType == 2 ? animals : vetAnimals}
             />
           )}
         </View>
