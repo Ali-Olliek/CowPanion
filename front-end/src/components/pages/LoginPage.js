@@ -38,12 +38,14 @@ export function LoginPage({ navigation }) {
   const loginUrl = "http://10.0.2.2:8000/api/v1/signIn/";
 
   useEffect(() => {
-    login();
+    if (sendRequest === true) {
+      login();
+    }
   }, [sendRequest]);
 
   // Login Function
   const login = () => {
-    if (emailInput === "" || passwordInput === "") {
+    if ((emailInput === "" || passwordInput === "") && sendRequest === true) {
       setDisplayError(true);
       setTimeout(() => {
         setDisplayError(false);
