@@ -4,7 +4,7 @@ import { onBoardingStyle } from "../../styles/onBoardingStyle";
 export function OnBoardingPage({ navigation }) {
   return (
     <Onboarding
-      onDone={() => navigation.navigate("SignIn")}
+      onDone={() => navigation.navigate("createFarm")}
       pages={[
         {
           backgroundColor: "#fff",
