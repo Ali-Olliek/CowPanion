@@ -15,6 +15,10 @@ export function FeedsChart({ feedData }) {
     return proteinPerIngredient[key].value;
   });
 
+  const names = Object.keys(proteinPerIngredient).map(function (key) {
+    return proteinPerIngredient[key].name;
+  });
+
   //
   // Graph Dimensions
   const GRAPH_BAR_WIDTH = 10;
@@ -69,10 +73,10 @@ export function FeedsChart({ feedData }) {
             strokeWidth="0.5"
           />
           <Text fontSize="8" y={y(middleValue * -1 - 1)} fill="black">
-            {middleValue}
+            {middleValue} %
           </Text>
           <Text fontSize="8" y={y(topValue * -1 - 1)} fill="black">
-            {topValue}
+            {topValue} %
           </Text>
 
           {/* bottom axis */}
@@ -85,12 +89,12 @@ export function FeedsChart({ feedData }) {
             strokeWidth="0.5"
           />
           {/* bars & Tooltip */}
-          {proteinPerIngredient.map((item, index) => (
-            <G key={index}>
+          {proteinPerIngredient.map((item) => (
+            <G key={proteinPerIngredient[item]}>
               {tooltipDisplay ? (
                 <Text
                   key={proteinPerIngredient[item]}
-                  y={y(item.value) * -1}
+                  y={y(item.value) * -1 - 5}
                   x={x(item.name) - GRAPH_BAR_WIDTH / 2 - 5}
                   fontSize="8"
                   fill={"black"}
@@ -112,7 +116,7 @@ export function FeedsChart({ feedData }) {
             </G>
           ))}
           {/* labels */}
-          {proteinPerIngredient.map((item, index) => (
+          {proteinPerIngredient.map((item) => (
             <Text
               key={proteinPerIngredient[item]}
               fontSize="8"
@@ -121,7 +125,7 @@ export function FeedsChart({ feedData }) {
               fill={"black"}
               textAnchor="middle"
             >
-              {item.name}
+              {JSON.stringify(item.name).split(" ")[0]}
             </Text>
           ))}
         </G>
