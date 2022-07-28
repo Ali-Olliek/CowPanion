@@ -21,7 +21,6 @@ export default function LoginPage() {
   };
   const signIn = async (e) => {
     e.preventDefault();
-    console.log("hello");
     if (adminSecret !== "18795") {
       return;
     } else {
@@ -33,8 +32,10 @@ export default function LoginPage() {
       })
         .then((response) => {
           console.log(response.data);
-          if (response.data.code === 200) {
+          if (response.data.code === 200 && response.data.user_type === 1) {
             navigate("/Main");
+          } else {
+            navigate("/404");
           }
         })
         .catch((error) => {
