@@ -49,26 +49,29 @@ export function GeneralStatsCard() {
       <View style={statsStyle.container}>
         <TouchableHighlight>
           <View style={statsStyle.card}>
-            <Text style={statsStyle.title}>Animals</Text>
             <Text style={statsStyle.stat}>{stats.animal_count}</Text>
+            <Text style={statsStyle.title}>Animals</Text>
           </View>
         </TouchableHighlight>
         <TouchableHighlight>
           <View style={statsStyle.card}>
-            <Text style={statsStyle.title}>Lactating Cows</Text>
-            <Text style={statsStyle.stat}>{stats.lactating_cows}</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight>
-          <View style={statsStyle.card}>
-            <Text style={statsStyle.title}>Dry Cows</Text>
-            <Text style={statsStyle.stat}>{stats.dry_cows}</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight>
-          <View style={statsStyle.card}>
+            <View>
+              <Text style={statsStyle.stat}>{milk}</Text>
+              <Text style={statsStyle.unit}>cm3/day</Text>
+            </View>
             <Text style={statsStyle.title}>Milk Quantity</Text>
-            <Text style={statsStyle.stat}>{milk}</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight>
+          <View style={statsStyle.card}>
+            <Text style={statsStyle.stat}>{stats.lactating_cows}</Text>
+            <Text style={statsStyle.title}>Lactating Cows</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight>
+          <View style={statsStyle.card}>
+            <Text style={statsStyle.stat}>{stats.dry_cows}</Text>
+            <Text style={statsStyle.title}>Dry Cows</Text>
           </View>
         </TouchableHighlight>
       </View>

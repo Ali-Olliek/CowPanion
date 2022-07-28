@@ -63,7 +63,6 @@ const createMed = StyleSheet.create({
   },
   button: {
     height: 40,
-    marginVertical: -40,
   },
   Auth: {
     height: windowHeight,

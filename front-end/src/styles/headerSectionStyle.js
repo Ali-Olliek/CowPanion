@@ -5,22 +5,26 @@ const windowHeight = Dimensions.get("window").height;
 
 const headerSectionStyle = StyleSheet.create({
   container: {
-    flex: 1,
-    position: "absolute",
-    top: 0.1 * windowWidth,
-    height: 0.4 * windowHeight,
+    height: 0.45 * windowHeight,
     justifyContent: "flex-start",
     width: windowWidth,
     alignContent: "center",
-    padding: 20,
+    paddingHorizontal: 20,
     backgroundColor: "#344E41",
   },
+  titlesContainer: {
+    marginTop: 30,
+    height: 0.1 * windowHeight,
+  },
+
   title: {
     borderRadius: 5,
-    paddingHorizontal: 10,
-    height: 0.05 * windowHeight,
-    textAlignVertical: "center",
-    backgroundColor: "#D9D9D9",
+    color: "#fff",
+    fontSize: 20,
+  },
+  subtitle: {
+    color: "#fff",
+    fontSize: 30,
   },
   cardsContainer: {
     flex: 1,
@@ -29,7 +33,6 @@ const headerSectionStyle = StyleSheet.create({
     justifyContent: "space-between",
     paddingVertical: windowHeight * 0.01,
     opacity: 0.5,
-    marginTop: windowHeight * 0.04,
   },
   weatherCard: {
     width: windowWidth * 0.25,
@@ -48,6 +51,11 @@ const headerSectionStyle = StyleSheet.create({
   weatherUnit: {
     fontSize: 12,
     color: "#ffff",
+  },
+  hr: {
+    borderBottomWidth: 1,
+    height: 1,
+    marginBottom: 5,
   },
 });
 
