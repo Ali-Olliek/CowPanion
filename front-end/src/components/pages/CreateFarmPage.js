@@ -84,10 +84,10 @@ export function CreateFarmPage({ navigation }) {
         console.log(error);
       });
   };
-  console.log(vetId);
+
   return (
     <>
-      <View style={styles.header}>
+      <View style={styles.createFarmHeader}>
         <MainHeaderTitle title={"Create Farm"} subtitle={"and start!"} />
         <Image
           style={{

@@ -17,16 +17,11 @@ export function ProfileCard() {
               <Text>Update Password</Text>
             </TouchableHighlight>
           </View>
-        </View>
-        <TouchableHighlight onPress={deleteData}>
           <View>
-            <Text>LOGOUT</Text>
+            <TouchableHighlight style={infoStyles.password}>
+              <Text>Sign Out</Text>
+            </TouchableHighlight>
           </View>
-        </TouchableHighlight>
-        <View style={infoStyles.picture}>
-          <Image
-            source={require("../../../assets/images/humidity.png")}
-          ></Image>
         </View>
       </View>
     </View>

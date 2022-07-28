@@ -12,7 +12,17 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 20,
-    marginVertical: 20,
+    marginBottom: 10,
+    backgroundColor: "#273724",
+  },
+  createFarmHeader: {
+    height: windowHeight * 0.15,
+    width: windowWidth,
+    backgroundColor: "white",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
     backgroundColor: "#273724",
   },
   headertitle: {

@@ -19,7 +19,7 @@ export function ProfilePage({ setUserData }) {
   // States and Variables
   const [milkData, setMilkData] = useState(null);
   const [feedData, setFeedData] = useState(null);
-  const { id, token } = useSelector((state) => state.user.user);
+  const { id, token, name } = useSelector((state) => state.user.user);
 
   //
   // Creating Request to get Milk Data
@@ -67,7 +67,10 @@ export function ProfilePage({ setUserData }) {
   return (
     <>
       <View style={styles.header}>
-        <MainHeaderTitle title={"Profile"} />
+        <MainHeaderTitle
+          title={`${name}'s Profile`}
+          subtitle={"Check your farm's daily milk production"}
+        />
       </View>
       <View
         style={{
