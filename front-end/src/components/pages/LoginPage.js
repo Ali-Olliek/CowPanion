@@ -9,11 +9,13 @@ import { loginRedux } from "../../redux/features/user";
 
 //Styles
 import { AuthStyles } from "../../styles/AuthPagesStyle";
+import { styles } from "../../styles";
 
 // Components
 import { LoginInputs } from "../UI/molecules/LoginInputs";
 import { PrimaryAuthButton, SecondaryAuthButton } from "../UI/atoms/Auth";
 import { ErrorBox } from "../UI/atoms/ErrorBox";
+import { MainHeaderTitle } from "../UI/atoms";
 
 // Login Page
 export function LoginPage({ navigation }) {
@@ -89,8 +91,11 @@ export function LoginPage({ navigation }) {
 
   return (
     <View style={AuthStyles.container}>
-      <View>
-        <Image></Image>
+      <View style={styles.header}>
+        <MainHeaderTitle
+          title={"Sign In"}
+          subtitle={"don't let your animals miss you"}
+        />
       </View>
       <View style={AuthStyles.mainCard}>
         <LoginInputs
@@ -98,15 +103,17 @@ export function LoginPage({ navigation }) {
           setPasswordInput={setPasswordInput}
         />
         {displayError ? <ErrorBox description={"Log In Failed"} /> : null}
-        <PrimaryAuthButton
-          setSendRequest={setSendRequest}
-          placeholder={"Sign In"}
-        />
-        <SecondaryAuthButton
-          nav={"SignUp"}
-          navigation={navigation}
-          placeholder={"Sign Up"}
-        />
+        <View style={AuthStyles.buttonsContainer}>
+          <PrimaryAuthButton
+            setSendRequest={setSendRequest}
+            placeholder={"Sign In"}
+          />
+          <SecondaryAuthButton
+            nav={"SignUp"}
+            navigation={navigation}
+            placeholder={"Sign Up"}
+          />
+        </View>
       </View>
     </View>
   );

@@ -11,7 +11,7 @@ const AuthStyles = StyleSheet.create({
   },
   mainCard: {
     width: 0.8 * windowWidth,
-    height: 0.7 * windowHeight,
+    height: 0.8 * windowHeight,
     justifyContent: "space-around",
   },
   imagesContainer: {
@@ -31,6 +31,10 @@ const AuthStyles = StyleSheet.create({
     margin: 0,
     justifyContent: "center",
     alignItems: "center",
+  },
+  buttonsContainer: {
+    height: 0.12 * windowHeight,
+    justifyContent: "space-between",
   },
 });
 
