@@ -49,7 +49,11 @@ export function RemindersPage({ navigation }) {
   return (
     <>
       <View style={styles.header}>
-        <MainHeaderTitle style={styles.headertitle} title={"Todo List"} />
+        <MainHeaderTitle
+          style={styles.headertitle}
+          subtitle={"Stay organized"}
+          title={"Reminders List"}
+        />
       </View>
       <View style={Todos.midSec}></View>
       {remindersList.length !== 0 ? (

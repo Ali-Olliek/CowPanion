@@ -86,6 +86,7 @@ const Todos = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 10,
     backgroundColor: "#D46C4E",
+    elevation: 5,
   },
 });
 

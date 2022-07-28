@@ -5,10 +5,10 @@ import {
   TouchableHighlight,
   SafeAreaView,
   Button,
+  TextInput,
 } from "react-native";
 import axios from "axios";
 import { useState } from "react";
-import { TextInput } from "react-native-paper";
 import { useSelector } from "react-redux";
 
 // Styles
@@ -79,7 +79,7 @@ export function CreateReminderPage({ navigation }) {
             <View style={createMed.button}>
               <Button
                 title="Select Date"
-                color="green"
+                color="#2A432A"
                 onPress={showDatePicker}
               />
             </View>
@@ -112,12 +112,14 @@ export function CreateReminderPage({ navigation }) {
       </View>
       <View style={createReminderStyle.actions}>
         <TouchableHighlight
+          underlayColor={"#D46C4E"}
           onPress={createReminder}
           style={createReminderStyle.save}
         >
           <Text>Save</Text>
         </TouchableHighlight>
         <TouchableHighlight
+          underlayColor={"white"}
           style={createReminderStyle.cancel}
           onPress={() => navigation.goBack()}
         >
