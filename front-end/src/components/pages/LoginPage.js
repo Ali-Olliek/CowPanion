@@ -92,10 +92,7 @@ export function LoginPage({ navigation }) {
   return (
     <View style={AuthStyles.container}>
       <View style={styles.header}>
-        <MainHeaderTitle
-          title={"Sign In"}
-          subtitle={"don't let your animals miss you"}
-        />
+        <MainHeaderTitle title={"Sign In"} subtitle={"stay in control"} />
       </View>
       <View style={AuthStyles.mainCard}>
         <LoginInputs
