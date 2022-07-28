@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 20,
+    marginVertical: 20,
     backgroundColor: "#273724",
   },
   headertitle: {

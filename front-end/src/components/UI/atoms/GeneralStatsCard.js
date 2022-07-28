@@ -31,13 +31,9 @@ export function GeneralStatsCard() {
   };
 
   if (userType == 2) {
-    useFocusEffect(
-      useCallback(() => {
-        if (stats) {
-          getGeneralStats();
-        }
-      }, [])
-    );
+    useEffect(() => {
+      getGeneralStats();
+    }, []);
   } else if (userType == 3) {
     useEffect(() => {
       getGeneralStats();

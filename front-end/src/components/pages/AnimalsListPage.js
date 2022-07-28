@@ -96,7 +96,10 @@ export function AnimalsListPage({ navigation }) {
     <>
       <View>
         <View style={styles.header}>
-          <MainHeaderTitle title={"Animals List"} />
+          <MainHeaderTitle
+            title={"Animals List"}
+            subtitle={"monitor all animals"}
+          />
         </View>
         <View style={styles.titles}>
           <AttributeBoxes setAttr={setAttr} />
