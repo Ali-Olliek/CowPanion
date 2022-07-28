@@ -1,13 +1,22 @@
 // Modules
-import { View, TouchableHighlight, Text } from "react-native";
+
+import {
+  View,
+  TouchableHighlight,
+  Text,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
 import axios from "axios";
 import { useFocusEffect } from "@react-navigation/native";
 import { useSelector } from "react-redux";
 import { useCallback, useState } from "react";
+
+//
 // Styles
 import { styles } from "../../styles/AnimalsListStyle";
 import { infoStyles } from "../../styles";
-
+//
 // Components
 import { MainHeaderTitle } from "../UI/atoms";
 import { AnimalActions } from "../UI/molecules/AnimalActions";
@@ -71,17 +80,13 @@ export function AnimalInformationPage({ navigation, route }) {
   // Main
   return (
     <>
-      <View style={styles.header}>
-        <MainHeaderTitle title={"Animal Information"} />
+      <View style={listStyles.header}>
+        <MainHeaderTitle
+          subtitle={"get a closer look"}
+          title={`Animal #${id}`}
+        />
       </View>
       <View>
-        <TouchableHighlight
-          style={infoStyles.backButton}
-          onPress={() => navigation.goBack()}
-          underlayColor={"white"}
-        >
-          <Text>back</Text>
-        </TouchableHighlight>
         {animalData && <AnimalCard info={animalData} />}
         <AnimalActions id={id} navigation={navigation} />
         <MedicalRecord records={medicalRecord} />
@@ -89,3 +94,29 @@ export function AnimalInformationPage({ navigation, route }) {
     </>
   );
 }
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
+
+const listStyles = StyleSheet.create({
+  header: {
+    height: windowHeight * 0.15,
+    width: windowWidth,
+    backgroundColor: "white",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "center",
+    paddingHorizontal: 20,
+    marginVertical: 20,
+    backgroundColor: "#273724",
+  },
+  back: {
+    width: 45,
+    height: 30,
+    alignItems: "center",
+    justifyContent: "center",
+    borderWidth: 1,
+    marginVertical: 8,
+    backgroundColor: "#ACC0B3",
+    borderRadius: 8,
+  },
+});

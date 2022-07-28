@@ -7,19 +7,19 @@ export function AnimalCard({ info }) {
   return (
     <View style={infoStyles.infoCard}>
       <View style={infoStyles.attr}>
+        <View style={infoStyles.circle2}></View>
+        <View style={infoStyles.circle}></View>
         <View style={infoStyles.list}>
-          <Text>Animal Id: {info.pk}</Text>
-          <View style={infoStyles.hr}></View>
           <Text>Name: {info.fields.name}</Text>
-          <View style={infoStyles.hr}></View>
+
           <Text>Status: {info.fields.status}</Text>
-          <View style={infoStyles.hr}></View>
-          <Text>Date of Birth: {info.fields.DOB}</Text>
-          <View style={infoStyles.hr}></View>
+
+          <Text>Year of Birth: {info.fields.DOB}</Text>
         </View>
+
         <Image
           source={{ uri: info.fields.QR_code }}
-          style={{ width: 75, height: 75 }}
+          style={{ width: 100, height: 100 }}
         ></Image>
       </View>
     </View>

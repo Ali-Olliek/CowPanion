@@ -15,7 +15,7 @@ export function MedicalRecord({ records }) {
   //
   // Main
   return (
-    <>
+    <View>
       {records.length === 0 ? (
         <View style={infoStyles.medicalCard}>
           <Text style={infoStyles.message}>No Medical Records Available</Text>
@@ -52,6 +52,6 @@ export function MedicalRecord({ records }) {
           />
         </View>
       )}
-    </>
+    </View>
   );
 }

@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useSelector, Provider } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import { Button } from "react-native";
 // Pages and Components
 import { BottomNavBarButtons } from "./src/components/UI/organisms/BottomNavBarButtons";
 import {
@@ -24,7 +24,7 @@ import {
 
 import { store } from "./src/redux/store";
 import { useState } from "react";
-import user from "./src/redux/features/user";
+import { HeaderTitle, MainHeaderTitle } from "./src/components/UI/atoms";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -64,7 +64,7 @@ export default function App() {
             <Stack.Screen name="OnBoarding" component={OnBoardingPage} />
             <Stack.Screen name="AddAnimal" component={AddAnimalPage} />
             <Stack.Screen
-              name="New Medical Record"
+              name="Create Medical Record"
               component={CreateMedicalRecordPage}
             />
             <Stack.Screen
