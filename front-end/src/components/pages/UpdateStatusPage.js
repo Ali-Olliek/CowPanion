@@ -62,15 +62,11 @@ export function UpdateStatusPage({ navigation, route }) {
   return (
     <>
       <View style={styles.header}>
-        <MainHeaderTitle title={"Animal Information"} />
+        <MainHeaderTitle
+          subtitle={"update animal's status"}
+          title={`Animal #${id}`}
+        />
       </View>
-      <TouchableHighlight
-        style={infoStyles.backButton}
-        onPress={() => navigation.goBack()}
-        underlayColor={"white"}
-      >
-        <Text>back</Text>
-      </TouchableHighlight>
       {success ? (
         <View style={infoStyles.messageContainer}>
           <Text style={[infoStyles.message, infoStyles.success]}>
@@ -87,30 +83,42 @@ export function UpdateStatusPage({ navigation, route }) {
       ) : null}
       <View style={statusStyles.main}>
         <Text style={statusStyles.prompt}>
-          Press a status and hit save to update
+          Choose a status and hit save to update
         </Text>
         <View style={statusStyles.container}>
           <TouchableHighlight
             onPress={() => setStatus("Calf")}
-            style={[statusStyles.Calf, statusStyles.circle]}
+            style={
+              status == "Calf" ? statusStyles.Calf : statusStyles.originalStatus
+            }
           >
             <Text>Calf</Text>
           </TouchableHighlight>
           <TouchableHighlight
             onPress={() => setStatus("Heifer")}
-            style={[statusStyles.Heifer, statusStyles.circle]}
+            style={
+              status == "Heifer"
+                ? statusStyles.Heifer
+                : statusStyles.originalStatus
+            }
           >
             <Text>Heifer</Text>
           </TouchableHighlight>
           <TouchableHighlight
             onPress={() => setStatus("Dry")}
-            style={[statusStyles.Dry, statusStyles.circle]}
+            style={
+              status == "Dry" ? statusStyles.Dry : statusStyles.originalStatus
+            }
           >
             <Text>Dry</Text>
           </TouchableHighlight>
           <TouchableHighlight
             onPress={() => setStatus("Lactating")}
-            style={[statusStyles.Lactating, statusStyles.circle]}
+            style={
+              status == "Lactating"
+                ? statusStyles.Lactating
+                : statusStyles.originalStatus
+            }
           >
             <Text>Lactating</Text>
           </TouchableHighlight>
