@@ -8,8 +8,8 @@ export function ProfileCard() {
     await AsyncStorage.removeItem("userData");
   };
   return (
-    <View style={infoStyles.infoCard}>
-      <View style={infoStyles.attr}>
+    <View style={infoStyles.profileCardContainer}>
+      <View style={infoStyles.profileCard}>
         <View style={infoStyles.list}>
           <Text>Name: {name}</Text>
           <View>

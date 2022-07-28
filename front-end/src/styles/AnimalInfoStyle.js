@@ -162,6 +162,24 @@ const infoStyles = StyleSheet.create({
     right: 0,
     transform: [{ rotateY: "120deg" }, { rotateX: "45deg" }],
   },
+  profileCardContainer: {
+    width: windowWidth,
+    height: 0.25 * windowHeight,
+  },
+  profileCard: {
+    flex: 1,
+    justifyContent: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: 0.5 * windowWidth,
+    margin: 20,
+    paddingVertical: 20,
+    paddingRight: 20,
+    paddingLeft: 30,
+    backgroundColor: "#DAD7CD",
+    borderRadius: 12,
+    elevation: 10,
+  },
 });
 
 export { infoStyles };
