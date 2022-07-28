@@ -473,13 +473,17 @@ def get_recipe(request):
 
 def get_all_vets(request):
     if request.method == "GET":
-        vets = User.objects.filter(user_Type=3).all()
-        vets_json = object_to_json(vets)
+        vets = User.objects.filter(user_Type=3).all().values(
+            'name', 'email', 'phone_number', 'id')
+
+        vets_values_list = []
+        for vet in vets:
+            vets_values_list.append(vet)
 
         return JsonResponse({
             "code": 200,
             "status": "success",
-            "vet_list": vets_json
+            "vet_list": vets_values_list
         })
 
     return JsonResponse({
