@@ -111,7 +111,7 @@ def sign_in(request):
             if password_valid:
 
                 jwt_token = jwt.encode({
-                    "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=120),
+                    "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=1140),
                     "user_id": auth_user.id,
                     "user_type": auth_user.user_Type,
                     "user_name": auth_user.name},
