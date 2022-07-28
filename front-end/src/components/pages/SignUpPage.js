@@ -7,13 +7,13 @@ import { View, Text, SafeAreaView, Button } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 // Styles
 import { AuthStyles } from "../../styles/AuthPagesStyle";
-import { createMed } from "../../styles";
+import { createMed, styles } from "../../styles";
 // Components
 import { SignupInputs } from "../UI/molecules/SignupInputs";
 import { PrimaryAuthButton, SecondaryAuthButton } from "../UI/atoms/Auth";
 import { ErrorBox } from "../UI/atoms/ErrorBox";
 import DateTimePickerAndroid from "@react-native-community/datetimepicker";
-
+import { MainHeaderTitle } from "../UI/atoms";
 export function SignUpPage({ navigation }) {
   // States and Variables
 
@@ -133,8 +133,6 @@ export function SignUpPage({ navigation }) {
     return (
       <SafeAreaView>
         <View style={createMed.MainContainer}>
-          <Text style={createMed.text}>{date.toDateString()}</Text>
-
           {datePickerDisplay && (
             <DateTimePickerAndroid
               show
@@ -163,34 +161,48 @@ export function SignUpPage({ navigation }) {
   //
   // Main
   return (
-    <View style={AuthStyles.container}>
-      {displayError ? <ErrorBox description={"Sign Up failed"} /> : null}
-      {userExists ? <ErrorBox description={"User Already Exists"} /> : null}
-      {emptyInputs ? <ErrorBox description={"Please fill all fields"} /> : null}
-      <View style={AuthStyles.mainCard}>
-        <SignupInputs
-          props={{
-            setEmailInput,
-            setNameInput,
-            setPasswordInput,
-            setUserType,
-            setPhoneNumberInput,
-          }}
-        />
-        {dateComponent()}
-        <PrimaryAuthButton
-          action={null}
-          setSendRequest={setSendRequest}
-          navigation={navigation}
-          nav={"SignIn"}
-          placeholder={"Sign Up"}
-        />
-        <SecondaryAuthButton
-          navigation={navigation}
-          nav={"SignIn"}
-          placeholder={"Sign In"}
-        />
+    <>
+      <View style={AuthStyles.container}>
+        <View style={styles.header}>
+          <MainHeaderTitle
+            title={"Sign Up"}
+            subtitle={"Manage your farm with ease"}
+          />
+        </View>
+        {displayError ? <ErrorBox description={"Sign Up failed"} /> : null}
+        {userExists ? <ErrorBox description={"User Already Exists"} /> : null}
+        {emptyInputs ? (
+          <ErrorBox description={"Please fill all fields"} />
+        ) : null}
+        <View style={AuthStyles.mainCard}>
+          <View>
+            <SignupInputs
+              props={{
+                setEmailInput,
+                setNameInput,
+                setPasswordInput,
+                setUserType,
+                setPhoneNumberInput,
+              }}
+            />
+            {dateComponent()}
+          </View>
+          <View style={AuthStyles.buttonsContainer}>
+            <PrimaryAuthButton
+              action={null}
+              setSendRequest={setSendRequest}
+              navigation={navigation}
+              nav={"SignIn"}
+              placeholder={"Sign Up"}
+            />
+            <SecondaryAuthButton
+              navigation={navigation}
+              nav={"SignIn"}
+              placeholder={"Sign In"}
+            />
+          </View>
+        </View>
       </View>
-    </View>
+    </>
   );
 }

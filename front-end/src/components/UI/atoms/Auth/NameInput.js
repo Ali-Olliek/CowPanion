@@ -7,7 +7,7 @@ export function NameInput({ setNameInput }) {
       onChangeText={(name) => setNameInput(name)}
       style={inputFields.AuthInput}
       textContentType="name"
-      placeholder="Enter Your Name"
+      placeholder="Name"
     ></TextInput>
   );
 }

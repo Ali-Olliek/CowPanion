@@ -35,6 +35,7 @@ const AuthStyles = StyleSheet.create({
   buttonsContainer: {
     height: 0.12 * windowHeight,
     justifyContent: "space-between",
+    alignItems: "center",
   },
 });
 

@@ -8,7 +8,7 @@ export function EmailInput({ setEmailInput }) {
       onChangeText={(email) => setEmailInput(email)}
       style={inputFields.AuthInput}
       textContentType="emailAddress"
-      placeholder="Enter Your Email"
+      placeholder="Email"
     ></TextInput>
   );
 }

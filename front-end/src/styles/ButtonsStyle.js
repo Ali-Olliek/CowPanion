@@ -10,6 +10,7 @@ const buttons = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 8,
+    width: 0.4 * windowWidth,
   },
   secondary: {
     backgroundColor: "white",
@@ -17,8 +18,7 @@ const buttons = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 8,
-    borderColor: "#D46C4E",
-    borderWidth: 1,
+    width: 0.4 * windowWidth,
   },
 });
 

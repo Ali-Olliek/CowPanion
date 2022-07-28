@@ -5,11 +5,11 @@ const windowHeight = Dimensions.get("window").height;
 
 const inputFields = StyleSheet.create({
   AuthInput: {
-    backgroundColor: "#DAD7CD",
     height: 40,
-    borderRadius: 8,
-    paddingHorizontal: 10,
-    marginVertical: 5,
+    width: 0.8 * windowWidth,
+    borderBottomWidth: 1,
+    textAlign: "left",
+    paddingLeft: 10,
   },
 });
 
