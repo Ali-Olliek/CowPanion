@@ -126,7 +126,7 @@ const infoStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  message: { textAlign: "center" },
+  message: { textAlign: "center", color: "white", fontWeight: "600" },
   success: {
     backgroundColor: "#ACC0B3",
     textAlignVertical: "center",
@@ -152,6 +152,15 @@ const infoStyles = StyleSheet.create({
     marginVertical: 5,
     height: 80,
     borderRadius: 8,
+  },
+  slant: {
+    position: "absolute",
+    height: windowHeight * 1.2,
+    backgroundColor: "#2A432A",
+    width: windowWidth * 2,
+    top: 0,
+    right: 0,
+    transform: [{ rotateY: "120deg" }, { rotateX: "45deg" }],
   },
 });
 

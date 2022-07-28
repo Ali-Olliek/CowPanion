@@ -31,15 +31,13 @@ export function AnimalRecord({ animals, navigation, sorted }) {
                   }}
                 >
                   {item.status === "Lactating" ? (
-                    <Text style={[styles.status, statusStyles.Lactating]}>
-                      L
-                    </Text>
+                    <Text style={statusStyles.LactatingSm}>L</Text>
                   ) : item.status === "Heifer" ? (
-                    <Text style={[styles.status, statusStyles.Heifer]}>H</Text>
+                    <Text style={statusStyles.HeiferSm}>H</Text>
                   ) : item.status === "Calf" ? (
-                    <Text style={[styles.status, statusStyles.Calf]}>C</Text>
+                    <Text style={statusStyles.CalfSm}>C</Text>
                   ) : (
-                    <Text style={[styles.status, statusStyles.Dry]}>D</Text>
+                    <Text style={statusStyles.DrySm}>D</Text>
                   )}
                   <Text style={styles.animalAttr}>{item.id}</Text>
                   <Text style={styles.animalAttr}>{item.name}</Text>
@@ -69,15 +67,13 @@ export function AnimalRecord({ animals, navigation, sorted }) {
                   }}
                 >
                   {item.status === "Lactating" ? (
-                    <Text style={[styles.status, statusStyles.Lactating]}>
-                      L
-                    </Text>
+                    <Text style={statusStyles.LactatingSm}>L</Text>
                   ) : item.status === "Heifer" ? (
-                    <Text style={[styles.status, statusStyles.Heifer]}>H</Text>
+                    <Text style={statusStyles.HeiferSm}>H</Text>
                   ) : item.status === "Calf" ? (
-                    <Text style={[styles.status, statusStyles.Calf]}>C</Text>
+                    <Text style={statusStyles.CalfSm}>C</Text>
                   ) : (
-                    <Text style={[styles.status, statusStyles.Dry]}>D</Text>
+                    <Text style={statusStyles.DrySm}>D</Text>
                   )}
                   <Text style={styles.animalAttr}>{item.id}</Text>
                   <Text style={styles.animalAttr}>{item.name}</Text>

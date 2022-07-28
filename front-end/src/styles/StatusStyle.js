@@ -68,5 +68,42 @@ const statusStyles = StyleSheet.create({
   prompt: {
     marginHorizontal: 20,
   },
+  LactatingSm: {
+    textAlign: "center",
+    textAlignVertical: "center",
+    backgroundColor: "#f08080",
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    borderWidth: 1,
+  },
+  DrySm: {
+    textAlign: "center",
+    textAlignVertical: "center",
+    backgroundColor: "#87cefa",
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    borderWidth: 1,
+  },
+  HeiferSm: {
+    textAlign: "center",
+    textAlignVertical: "center",
+    backgroundColor: "#778899",
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    borderWidth: 1,
+  },
+  CalfSm: {
+    textAlign: "center",
+    textAlignVertical: "center",
+    textAlign: "center",
+    backgroundColor: "#ffcccb",
+    width: 40,
+    height: 40,
+    borderRadius: 50,
+    borderWidth: 1,
+  },
 });
 export { statusStyles };

@@ -22,7 +22,7 @@ export function MedicalRecord({ records }) {
         </View>
       ) : (
         <View style={infoStyles.medicalCard}>
-          <Text>Medical Records</Text>
+          <Text style={{ color: "#fff" }}>Medical Records</Text>
           <FlatList
             data={Object.keys(records)}
             renderItem={({ item, index }) => (

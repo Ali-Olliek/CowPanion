@@ -87,6 +87,7 @@ export function AnimalInformationPage({ navigation, route }) {
         />
       </View>
       <View>
+        <View style={infoStyles.slant}></View>
         {animalData && <AnimalCard info={animalData} />}
         <AnimalActions id={id} navigation={navigation} />
         <MedicalRecord records={medicalRecord} />

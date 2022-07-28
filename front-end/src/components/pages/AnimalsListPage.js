@@ -101,7 +101,7 @@ export function AnimalsListPage({ navigation }) {
         <View style={styles.header}>
           <MainHeaderTitle
             title={"Animals List"}
-            subtitle={"all your animals display here"}
+            subtitle={"all your animals displayed here"}
           />
         </View>
         <View style={styles.titles}>
