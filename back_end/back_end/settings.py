@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-sy%)qs1r!ywr3vq2ppxaqy8(i*hqif62ob-fh#k-1urgl(tlag
 DEBUG = True
 
 
-ALLOWED_HOSTS = ["0.0.0.0", "192.168.1.6", "127.0.0.1", "10.0.2.2"]
+ALLOWED_HOSTS = ["0.0.0.0", "192.168.1.6",
+                 "127.0.0.1", "10.0.2.2", "127.0.0.1:3000"]
 
 # Application definition
 
@@ -47,9 +48,11 @@ INSTALLED_APPS = [
     'apps.feeds',
     'apps.users',
     'apps.recipes',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -60,7 +63,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'back_end.urls'
-
+CORS_ORIGIN_ALLOW_ALL = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
