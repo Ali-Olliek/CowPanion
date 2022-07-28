@@ -49,15 +49,18 @@ export function AnimalsListPage({ navigation }) {
     }
   }, []);
 
-  useFocusEffect(
-    useCallback(() => {
-      animals.length === 0 && userType == 2 ? getAnimals() : null; // Stops getting data from server
-    }, [])
-  );
+  useEffect(() => {
+    getAnimals();
+    idAscending(); // Stops getting data from server
+  }, []);
+
   //
   // Sorting
   const idDescending = () => {
     setSortedAnimals([...animals].sort((a, b) => b.id - a.id));
+  };
+  const idAscending = () => {
+    setSortedAnimals([...animals].sort((a, b) => a.id - b.id));
   };
   const strDescending = () => {
     setSortedAnimals([...animals].sort((a, b) => (a.name > b.name ? -1 : 1)));
@@ -98,7 +101,7 @@ export function AnimalsListPage({ navigation }) {
         <View style={styles.header}>
           <MainHeaderTitle
             title={"Animals List"}
-            subtitle={"monitor all animals"}
+            subtitle={"all your animals display here"}
           />
         </View>
         <View style={styles.titles}>
@@ -117,12 +120,19 @@ export function AnimalsListPage({ navigation }) {
             <AnimalRecord
               navigation={navigation}
               sorted={sortedAnimals}
-              animals={userType == 2 ? animals : vetAnimals}
+              animals={
+                userType == 2 && sortedAnimals.lenghth == 0
+                  ? animals
+                  : userType == 3
+                  ? vetAnimals
+                  : null
+              }
             />
           )}
         </View>
       </View>
       <TouchableHighlight
+        underlayColor="#fff"
         onPress={() => navigation.navigate("AddAnimal")}
         style={styles.AddAnimal}
       >

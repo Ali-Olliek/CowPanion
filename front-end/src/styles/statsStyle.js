@@ -39,6 +39,9 @@ const statsStyle = StyleSheet.create({
     textAlign: "center",
     fontSize: 12,
   },
+  source: {
+    fontSize: 8,
+  },
 });
 
 export { statsStyle };

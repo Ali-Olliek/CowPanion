@@ -14,6 +14,11 @@ export function GeneralStatsCard() {
   const [milk, setMilk] = useState("");
   const [stats, setStats] = useState({});
   const { token, id, userType } = useSelector((state) => state.user.user);
+  if (userType == 2) {
+    useEffect(() => {
+      getGeneralStats();
+    }, []);
+  }
   //
   // Create Requestt
   const statsUrl = `http://10.0.2.2:8000/api/v1/getGeneralStats/?user_id=${id}`;
@@ -29,16 +34,6 @@ export function GeneralStatsCard() {
       }, 100);
     });
   };
-
-  if (userType == 2) {
-    useEffect(() => {
-      getGeneralStats();
-    }, []);
-  } else if (userType == 3) {
-    useEffect(() => {
-      getGeneralStats();
-    }, []);
-  }
 
   const page = () => {
     return (
@@ -56,6 +51,7 @@ export function GeneralStatsCard() {
               <Text style={statsStyle.unit}>cm3/day</Text>
             </View>
             <Text style={statsStyle.title}>Milk Quantity</Text>
+            <Text style={statsStyle.source}>Source of data: Arduino</Text>
           </View>
         </TouchableHighlight>
         <TouchableHighlight>
