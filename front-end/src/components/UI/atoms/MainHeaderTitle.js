@@ -1,10 +1,11 @@
 import { View, Text } from "react-native";
 import { styles } from "../../../styles/AnimalsListStyle";
 
-export function MainHeaderTitle({ title }) {
+export function MainHeaderTitle({ title, subtitle }) {
   return (
-    <View style={styles.headertitle}>
-      <Text>{title}</Text>
+    <View>
+      <Text style={styles.titles}>{title}</Text>
+      <Text style={styles.subTitle}>{subtitle}</Text>
     </View>
   );
 }
