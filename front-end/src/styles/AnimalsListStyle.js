@@ -8,21 +8,24 @@ const styles = StyleSheet.create({
     height: windowHeight * 0.15,
     width: windowWidth,
     backgroundColor: "white",
-    justifyContent: "center",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     paddingHorizontal: 20,
+    backgroundColor: "#273724",
   },
   headertitle: {
-    backgroundColor: "white",
     height: 35,
     paddingHorizontal: 30,
     justifyContent: "center",
     borderRadius: 8,
   },
   titles: {
-    height: windowHeight * 0.1,
-    width: windowWidth,
     justifyContent: "center",
     alignItems: "center",
+    color: "#fff",
+    fontSize: 40,
+    fontWeight: "bold",
   },
   list: {
     height: "auto",
@@ -98,6 +101,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     height: windowHeight * 0.5,
+  },
+  subTitle: {
+    fontSize: 20,
+    color: "#fff",
   },
 });
 
