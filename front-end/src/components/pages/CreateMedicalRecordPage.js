@@ -80,6 +80,7 @@ export function CreateMedicalRecordPage({
     return (
       <SafeAreaView>
         <View style={createMed.MainContainer}>
+          <Text style={createMed.text}>Procedure Done On</Text>
           <Text style={createMed.text}>{date.toDateString()}</Text>
 
           {datePickerDisplay && (
@@ -96,7 +97,7 @@ export function CreateMedicalRecordPage({
             <View style={createMed.button}>
               <Button
                 title="Select Date"
-                color="green"
+                color="#2A432A"
                 onPress={showDatePicker}
               />
             </View>
@@ -126,7 +127,10 @@ export function CreateMedicalRecordPage({
         <>
           {success ? <Text>Record Added</Text> : null}
           <View style={styles.header}>
-            <MainHeaderTitle title="Create Medical Record" />
+            <MainHeaderTitle
+              title={`Animal #${id}`}
+              subtitle={"Create Medical Record"}
+            />
           </View>
           <View style={createMed.midSection}>
             <TextInput
