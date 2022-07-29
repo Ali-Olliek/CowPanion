@@ -47,6 +47,7 @@ export function AddAnimalPage({ navigation }) {
     }).then((response) => {
       if (response.data.code === 201) {
         setSuccess(true);
+        navigation.goBack();
         setTimeout(() => {
           setSuccess(false);
         }, 500);
@@ -82,27 +83,43 @@ export function AddAnimalPage({ navigation }) {
             <TouchableHighlight
               onPress={() => setStatusInput("Lactating")}
               underlayColor={"#c7a09f"}
-              style={[statusStyles.Lactating, statusStyles.circle]}
+              style={
+                statusInput == "Lactating"
+                  ? statusStyles.Lactating
+                  : statusStyles.originalStatus
+              }
             >
               <Text>Lactating</Text>
             </TouchableHighlight>
             <TouchableHighlight
               onPress={() => setStatusInput("Dry")}
               underlayColor={"#8da1b5"}
-              style={[statusStyles.Dry, statusStyles.circle]}
+              style={
+                statusInput == "Dry"
+                  ? statusStyles.Dry
+                  : statusStyles.originalStatus
+              }
             >
               <Text>Dry</Text>
             </TouchableHighlight>
             <TouchableHighlight
               onPress={() => setStatusInput("Heifer")}
-              style={[statusStyles.Heifer, statusStyles.circle]}
+              style={
+                statusInput == "Heifer"
+                  ? statusStyles.Heifer
+                  : statusStyles.originalStatus
+              }
             >
               <Text>Heifer</Text>
             </TouchableHighlight>
             <TouchableHighlight
-              onPress={() => setStatusInput("Quarantined")}
+              onPress={() => setStatusInput("Calf")}
               underlayColor={"#bf6767"}
-              style={[statusStyles.Calf, statusStyles.circle]}
+              style={
+                statusInput == "Calf"
+                  ? statusStyles.Calf
+                  : statusStyles.originalStatus
+              }
             >
               <Text>Calf</Text>
             </TouchableHighlight>

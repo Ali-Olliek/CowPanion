@@ -12,6 +12,7 @@ import { FixingError } from "../UI/atoms";
 import { AnimalRecord, AttributeBoxes } from "../UI/molecules";
 
 export function AnimalsListPage({ navigation }) {
+  //
   // States and Variables
   const { token, id, userType } = useSelector((state) => state.user.user);
   const [animals, setAnimals] = useState([]);
@@ -19,6 +20,20 @@ export function AnimalsListPage({ navigation }) {
   const [fetchError, setFetchError] = useState(false);
   const [attr, setAttr] = useState("Id");
   const [vetAnimals, setVetAnimals] = useState([]);
+  //
+  // Get animals on navigation
+  useEffect(() => {
+    getVetAnimals();
+  }, [userType]);
+
+  console.log(vetAnimals);
+  useFocusEffect(
+    useCallback(() => {
+      if (userType == 2) {
+        getAnimals();
+      }
+    }, [])
+  );
   //
   // Constructing Request
   const animalsListUrl = `http://10.0.2.2:8000/api/v1/animals/?user_id=${id}`;
@@ -43,16 +58,16 @@ export function AnimalsListPage({ navigation }) {
     });
   };
 
-  useEffect(() => {
-    if (userType == 3) {
-      getVetAnimals();
-    }
-  }, []);
-
-  useEffect(() => {
-    getAnimals();
-    idAscending(); // Stops getting data from server
-  }, []);
+  console.log(animals);
+  // useFocusEffect(() => {
+  //   useCallback(())
+  //   if (userType == 3) {
+  //     getVetAnimals();
+  //   } else if (userType == 2) {
+  //     getAnimals();
+  // idAscending(); // Stops getting data from server
+  //   }
+  // }, []);
 
   //
   // Sorting
@@ -119,14 +134,7 @@ export function AnimalsListPage({ navigation }) {
           ) : (
             <AnimalRecord
               navigation={navigation}
-              sorted={sortedAnimals}
-              animals={
-                userType == 2 && sortedAnimals.lenghth == 0
-                  ? animals
-                  : userType == 3
-                  ? vetAnimals
-                  : null
-              }
+              animals={userType == 3 ? vetAnimals : vetAnimals}
             />
           )}
         </View>

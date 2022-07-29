@@ -5,7 +5,7 @@ const windowHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
   header: {
-    height: windowHeight * 0.15,
+    height: windowHeight * 0.2,
     width: windowWidth,
     backgroundColor: "white",
     flexDirection: "row",
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     textAlignVertical: "center",
   },
   recordContainer: {
-    width: windowWidth,
+    width: windowWidth * 0.99,
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 40,

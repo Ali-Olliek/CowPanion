@@ -53,6 +53,7 @@ export function CreateReminderPage({ navigation }) {
       headers: { "content-type": "multipart/form-data", Authorization: token },
       data: data,
     }).then((response) => {
+      navigation.goBack();
       console.log(response.data);
     });
   };

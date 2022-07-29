@@ -8,6 +8,7 @@ export function AnimalActions({ navigation, id }) {
       {actions.map((action, index) => {
         return (
           <TouchableHighlight
+            key={actions[index]}
             underlayColor={"black"}
             onPress={() =>
               navigation.navigate(action, {

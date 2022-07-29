@@ -21,7 +21,7 @@ export function AnimalRecord({ animals, navigation, sorted }) {
       <View>
         <SafeAreaView>
           <FlatList
-            data={sorted.length == 0 ? animals : sorted}
+            data={animals}
             renderItem={({ item }) => (
               <>
                 <TouchableOpacity

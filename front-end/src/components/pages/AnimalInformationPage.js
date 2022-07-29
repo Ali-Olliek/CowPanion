@@ -107,7 +107,6 @@ const listStyles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "center",
     paddingHorizontal: 20,
-    marginVertical: 20,
     backgroundColor: "#273724",
   },
   back: {
