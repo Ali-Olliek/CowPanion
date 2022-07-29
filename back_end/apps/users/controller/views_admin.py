@@ -33,7 +33,8 @@ def get_users(request):
 
     if request.method == "GET":
 
-        users = User.objects.all().values('name', 'email', 'DOB', 'id')
+        users = User.objects.all().values('name', 'email', 'DOB',
+                                          'id', 'phone_number', 'user_Type')
 
         users_list = []
         for user in users:
