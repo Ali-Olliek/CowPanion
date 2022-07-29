@@ -1,15 +1,15 @@
 import React from "react";
 import "./TopBarStyles.css";
+import WeatherCards from "../../../components/molecules/WeatherCards";
+import DateViewer from "../../../components/molecules/DateViewer";
 export default function TopBar() {
   return (
     <div className="topBar">
       <div className="weatherCards">
-        <h3>Weather</h3>
-        <h3>Weather</h3>
-        <h3>Weather</h3>
+        <WeatherCards />
       </div>
       <div>
-        <h3>Date and Time</h3>
+        <DateViewer />
       </div>
     </div>
   );

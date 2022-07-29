@@ -6,16 +6,43 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 1px solid black;
     position: absolute;
     padding-inline: 50px;
     align-items: center;
-    background-color: #344E41;
 }
 
 .weatherCards {
     display: flex;
-    width: 60%;
+    width: 50vw;
     justify-content: space-evenly;
     align-items: center;
+}
+
+.weatherCard {
+    width: 10vw;
+    height: 12vh;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #ACC0B3 ;
+    border: 0px;
+    box-shadow: 5px 5px 10px;
+}
+
+.date{
+    border: 1px solid black;
+    max-width: 25vw;
+    min-width: 15vw;
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color:#ACC0B3;
+    border-radius: 10px;
+    border: 0px;
+    box-shadow: 5px 5px 10px;
 }
