@@ -1,7 +1,6 @@
 import React from "react";
 import "../../pages/Main/MidSection/MidSecStyles.css";
 export default function UserRecord({ user }) {
-  console.log(user);
   return (
     <div
       className={

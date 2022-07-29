@@ -117,4 +117,10 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    align-items: center;
+}
+
+.pieChart {
+    width: 400px;
+    height: 400px;
 }
