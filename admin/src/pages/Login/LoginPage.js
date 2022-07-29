@@ -33,6 +33,7 @@ export default function LoginPage() {
         .then((response) => {
           console.log(response.data);
           if (response.data.code === 200 && response.data.user_type === 1) {
+            localStorage.setItem("token", response.data.token);
             navigate("/Main");
           } else {
             navigate("/404");

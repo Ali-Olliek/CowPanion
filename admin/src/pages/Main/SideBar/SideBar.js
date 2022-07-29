@@ -4,12 +4,8 @@ import "./SideBarStyles.css";
 export default function SideBar() {
   return (
     <div className="sideBar">
-      <div>
+      <div className="adminBox">
         <h4>Admin Name</h4>
-      </div>
-      <div className="sbSubSec">
-        <button className="sbButton">Users</button>
-        <button className="sbButton">Farms</button>
       </div>
       <div>
         <button className="button">Log out</button>
