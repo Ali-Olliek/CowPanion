@@ -1,3 +1,44 @@
-.main {
-    background-color: blue;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.midSec {
+    position: absolute;
+    left: 15vw;
+    top: 15vh;
+    height: calc(85vh - 40px);
+    width: calc(85vw - 40px);
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.topSec {
+    width: 100%;
+    border: 1px solid red;
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.botSec {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+.mapBox {
+    height: 55vh;
+    width: 80%;
+    border: 1px solid black;
+    
+}
+
+.utilBox {
+    height: 55vh;
+    border: 1px solid black;
+    width: 20%;
 }

@@ -1,3 +1,21 @@
-.main2 {
-    background-color: black;
+.topBar {
+    height: 15vh;
+    width: 85vw;
+    top: 0;
+    left: 15vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid black;
+    position: absolute;
+    padding-inline: 50px;
+    align-items: center;
+    background-color: #344E41;
+}
+
+.weatherCards {
+    display: flex;
+    width: 60%;
+    justify-content: space-evenly;
+    align-items: center;
 }
