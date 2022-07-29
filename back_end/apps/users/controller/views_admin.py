@@ -210,3 +210,22 @@ def get_feeds(request):
         "code": 500,
         "status": "USGE"
     })
+
+# get only locations of registered farms
+
+
+def get_farm_locations(request):
+    if request.method == "GET":
+        farms = Farm.objects.all().values('location', 'name')
+        farms_location = []
+        for location in farms:
+            farms_location.append(location)
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "farms": farms_location
+        })
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })

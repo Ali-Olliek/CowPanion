@@ -17,6 +17,7 @@ admin_urls = [
     '/api/v1/adminGetFarms/',
     '/api/v1/addFeed/',
     '/api/v1/getFeeds/',
+    '/api/v1/getLocations/'
 ]
 
 farmer_urls = [
