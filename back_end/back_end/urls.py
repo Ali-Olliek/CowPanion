@@ -39,6 +39,7 @@ urlpatterns = [
     path('api/v1/addFeed/', admins_controller.add_feed_data, name='add_feed'),
     path('api/v1/getFeeds/', admins_controller.get_feeds, name='get_feeds'),
     path('api/v1/getLocations/', admins_controller.get_farm_locations, name='get_locations'),
+    path('api/v1/adminStats/', admins_controller.get_admin_stats, name='get_stats'),
 
     # Vets
     

@@ -229,3 +229,31 @@ def get_farm_locations(request):
         "code": 500,
         "status": "USGE"
     })
+
+# get general stats
+
+
+def get_admin_stats(request):
+
+    if request.method == "GET":
+
+        vets = User.objects.filter(user_Type=3).count()
+        farmers = User.objects.filter(user_Type=2).count()
+        farms = Farm.objects.count()
+        animals = Animal.objects.count()
+
+        return JsonResponse({
+            "code": 200,
+            "status": "success",
+            "data": {
+                "Farmers": farmers,
+                "Veterinarians": vets,
+                "Farms": farms,
+                "Animals": animals
+            }
+        })
+
+    return JsonResponse({
+        "code": 500,
+        "status": "USGE"
+    })
