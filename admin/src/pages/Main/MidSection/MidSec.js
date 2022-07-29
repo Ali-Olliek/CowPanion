@@ -1,19 +1,21 @@
 import React from "react";
 import "./MidSecStyles.css";
+import StatBoxes from "../../../components/molecules/StatBoxes";
+import LeafletMap from "../../../components/molecules/LeafletMap";
+import UsersList from "../../../components/molecules/UsersList";
 export default function MidSec() {
   return (
     <div className="midSec">
       <div className="topSec">
-        <h3>stats</h3>
-        <h3>stats</h3>
-        <h3>stats</h3>
-        <h3>stats</h3>
+        <StatBoxes />
       </div>
       <div className="botSec">
         <div className="mapBox">
-          <h4>Map</h4>
+          <LeafletMap />
         </div>
-        <div className="utilBox">utilities</div>
+        <div className="utilBox">
+          <UsersList />
+        </div>
       </div>
     </div>
   );
