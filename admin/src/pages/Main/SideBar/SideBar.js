@@ -1,15 +1,18 @@
 import React from "react";
 import "./SideBarStyles.css";
+
 export default function SideBar() {
   return (
     <div className="sideBar">
-      <div>Admin Name</div>
+      <div>
+        <h4>Admin Name</h4>
+      </div>
       <div className="sbSubSec">
-        <button>Users</button>
-        <button>Farms</button>
+        <button className="sbButton">Users</button>
+        <button className="sbButton">Farms</button>
       </div>
       <div>
-        <button>Log out</button>
+        <button className="button">Log out</button>
       </div>
     </div>
   );

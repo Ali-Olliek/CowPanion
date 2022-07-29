@@ -1,6 +1,13 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+
+}
+
 .topBar {
-    height: 15vh;
-    width: 85vw;
+    height: calc(15vh - 40px);
+    width: calc(85vw - 40px);
     top: 0;
     left: 15vw;
     display: flex;
@@ -9,6 +16,10 @@
     position: absolute;
     padding-inline: 50px;
     align-items: center;
+    margin-block: 20px;
+    border-radius: 20px;
+    margin-inline: 20px;
+
 }
 
 .weatherCards {

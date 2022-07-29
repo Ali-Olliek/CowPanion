@@ -5,8 +5,8 @@
 }
 
 .sideBar {
-    background-color: #344E41;
-    height: 100vh;
+    background-color: #344e41;
+    height: 95vh;
     width: 15vw;
     display: flex;
     flex-direction: column;
@@ -14,6 +14,9 @@
     align-items: center;
     padding-block: 50px;
     position: absolute;
+    border-radius: 20px;
+    margin-block: 20px;
+    margin-inline: 10px;
     top: 0;
     left: 0;
 }
@@ -21,6 +24,24 @@
 .sbSubSec {
     display: flex;
     flex-direction: column;
-    height: 10vh;
+    height: 30%;
     justify-content: space-between;
+}
+
+.sbButton {
+    width: 8vw;
+    height: 60px;
+    border-radius: 10px;
+    border: 0px;
+}
+
+.sbButton:active {
+    background-color: #D46C4E;
+}
+
+.button {
+    height: 40px;
+    width: 6vw;
+    border-radius: 10px;
+    border: 0px
 }
