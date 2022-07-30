@@ -2,9 +2,9 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import UserRecord from "../atoms/UserRecord";
 import "../../pages/Main/MidSection/MidSecStyles.css";
-export default function UsersList() {
+export default function UsersList({ users, setUsers }) {
   // States and Variables
-  const [users, setUsers] = useState([]);
+
   const token = localStorage.getItem("token");
 
   // Create Request

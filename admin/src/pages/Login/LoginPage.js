@@ -34,6 +34,7 @@ export default function LoginPage() {
           console.log(response.data);
           if (response.data.code === 200 && response.data.user_type === 1) {
             localStorage.setItem("token", response.data.token);
+            localStorage.setItem("name", response.data.user_name);
             navigate("/Main");
           } else {
             navigate("/404");

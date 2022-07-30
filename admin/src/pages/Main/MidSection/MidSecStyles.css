@@ -112,10 +112,9 @@
 
 .chartsSec {
     width: 40vw;
-    border: 1px solid black;
     height: 55vh;
     display: flex;
-    justify-content: space-between;
+    justify-content:center;
     flex-direction: column;
     align-items: center;
 }
@@ -123,4 +122,8 @@
 .pieChart {
     width: 400px;
     height: 400px;
+}
+
+.chartTitle {
+    margin-bottom: 20px;
 }
