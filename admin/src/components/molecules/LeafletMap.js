@@ -11,15 +11,17 @@ import "../../pages/Main/MidSection/MidSecStyles.css";
 export default function LeafletMap() {
   // States and Variables
   const token = localStorage.getItem("token");
-  const [farms, setFarms] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [farms, setFarms] = useState();
+  const [locations, setLocations] = useState();
+  const [loading, setLoading] = useState(true);
   const parsedData = [];
 
-  const parseData = () => {
-    for (let farm in farms) {
-      const data = JSON.parse(farms[farm].location);
-      parsedData.push(data);
-    }
+  const parseData = (data) => {
+    let new_data = data.map((farm_data) => {
+      return JSON.parse(farm_data.location);
+    });
+    setLoading(false);
+    return new_data;
   };
 
   // create Request
@@ -30,8 +32,9 @@ export default function LeafletMap() {
       url: getLocationsUrl,
       headers: { Authorization: token },
     }).then((response) => {
+      const data = parseData(response.data.farms);
       setFarms(response.data.farms);
-      parseData();
+      setLocations(data);
     });
   };
 
@@ -41,40 +44,42 @@ export default function LeafletMap() {
 
   const displayMap = () => {
     return (
-      <MapContainer
-        className="mapBox"
-        center={[33.8938, 35.5018]}
-        zoom={9}
-        scrollWheelZoom={false}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {parsedData.map((farm, index) => {
-          return (
-            <Marker
-              key={parseData[index]}
-              position={[farm.latitude, farm.longitude]}
-              icon={
-                new icon({
-                  iconUrl: markerIconPng,
-                  iconSize: [25, 41],
-                  iconAnchor: [12, 41],
-                })
-              }
-            >
-              <Popup key={parseData[index]}>{farms[index].name}</Popup>
-            </Marker>
-          );
-        })}
-      </MapContainer>
+      <>
+        <MapContainer
+          className="mapBox"
+          center={[33.8938, 35.5018]}
+          zoom={9}
+          scrollWheelZoom={false}
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {locations.map((farm, index) => {
+            return (
+              <Marker
+                key={locations[index]}
+                position={[farm.latitude, farm.longitude]}
+                icon={
+                  new icon({
+                    iconUrl: markerIconPng,
+                    iconSize: [25, 41],
+                    iconAnchor: [12, 41],
+                  })
+                }
+              >
+                <Popup key={farms[index]}>{farms[index].name}</Popup>
+              </Marker>
+            );
+          })}
+        </MapContainer>
+      </>
     );
   };
 
   return (
     <>
-      {!loading ? (
+      {farms ? (
         displayMap()
       ) : (
         <h4>Fetching data and setting markers, please wait</h4>
