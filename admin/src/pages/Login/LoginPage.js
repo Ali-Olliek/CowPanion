@@ -50,7 +50,7 @@ export default function LoginPage() {
     <div className="pageContainer">
       <div className="mainCard">
         <div className="inputsSection">
-          <h2>Sign In</h2>
+          <h1>Sign In</h1>
           <div className="inputs">
             <input
               onChange={(e) => setAdminEmail(e.target.value)}
@@ -69,17 +69,17 @@ export default function LoginPage() {
               placeholder="Admin Secret"
               type={"password"}
             ></input>
-            <button className="button" onClick={signIn}>
+            <button className="buttonAuth" onClick={signIn}>
               Sign In
             </button>
           </div>
         </div>
         <div className="detailsSection">
-          <h1 className="detailsTitle">Admin Panel</h1>
+          <h1 className="detailsTitle">Admin's Panel</h1>
           <h4 className="details">
-            Admins will be able to get general statistics about their userbase,
-            as well to graphs visualizing the said userbase along with a map
-            showing all registered farms in the country
+            Admins will be able to monitor their userbase, and get visual
+            representation of the age groups of said userbase. Admins will see a
+            map with markers showing the location of registered farms.
           </h4>
         </div>
       </div>
