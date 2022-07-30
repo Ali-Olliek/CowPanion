@@ -1,9 +1,47 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
+import { text } from "d3";
 
-function PieChart(props) {
-  const outerRadius = 100;
-  const innerRadius = 50;
+function PieChart({ users }) {
+  const years = [];
+  for (let user in users) {
+    let age = new Date(users[user].DOB).getFullYear();
+    if (age >= 1990 && age < 2000) {
+      years.push(90);
+    } else if (age >= 2000 && age < 2010) {
+      years.push(2000);
+    } else if (age >= 1980 && age < 1990) {
+      years.push(80);
+    } else {
+      years.push(70);
+    }
+  }
+
+  let eighties = 0;
+  let nineties = 0;
+  let twothousands = 0;
+  let seventies = 0;
+
+  for (let Agegroup in years) {
+    if (years[Agegroup] == 90) {
+      nineties++;
+    } else if (years[Agegroup] == 2000) {
+      twothousands++;
+    } else if (years[Agegroup] == 80) {
+      eighties++;
+    } else {
+      seventies++;
+    }
+  }
+
+  const outerRadius = 200;
+  const innerRadius = 100;
+  const data = [
+    { label: "90s", value: nineties },
+    { label: "2000s", value: twothousands },
+    { label: "80s", value: eighties },
+    { label: "70s", value: seventies },
+  ];
 
   const margin = {
     top: 50,
@@ -16,9 +54,9 @@ function PieChart(props) {
   const height = 2 * outerRadius + margin.top + margin.bottom;
 
   const colorScale = d3
-    .scaleSequential()
-    .interpolator(d3.interpolateCool)
-    .domain([0, data.length]);
+    .scaleOrdinal()
+    .domain(data)
+    .range(["#2f3e46", "#354f52", "#52796f", "#84a98c", "#cad2c5"]);
 
   useEffect(() => {
     drawChart();
@@ -32,10 +70,23 @@ function PieChart(props) {
     const svg = d3
       .select("#pie-container")
       .append("svg")
-      .attr("width", 200)
-      .attr("height", 200)
+      .attr("width", 400)
+      .attr("height", 400)
       .append("g")
-      .attr("transform", `translate(${width / 2}, ${height / 2})`);
+      .attr("transform", `translate(${width / 2}, ${height / 2})`)
+      .on("mouseover", (e, d) => {
+        tooldiv
+          .style("visibility", "visible")
+          .text(e.target.__data__.data.label);
+      })
+      .on("mousemove", (e, d) => {
+        tooldiv
+          .style("top", e.pageY - 50 + "px")
+          .style("left", e.pageX - 50 + "px");
+      })
+      .on("mouseout", () => {
+        tooldiv.style("visibility", "hidden");
+      });
 
     const arcGenerator = d3
       .arc()
@@ -68,6 +119,15 @@ function PieChart(props) {
         const [x, y] = arcGenerator.centroid(d);
         return `translate(${x}, ${y})`;
       });
+
+    const tooldiv = d3
+      .select("#pie-container")
+      .append("div")
+      .style("visibility", "hidden")
+      .style("position", "absolute")
+      .style("background-color", "#D46C4E")
+      .style("border-radius", 5 + "px")
+      .style("padding", 10 + "px");
   }
 
   return <div id="pie-container" />;
