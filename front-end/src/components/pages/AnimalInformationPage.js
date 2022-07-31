@@ -86,12 +86,16 @@ export function AnimalInformationPage({ navigation, route }) {
           title={`Animal #${id}`}
         />
       </View>
-      <View>
-        <View style={infoStyles.slant}></View>
-        {animalData && <AnimalCard info={animalData} />}
-        <AnimalActions id={id} navigation={navigation} />
-        <MedicalRecord records={medicalRecord} />
-      </View>
+      {animalData ? (
+        <View>
+          <View style={infoStyles.slant}></View>
+          {animalData && <AnimalCard info={animalData} />}
+          {animalData && <AnimalActions id={id} navigation={navigation} />}
+          <MedicalRecord records={medicalRecord} />
+        </View>
+      ) : (
+        <Text>Loading Data</Text>
+      )}
     </>
   );
 }

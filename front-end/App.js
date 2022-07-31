@@ -23,6 +23,7 @@ import {
   AddAnimalPage,
   CreateFarmPage,
   OnBoardingPage,
+  CameraPage,
 } from "./src/components/pages";
 
 import { store } from "./src/redux/store";
