@@ -17,12 +17,14 @@ const createFarmStyle = StyleSheet.create({
   },
   GO: {
     borderWidth: 1,
-    width: 0.5 * windowWidth,
-    height: 60,
+    width: 0.2 * windowWidth,
+    height: 40,
+    position: "absolute",
+    right: -0.9 * windowWidth,
+    marginTop: 35,
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 10,
-    marginVertical: 20,
     backgroundColor: "#ACC0B3",
   },
   inputsContainer: {

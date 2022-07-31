@@ -7,29 +7,26 @@ export function Map({ setCoordinate }) {
   const [pin, setPin] = useState({ latitude: 33.88863, longitude: 35.49548 });
   return (
     <>
-      <View style={styles.container}>
-        <Text>Select the location of your farm</Text>
-        <MapView
-          initialRegion={{
-            latitude: 33.88863,
-            longitude: 35.49548,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+      <MapView
+        initialRegion={{
+          latitude: 33.88863,
+          longitude: 35.49548,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        style={styles.map}
+      >
+        <Marker
+          coordinate={pin}
+          draggable={true}
+          onDragEnd={(e) => {
+            setCoordinate({
+              latitude: e.nativeEvent.coordinate.latitude,
+              longitude: e.nativeEvent.coordinate.longitude,
+            });
           }}
-          style={styles.map}
-        >
-          <Marker
-            coordinate={pin}
-            draggable={true}
-            onDragEnd={(e) => {
-              setCoordinate({
-                latitude: e.nativeEvent.coordinate.latitude,
-                longitude: e.nativeEvent.coordinate.longitude,
-              });
-            }}
-          />
-        </MapView>
-      </View>
+        />
+      </MapView>
     </>
   );
 }
@@ -38,7 +35,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
+    alignItems: "flex-start",
     justifyContent: "center",
   },
   map: {

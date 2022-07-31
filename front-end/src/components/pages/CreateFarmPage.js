@@ -33,7 +33,6 @@ export function CreateFarmPage({ navigation }) {
 
   const { id, token } = useSelector((state) => state.user.user);
   const farm_password = Math.floor(Math.random() * 100);
-
   //
   // Create Request to Create a Farm
   const createFarmUrl = "api/v1/createFarm/";
@@ -73,7 +72,9 @@ export function CreateFarmPage({ navigation }) {
     axios({
       method: "GET",
       url: getVetsUrl,
-      headers: { Authorization: token },
+      headers: {
+        Authorization: token,
+      },
     })
       .then((response) => {
         if (response.data.code === 200) {
@@ -88,32 +89,24 @@ export function CreateFarmPage({ navigation }) {
   return (
     <>
       <View style={styles.createFarmHeader}>
-        <MainHeaderTitle title={"Create Farm"} subtitle={"and start!"} />
-        <Image
-          style={{
-            width: 100,
-            height: 100,
-          }}
-          source={require("../../assets/images/Create.png")}
-        />
+        <MainHeaderTitle title={"Register your Farm"} subtitle={"and start!"} />
       </View>
       <View style={createFarmStyle.inputsContainer}>
         <View style={createFarmStyle.data}>
           <TextInput
             onChangeText={(farmName) => setName(farmName)}
-            style={name ? createFarmStyle.inputs : createFarmStyle.placeholder}
+            style={createFarmStyle.inputs}
             placeholder="Farm Name"
             placeholderTextColor={"grey"}
           ></TextInput>
           <TextInput
             onChangeText={(milkContainer) => setContainer(milkContainer)}
-            style={
-              container ? createFarmStyle.inputs : createFarmStyle.placeholder
-            }
+            style={createFarmStyle.inputs}
             placeholder="Milk Container Volume (in cm3)"
             placeholderTextColor={"grey"}
+            placeholderTextSize={12}
           ></TextInput>
-          <VetList setVet={setVetId} list={vets} />
+          <VetList vet={vets} setVet={setVetId} list={vets} />
         </View>
         <View
           style={{
@@ -122,12 +115,15 @@ export function CreateFarmPage({ navigation }) {
             alignItems: "center",
           }}
         >
-          <Map setCoordinate={setCoordinate} />
-          <TouchableHighlight onPress={createFarm}>
-            <View style={createFarmStyle.GO}>
-              <Text>GO</Text>
-            </View>
-          </TouchableHighlight>
+          <View style={styles.container}>
+            <Text>Select the location of your farm</Text>
+            <Map setCoordinate={setCoordinate} />
+            <TouchableHighlight onPress={createFarm}>
+              <View style={createFarmStyle.GO}>
+                <Text>START</Text>
+              </View>
+            </TouchableHighlight>
+          </View>
         </View>
       </View>
     </>
