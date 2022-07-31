@@ -36,7 +36,7 @@ export function CreateFarmPage({ navigation }) {
 
   //
   // Create Request to Create a Farm
-  const createFarmUrl = "http://10.0.2.2:8000/api/v1/createFarm/";
+  const createFarmUrl = "api/v1/createFarm/";
   const data = {
     name: name,
     location: JSON.stringify(coordinate),
@@ -68,7 +68,7 @@ export function CreateFarmPage({ navigation }) {
   }, []);
 
   // Create Request To Fetch Vets
-  const getVetsUrl = "http://10.0.2.2:8000/api/v1/getVets";
+  const getVetsUrl = "api/v1/getVets";
   const getVets = () => {
     axios({
       method: "GET",

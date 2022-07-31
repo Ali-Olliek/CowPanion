@@ -39,7 +39,7 @@ export function CreateReminderPage({ navigation }) {
   };
   //
   // Create Request
-  const createReminderUrl = "http://10.0.2.2:8000/api/v1/createReminder/";
+  const createReminderUrl = "api/v1/createReminder/";
   const data = {
     user_id: id,
     task_title: title,

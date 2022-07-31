@@ -25,7 +25,7 @@ export function AddAnimalPage({ navigation }) {
 
   // Create Request
 
-  const addAnimalUrl = "http://10.0.2.2:8000/api/v1/addAnimal/";
+  const addAnimalUrl = "api/v1/addAnimal/";
   const data = {
     name: nameInput,
     species: "Cow",

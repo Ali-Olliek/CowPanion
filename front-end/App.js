@@ -1,9 +1,12 @@
 // Modules
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { useSelector, Provider } from "react-redux";
+import { Provider } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Button } from "react-native";
+
+// Axios Config
+axios.defaults.baseURL = "http://10.0.2.2:8000/";
+
 // Pages and Components
 import { BottomNavBarButtons } from "./src/components/UI/organisms/BottomNavBarButtons";
 import {
@@ -24,7 +27,7 @@ import {
 
 import { store } from "./src/redux/store";
 import { useState } from "react";
-import { HeaderTitle, MainHeaderTitle } from "./src/components/UI/atoms";
+import axios from "axios";
 
 export default function App() {
   const Stack = createNativeStackNavigator();

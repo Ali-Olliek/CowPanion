@@ -26,7 +26,6 @@ export function AnimalsListPage({ navigation }) {
     getVetAnimals();
   }, [userType]);
 
-  console.log(vetAnimals);
   useFocusEffect(
     useCallback(() => {
       if (userType == 2) {
@@ -36,7 +35,7 @@ export function AnimalsListPage({ navigation }) {
   );
   //
   // Constructing Request
-  const animalsListUrl = `http://10.0.2.2:8000/api/v1/animals/?user_id=${id}`;
+  const animalsListUrl = `api/v1/animals/?user_id=${id}`;
   const getAnimals = () => {
     axios({
       method: "GET",
@@ -92,7 +91,7 @@ export function AnimalsListPage({ navigation }) {
   }, [attr]);
 
   // Creating Vet Request
-  const vetAnimalsUrl = `http://10.0.2.2:8000/api/v1/getAssignedAnimals/?vet_id=${id}`;
+  const vetAnimalsUrl = `api/v1/getAssignedAnimals/?vet_id=${id}`;
   const getVetAnimals = () => {
     axios({
       method: "GET",
@@ -134,7 +133,7 @@ export function AnimalsListPage({ navigation }) {
           ) : (
             <AnimalRecord
               navigation={navigation}
-              animals={userType == 3 ? vetAnimals : vetAnimals}
+              animals={userType == 3 ? vetAnimals : animals}
             />
           )}
         </View>

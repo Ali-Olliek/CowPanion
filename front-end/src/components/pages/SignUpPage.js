@@ -63,7 +63,7 @@ export function SignUpPage({ navigation }) {
     }
   }, [sendRequest]);
 
-  const signUpURL = "http://10.0.2.2:8000/api/v1/signUp/";
+  const signUpURL = "api/v1/signUp/";
 
   const signUp = (event) => {
     if (
@@ -87,6 +87,7 @@ export function SignUpPage({ navigation }) {
     })
       .then((response) => {
         if (response.status === 200) {
+          // Store user type in Async Storage
           const storeData = async () => {
             try {
               await AsyncStorage.setItem(
@@ -98,6 +99,7 @@ export function SignUpPage({ navigation }) {
             }
           };
           storeData();
+          // Dispatch user info to Redux store
           dispatch(
             loginRedux({
               id: response.data.user_id,

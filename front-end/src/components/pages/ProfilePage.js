@@ -23,7 +23,7 @@ export function ProfilePage({ setUserData }) {
 
   //
   // Creating Request to get Milk Data
-  const getMilkDataUrl = `http://10.0.2.2:8000/api/v1/getMilkProfiles/?user_id=${id}`;
+  const getMilkDataUrl = `api/v1/getMilkProfiles/?user_id=${id}`;
   const getData = () => {
     axios({
       method: "GET",
@@ -46,7 +46,7 @@ export function ProfilePage({ setUserData }) {
 
   //
   // Create Request to get Feeds Data
-  const getFeedsUrl = "http://10.0.2.2:8000/api/v1/getFeeds/";
+  const getFeedsUrl = "api/v1/getFeeds/";
   const getFeeds = () => {
     axios({
       method: "GET",

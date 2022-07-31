@@ -30,7 +30,7 @@ export function LoginPage({ navigation }) {
   const [sendRequest, setSendRequest] = useState(false);
   // Constructing Data Request
   const data = { email: emailInput, password: passwordInput };
-  const loginUrl = "http://10.0.2.2:8000/api/v1/signIn/";
+  const loginUrl = "api/v1/signIn/";
 
   useEffect(() => {
     if (sendRequest === true) {
@@ -58,6 +58,7 @@ export function LoginPage({ navigation }) {
         } else if (response.data.user_type == 3) {
           navigation.navigate("Animals");
         }
+        // Store user_Type in Async Storage
         const storeData = async () => {
           try {
             await AsyncStorage.setItem(
@@ -69,6 +70,7 @@ export function LoginPage({ navigation }) {
           }
         };
         storeData();
+        // Dispatch information to Redux Store
         dispatch(
           loginRedux({
             id: response.data.user_id,

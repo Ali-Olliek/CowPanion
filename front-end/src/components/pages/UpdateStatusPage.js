@@ -24,7 +24,7 @@ export function UpdateStatusPage({ navigation, route }) {
   // States and Variables
   const { id } = route.params;
   const [status, setStatus] = useState("");
-  const changeStatusUrl = "http://10.0.2.2:8000/api/v1/animal/update/";
+  const changeStatusUrl = "api/v1/animal/update/";
   const data = { status: status, id: id };
   const { token } = useSelector((state) => state.user.user);
   const [success, setSuccess] = useState(false);

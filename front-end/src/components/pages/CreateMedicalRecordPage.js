@@ -46,8 +46,7 @@ export function CreateMedicalRecordPage({
 
   // Create Request
 
-  const addMedicalRecordUrl =
-    "http://10.0.2.2:8000/api/v1/updateMedicalRecord/";
+  const addMedicalRecordUrl = "api/v1/updateMedicalRecord/";
   const data = {
     description: condition,
     medication: medications,

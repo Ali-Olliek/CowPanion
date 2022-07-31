@@ -31,8 +31,8 @@ export function AnimalInformationPage({ navigation, route }) {
 
   // Create Requests
 
-  const animalInformationUrl = `http://10.0.2.2:8000/api/v1/animal/?animal_id=${id}`;
-  const animalMedicalRecordUrl = `http://10.0.2.2:8000/api/v1/getMedicalRecord/?animal_id=${id}`;
+  const animalInformationUrl = `api/v1/animal/?animal_id=${id}`;
+  const animalMedicalRecordUrl = `api/v1/getMedicalRecord/?animal_id=${id}`;
 
   // get Information
   const getAnimalInfo = () => {
