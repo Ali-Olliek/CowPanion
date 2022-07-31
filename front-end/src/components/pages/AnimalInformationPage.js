@@ -107,16 +107,6 @@ const listStyles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "center",
     paddingHorizontal: 20,
-    backgroundColor: "#273724",
-  },
-  back: {
-    width: 45,
-    height: 30,
-    alignItems: "center",
-    justifyContent: "center",
-    borderWidth: 1,
-    marginVertical: 8,
-    backgroundColor: "#ACC0B3",
-    borderRadius: 8,
+    backgroundColor: "#344E41",
   },
 });

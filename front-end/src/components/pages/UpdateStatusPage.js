@@ -4,6 +4,7 @@ import {
   Text,
   TouchableHighlight,
   TouchableWithoutFeedback,
+  KeyboardAvoidingView,
 } from "react-native";
 import React, { useState } from "react";
 import axios from "axios";
@@ -67,75 +68,82 @@ export function UpdateStatusPage({ navigation, route }) {
           title={`Animal #${id}`}
         />
       </View>
-      {success ? (
-        <View style={infoStyles.messageContainer}>
-          <Text style={[infoStyles.message, infoStyles.success]}>
-            Status Updated
-          </Text>
-        </View>
-      ) : null}
-      {error ? (
-        <View style={infoStyles.messageContainer}>
-          <Text style={[infoStyles.message, infoStyles.error]}>
-            Update Failed
-          </Text>
-        </View>
-      ) : null}
-      <View style={statusStyles.main}>
-        <Text style={statusStyles.prompt}>
-          Choose a status and hit save to update
-        </Text>
-        <View style={statusStyles.container}>
-          <TouchableHighlight
-            onPress={() => setStatus("Calf")}
-            style={
-              status == "Calf" ? statusStyles.Calf : statusStyles.originalStatus
-            }
-          >
-            <Text>Calf</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => setStatus("Heifer")}
-            style={
-              status == "Heifer"
-                ? statusStyles.Heifer
-                : statusStyles.originalStatus
-            }
-          >
-            <Text>Heifer</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => setStatus("Dry")}
-            style={
-              status == "Dry" ? statusStyles.Dry : statusStyles.originalStatus
-            }
-          >
-            <Text>Dry</Text>
-          </TouchableHighlight>
-          <TouchableHighlight
-            onPress={() => setStatus("Lactating")}
-            style={
-              status == "Lactating"
-                ? statusStyles.Lactating
-                : statusStyles.originalStatus
-            }
-          >
-            <Text>Lactating</Text>
-          </TouchableHighlight>
-        </View>
-      </View>
-      <View style={createMed.actions}>
-        <TouchableWithoutFeedback onPress={changeStatus}>
-          <View style={createMed.save}>
-            <Text>Save</Text>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        style={{ flex: 1 }}
+      >
+        {success ? (
+          <View style={infoStyles.messageContainer}>
+            <Text style={[infoStyles.message, infoStyles.success]}>
+              Status Updated
+            </Text>
           </View>
-        </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
-          <View style={createMed.cancel}>
-            <Text>Cancel</Text>
+        ) : null}
+        {error ? (
+          <View style={infoStyles.messageContainer}>
+            <Text style={[infoStyles.message, infoStyles.error]}>
+              Update Failed
+            </Text>
           </View>
-        </TouchableWithoutFeedback>
-      </View>
+        ) : null}
+        <View style={statusStyles.main}>
+          <Text style={statusStyles.prompt}>
+            Choose a status and hit save to update
+          </Text>
+          <View style={statusStyles.container}>
+            <TouchableHighlight
+              onPress={() => setStatus("Calf")}
+              style={
+                status == "Calf"
+                  ? statusStyles.Calf
+                  : statusStyles.originalStatus
+              }
+            >
+              <Text>Calf</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => setStatus("Heifer")}
+              style={
+                status == "Heifer"
+                  ? statusStyles.Heifer
+                  : statusStyles.originalStatus
+              }
+            >
+              <Text>Heifer</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => setStatus("Dry")}
+              style={
+                status == "Dry" ? statusStyles.Dry : statusStyles.originalStatus
+              }
+            >
+              <Text>Dry</Text>
+            </TouchableHighlight>
+            <TouchableHighlight
+              onPress={() => setStatus("Lactating")}
+              style={
+                status == "Lactating"
+                  ? statusStyles.Lactating
+                  : statusStyles.originalStatus
+              }
+            >
+              <Text>Lactating</Text>
+            </TouchableHighlight>
+          </View>
+        </View>
+        <View style={createMed.actions}>
+          <TouchableWithoutFeedback onPress={changeStatus}>
+            <View style={createMed.save}>
+              <Text>Save</Text>
+            </View>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
+            <View style={createMed.cancel}>
+              <Text>Cancel</Text>
+            </View>
+          </TouchableWithoutFeedback>
+        </View>
+      </KeyboardAvoidingView>
     </>
   );
 }

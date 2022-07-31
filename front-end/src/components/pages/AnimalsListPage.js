@@ -57,17 +57,6 @@ export function AnimalsListPage({ navigation }) {
     });
   };
 
-  console.log(animals);
-  // useFocusEffect(() => {
-  //   useCallback(())
-  //   if (userType == 3) {
-  //     getVetAnimals();
-  //   } else if (userType == 2) {
-  //     getAnimals();
-  // idAscending(); // Stops getting data from server
-  //   }
-  // }, []);
-
   //
   // Sorting
   const idDescending = () => {
@@ -114,8 +103,12 @@ export function AnimalsListPage({ navigation }) {
       <View>
         <View style={styles.header}>
           <MainHeaderTitle
-            title={"Animals List"}
-            subtitle={"all your animals displayed here"}
+            title={userType == 2 ? "List of Animals" : "List of Patients"}
+            subtitle={
+              userType == 2
+                ? "All your farm animals here"
+                : "Animals from farms you're assigned to supervise"
+            }
           />
         </View>
         <View style={styles.titles}>

@@ -7,7 +7,7 @@ const createReminderStyle = StyleSheet.create({
   midSection: {
     alignItems: "center",
     marginVertical: 20,
-    height: windowHeight * 0.5,
+    height: windowHeight * 0.2,
   },
   inputs: {
     height: 40,
@@ -43,6 +43,7 @@ const createReminderStyle = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-end",
     alignContent: "flex-end",
+    marginTop: 40,
   },
   save: {
     width: 80,

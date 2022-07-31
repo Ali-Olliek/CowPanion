@@ -17,14 +17,11 @@ const AddAnimalStyle = StyleSheet.create({
     paddingVertical: 50,
   },
   inputs: {
+    height: 40,
     width: 0.8 * windowWidth,
-    height: 0.05 * windowHeight,
-    alignContent: "center",
-    justifyContent: "center",
-    borderRadius: 8,
-    marginVertical: 5,
-    backgroundColor: "#DAD7CD",
-    paddingHorizontal: 10,
+    borderBottomWidth: 1,
+    textAlign: "left",
+    paddingLeft: 10,
   },
   nav: {
     flexDirection: "row",

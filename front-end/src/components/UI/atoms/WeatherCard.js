@@ -12,13 +12,15 @@ export function WeatherCard() {
 
   return (
     <>
-      <Text style={{ color: "#fff", marginLeft: 5 }}>Today's Weather</Text>
+      <Text style={{ color: "#fff", marginLeft: 5, marginVertical: 8 }}>
+        Today's Weather
+      </Text>
       <View style={headerSectionStyle.cardsContainer}>
         <View style={headerSectionStyle.weatherCard}>
           <Text style={headerSectionStyle.weatherReading}>
             {weatherData.main.temp}
           </Text>
-          <Text style={headerSectionStyle.weatherUnit}>Celsius</Text>
+          <Text style={headerSectionStyle.weatherUnit}>°C</Text>
           <FontAwesome name="thermometer-1" size={35} color="#D46C4E" />
         </View>
         <View style={headerSectionStyle.weatherCard}>

@@ -32,7 +32,7 @@ const headerSectionStyle = StyleSheet.create({
     width: "auto",
     justifyContent: "space-between",
     paddingVertical: windowHeight * 0.01,
-    opacity: 0.5,
+    opacity: 0.7,
   },
   weatherCard: {
     width: windowWidth * 0.25,
@@ -45,12 +45,13 @@ const headerSectionStyle = StyleSheet.create({
     marginHorizontal: 0.01 * windowWidth,
   },
   weatherReading: {
-    color: "#ffff",
+    color: "black",
     fontSize: 24,
+    fontWeight: "bold",
   },
   weatherUnit: {
-    fontSize: 12,
-    color: "#ffff",
+    fontSize: 16,
+    color: "#000",
   },
   hr: {
     borderBottomWidth: 1,

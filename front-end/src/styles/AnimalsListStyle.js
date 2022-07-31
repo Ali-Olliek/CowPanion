@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 20,
     marginBottom: 10,
-    backgroundColor: "#273724",
+    backgroundColor: "#344E41",
   },
   createFarmHeader: {
     height: windowHeight * 0.15,
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     textAlignVertical: "center",
   },
+
   recordContainer: {
     width: windowWidth * 0.99,
     flexDirection: "row",
@@ -88,8 +89,9 @@ const styles = StyleSheet.create({
     opacity: 0.2,
   },
   container: {
+    marginTop: -70,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "flex-start",
     height: windowHeight,
   },
   AddAnimal: {

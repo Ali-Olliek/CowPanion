@@ -4,13 +4,17 @@ import { infoStyles } from "../../../styles/AnimalInfoStyle";
 export function MedicalRecord({ records }) {
   //
   // States and Variables
-  const [clicked, setClicked] = useState("");
+  const [clicked, setClicked] = useState(false);
   const dates = [];
   for (let record in records) {
     let date = new Date(records[record].fields.done_at);
     let formattedDate = date.toLocaleDateString();
     dates.push(formattedDate);
   }
+
+  const handleClicked = () => {
+    setClicked((current) => !current);
+  };
 
   //
   // Main
@@ -27,7 +31,7 @@ export function MedicalRecord({ records }) {
             data={Object.keys(records)}
             renderItem={({ item, index }) => (
               <TouchableOpacity
-                onPress={() => setClicked(toString(index))}
+                onPress={handleClicked}
                 style={[!clicked ? infoStyles.card : infoStyles.enlarge]}
               >
                 <View

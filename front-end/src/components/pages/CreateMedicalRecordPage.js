@@ -96,7 +96,7 @@ export function CreateMedicalRecordPage({
             <View style={createMed.button}>
               <Button
                 title="Select Date"
-                color="#2A432A"
+                color="#344E41"
                 onPress={showDatePicker}
               />
             </View>

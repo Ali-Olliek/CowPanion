@@ -21,7 +21,7 @@ export function GeneralStatsCard() {
 
   //
   // Create Requestt
-  const statsUrl = `http://10.0.2.2:8000/api/v1/getGeneralStats/?user_id=${id}`;
+  const statsUrl = `api/v1/getGeneralStats/?user_id=${id}`;
   const getGeneralStats = () => {
     axios({
       url: statsUrl,

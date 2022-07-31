@@ -27,7 +27,7 @@ const infoStyles = StyleSheet.create({
   circle: {
     width: 140,
     height: 150,
-    backgroundColor: "#2A432A",
+    backgroundColor: "#344E41",
     position: "absolute",
     right: 0,
     top: 0,
@@ -156,7 +156,7 @@ const infoStyles = StyleSheet.create({
   slant: {
     position: "absolute",
     height: windowHeight * 1.2,
-    backgroundColor: "#2A432A",
+    backgroundColor: "#344E41",
     width: windowWidth * 2,
     top: 0,
     right: 0,

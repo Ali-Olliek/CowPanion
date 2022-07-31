@@ -47,7 +47,6 @@ export function AddAnimalPage({ navigation }) {
     }).then((response) => {
       if (response.data.code === 201) {
         setSuccess(true);
-        navigation.goBack();
         setTimeout(() => {
           setSuccess(false);
         }, 500);
