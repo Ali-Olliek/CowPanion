@@ -150,7 +150,7 @@ export function SignUpPage({ navigation }) {
             <View style={createMed.button}>
               <Button
                 title="Date of Birth"
-                color="#2A432A"
+                color="#344E41"
                 onPress={showDatePicker}
               />
             </View>

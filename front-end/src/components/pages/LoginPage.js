@@ -97,21 +97,23 @@ export function LoginPage({ navigation }) {
         <MainHeaderTitle title={"Sign In"} subtitle={"stay in control"} />
       </View>
       <View style={AuthStyles.mainCard}>
-        <LoginInputs
-          setEmailInput={setEmailInput}
-          setPasswordInput={setPasswordInput}
-        />
-        {displayError ? <ErrorBox description={"Log In Failed"} /> : null}
-        <View style={AuthStyles.buttonsContainer}>
-          <PrimaryAuthButton
-            setSendRequest={setSendRequest}
-            placeholder={"Sign In"}
+        <View style={AuthStyles.center}>
+          <LoginInputs
+            setEmailInput={setEmailInput}
+            setPasswordInput={setPasswordInput}
           />
-          <SecondaryAuthButton
-            nav={"SignUp"}
-            navigation={navigation}
-            placeholder={"Sign Up"}
-          />
+          {displayError ? <ErrorBox description={"Log In Failed"} /> : null}
+          <View style={AuthStyles.buttonsContainer}>
+            <PrimaryAuthButton
+              setSendRequest={setSendRequest}
+              placeholder={"Sign In"}
+            />
+            <SecondaryAuthButton
+              nav={"SignUp"}
+              navigation={navigation}
+              placeholder={"Sign Up"}
+            />
+          </View>
         </View>
       </View>
     </View>

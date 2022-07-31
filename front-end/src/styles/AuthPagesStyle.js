@@ -7,7 +7,7 @@ const AuthStyles = StyleSheet.create({
   container: {
     justifyContent: "center",
     alignItems: "center",
-    height: windowHeight,
+    height: 1 * windowHeight,
   },
   mainCard: {
     width: 0.8 * windowWidth,
@@ -20,15 +20,17 @@ const AuthStyles = StyleSheet.create({
     marginVertical: 20,
   },
   image: {
-    borderColor: "#D46C4E",
     borderWidth: 2,
     borderRadius: 8,
     width: 80,
     height: 80,
   },
   ErrorBox: {
-    height: 20,
+    height: 30,
+    width: 200,
+    borderRadius: 10,
     margin: 0,
+    backgroundColor: "pink",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -36,6 +38,18 @@ const AuthStyles = StyleSheet.create({
     height: 0.12 * windowHeight,
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  center: {
+    height: 0.5 * windowHeight,
+    justifyContent: "space-evenly",
+    marginBottom: 0.3 * windowHeight,
+  },
+  imageActive: {
+    borderColor: "#D46C4E",
+    borderWidth: 2,
+    borderRadius: 8,
+    width: 80,
+    height: 80,
   },
 });
 
