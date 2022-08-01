@@ -20,6 +20,19 @@ const buttons = StyleSheet.create({
     borderRadius: 8,
     width: 0.4 * windowWidth,
   },
+  LoginPrimary: {
+    width: 0.8 * windowWidth,
+    height: 50,
+    backgroundColor: "#F17754",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+  },
+  placeholder: {
+    color: "#F2F8F4",
+    fontWeight: "bold",
+    fontSize: 22,
+  },
 });
 
 export { buttons };

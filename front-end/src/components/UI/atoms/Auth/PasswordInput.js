@@ -1,15 +1,19 @@
-import { TextInput } from "react-native";
+import { TextInput, Text, View } from "react-native";
 import React from "react";
-import { inputFields } from "../../../../styles/InputFields";
+
+import { InputStyles } from "../../../../styles/InputStyles";
 
 export function PasswordInput({ setPasswordInput }) {
   return (
-    <TextInput
-      onChangeText={(password) => setPasswordInput(password)}
-      style={inputFields.AuthInput}
-      textContentType="password"
-      placeholder="Password"
-      secureTextEntry={true}
-    ></TextInput>
+    <View style={InputStyles.inputBox}>
+      <Text style={InputStyles.prompt}>Password</Text>
+      <TextInput
+        onChangeText={(password) => setPasswordInput(password)}
+        style={InputStyles.LoginInput}
+        textContentType="password"
+        placeholder="Password"
+        secureTextEntry={true}
+      ></TextInput>
+    </View>
   );
 }

@@ -4,40 +4,33 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const LoginPageStyle = StyleSheet.create({
-  container: {
+  BG: {
     justifyContent: "center",
     alignItems: "center",
     height: windowHeight,
+    backgroundColor: "#307A55",
   },
-  mainCard: {
-    width: windowWidth * 0.9,
-    height: windowHeight * 0.3,
-    paddingHorizontal: 20,
-    justifyContent: "space-evenly",
-    backgroundColor: "#273724",
+  mainContainer: {
+    justifyContent: "space-between",
+    height: 0.8 * windowHeight,
+    alignItems: "center",
   },
-  input: {
-    borderWidth: 1,
-    height: 50,
-    borderRadius: 8,
-    paddingHorizontal: 20,
-    backgroundColor: "#DAD7CD",
+  logoTitle: {
+    fontSize: 28,
+    color: "#F2F8F4",
+    elevation: 5,
   },
-  primaryButton: {
-    width: "auto",
-    height: 0.04 * windowHeight,
-    borderWidth: 1,
-    paddingHorizontal: 20,
-    textAlignVertical: "center",
-    textAlign: "center",
+  prompt: {
+    fontSize: 12,
+    color: "#91BCA0",
+    fontWeight: "bold",
   },
-  secondaryButton: {
-    width: "auto",
-    height: 0.04 * windowHeight,
-    borderWidth: 1,
-    paddingHorizontal: 20,
-    textAlignVertical: "center",
-    textAlign: "center",
+
+  link: {
+    color: "#F17754",
+  },
+  secondaryText: {
+    color: "#F2F8F4",
   },
 });
 

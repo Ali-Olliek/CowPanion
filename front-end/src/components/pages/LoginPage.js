@@ -3,13 +3,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { View, Image } from "react-native";
+import { View, Image, Text } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { loginRedux } from "../../redux/features/user";
 
 //Styles
 import { AuthStyles } from "../../styles/AuthPagesStyle";
-import { styles } from "../../styles";
+import { LoginPageStyle } from "../../styles";
 
 // Components
 import { LoginInputs } from "../UI/molecules/LoginInputs";
@@ -92,30 +92,36 @@ export function LoginPage({ navigation }) {
   // Page
 
   return (
-    <View style={AuthStyles.container}>
-      <View style={styles.header}>
-        <MainHeaderTitle title={"Sign In"} subtitle={""} />
-      </View>
-      <View style={AuthStyles.mainCard}>
+    <View style={LoginPageStyle.BG}>
+      <View style={LoginPageStyle.mainContainer}>
+        <Image source={require("../../assets/images/Logo.png")} />
+        <Text style={LoginPageStyle.logoTitle}>COWPANION</Text>
         <View style={AuthStyles.center}>
           <LoginInputs
             setEmailInput={setEmailInput}
             setPasswordInput={setPasswordInput}
           />
           {displayError ? <ErrorBox description={"Log In Failed"} /> : null}
-          <View style={AuthStyles.buttonsContainer}>
-            <PrimaryAuthButton
-              setSendRequest={setSendRequest}
-              placeholder={"Sign In"}
-            />
-            <SecondaryAuthButton
-              nav={"SignUp"}
-              navigation={navigation}
-              placeholder={"Sign Up"}
-            />
+
+          <PrimaryAuthButton
+            setSendRequest={setSendRequest}
+            placeholder={"Sign In"}
+          />
+          <View>
+            <Text style={LoginPageStyle.secondaryText}>
+              Don't have an account?
+              <Text
+                style={LoginPageStyle.link}
+                onPress={() => navigation.navigate("SignUp")}
+              >
+                <Text> </Text>
+                Register
+              </Text>
+            </Text>
           </View>
         </View>
       </View>
     </View>
   );
 }
+``;

@@ -4,11 +4,6 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const AuthStyles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
-    alignItems: "center",
-    height: 1 * windowHeight,
-  },
   mainCard: {
     width: 0.8 * windowWidth,
     height: 0.8 * windowHeight,
@@ -50,6 +45,18 @@ const AuthStyles = StyleSheet.create({
     borderRadius: 8,
     width: 80,
     height: 80,
+  },
+  BG: {
+    justifyContent: "center",
+    alignItems: "center",
+    height: 1 * windowHeight,
+    backgroundColor: "#307A55",
+  },
+  mainContainer: {
+    justifyContent: "space-between",
+    height: 0.8 * windowHeight,
+    alignItems: "center",
+    borderWidth: 1,
   },
 });
 
