@@ -15,12 +15,12 @@
 
 > The CowPanion app is soon to be farmer's best friend, from small to mid-range farm owners, it's aimed at giving the farmer insights over his farm and help him take better decision, monitor his animal's health along with production levels.
 > 
-> With CowPanion, a farmer can monitor his animals, and scan a QR code for each animal to display its respective profile, in addition to sending this profile to a veterinary, display statistics and create reminders for cows.
+> With CowPanion, we want farmers and veterinarians to symbiotically exist on one platform and easily coordinate. We want for the farmers to recognize their farm performance patterns through visual data representation and help them take better decisions.
 
 ### User Stories
-- As a farmer I need to check how much milk my cows made today.
-- As a farmer, I need quick and easy access to the history of my cows.
-- As a farmer, I want to see charts visualizing the current state of my farm.
+- As a farmer, I need quick and easy access to the medical history of my cows.
+- As a farmer I need visual representations of my farm's milk performance.
+- As a farmer, I want a seemless interaction with veterinarians.
 
 <br><br>
 
@@ -46,7 +46,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 - This project uses the [Django Framework](https://www.djangoproject.com/). Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
 - For persistent storage (database), the app uses the [MySQL](https://www.mysql.com/) package which allows the app to create a custom storage schema and save it to a local database.
-- To get milk data, the app uses Raspberry Pi (https://www.raspberrypi.org/).
+- For the calculation of milk production per day the app uses 'NodeMCU Amica' microcontroller with an UltraSonic sensor attached to it to measure the volume of milk inside a given container.
 - The app uses QR Codes to identify animals.
 - The app uses the font ["Work Sans"](https://fonts.google.com/specimen/Work+Sans) as its main font, and the design of the app adheres to the material design guidelines.
 

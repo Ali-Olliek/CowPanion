@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'apps.users',
     'apps.recipes',
     'corsheaders',
+
 ]
 
 MIDDLEWARE = [
@@ -64,6 +65,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'back_end.urls'
 CORS_ORIGIN_ALLOW_ALL = True
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -79,6 +82,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'back_end.wsgi.application'
 

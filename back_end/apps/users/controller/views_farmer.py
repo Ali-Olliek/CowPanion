@@ -1,6 +1,6 @@
 # Farmer Actions
 
-
+import datetime
 from qrcode import make as makeQR
 from django.http import HttpResponse, JsonResponse
 from utils.utility_functions import get_base64, object_to_json, convert_to_json
@@ -295,6 +295,25 @@ def get_farm_reminders(request):
         "status": "USGE"
     })
 
+# Get All Reminders of All Users
+
+
+def get_cron_reminders():
+    today = datetime.datetime.now()
+    tomorrow = today + datetime.timedelta(days=1)
+
+    reminders = Reminder.objects.filter(
+        due_time__range=[today, tomorrow]).all()
+    farms = []
+    for reminder in reminders:
+        farms.append(Farm.objects.filter(id=reminder.farm_id))
+    users = []
+    for farm in farms:
+        users.append(User.objects.filter(id=farm[0].farmer_id))
+
+
+print("hello")
+get_cron_reminders()
 # Delete Reminder
 
 
