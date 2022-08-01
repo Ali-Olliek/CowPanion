@@ -5,7 +5,7 @@ import { AuthStyles } from "../../../styles/AuthPagesStyle";
 export function ErrorBox({ description }) {
   return (
     <View style={AuthStyles.ErrorBox}>
-      <Text>{description}</Text>
+      <Text style={{ color: "#000" }}>{description}</Text>
     </View>
   );
 }

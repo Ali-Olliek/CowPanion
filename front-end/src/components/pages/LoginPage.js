@@ -16,6 +16,7 @@ import { LoginInputs } from "../UI/molecules/LoginInputs";
 import { PrimaryAuthButton, SecondaryAuthButton } from "../UI/atoms/Auth";
 import { ErrorBox } from "../UI/atoms/ErrorBox";
 import { MainHeaderTitle } from "../UI/atoms";
+import { buttons } from "../../styles/ButtonsStyle";
 
 // Login Page
 export function LoginPage({ navigation }) {
@@ -94,16 +95,20 @@ export function LoginPage({ navigation }) {
   return (
     <View style={LoginPageStyle.BG}>
       <View style={LoginPageStyle.mainContainer}>
-        <Image source={require("../../assets/images/Logo.png")} />
+        <Image
+          style={{ width: 200, height: 200 }}
+          source={require("../../assets/images/Logo.png")}
+        />
         <Text style={LoginPageStyle.logoTitle}>COWPANION</Text>
         <View style={AuthStyles.center}>
           <LoginInputs
             setEmailInput={setEmailInput}
             setPasswordInput={setPasswordInput}
           />
-          {displayError ? <ErrorBox description={"Log In Failed"} /> : null}
+          {displayError ? <ErrorBox description={"Failed to Login"} /> : null}
 
           <PrimaryAuthButton
+            style={buttons.LoginPrimary}
             setSendRequest={setSendRequest}
             placeholder={"Sign In"}
           />

@@ -54,6 +54,23 @@ const SignUpPageStyle = StyleSheet.create({
   link: {
     color: "#F17754",
   },
+  active: {
+    width: 0.8 * windowWidth,
+    height: 50,
+    backgroundColor: "#F17754",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+  },
+  inactive: {
+    width: 0.8 * windowWidth,
+    height: 50,
+    backgroundColor: "#F17754",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+    opacity: 0.5,
+  },
 });
 
 export { SignUpPageStyle };

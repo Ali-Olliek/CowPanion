@@ -152,6 +152,15 @@ export function SignUpPage({ navigation }) {
           <View style={SignUpPageStyle.signUpButton}>
             <PrimaryAuthButton
               action={null}
+              style={
+                EmailInput &&
+                NameInput &&
+                PasswordInput &&
+                userType &&
+                PhoneNumber
+                  ? SignUpPageStyle.active
+                  : SignUpPageStyle.inactive
+              }
               setSendRequest={setSendRequest}
               navigation={navigation}
               nav={"SignIn"}

@@ -19,6 +19,7 @@ const LoginPageStyle = StyleSheet.create({
     fontSize: 28,
     color: "#F2F8F4",
     elevation: 5,
+    fontWeight: "bold",
   },
   prompt: {
     fontSize: 12,
