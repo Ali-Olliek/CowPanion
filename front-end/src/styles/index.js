@@ -9,3 +9,4 @@ export { LandingPageStyle } from "./landingPageStyle";
 export { LoginPageStyle } from "./LoginPageStyle";
 export { stats } from "./statsStyle";
 export { Todos } from "./TodosStyle";
+export { SignUpPageStyle } from "./SignUpPageStyle";

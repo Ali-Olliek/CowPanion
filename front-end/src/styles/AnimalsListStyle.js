@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 20,
     marginBottom: 10,
-    backgroundColor: "#344E41",
+    backgroundColor: "#307A55",
   },
   createFarmHeader: {
     height: windowHeight * 0.15,

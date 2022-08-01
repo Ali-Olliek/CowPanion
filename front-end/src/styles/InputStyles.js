@@ -11,12 +11,13 @@ const InputStyles = StyleSheet.create({
     paddingLeft: 10,
     borderRadius: 5,
     marginTop: 5,
+    borderWidth: 0.5,
+    borderColor: "#91BCA0",
   },
   prompt: {
     fontSize: 12,
     fontWeight: "bold",
     color: "#91BCA0",
-    fontFamily: "Roboto_500Medium,",
   },
   inputBox: {
     marginVertical: 5,

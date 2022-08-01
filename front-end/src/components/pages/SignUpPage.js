@@ -7,12 +7,12 @@ import { View, Text, SafeAreaView, Button } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 // Styles
 import { AuthStyles } from "../../styles/AuthPagesStyle";
-import { createMed, styles } from "../../styles";
+import { createMed, SignUpPageStyle, styles } from "../../styles";
 // Components
 import { SignupInputs } from "../UI/molecules/SignupInputs";
 import { PrimaryAuthButton, SecondaryAuthButton } from "../UI/atoms/Auth";
 import { ErrorBox } from "../UI/atoms/ErrorBox";
-import DateTimePickerAndroid from "@react-native-community/datetimepicker";
+
 import { MainHeaderTitle } from "../UI/atoms";
 export function SignUpPage({ navigation }) {
   // States and Variables
@@ -32,19 +32,9 @@ export function SignUpPage({ navigation }) {
 
   // DatePicker
   const [date, setDate] = useState(new Date());
-  const [datePickerDisplay, setDatePickerDisplay] = useState(false);
 
   // Redux
   const dispatch = useDispatch();
-
-  // Functions and Handlers
-  const showDatePicker = () => {
-    setDatePickerDisplay(true);
-  };
-  const onDateSelected = (event, value) => {
-    setDate(value);
-    setDatePickerDisplay(false);
-  };
 
   //
   // Create Request to Server
@@ -130,44 +120,13 @@ export function SignUpPage({ navigation }) {
   };
 
   //
-  // Date Picker
-  const dateComponent = () => {
-    return (
-      <SafeAreaView>
-        <View style={createMed.MainContainer}>
-          {datePickerDisplay && (
-            <DateTimePickerAndroid
-              show
-              value={date}
-              mode={"date"}
-              display={Platform.OS === "ios" ? "spinner" : "default"}
-              dateFormat={"year"}
-              onChange={onDateSelected}
-            />
-          )}
-
-          {!datePickerDisplay && (
-            <View style={createMed.button}>
-              <Button
-                title="Date of Birth"
-                color="#344E41"
-                onPress={showDatePicker}
-              />
-            </View>
-          )}
-        </View>
-      </SafeAreaView>
-    );
-  };
-
-  //
   // Main
   return (
-    <>
+    <View style={SignUpPageStyle.BG}>
       <View style={AuthStyles.container}>
         <View style={styles.header}>
           <MainHeaderTitle
-            title={"Sign Up"}
+            title={"Register"}
             subtitle={"Manage your farm with ease"}
           />
         </View>
@@ -176,7 +135,7 @@ export function SignUpPage({ navigation }) {
         {emptyInputs ? (
           <ErrorBox description={"Please fill all fields"} />
         ) : null}
-        <View style={AuthStyles.mainCard}>
+        <View style={SignUpPageStyle.mainContainer}>
           <View>
             <SignupInputs
               props={{
@@ -185,26 +144,34 @@ export function SignUpPage({ navigation }) {
                 setPasswordInput,
                 setUserType,
                 setPhoneNumberInput,
+                setDate,
+                date,
               }}
             />
-            {dateComponent()}
           </View>
-          <View style={AuthStyles.buttonsContainer}>
+          <View style={SignUpPageStyle.signUpButton}>
             <PrimaryAuthButton
               action={null}
               setSendRequest={setSendRequest}
               navigation={navigation}
               nav={"SignIn"}
-              placeholder={"Sign Up"}
+              placeholder={"Register"}
             />
-            <SecondaryAuthButton
-              navigation={navigation}
-              nav={"SignIn"}
-              placeholder={"Sign In"}
-            />
+          </View>
+          <View style={SignUpPageStyle.secondary}>
+            <Text style={SignUpPageStyle.secondaryText}>
+              Don't have an account?
+              <Text
+                style={SignUpPageStyle.link}
+                onPress={() => navigation.navigate("SignIn")}
+              >
+                <Text> </Text>
+                Register
+              </Text>
+            </Text>
           </View>
         </View>
       </View>
-    </>
+    </View>
   );
 }

@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Provider } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
+import { Button } from "react-native";
 // Axios Config
 axios.defaults.baseURL = "http://10.0.2.2:8000/";
 
@@ -34,6 +34,7 @@ export default function App() {
   const Stack = createNativeStackNavigator();
   // Fetch Data From Local Storage
   const [userData, setUserData] = useState("");
+
   const retrieveData = async () => {
     try {
       await AsyncStorage.getItem("userType").then((value) => {
@@ -55,7 +56,19 @@ export default function App() {
             screenOptions={{ headerShown: false }}
           >
             <Stack.Screen name="SignIn" component={LoginPage} />
-            <Stack.Screen name="SignUp" component={SignUpPage} />
+            <Stack.Screen
+              options={{
+                headerLeft: () => (
+                  <Button
+                    title="Info"
+                    color="#00cc00"
+                    onPress={() => navigation.goBack()}
+                  />
+                ),
+              }}
+              name="SignUp"
+              component={SignUpPage}
+            />
             <Stack.Screen name="LandingPage" component={BottomNavBarButtons} />
             <Stack.Screen
               name="createReminder"
