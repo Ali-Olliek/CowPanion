@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1078644686075",
+    "project_id": "cowpanion-c76e6",
+    "storage_bucket": "cowpanion-c76e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078644686075:android:270f634052b775d46c045e",
+        "android_client_info": {
+          "package_name": "com.cowPanion.cowPanionFB"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078644686075-00co94c7139cth962uib55qf6u2gotvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBu6GEQxkNSJwZo-3FwLr8TC3Xo_18WGFo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078644686075-00co94c7139cth962uib55qf6u2gotvt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
