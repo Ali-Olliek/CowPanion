@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 20,
-    backgroundColor: "#344E41",
+    backgroundColor: "#307A55",
   },
   headertitle: {
     height: 35,

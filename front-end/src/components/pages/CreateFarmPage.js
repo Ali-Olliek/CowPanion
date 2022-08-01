@@ -19,7 +19,7 @@ import { createFarmStyle } from "../../styles/createFarmStyle";
 import { Map } from "../UI/organisms";
 import { MainHeaderTitle } from "../UI/atoms";
 import { VetList } from "../UI/molecules/VetList";
-import { style } from "d3";
+import { InputStyles } from "../../styles/InputStyles";
 
 // Generate Password For Farm and Send it with the post request
 export function CreateFarmPage({ navigation }) {
@@ -30,9 +30,10 @@ export function CreateFarmPage({ navigation }) {
   const [container, setContainer] = useState("");
   const [coordinate, setCoordinate] = useState();
   const [vetId, setVetId] = useState(null);
-
+  const [filledInputs, setFilledInputs] = useState(false);
   const { id, token } = useSelector((state) => state.user.user);
   const farm_password = Math.floor(Math.random() * 100);
+
   //
   // Create Request to Create a Farm
   const createFarmUrl = "api/v1/createFarm/";
@@ -89,20 +90,22 @@ export function CreateFarmPage({ navigation }) {
   return (
     <>
       <View style={styles.createFarmHeader}>
-        <MainHeaderTitle title={"Register your Farm"} subtitle={"and start!"} />
+        <MainHeaderTitle title={"Register Farm"} subtitle={"and start!"} />
       </View>
       <View style={createFarmStyle.inputsContainer}>
         <View style={createFarmStyle.data}>
+          <Text style={InputStyles.prompt}>Farm Name</Text>
           <TextInput
             onChangeText={(farmName) => setName(farmName)}
             style={createFarmStyle.inputs}
             placeholder="Farm Name"
             placeholderTextColor={"grey"}
           ></TextInput>
+          <Text style={InputStyles.prompt}>Milk Container Volume (cm3)</Text>
           <TextInput
             onChangeText={(milkContainer) => setContainer(milkContainer)}
             style={createFarmStyle.inputs}
-            placeholder="Milk Container Volume (in cm3)"
+            placeholder="Ex: 1000 "
             placeholderTextColor={"grey"}
             placeholderTextSize={12}
           ></TextInput>
@@ -116,12 +119,18 @@ export function CreateFarmPage({ navigation }) {
           }}
         >
           <View style={styles.container}>
-            <Text>Select the location of your farm</Text>
+            <Text style={InputStyles.prompt}>Farm Location</Text>
             <Map setCoordinate={setCoordinate} />
-            <TouchableHighlight onPress={createFarm}>
-              <View style={createFarmStyle.GO}>
-                <Text>START</Text>
-              </View>
+
+            <TouchableHighlight
+              style={
+                vets && name && container && coordinate
+                  ? createFarmStyle.continue
+                  : createFarmStyle.inactiveContinue
+              }
+              onPress={createFarm}
+            >
+              <Text style={createFarmStyle.continueText}>CONTINUE</Text>
             </TouchableHighlight>
           </View>
         </View>
