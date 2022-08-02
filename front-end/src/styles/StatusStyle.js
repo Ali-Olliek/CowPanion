@@ -61,10 +61,7 @@ const statusStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  main: {
-    height: windowHeight * 0.3,
-    justifyContent: "center",
-  },
+
   prompt: {
     marginHorizontal: 20,
   },

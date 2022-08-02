@@ -5,22 +5,27 @@ import {
   TouchableHighlight,
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
+  TextInput,
 } from "react-native";
+import { SecondaryHeader } from "../UI/atoms/SecondaryHeader";
 import React, { useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { Picker } from "@react-native-picker/picker";
+
 // Components
 import { MainHeaderTitle } from "../UI/atoms";
 
 // Styles
 import { styles } from "../../styles/AnimalsListStyle";
-import { infoStyles } from "../../styles";
+import { infoStyles, SignUpPageStyle } from "../../styles";
 import { statusStyles } from "../../styles/StatusStyle";
 import { createMed } from "../../styles";
+import { InputStyles } from "../../styles/InputStyles";
 
 //
 //
-export function UpdateStatusPage({ navigation, route }) {
+export function UpdateStatusPage({ navigation, route, name, age, oldStatus }) {
   //
   // States and Variables
   const { id } = route.params;
@@ -30,7 +35,8 @@ export function UpdateStatusPage({ navigation, route }) {
   const { token } = useSelector((state) => state.user.user);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-
+  const list = ["Heifer", "Calf", "Lactating", "Dry"];
+  const [statusSelect, setSelectStatus] = useState();
   //
   // Create Request
   const changeStatus = () => {
@@ -63,7 +69,7 @@ export function UpdateStatusPage({ navigation, route }) {
   return (
     <>
       <View style={styles.header}>
-        <MainHeaderTitle
+        <SecondaryHeader
           subtitle={"update animal's status"}
           title={`Animal #${id}`}
         />
@@ -86,55 +92,33 @@ export function UpdateStatusPage({ navigation, route }) {
             </Text>
           </View>
         ) : null}
-        <View style={statusStyles.main}>
-          <Text style={statusStyles.prompt}>
-            Choose a status and hit save to update
-          </Text>
-          <View style={statusStyles.container}>
-            <TouchableHighlight
-              onPress={() => setStatus("Calf")}
-              style={
-                status == "Calf"
-                  ? statusStyles.Calf
-                  : statusStyles.originalStatus
-              }
-            >
-              <Text>Calf</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={() => setStatus("Heifer")}
-              style={
-                status == "Heifer"
-                  ? statusStyles.Heifer
-                  : statusStyles.originalStatus
-              }
-            >
-              <Text>Heifer</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={() => setStatus("Dry")}
-              style={
-                status == "Dry" ? statusStyles.Dry : statusStyles.originalStatus
-              }
-            >
-              <Text>Dry</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={() => setStatus("Lactating")}
-              style={
-                status == "Lactating"
-                  ? statusStyles.Lactating
-                  : statusStyles.originalStatus
-              }
-            >
-              <Text>Lactating</Text>
-            </TouchableHighlight>
-          </View>
+
+        <View style={infoStyles.dropDown}>
+          <Picker
+            mode="dropdown"
+            selectedValue={statusSelect}
+            onValueChange={(itemValue, itemIndex) => [
+              setStatus(itemValue),
+              setSelectStatus(itemValue),
+            ]}
+          >
+            <Picker.Item
+              style={SignUpPageStyle.label}
+              label={"New Status ..."}
+              value={null}
+            />
+            {list.map((type, index) => {
+              return (
+                <Picker.Item key={list[index]} label={type} value={type} />
+              );
+            })}
+          </Picker>
         </View>
+
         <View style={createMed.actions}>
           <TouchableWithoutFeedback onPress={changeStatus}>
             <View style={createMed.save}>
-              <Text>Save</Text>
+              <Text style={createMed.saveText}>SAVE</Text>
             </View>
           </TouchableWithoutFeedback>
           <TouchableWithoutFeedback onPress={() => navigation.goBack()}>

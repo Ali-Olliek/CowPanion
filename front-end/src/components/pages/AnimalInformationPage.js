@@ -22,7 +22,7 @@ import { MainHeaderTitle } from "../UI/atoms";
 import { AnimalActions } from "../UI/molecules/AnimalActions";
 import { MedicalRecord } from "../UI/organisms/MedicalRecord";
 import { AnimalCard } from "../UI/organisms";
-import SecondaryHeader from "../UI/atoms/SecondaryHeader";
+import { SecondaryHeader } from "../UI/atoms/SecondaryHeader";
 
 export function AnimalInformationPage({ navigation, route }) {
   const { id } = route.params;

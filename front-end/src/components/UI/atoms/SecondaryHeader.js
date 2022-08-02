@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { styles } from "../../../styles";
-export default function SecondaryHeader({ title, subtitle }) {
+export function SecondaryHeader({ title, subtitle }) {
   return (
     <View style={{ flexDirection: "column", paddingTop: 20 }}>
       <Text style={styles.subTitle}>{subtitle}</Text>

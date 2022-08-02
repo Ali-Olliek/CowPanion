@@ -210,6 +210,14 @@ const infoStyles = StyleSheet.create({
   date: {
     fontWeight: "300",
   },
+  dropDown: {
+    width: 0.9 * windowWidth,
+    marginHorizontal: 0.05 * windowWidth,
+    borderWidth: 0.5,
+    borderColor: "#91BCA0",
+    borderRadius: 5,
+    marginVertical: 15,
+  },
 });
 
 export { infoStyles };

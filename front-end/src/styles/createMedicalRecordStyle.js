@@ -25,22 +25,24 @@ const createMed = StyleSheet.create({
     borderRadius: 8,
   },
   actions: {
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "flex-end",
     alignContent: "flex-end",
     marginTop: 40,
   },
   save: {
-    width: 80,
+    width: windowWidth * 0.8,
+    marginLeft: 0.1 * windowWidth,
     height: 40,
-    backgroundColor: "#D46C4E",
+    backgroundColor: "#F17754",
     alignItems: "center",
     justifyContent: "center",
-    borderRadius: 8,
+    borderRadius: 5,
     marginHorizontal: 10,
   },
   cancel: {
-    width: 80,
+    width: windowWidth * 0.8,
+    marginLeft: 0.1 * windowWidth,
     height: 40,
     alignItems: "center",
     justifyContent: "center",
@@ -74,6 +76,11 @@ const createMed = StyleSheet.create({
   messsageSecondary: {
     fontSize: 12,
     marginVertical: 20,
+  },
+  saveText: {
+    fontWeight: "bold",
+    color: "#fff",
+    fontSize: 22,
   },
 });
 

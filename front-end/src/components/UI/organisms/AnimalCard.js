@@ -29,7 +29,11 @@ export function AnimalCard({ navigation, info, id }) {
         <View style={infoStyles.EditInfoButton}>
           <TouchableHighlight
             underlayColor={"#307A55"}
-            onPress={() => navigation.navigate("Update Status", { id: id })}
+            onPress={() =>
+              navigation.navigate("Update Status", {
+                id: id,
+              })
+            }
           >
             <Text style={infoStyles.EditInfoText}>Edit Info</Text>
           </TouchableHighlight>
