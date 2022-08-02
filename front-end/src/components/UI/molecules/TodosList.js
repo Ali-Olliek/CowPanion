@@ -9,7 +9,7 @@ import { Todo } from "../atoms/Todo";
 export function TodosList({ todos }) {
   return (
     <SafeAreaView style={Todos.container}>
-      <Text style={InputStyles.prompt}>Upcoming Tasks</Text>
+      <Text style={InputStyles.prompt}>UPCOMING TASKS</Text>
       <FlatList
         data={todos}
         renderItem={({ item, index }) => <Todo index={index} props={item} />}

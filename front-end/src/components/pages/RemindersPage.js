@@ -66,7 +66,8 @@ export function RemindersPage({ navigation }) {
           <Feather name="bell" size={64} color="#2E302F" />
           <Text style={Todos.messagePrimary}>NO REMINDERS</Text>
           <Text style={Todos.messageSecondary}>
-            You currently have no reminders, create one by pressing the + sign
+            You currently have no reminders, create a reminder by pressing the +
+            sign
           </Text>
         </View>
       )}

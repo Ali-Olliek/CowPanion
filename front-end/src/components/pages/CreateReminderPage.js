@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   Button,
   TextInput,
+  Pressable,
 } from "react-native";
 import axios from "axios";
 import { useState } from "react";
@@ -19,6 +20,9 @@ import { createReminderStyle } from "../../styles/createReminderStyle";
 // Components
 import { MainHeaderTitle } from "../UI/atoms";
 import DateTimePickerAndroid from "@react-native-community/datetimepicker";
+import { InputStyles } from "../../styles/InputStyles";
+import { SignUpPageStyle } from "../../styles";
+import { SecondaryHeader } from "../UI/atoms/SecondaryHeader";
 
 export function CreateReminderPage({ navigation }) {
   //
@@ -59,73 +63,75 @@ export function CreateReminderPage({ navigation }) {
   };
 
   //
-  // Date Picker
-  const dateComponent = () => {
-    return (
-      <SafeAreaView>
-        <View style={createMed.MainContainer}>
-          <Text style={createMed.text}>{date.toDateString()}</Text>
-
-          {datePickerDisplay && (
-            <DateTimePickerAndroid
-              value={date}
-              mode={"date"}
-              display={Platform.OS === "ios" ? "spinner" : "default"}
-              dateFormat={"day month year"}
-              onChange={onDateSelected}
-            />
-          )}
-
-          {!datePickerDisplay && (
-            <View style={createMed.button}>
-              <Button
-                title="Select Date"
-                color="#344E41"
-                onPress={showDatePicker}
-              />
-            </View>
-          )}
-        </View>
-      </SafeAreaView>
-    );
-  };
-  //
   //Main
   return (
     <View>
       <View style={styles.header}>
-        <MainHeaderTitle title="Create Reminder" />
+        <SecondaryHeader
+          subtitle={"Never forget a thing"}
+          title="Create Reminder"
+        />
       </View>
       <View style={createReminderStyle.midSection}>
-        <TextInput
-          onChangeText={(newTitle) => setTitle(newTitle)}
-          style={createReminderStyle.inputs}
-          placeholder="Reminder Title"
-          placeholderTextColor={"grey"}
-        ></TextInput>
-        <TextInput
-          onChangeText={(newDesc) => setDescription(newDesc)}
-          style={createReminderStyle.inputs}
-          placeholder="Reminder Description"
-          placeholderTextColor={"grey"}
-        ></TextInput>
-        {dateComponent()}
+        <View style={createReminderStyle.inputsBox}>
+          <Text style={createReminderStyle.prompt}>Title</Text>
+          <TextInput
+            onChangeText={(newTitle) => setTitle(newTitle)}
+            style={createReminderStyle.inputs}
+            placeholder="Ex: Cleaning"
+            placeholderTextColor={"grey"}
+          ></TextInput>
+        </View>
+        <View>
+          <Text style={createReminderStyle.prompt}>Description</Text>
+          <TextInput
+            onChangeText={(newDesc) => setDescription(newDesc)}
+            style={createReminderStyle.inputs}
+            placeholder="Ex: Disinfect Milkers"
+            placeholderTextColor={"grey"}
+          ></TextInput>
+        </View>
+        <View style={createReminderStyle.inputsBox}>
+          <Text style={createReminderStyle.prompt}>Due Date</Text>
+          <View style={SignUpPageStyle.DOB}>
+            {datePickerDisplay && (
+              <DateTimePickerAndroid
+                show
+                value={date}
+                mode={"date"}
+                display={Platform.OS === "ios" ? "spinner" : "default"}
+                dateFormat={"year"}
+                onChange={onDateSelected}
+              />
+            )}
+
+            {!datePickerDisplay && (
+              <Pressable style={InputStyles.DOB} onPress={showDatePicker}>
+                <Text style={{ color: "grey", fontWeight: "400" }}>
+                  {String(date.toDateString())}
+                </Text>
+              </Pressable>
+            )}
+          </View>
+        </View>
       </View>
-      <View style={createReminderStyle.actions}>
-        <TouchableHighlight
-          underlayColor={"#D46C4E"}
-          onPress={createReminder}
-          style={createReminderStyle.save}
-        >
-          <Text>Save</Text>
-        </TouchableHighlight>
-        <TouchableHighlight
-          underlayColor={"white"}
-          style={createReminderStyle.cancel}
-          onPress={() => navigation.goBack()}
-        >
-          <Text>Cancel</Text>
-        </TouchableHighlight>
+      <View>
+        <View style={createReminderStyle.actions}>
+          <TouchableHighlight
+            underlayColor={"#D46C4E"}
+            onPress={createReminder}
+            style={createReminderStyle.save}
+          >
+            <Text style={createReminderStyle.saveText}>SAVE</Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            underlayColor={"white"}
+            style={createReminderStyle.cancel}
+            onPress={() => navigation.goBack()}
+          >
+            <Text>Cancel</Text>
+          </TouchableHighlight>
+        </View>
       </View>
     </View>
   );

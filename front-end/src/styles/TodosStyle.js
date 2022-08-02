@@ -5,7 +5,7 @@ const windowHeight = Dimensions.get("window").height;
 
 const Todos = StyleSheet.create({
   TodoContainer: {
-    width: 0.9 * windowWidth,
+    width: 0.899 * windowWidth,
     height: 60,
     borderWidth: 1,
     justifyContent: "flex-start",
