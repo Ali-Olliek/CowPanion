@@ -311,9 +311,6 @@ def get_cron_reminders():
     for farm in farms:
         users.append(User.objects.filter(id=farm[0].farmer_id))
 
-
-print("hello")
-get_cron_reminders()
 # Delete Reminder
 
 
