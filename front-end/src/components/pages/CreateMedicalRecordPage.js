@@ -7,7 +7,9 @@ import {
   Button,
   SafeAreaView,
   Image,
+  Pressable,
 } from "react-native";
+import { SecondaryHeader } from "../UI/atoms/SecondaryHeader";
 import React, { useState } from "react";
 import DateTimePickerAndroid from "@react-native-community/datetimepicker";
 // Styles
@@ -18,6 +20,8 @@ import { styles } from "../../styles/AnimalsListStyle";
 import { MainHeaderTitle } from "../UI/atoms";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { SignUpPageStyle } from "../../styles";
+import { InputStyles } from "../../styles/InputStyles";
 
 export function CreateMedicalRecordPage({
   navigation,
@@ -74,38 +78,6 @@ export function CreateMedicalRecordPage({
     });
   };
 
-  // Date Picker
-  const dateComponent = () => {
-    return (
-      <SafeAreaView>
-        <View style={createMed.MainContainer}>
-          <Text style={createMed.text}>Procedure Done On</Text>
-          <Text style={createMed.text}>{date.toDateString()}</Text>
-
-          {datePickerDisplay && (
-            <DateTimePickerAndroid
-              value={date}
-              mode={"date"}
-              display={Platform.OS === "ios" ? "spinner" : "default"}
-              dateFormat={"day month year"}
-              onChange={onDateSelected}
-            />
-          )}
-
-          {!datePickerDisplay && (
-            <View style={createMed.button}>
-              <Button
-                title="Select Date"
-                color="#344E41"
-                onPress={showDatePicker}
-              />
-            </View>
-          )}
-        </View>
-      </SafeAreaView>
-    );
-  };
-
   // Main
   return (
     <View>
@@ -126,7 +98,7 @@ export function CreateMedicalRecordPage({
         <>
           {success ? <Text>Record Added</Text> : null}
           <View style={styles.header}>
-            <MainHeaderTitle
+            <SecondaryHeader
               title={`Animal #${id}`}
               subtitle={"Create Medical Record"}
             />
@@ -145,12 +117,31 @@ export function CreateMedicalRecordPage({
               placeholderTextColor={"grey"}
               onChangeText={(newMed) => setMedications(newMed)}
             ></TextInput>
-            {dateComponent()}
+            <View style={SignUpPageStyle.DOB}>
+              {datePickerDisplay && (
+                <DateTimePickerAndroid
+                  show
+                  value={date}
+                  mode={"date"}
+                  display={Platform.OS === "ios" ? "spinner" : "default"}
+                  dateFormat={"year"}
+                  onChange={onDateSelected}
+                />
+              )}
+
+              {!datePickerDisplay && (
+                <Pressable style={InputStyles.DOB} onPress={showDatePicker}>
+                  <Text style={{ color: "grey", fontWeight: "300" }}>
+                    Date: {String(date.toDateString())}
+                  </Text>
+                </Pressable>
+              )}
+            </View>
           </View>
           <View style={createMed.actions}>
             <TouchableWithoutFeedback onPress={createMedicalRecord}>
               <View style={createMed.save}>
-                <Text>Save</Text>
+                <Text style={createMed.saveText}>SAVE</Text>
               </View>
             </TouchableWithoutFeedback>
             <TouchableWithoutFeedback onPress={() => navigation.goBack()}>

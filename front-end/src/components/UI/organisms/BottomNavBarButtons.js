@@ -18,9 +18,9 @@ export function BottomNavBarButtons() {
     <Tab.Navigator
       screenOptions={{ headerShown: false }}
       initialRouteName="Home"
-      activeColor="#D46C4E"
-      inactiveColor="#000000"
-      barStyle={{ backgroundColor: "#ACC0B3" }}
+      activeColor="#F17754"
+      inactiveColor="#fff"
+      barStyle={{ backgroundColor: "#307A55" }}
     >
       <Tab.Screen
         options={{

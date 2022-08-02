@@ -1,18 +1,15 @@
-import {
-  View,
-  Text,
-  TextInput,
-  TouchableWithoutFeedback,
-  TouchableHighlight,
-} from "react-native";
+import { View, Text, TextInput, TouchableWithoutFeedback } from "react-native";
+import { SecondaryHeader } from "../UI/atoms/SecondaryHeader";
 import React, { useState } from "react";
-import { MainHeaderTitle } from "../UI/atoms";
+
 import { AddAnimalStyle } from "../../styles/AddAnimalStyle";
-import { statusStyles } from "../../styles/StatusStyle";
-import { createMed } from "../../styles/createMedicalRecordStyle";
-import { styles } from "../../styles";
+
+import { infoStyles, SignUpPageStyle, styles } from "../../styles";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { inputFields } from "../../styles/InputFields";
+import { InputStyles } from "../../styles/InputStyles";
+import { Picker } from "@react-native-picker/picker";
 
 export function AddAnimalPage({ navigation }) {
   // States
@@ -22,7 +19,8 @@ export function AddAnimalPage({ navigation }) {
   const [statusInput, setStatusInput] = useState("");
   const [success, setSuccess] = useState(false);
   const { id, token } = useSelector((state) => state.user.user);
-
+  const list = ["Heifer", "Calf", "Lactating", "Dry"];
+  const [statusSelect, setSelectStatus] = useState();
   // Create Request
 
   const addAnimalUrl = "api/v1/addAnimal/";
@@ -56,82 +54,73 @@ export function AddAnimalPage({ navigation }) {
   return (
     <View style={AddAnimalStyle.main}>
       <View style={styles.header}>
-        <MainHeaderTitle title={"Add An Animal"} />
+        <SecondaryHeader
+          subtitle={"Welcome to the family"}
+          title={"Add An Animal"}
+        />
       </View>
       <View style={AddAnimalStyle.container}>
         {success ? (
           <Text style={AddAnimalStyle.success}>Animal Added</Text>
         ) : null}
         <View style={AddAnimalStyle.container}>
-          <TextInput
-            onChangeText={(name) => setNameInput(name)}
-            style={AddAnimalStyle.inputs}
-            placeholder="Name"
-          ></TextInput>
-          <TextInput
-            onChangeText={(year) => setYearInput(year)}
-            style={AddAnimalStyle.inputs}
-            placeholder="Year of Birth"
-          ></TextInput>
-          <TextInput
-            onChangeText={(breed) => setBreedInput(breed)}
-            style={AddAnimalStyle.inputs}
-            placeholder="Breed"
-          ></TextInput>
-          <View style={statusStyles.container}>
-            <TouchableHighlight
-              onPress={() => setStatusInput("Lactating")}
-              underlayColor={"#c7a09f"}
-              style={
-                statusInput == "Lactating"
-                  ? statusStyles.Lactating
-                  : statusStyles.originalStatus
-              }
+          <View>
+            <Text style={InputStyles.prompt}>Name</Text>
+            <TextInput
+              onChangeText={(name) => setNameInput(name)}
+              style={InputStyles.LoginInput}
+              placeholder="Ex: Betsie"
+            ></TextInput>
+          </View>
+          <View>
+            <Text style={InputStyles.prompt}>Year Of Birth</Text>
+            <TextInput
+              onChangeText={(year) => setYearInput(year)}
+              style={InputStyles.LoginInput}
+              placeholder="Ex: 2019"
+            ></TextInput>
+          </View>
+          <View>
+            <Text style={InputStyles.prompt}>Breed</Text>
+            <TextInput
+              onChangeText={(breed) => setBreedInput(breed)}
+              style={InputStyles.LoginInput}
+              placeholder="Ex: Holestien, Swiss Brown, etc..."
+            ></TextInput>
+          </View>
+          <View style={AddAnimalStyle.statusBox}>
+            <Text style={AddAnimalStyle.prompt}>Current Status</Text>
+          </View>
+          <View style={AddAnimalStyle.dropDown}>
+            <Picker
+              mode="dropdown"
+              selectedValue={statusSelect}
+              onValueChange={(itemValue, itemIndex) => [
+                setStatusInput(itemValue),
+                setSelectStatus(itemValue),
+              ]}
             >
-              <Text>Lactating</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={() => setStatusInput("Dry")}
-              underlayColor={"#8da1b5"}
-              style={
-                statusInput == "Dry"
-                  ? statusStyles.Dry
-                  : statusStyles.originalStatus
-              }
-            >
-              <Text>Dry</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={() => setStatusInput("Heifer")}
-              style={
-                statusInput == "Heifer"
-                  ? statusStyles.Heifer
-                  : statusStyles.originalStatus
-              }
-            >
-              <Text>Heifer</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              onPress={() => setStatusInput("Calf")}
-              underlayColor={"#bf6767"}
-              style={
-                statusInput == "Calf"
-                  ? statusStyles.Calf
-                  : statusStyles.originalStatus
-              }
-            >
-              <Text>Calf</Text>
-            </TouchableHighlight>
+              <Picker.Item
+                style={SignUpPageStyle.label}
+                label={"Current Status ..."}
+                value={null}
+              />
+              {list.map((type, index) => {
+                return (
+                  <Picker.Item key={list[index]} label={type} value={type} />
+                );
+              })}
+            </Picker>
           </View>
           <View style={AddAnimalStyle.nav}>
-            <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
-              <View style={createMed.cancel}>
-                <Text>Cancel</Text>
+            <TouchableWithoutFeedback onPress={AddAnimal}>
+              <View style={AddAnimalStyle.save}>
+                <Text style={AddAnimalStyle.saveText}>Save</Text>
               </View>
             </TouchableWithoutFeedback>
-            <TouchableWithoutFeedback onPress={AddAnimal}>
-              <View style={createMed.save}>
-                <Text>Save</Text>
+            <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
+              <View style={AddAnimalStyle.cancel}>
+                <Text>Cancel</Text>
               </View>
             </TouchableWithoutFeedback>
           </View>

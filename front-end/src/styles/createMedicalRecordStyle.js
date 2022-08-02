@@ -10,11 +10,14 @@ const createMed = StyleSheet.create({
     height: windowHeight * 0.2,
   },
   inputs: {
-    height: 40,
-    width: 0.8 * windowWidth,
-    borderBottomWidth: 1,
-    textAlign: "left",
+    width: windowWidth * 0.8,
+    height: 50,
+    backgroundColor: "#F2F8F4",
     paddingLeft: 10,
+    borderRadius: 5,
+    marginTop: 5,
+    borderWidth: 0.5,
+    borderColor: "#91BCA0",
   },
   dueDate: {
     width: 100,

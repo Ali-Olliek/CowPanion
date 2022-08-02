@@ -17,7 +17,7 @@ const InputStyles = StyleSheet.create({
   prompt: {
     fontSize: 12,
     fontWeight: "bold",
-    color: "#91BCA0",
+    color: "#307A55",
   },
   inputBox: {
     marginVertical: 5,

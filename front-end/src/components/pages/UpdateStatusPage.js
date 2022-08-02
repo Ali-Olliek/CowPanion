@@ -25,7 +25,7 @@ import { InputStyles } from "../../styles/InputStyles";
 
 //
 //
-export function UpdateStatusPage({ navigation, route, name, age, oldStatus }) {
+export function UpdateStatusPage({ navigation, route }) {
   //
   // States and Variables
   const { id } = route.params;

@@ -96,11 +96,11 @@ const infoStyles = StyleSheet.create({
   },
   message: {
     textAlign: "center",
-    color: "#000",
+    color: "#fff",
     fontWeight: "600",
   },
   success: {
-    backgroundColor: "#ACC0B3",
+    backgroundColor: "#91BCA0",
     textAlignVertical: "center",
     width: 120,
     height: 30,
@@ -124,15 +124,6 @@ const infoStyles = StyleSheet.create({
     marginVertical: 5,
     height: 80,
     borderRadius: 8,
-  },
-  slant: {
-    position: "absolute",
-    height: windowHeight * 1.2,
-    backgroundColor: "#344E41",
-    width: windowWidth * 2,
-    top: 0,
-    right: 0,
-    transform: [{ rotateY: "120deg" }, { rotateX: "45deg" }],
   },
   profileCardContainer: {
     width: windowWidth,

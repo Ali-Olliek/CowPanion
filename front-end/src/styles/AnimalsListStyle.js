@@ -73,7 +73,8 @@ const styles = StyleSheet.create({
 
   recordContainer: {
     width: windowWidth * 0.99,
-    height: 25,
+    height: 30,
+    alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 40,
