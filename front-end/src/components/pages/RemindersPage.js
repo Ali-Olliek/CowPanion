@@ -12,6 +12,7 @@ import { Todos } from "../../styles/TodosStyle";
 // Components
 import { MainHeaderTitle } from "../UI/atoms";
 import { TodosList } from "../UI/molecules/TodosList";
+import { Feather } from "@expo/vector-icons";
 
 export function RemindersPage({ navigation }) {
   //
@@ -50,6 +51,8 @@ export function RemindersPage({ navigation }) {
     <>
       <View style={styles.header}>
         <MainHeaderTitle
+          navigation={navigation}
+          nav={"createReminder"}
           style={styles.headertitle}
           subtitle={"Stay organized"}
           title={"Reminders"}
@@ -60,19 +63,13 @@ export function RemindersPage({ navigation }) {
         <TodosList todos={remindersList} />
       ) : (
         <View style={Todos.empty}>
-          <Text style={Todos.messagePrimary}>No reminders to display</Text>
+          <Feather name="bell" size={64} color="#2E302F" />
+          <Text style={Todos.messagePrimary}>NO REMINDERS</Text>
           <Text style={Todos.messageSecondary}>
-            Press + to create reminders
+            You currently have no reminders, create one by pressing the + sign
           </Text>
         </View>
       )}
-      <TouchableHighlight
-        style={Todos.addReminder}
-        onPress={() => navigation.navigate("createReminder")}
-        underlayColor={"white"}
-      >
-        <Text>+</Text>
-      </TouchableHighlight>
     </>
   );
 }

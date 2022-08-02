@@ -68,7 +68,7 @@ const statusStyles = StyleSheet.create({
   LactatingSm: {
     textAlign: "center",
     textAlignVertical: "center",
-    backgroundColor: "#f08080",
+    backgroundColor: "#F08080",
     width: 65,
     height: 25,
     borderRadius: 5,

@@ -103,6 +103,7 @@ export function AnimalsListPage({ navigation }) {
       <View>
         <View style={styles.header}>
           <MainHeaderTitle
+            nav={"AddAnimal"}
             navigation={navigation}
             title={userType == 2 ? "Animals" : "List of Patients"}
             subtitle={

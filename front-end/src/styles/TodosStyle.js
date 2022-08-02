@@ -4,20 +4,18 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const Todos = StyleSheet.create({
-  main: {
-    justifyContent: "center",
-    alignItems: "center",
-  },
   TodoContainer: {
     width: 0.9 * windowWidth,
-    height: 0.1 * windowHeight,
+    height: 60,
     borderWidth: 1,
-    justifyContent: "space-between",
+    justifyContent: "flex-start",
     flexDirection: "row",
     borderRadius: 8,
     paddingHorizontal: 20,
     marginVertical: 10,
-    backgroundColor: "#DAD7CD",
+    backgroundColor: "#fff",
+    borderColor: "#91BCA0",
+    elevation: 5,
   },
   TodoInfo: {
     justifyContent: "space-evenly",
@@ -29,6 +27,7 @@ const Todos = StyleSheet.create({
     fontSize: 12,
   },
   TodoAction: {
+    width: 50,
     flexDirection: "row",
     alignItems: "center",
   },
@@ -49,8 +48,9 @@ const Todos = StyleSheet.create({
     borderRadius: 50,
     textAlign: "center",
     textAlignVertical: "center",
-    backgroundColor: "#D46C4E",
-    borderWidth: 1,
+    backgroundColor: "#fff",
+    borderColor: "#91BCA0",
+    borderWidth: 3,
   },
   midSec: {
     justifyContent: "space-between",
@@ -87,6 +87,32 @@ const Todos = StyleSheet.create({
     marginVertical: 10,
     backgroundColor: "#D46C4E",
     elevation: 5,
+  },
+  checked: {
+    width: 30,
+    height: 30,
+    borderRadius: 50,
+    textAlign: "center",
+    textAlignVertical: "center",
+    backgroundColor: "#307A55",
+    borderColor: "#91BCA0",
+    borderWidth: 3,
+  },
+  messagePrimary: {
+    color: "#2E302F",
+    fontWeight: "bold",
+    fontSize: 24,
+    marginTop: 20,
+  },
+  messageSecondary: {
+    width: 250,
+    fontWeight: "300",
+    textAlign: "center",
+  },
+  container: {
+    justifyContent: "center",
+    alignItems: "flex-start",
+    paddingHorizontal: 20,
   },
 });
 
