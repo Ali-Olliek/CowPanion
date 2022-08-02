@@ -5,7 +5,7 @@ const windowHeight = Dimensions.get("window").height;
 
 const infoStyles = StyleSheet.create({
   infoCard: {
-    width: 0.85 * windowWidth,
+    width: windowWidth,
     height: 0.25 * windowHeight,
   },
   attr: {
@@ -14,34 +14,18 @@ const infoStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     width: 0.9 * windowWidth,
+    borderWidth: 1,
     margin: 20,
     paddingVertical: 20,
-    paddingRight: 20,
-    paddingLeft: 30,
+    paddingTop: 5,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    borderColor: "#91BCA0",
   },
   list: {
     flex: 1,
     flexDirection: "column",
     justifyContent: "space-evenly",
-  },
-  circle: {
-    width: 140,
-    height: 150,
-    backgroundColor: "#344E41",
-    position: "absolute",
-    right: 0,
-    top: 0,
-    borderRadius: 50,
-  },
-  circle2: {
-    width: 350,
-    height: 150,
-    backgroundColor: "#fff",
-    position: "absolute",
-    borderWidth: 1,
-    borderRadius: 50,
-    left: 0,
-    top: 0,
   },
   picture: {
     width: 100,
@@ -71,14 +55,16 @@ const infoStyles = StyleSheet.create({
   },
   medicalCard: {
     color: "black",
-    height: 0.35 * windowHeight,
+    marginTop: 50,
+    height: 0.5 * windowHeight,
     justifyContent: "center",
     flexDirection: "column",
     marginHorizontal: 0.1 * windowWidth,
   },
   card: {
-    backgroundColor: "#DAD7CD",
-    borderColor: "#2A432A",
+    backgroundColor: "#fff",
+    borderColor: "#91BCA0",
+    elevation: 5,
     flexDirection: "row",
     justifyContent: "space-around",
     borderWidth: 1,
@@ -88,25 +74,7 @@ const infoStyles = StyleSheet.create({
     height: 50,
     borderRadius: 8,
   },
-  createMedicalRecordButtonContainer: {
-    width: windowWidth * 0.8,
-    top: -0.4 * windowHeight,
-    right: -0.1 * windowWidth,
-    height: 25,
-    justifyContent: "center",
-    alignItems: "flex-start",
-  },
-  button: {
-    width: 100,
-    height: 60,
-    backgroundColor: "#D46C4E",
-    borderColor: "#2A432A",
-    borderWidth: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 8,
-    paddingHorizontal: 20,
-  },
+
   password: {
     borderBottomWidth: 1,
     width: 115,
@@ -126,7 +94,11 @@ const infoStyles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  message: { textAlign: "center", color: "white", fontWeight: "600" },
+  message: {
+    textAlign: "center",
+    color: "#000",
+    fontWeight: "600",
+  },
   success: {
     backgroundColor: "#ACC0B3",
     textAlignVertical: "center",
@@ -142,8 +114,8 @@ const infoStyles = StyleSheet.create({
     borderRadius: 8,
   },
   enlarge: {
-    backgroundColor: "#DAD7CD",
-    borderColor: "#2A432A",
+    backgroundColor: "#fff",
+    borderColor: "#91BCA0",
     flexDirection: "column",
     justifyContent: "space-around",
     borderWidth: 1,
@@ -179,6 +151,64 @@ const infoStyles = StyleSheet.create({
     backgroundColor: "#DAD7CD",
     borderRadius: 12,
     elevation: 10,
+  },
+  name: {
+    fontWeight: "bold",
+    color: "#2E302F",
+    fontSize: 24,
+  },
+  age: {
+    fontWeight: "300",
+  },
+  EditInfoButton: {
+    width: windowWidth * 0.9,
+    height: 60,
+    backgroundColor: "#307A55",
+    position: "absolute",
+    left: -1,
+    bottom: -40,
+    borderBottomRightRadius: 10,
+    borderBottomLeftRadius: 10,
+  },
+  EditInfoText: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 30,
+    textAlign: "center",
+    textAlignVertical: "center",
+    paddingTop: 10,
+  },
+  topSecMedicalCard: {
+    flexDirection: "row",
+    width: 0.8 * windowWidth,
+    justifyContent: "space-between",
+  },
+  medicalRecordText: {
+    fontWeight: "bold",
+    color: "#307A55",
+  },
+  addMed: {
+    fontWeight: "bold",
+    color: "#F17754",
+  },
+  noRecordContainer: {
+    flexDirection: "row",
+    width: 0.8 * windowWidth,
+    justifyContent: "space-between",
+  },
+  noMedical: {
+    color: "black",
+    height: 0.5 * windowHeight,
+    justifyContent: "space-around",
+    flexDirection: "column",
+    marginHorizontal: 0.1 * windowWidth,
+  },
+  desc: {
+    fontWeight: "bold",
+    color: "#2E302F",
+  },
+  date: {
+    fontWeight: "300",
   },
 });
 

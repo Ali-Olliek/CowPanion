@@ -22,6 +22,7 @@ import { MainHeaderTitle } from "../UI/atoms";
 import { AnimalActions } from "../UI/molecules/AnimalActions";
 import { MedicalRecord } from "../UI/organisms/MedicalRecord";
 import { AnimalCard } from "../UI/organisms";
+import SecondaryHeader from "../UI/atoms/SecondaryHeader";
 
 export function AnimalInformationPage({ navigation, route }) {
   const { id } = route.params;
@@ -81,17 +82,21 @@ export function AnimalInformationPage({ navigation, route }) {
   return (
     <>
       <View style={listStyles.header}>
-        <MainHeaderTitle
+        <SecondaryHeader
           subtitle={"get a closer look"}
           title={`Animal #${id}`}
         />
       </View>
       {animalData ? (
         <View>
-          <View style={infoStyles.slant}></View>
-          {animalData && <AnimalCard info={animalData} />}
-          {animalData && <AnimalActions id={id} navigation={navigation} />}
-          <MedicalRecord records={medicalRecord} />
+          {animalData && (
+            <AnimalCard id={id} navigation={navigation} info={animalData} />
+          )}
+          <MedicalRecord
+            id={id}
+            navigation={navigation}
+            records={medicalRecord}
+          />
         </View>
       ) : (
         <Text>Loading Data</Text>
@@ -111,6 +116,6 @@ const listStyles = StyleSheet.create({
     alignItems: "flex-start",
     justifyContent: "center",
     paddingHorizontal: 20,
-    backgroundColor: "#344E41",
+    backgroundColor: "#307A55",
   },
 });
