@@ -125,6 +125,7 @@ def sign_in(request):
                     "user_name": auth_user.name,
                     "user_type": auth_user.user_Type,
                     "user_id": auth_user.id,
+                    "email": auth_user.email,
                     "token": jwt_token,
                 })
 
