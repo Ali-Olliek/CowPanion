@@ -1,6 +1,4 @@
-<img src="![title1](https://user-images.githubusercontent.com/105279237/182450353-e831f6e5-30cb-4408-93f8-dbdbb88208b1.svg)
-
-"/>
+![title1](https://user-images.githubusercontent.com/105279237/182450353-e831f6e5-30cb-4408-93f8-dbdbb88208b1.svg)
 
 <div align="center">
 
@@ -12,8 +10,8 @@
 
 <br><br>
 
+![title2](https://user-images.githubusercontent.com/105279237/182450471-80b7b409-9d35-4fc1-a3cc-c7b2f9062e73.svg)
 
-<img src="./readme/title2.svg"/>
 
 > The CowPanion app is soon to be farmer's best friend, from small to mid-range farm owners, it's aimed at giving the farmer insights over his farm and help him take better decision, monitor his animal's health along with production levels.
 > 
@@ -26,7 +24,8 @@
 
 <br><br>
 
-<img src="./readme/title3.svg"/>
+![title3](https://user-images.githubusercontent.com/105279237/182450491-e70cf25a-d1d4-4f5c-9692-396839d92c97.svg)
+
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
 Note that i didn't use any styling library or theme, all from scratch and using pure css modules
@@ -42,7 +41,8 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 <br><br>
 
-<img src="./readme/title4.svg"/>
+![title4](https://user-images.githubusercontent.com/105279237/182450509-8384e315-deef-4bb1-a523-61a3e81a9076.svg)
+
 
 Here's a brief high-level overview of the tech stack the Well app uses:
 
@@ -55,7 +55,9 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 
 <br><br>
-<img src="./readme/title5.svg"/>
+
+![title5](https://user-images.githubusercontent.com/105279237/182450544-1a7db30b-a2b0-4fd7-9d87-f9907d2ea791.svg)
+
 
 > Uing the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 
@@ -65,7 +67,8 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 
 <br><br>
-<img src="./readme/title6.svg"/>
+
+![title6](https://user-images.githubusercontent.com/105279237/182450571-c9c29231-8f9f-4e1b-8751-4f4e40a6e20d.svg)
 
 
 > This is an example of how you may give instructions on setting up your project locally.
