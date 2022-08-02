@@ -10,18 +10,19 @@ const statsStyle = StyleSheet.create({
     justifyContent: "center",
     flexWrap: "wrap",
     paddingHorizontal: 20,
-    paddingVertical: 45,
+    paddingVertical: 25,
     height: 100,
   },
   card: {
     width: 0.35 * windowWidth,
     marginVertical: 0.02 * windowHeight,
     marginHorizontal: 0.02 * windowHeight,
-    paddingHorizontal: 10,
     elevation: 4,
     height: 0.15 * windowHeight,
     borderRadius: 8,
-    backgroundColor: "#DAD7CD",
+    backgroundColor: "#ffff",
+    borderWidth: 0.5,
+    borderColor: "#307A55",
     justifyContent: "space-around",
   },
   stat: {
@@ -31,9 +32,9 @@ const statsStyle = StyleSheet.create({
   },
   title: {
     textAlign: "center",
-    color: "#D46C4E",
+    color: "#91BCA0",
     fontSize: 14,
-    fontWeight: "600",
+    fontWeight: "bold",
   },
   unit: {
     textAlign: "center",
@@ -41,6 +42,13 @@ const statsStyle = StyleSheet.create({
   },
   source: {
     fontSize: 8,
+  },
+  dash: {
+    position: "absolute",
+    top: 5,
+    left: 42,
+    fontWeight: "900",
+    color: "#307A55",
   },
 });
 

@@ -8,7 +8,7 @@ import { LandingPageStyle } from "../../styles";
 // Components
 import { FirstPageHeader } from "../UI/organisms";
 import { GeneralStatsCard } from "../UI/atoms/GeneralStatsCard";
-export function MainPage() {
+export function MainPage({ navigation }) {
   return (
     <View>
       <FirstPageHeader />

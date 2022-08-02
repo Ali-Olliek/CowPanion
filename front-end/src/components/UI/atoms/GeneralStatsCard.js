@@ -38,7 +38,7 @@ export function GeneralStatsCard() {
   const page = () => {
     return (
       <>
-        <Text style={statsStyle.dash}>Dashboard</Text>
+        <Text style={statsStyle.dash}>DASHBOARD</Text>
         <View style={statsStyle.container}>
           <TouchableHighlight>
             <View style={statsStyle.card}>

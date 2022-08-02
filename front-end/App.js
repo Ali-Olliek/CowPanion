@@ -9,6 +9,7 @@ axios.defaults.baseURL = "http://10.0.2.2:8000/";
 
 // Pages and Components
 import { BottomNavBarButtons } from "./src/components/UI/organisms/BottomNavBarButtons";
+import { MainHeaderTitle } from "./src/components/UI/atoms";
 import {
   AnimalInformationPage,
   AnimalsListPage,
@@ -90,6 +91,7 @@ export default function App() {
               component={ProfilePage}
             />
             <Stack.Screen name="Update Status" component={UpdateStatusPage} />
+            <Stack.Screen name="HeaderNav" component={MainHeaderTitle} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

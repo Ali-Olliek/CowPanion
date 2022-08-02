@@ -3,17 +3,18 @@ import { styles } from "../../../styles/AnimalsListStyle";
 
 export function MainHeaderTitle({ title, subtitle, navigation }) {
   return (
-    <View style={{ flexDirection: "row" }}>
-      <View>
+    <View style={{ flexDirection: "column", paddingTop: 20 }}>
+      <Text style={styles.subTitle}>{subtitle}</Text>
+      <View style={styles.bottomTitle}>
         <Text style={styles.titles}>{title}</Text>
-        <Text style={styles.subTitle}>{subtitle}</Text>
+        <TouchableHighlight
+          underlayColor={"#307A55"}
+          onPress={() => navigation.navigate("AddAnimal")}
+          style={styles.AddAnimalButton}
+        >
+          <Text style={styles.plus}>+</Text>
+        </TouchableHighlight>
       </View>
-      <TouchableHighlight
-        onPress={() => navigation.navigate("AddAnimal")}
-        style={styles.AddAnimalButton}
-      >
-        <Text style={styles.plus}>+</Text>
-      </TouchableHighlight>
     </View>
   );
 }

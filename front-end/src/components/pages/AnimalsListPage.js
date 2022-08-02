@@ -103,10 +103,11 @@ export function AnimalsListPage({ navigation }) {
       <View>
         <View style={styles.header}>
           <MainHeaderTitle
-            title={userType == 2 ? "List of Animals" : "List of Patients"}
+            navigation={navigation}
+            title={userType == 2 ? "Animals" : "List of Patients"}
             subtitle={
               userType == 2
-                ? "All your farm animals here"
+                ? "All your farm animals listed"
                 : "Animals from farms you're assigned to supervise"
             }
           />
@@ -120,7 +121,7 @@ export function AnimalsListPage({ navigation }) {
             <View style={styles.messageContainer}>
               <Text style={styles.messagePrimary}>No Animals</Text>
               <Text style={styles.messageSecondary}>
-                Press The Orange Button To Add Animals To Your Farm
+                Press The Plus Button To Add Animals
               </Text>
             </View>
           ) : (
@@ -131,13 +132,6 @@ export function AnimalsListPage({ navigation }) {
           )}
         </View>
       </View>
-      <TouchableHighlight
-        underlayColor="#fff"
-        onPress={() => navigation.navigate("AddAnimal")}
-        style={styles.AddAnimal}
-      >
-        <Text>+</Text>
-      </TouchableHighlight>
     </>
   );
 }

@@ -28,6 +28,9 @@ export function AnimalRecord({ animals, navigation, sorted }) {
                 navigation.navigate("Animal", { id: item.id }); // Passing the id with navigation
               }}
             >
+              <Text style={styles.animalAttr}>{item.id}</Text>
+              <Text style={styles.animalAttr}>{item.DOB}</Text>
+              <Text style={styles.animalAttr}>{item.name}</Text>
               {item.status === "Lactating" ? (
                 <Text style={statusStyles.LactatingSm}>L</Text>
               ) : item.status === "Heifer" ? (
@@ -37,9 +40,6 @@ export function AnimalRecord({ animals, navigation, sorted }) {
               ) : (
                 <Text style={statusStyles.DrySm}>D</Text>
               )}
-              <Text style={styles.animalAttr}>{item.id}</Text>
-              <Text style={styles.animalName}>{item.name}</Text>
-              <Text style={styles.animalAttr}>{item.DOB}</Text>
             </TouchableOpacity>
             <View style={styles.hr}></View>
           </>
@@ -60,6 +60,9 @@ export function AnimalRecord({ animals, navigation, sorted }) {
                 navigation.navigate("Animal", { id: item.id }); // Passing the id with navigation
               }}
             >
+              <Text style={styles.animalID}>{item.id}</Text>
+              <Text style={styles.animalDOB}>{item.DOB}</Text>
+              <Text style={styles.animalName}>{item.name}</Text>
               {item.status === "Lactating" ? (
                 <Text style={statusStyles.LactatingSm}>L</Text>
               ) : item.status === "Heifer" ? (
@@ -69,9 +72,6 @@ export function AnimalRecord({ animals, navigation, sorted }) {
               ) : (
                 <Text style={statusStyles.DrySm}>D</Text>
               )}
-              <Text style={styles.animalAttr}>{item.id}</Text>
-              <Text style={styles.animalAttr}>{item.name}</Text>
-              <Text style={styles.animalAttr}>{item.DOB}</Text>
             </TouchableOpacity>
             <View style={styles.hr}></View>
           </>

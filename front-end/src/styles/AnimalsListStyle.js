@@ -44,6 +44,10 @@ const styles = StyleSheet.create({
   },
   Attributescontainer: {
     flexDirection: "row",
+    width: windowWidth,
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    marginBottom: 10,
   },
   attributeBox: {
     width: 0.2 * windowWidth,
@@ -69,6 +73,7 @@ const styles = StyleSheet.create({
 
   recordContainer: {
     width: windowWidth * 0.99,
+    height: 25,
     flexDirection: "row",
     justifyContent: "space-between",
     paddingHorizontal: 40,
@@ -84,9 +89,10 @@ const styles = StyleSheet.create({
     textAlignVertical: "center",
   },
   hr: {
-    width: windowWidth,
+    width: 0.9 * windowWidth,
+    marginLeft: 0.05 * windowWidth,
     borderBottomWidth: 1,
-    opacity: 0.2,
+    borderColor: "#91BCA0",
   },
   container: {
     marginTop: -70,
@@ -94,20 +100,8 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     height: windowHeight,
   },
-  AddAnimal: {
-    width: 42,
-    height: 42,
-    borderWidth: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    position: "absolute",
-    bottom: 20,
-    right: 10,
-    borderRadius: 40,
-    marginHorizontal: 20,
-    marginVertical: 10,
-    backgroundColor: "#D46C4E",
-    elevation: 5,
+  AddAnimalButton: {
+    fontSize: 64,
   },
   messagePrimary: { fontSize: 20 },
   messageSecondary: { fontSize: 10, color: "grey" },
@@ -118,7 +112,57 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     fontSize: 20,
+    fontWeight: "200",
     color: "#fff",
+  },
+  plus: {
+    fontSize: 64,
+    color: "#fff",
+  },
+  animalName: {
+    width: 120,
+  },
+  animalID: {
+    width: 20,
+  },
+  animalDOB: {
+    width: 40,
+  },
+  attrId: {
+    width: 45,
+    alignItems: "center",
+    justifyContent: "center",
+    borderColor: "#307A55",
+  },
+  attrAge: {
+    width: 65,
+    textAlign: "center",
+    alignItems: "center",
+    marginLeft: -40,
+    paddingLeft: 10,
+    borderColor: "#307A55",
+  },
+  attrName: {
+    width: 130,
+    alignItems: "flex-start",
+    marginLeft: -30,
+    borderColor: "#307A55",
+  },
+  attrStatus: {
+    width: 70,
+    alignItems: "center",
+    marginLeft: -30,
+    borderColor: "#307A55",
+  },
+  attrText: {
+    fontWeight: "bold",
+    color: "#307A55",
+  },
+  bottomTitle: {
+    width: windowWidth * 0.9,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });
 
