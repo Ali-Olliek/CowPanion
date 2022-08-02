@@ -10,7 +10,7 @@ import { FirstPageHeader } from "../UI/organisms";
 import { GeneralStatsCard } from "../UI/atoms/GeneralStatsCard";
 export function MainPage() {
   return (
-    <View style={LandingPageStyle.container}>
+    <View>
       <FirstPageHeader />
       <GeneralStatsCard />
     </View>

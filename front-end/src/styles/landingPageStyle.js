@@ -5,8 +5,8 @@ const windowHeight = Dimensions.get("window").height;
 
 const LandingPageStyle = StyleSheet.create({
   container: {
-    width: windowWidth,
-    height: windowHeight,
+    width: 1 * windowWidth,
+    height: 1 * windowHeight,
   },
 });
 

@@ -13,18 +13,22 @@ const headerSectionStyle = StyleSheet.create({
     backgroundColor: "#344E41",
   },
   titlesContainer: {
-    marginTop: 30,
-    height: 0.1 * windowHeight,
+    height: 0.2 * windowHeight,
+    backgroundColor: "#307A55",
+    justifyContent: "center",
+    paddingHorizontal: 40,
   },
 
   title: {
     borderRadius: 5,
     color: "#fff",
     fontSize: 20,
+    fontWeight: "300",
   },
   subtitle: {
     color: "#fff",
     fontSize: 30,
+    fontWeight: "bold",
   },
   cardsContainer: {
     flex: 1,
@@ -46,17 +50,20 @@ const headerSectionStyle = StyleSheet.create({
   },
   weatherReading: {
     color: "black",
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
   },
   weatherUnit: {
     fontSize: 16,
     color: "#000",
   },
-  hr: {
-    borderBottomWidth: 1,
-    height: 1,
-    marginBottom: 5,
+  weatherCardsContainer: {
+    width: windowWidth,
+    height: 0.25 * windowHeight,
+    paddingHorizontal: 40,
+    backgroundColor: "#F17754",
+    marginTop: -6.5,
+    marginBottom: 30,
   },
 });
 

@@ -10,10 +10,9 @@ import { WeatherCard, HeaderTitle } from "../atoms";
 
 export function FirstPageHeader() {
   return (
-    <View style={headerSectionStyle.container}>
+    <>
       <HeaderTitle />
-      <Text style={headerSectionStyle.hr}></Text>
       <WeatherCard />
-    </View>
+    </>
   );
 }
