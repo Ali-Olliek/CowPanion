@@ -12,6 +12,11 @@ import { MainHeaderTitle } from "../UI/atoms";
 import { ProfileCard } from "../UI/organisms/ProfileCard";
 import { FeedsGraph } from "../UI/atoms/BarGraphs/FeedsGraph";
 import { GraphMain } from "../UI/atoms/BarGraphs/GraphMain";
+import { SecondaryHeader } from "../UI/atoms/SecondaryHeader";
+import { ProfileHeader } from "../UI/atoms/ProfileHeader";
+import { profilePageStyles } from "../../styles/ProfilePageStyles";
+import { InputStyles } from "../../styles/InputStyles";
+
 //
 //
 export function ProfilePage({ setUserData }) {
@@ -67,28 +72,18 @@ export function ProfilePage({ setUserData }) {
   return (
     <>
       <View style={styles.header}>
-        <MainHeaderTitle
-          title={`${name}'s Profile`}
-          subtitle={"Check your farm's daily milk production"}
-        />
+        <ProfileHeader title={"Profile"} subtitle={`${name}`} />
       </View>
-      <View
-        style={{
-          justifyContent: "space-between",
-          flex: 1,
-          position: "absolute",
-          top: 110,
-        }}
-      >
-        <View>
+      <View style={profilePageStyles.main}>
+        <View style={{ marginVertical: 20 }}>
           <ProfileCard />
         </View>
-        <View style={{ alignItems: "flex-start", paddingHorizontal: 20 }}>
-          <Text>Your Weekly Milk Data</Text>
+        <View>
+          <Text style={InputStyles.prompt}>Weekly Milk Data</Text>
           {milkData && <GraphMain milkData={milkData} />}
         </View>
-        <View style={{ alignItems: "flex-start", paddingHorizontal: 20 }}>
-          <Text>Top 5 Protein Sources</Text>
+        <View>
+          <Text style={InputStyles.prompt}>Top 5 Protein Sources</Text>
           {feedData && <FeedsGraph feedData={feedData} />}
         </View>
       </View>

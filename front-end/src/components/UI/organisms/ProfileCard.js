@@ -1,26 +1,23 @@
-import { View, Text, Image, TouchableHighlight } from "react-native";
-import { infoStyles } from "../../../styles";
+import { View, Text } from "react-native";
+
 import { useSelector } from "react-redux";
+import { profilePageStyles } from "../../../styles/ProfilePageStyles";
 
 export function ProfileCard() {
-  const { name } = useSelector((state) => state.user.user);
+  const { name, email } = useSelector((state) => state.user.user);
+
   const deleteData = async () => {
     await AsyncStorage.removeItem("userData");
   };
+
   return (
-    <View style={infoStyles.profileCardContainer}>
-      <View style={infoStyles.profileCard}>
-        <View style={infoStyles.list}>
-          <Text>Name: {name}</Text>
-          <View>
-            <TouchableHighlight style={infoStyles.password}>
-              <Text>Update Password</Text>
-            </TouchableHighlight>
-          </View>
-          <View>
-            <TouchableHighlight style={infoStyles.password}>
-              <Text>Sign Out</Text>
-            </TouchableHighlight>
+    <View style={profilePageStyles.profileCardContainer}>
+      <View style={profilePageStyles.profileCard}>
+        <View style={profilePageStyles.list}>
+          <View style={profilePageStyles.circle}></View>
+          <View style={profilePageStyles.info}>
+            <Text style={profilePageStyles.name}> {name}</Text>
+            <Text style={profilePageStyles.email}> {email}</Text>
           </View>
         </View>
       </View>

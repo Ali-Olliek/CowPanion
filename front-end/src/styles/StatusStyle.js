@@ -73,6 +73,7 @@ const statusStyles = StyleSheet.create({
     height: 25,
     borderRadius: 5,
     marginRight: -20,
+    fontSize: 12,
   },
   DrySm: {
     textAlign: "center",
@@ -81,6 +82,7 @@ const statusStyles = StyleSheet.create({
     width: 65,
     height: 25,
     borderRadius: 5,
+    fontSize: 12,
     marginRight: -20,
   },
   HeiferSm: {
@@ -89,6 +91,7 @@ const statusStyles = StyleSheet.create({
     backgroundColor: "#778899",
     width: 65,
     height: 25,
+    fontSize: 12,
     borderRadius: 5,
     marginRight: -20,
   },
@@ -100,7 +103,7 @@ const statusStyles = StyleSheet.create({
     width: 65,
     height: 25,
     borderRadius: 5,
-
+    fontSize: 12,
     marginRight: -20,
   },
 });

@@ -122,12 +122,18 @@ const styles = StyleSheet.create({
   },
   animalName: {
     width: 120,
+    fontWeight: "bold",
+    color: "#2E302F",
   },
   animalID: {
     width: 20,
+    fontWeight: "500",
+    color: "#2E302F",
   },
   animalDOB: {
     width: 40,
+    fontWeight: "500",
+    color: "#2E302F",
   },
   attrId: {
     width: 45,

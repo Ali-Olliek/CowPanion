@@ -78,6 +78,7 @@ export function LoginPage({ navigation }) {
             name: response.data.user_name,
             token: response.data.token,
             userType: response.data.user_type,
+            email: response.data.email,
             isLogged: true,
           })
         );

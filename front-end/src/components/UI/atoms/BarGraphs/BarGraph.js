@@ -21,7 +21,7 @@ export function BarChart({ milkData }) {
   const GRAPH_MARGIN = 20;
   const colors = {
     axis: "black",
-    bars: "#344E41",
+    bars: "#91BCA0",
   };
   const SVGHeight = 120;
   const SVGWidth = Dimensions.get("screen").width;
@@ -87,7 +87,8 @@ export function BarChart({ milkData }) {
                   y={y(item.value) * -1 - 10}
                   x={x(item.day) - GRAPH_BAR_WIDTH / 2 - 5}
                   fontSize="8"
-                  fill={"black"}
+                  fill={"#2E302F"}
+                  fontWeight={"300"}
                 >
                   {item.value} cm3
                 </Text>
@@ -101,7 +102,7 @@ export function BarChart({ milkData }) {
                 rx={1}
                 width={GRAPH_BAR_WIDTH}
                 height={y(item.value)}
-                fill={tooltipDisplay ? "#D46C4E" : colors.bars}
+                fill={tooltipDisplay ? "#F17754" : colors.bars}
               />
             </>
           ))}
@@ -112,7 +113,8 @@ export function BarChart({ milkData }) {
               fontSize="8"
               x={x(item.day)}
               y="10"
-              fill={"black"}
+              fill={"#2E302F"}
+              fontWeight={"800"}
               textAnchor="middle"
             >
               {item.day}

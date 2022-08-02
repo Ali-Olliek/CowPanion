@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Dimensions, View } from "react-native";
 import { Svg, G, Rect, Text, Line } from "react-native-svg";
 import * as d3 from "d3";
+import { profilePageStyles } from "../../../../styles/ProfilePageStyles";
 
 export function FeedsChart({ feedData }) {
   //
@@ -25,7 +26,7 @@ export function FeedsChart({ feedData }) {
   const GRAPH_MARGIN = 20;
   const colors = {
     axis: "black",
-    bars: "#344E41",
+    bars: "#91BCA0",
   };
   const SVGHeight = 140;
   const SVGWidth = Dimensions.get("screen").width;
@@ -49,87 +50,91 @@ export function FeedsChart({ feedData }) {
 
   const displayGraph = () => {
     return (
-      <Svg width={SVGWidth} height={SVGHeight}>
-        {/* translate for 'graphHeight' on y axis */}
-        <G y={graphHeight + GRAPH_MARGIN}>
-          {/* top axis */}
-          <Line
-            x1="0"
-            y1={y(topValue) * -1}
-            x2={graphWidth}
-            y2={y(topValue) * -1}
-            stroke={colors.axis}
-            strokeDasharray={[3, 3]}
-            strokeWidth="0.5"
-          />
-          {/* middle axis */}
-          <Line
-            x1="0"
-            y1={y(middleValue) * -1}
-            x2={graphWidth}
-            y2={y(middleValue) * -1}
-            stroke={colors.axis}
-            strokeDasharray={[3, 3]}
-            strokeWidth="0.5"
-          />
-          <Text fontSize="8" y={y(middleValue * -1 - 1)} fill="black">
-            {middleValue} %
-          </Text>
-          <Text fontSize="8" y={y(topValue * -1 - 1)} fill="black">
-            {topValue} %
-          </Text>
-
-          {/* bottom axis */}
-          <Line
-            x1="0"
-            y1="2"
-            x2={graphWidth}
-            y2="2"
-            stroke={colors.axis}
-            strokeWidth="0.5"
-          />
-          {/* bars & Tooltip */}
-          {proteinPerIngredient.map((item) => (
-            <G key={proteinPerIngredient[item]}>
-              {tooltipDisplay ? (
-                <Text
-                  key={proteinPerIngredient[item]}
-                  y={y(item.value) * -1 - 5}
-                  x={x(item.name) - GRAPH_BAR_WIDTH / 2 - 5}
-                  fontSize="8"
-                  fill={"black"}
-                >
-                  {item.value} %
-                </Text>
-              ) : null}
-              <Rect
-                onPressIn={() => setTooltipDisplay(true)}
-                onPressOut={() => setTooltipDisplay(false)}
-                key={proteinPerIngredient[item]}
-                x={x(item.name) - GRAPH_BAR_WIDTH / 2}
-                y={y(item.value) * -1}
-                rx={1}
-                width={GRAPH_BAR_WIDTH}
-                height={y(item.value)}
-                fill={tooltipDisplay ? "#D46C4E" : colors.bars}
-              />
-            </G>
-          ))}
-          {/* labels */}
-          {proteinPerIngredient.map((item) => (
-            <Text
-              key={proteinPerIngredient[item]}
-              fontSize="8"
-              x={x(item.name)}
-              y="10"
-              fill={"black"}
-              textAnchor="middle"
-            >
-              {JSON.stringify(item.name).split(" ")[0]}
+      <View style={profilePageStyles.graphContainer}>
+        <Svg width={SVGWidth} height={SVGHeight}>
+          {/* translate for 'graphHeight' on y axis */}
+          <G y={graphHeight + GRAPH_MARGIN}>
+            {/* top axis */}
+            <Line
+              x1="0"
+              y1={y(topValue) * -1}
+              x2={graphWidth}
+              y2={y(topValue) * -1}
+              stroke={colors.axis}
+              strokeDasharray={[3, 3]}
+              strokeWidth="0.5"
+            />
+            {/* middle axis */}
+            <Line
+              x1="0"
+              y1={y(middleValue) * -1}
+              x2={graphWidth}
+              y2={y(middleValue) * -1}
+              stroke={colors.axis}
+              strokeDasharray={[3, 3]}
+              strokeWidth="0.5"
+            />
+            <Text fontSize="8" y={y(middleValue * -1 - 1)} fill="black">
+              {middleValue} %
             </Text>
-          ))}
-        </G>
-      </Svg>
+            <Text fontSize="8" y={y(topValue * -1 - 1)} fill="black">
+              {topValue} %
+            </Text>
+
+            {/* bottom axis */}
+            <Line
+              x1="0"
+              y1="2"
+              x2={graphWidth}
+              y2="2"
+              stroke={colors.axis}
+              strokeWidth="0.5"
+            />
+            {/* bars & Tooltip */}
+            {proteinPerIngredient.map((item) => (
+              <G key={proteinPerIngredient[item]}>
+                {tooltipDisplay ? (
+                  <Text
+                    key={proteinPerIngredient[item]}
+                    y={y(item.value) * -1 - 5}
+                    x={x(item.name) - GRAPH_BAR_WIDTH / 2 - 5}
+                    fontSize="8"
+                    fill={"#2E302F"}
+                    fontWeight={"300"}
+                  >
+                    {item.value} %
+                  </Text>
+                ) : null}
+                <Rect
+                  onPressIn={() => setTooltipDisplay(true)}
+                  onPressOut={() => setTooltipDisplay(false)}
+                  key={proteinPerIngredient[item]}
+                  x={x(item.name) - GRAPH_BAR_WIDTH / 2}
+                  y={y(item.value) * -1}
+                  rx={1}
+                  width={GRAPH_BAR_WIDTH}
+                  height={y(item.value)}
+                  fill={tooltipDisplay ? "#F17754" : colors.bars}
+                />
+              </G>
+            ))}
+            {/* labels */}
+            {proteinPerIngredient.map((item) => (
+              <Text
+                key={proteinPerIngredient[item]}
+                fontSize="8"
+                x={x(item.name)}
+                y="10"
+                fill={"#2E302F"}
+                fontWeight={"800"}
+                textAnchor="middle"
+              >
+                {JSON.stringify(item.name).split(" ")[0]}
+              </Text>
+            ))}
+          </G>
+        </Svg>
+      </View>
     );
   };
 
