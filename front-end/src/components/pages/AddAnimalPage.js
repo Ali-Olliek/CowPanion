@@ -72,7 +72,7 @@ export function AddAnimalPage({ navigation }) {
               placeholder="Ex: Betsie"
             ></TextInput>
           </View>
-          <View>
+          <View style={InputStyles.inputBox}>
             <Text style={InputStyles.prompt}>Year Of Birth</Text>
             <TextInput
               onChangeText={(year) => setYearInput(year)}
@@ -80,7 +80,7 @@ export function AddAnimalPage({ navigation }) {
               placeholder="Ex: 2019"
             ></TextInput>
           </View>
-          <View>
+          <View style={InputStyles.inputBox}>
             <Text style={InputStyles.prompt}>Breed</Text>
             <TextInput
               onChangeText={(breed) => setBreedInput(breed)}

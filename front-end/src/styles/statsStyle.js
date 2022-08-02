@@ -27,6 +27,7 @@ const statsStyle = StyleSheet.create({
   },
   stat: {
     textAlign: "center",
+    color: "#2E302F",
     fontSize: 35,
     fontWeight: "bold",
   },
@@ -39,9 +40,6 @@ const statsStyle = StyleSheet.create({
   unit: {
     textAlign: "center",
     fontSize: 12,
-  },
-  source: {
-    fontSize: 8,
   },
   dash: {
     position: "absolute",

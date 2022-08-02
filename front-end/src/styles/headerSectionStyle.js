@@ -14,9 +14,10 @@ const headerSectionStyle = StyleSheet.create({
   },
   titlesContainer: {
     height: 0.2 * windowHeight,
+
     backgroundColor: "#307A55",
     justifyContent: "center",
-    paddingHorizontal: 40,
+    paddingHorizontal: 30,
   },
 
   title: {
@@ -33,16 +34,17 @@ const headerSectionStyle = StyleSheet.create({
   cardsContainer: {
     flex: 1,
     flexDirection: "row",
-    width: "auto",
+    marginLeft: -10,
+    width: windowWidth * 0.85,
     justifyContent: "space-between",
     paddingVertical: windowHeight * 0.01,
     opacity: 0.7,
   },
   weatherCard: {
     width: windowWidth * 0.25,
+    height: 100,
     borderRadius: 5,
     backgroundColor: "white",
-    flex: 1,
     flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "center",
@@ -59,7 +61,7 @@ const headerSectionStyle = StyleSheet.create({
   },
   weatherCardsContainer: {
     width: windowWidth,
-    height: 0.25 * windowHeight,
+    height: 0.22 * windowHeight,
     paddingHorizontal: 40,
     backgroundColor: "#F17754",
     marginTop: -6.5,

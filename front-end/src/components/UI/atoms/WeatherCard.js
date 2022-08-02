@@ -15,7 +15,7 @@ export function WeatherCard() {
       <Text
         style={{
           color: "#fff",
-          marginLeft: 5,
+          marginLeft: -5,
           marginVertical: 8,
           fontWeight: "bold",
         }}
