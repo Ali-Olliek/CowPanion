@@ -26,9 +26,10 @@ import { InputStyles } from "../../styles/InputStyles";
 //
 //
 export function UpdateStatusPage({ navigation, route }) {
+  console.log(route.params);
   //
   // States and Variables
-  const { id } = route.params;
+  const { animal } = route.params;
   const [status, setStatus] = useState("");
   const changeStatusUrl = "api/v1/animal/update/";
   const data = { status: status, id: id };
@@ -37,6 +38,7 @@ export function UpdateStatusPage({ navigation, route }) {
   const [error, setError] = useState(false);
   const list = ["Heifer", "Calf", "Lactating", "Dry"];
   const [statusSelect, setSelectStatus] = useState();
+
   //
   // Create Request
   const changeStatus = () => {
@@ -76,7 +78,6 @@ export function UpdateStatusPage({ navigation, route }) {
       </View>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={{ flex: 1 }}
       >
         {success ? (
           <View style={infoStyles.messageContainer}>
@@ -92,27 +93,47 @@ export function UpdateStatusPage({ navigation, route }) {
             </Text>
           </View>
         ) : null}
-
-        <View style={infoStyles.dropDown}>
-          <Picker
-            mode="dropdown"
-            selectedValue={statusSelect}
-            onValueChange={(itemValue, itemIndex) => [
-              setStatus(itemValue),
-              setSelectStatus(itemValue),
-            ]}
-          >
-            <Picker.Item
-              style={SignUpPageStyle.label}
-              label={"New Status ..."}
-              value={null}
-            />
-            {list.map((type, index) => {
-              return (
-                <Picker.Item key={list[index]} label={type} value={type} />
-              );
-            })}
-          </Picker>
+        <View style={infoStyles.inputs}>
+          <Text style={InputStyles.prompt}>NAME</Text>
+          <TextInput style={infoStyles.inActiveInput} editable={false}>
+            {animal.name}
+          </TextInput>
+        </View>
+        <View style={infoStyles.inputs}>
+          <Text style={InputStyles.prompt}>BREED</Text>
+          <TextInput style={infoStyles.inActiveInput} editable={false}>
+            {animal.breed}
+          </TextInput>
+        </View>
+        <View style={infoStyles.inputs}>
+          <Text style={InputStyles.prompt}>Year of Birth</Text>
+          <TextInput style={infoStyles.inActiveInput} editable={false}>
+            {animal.age}
+          </TextInput>
+        </View>
+        <View style={infoStyles.inputs}>
+          <Text style={InputStyles.prompt}>New Status</Text>
+          <View style={infoStyles.dropDown}>
+            <Picker
+              mode="dropdown"
+              selectedValue={statusSelect}
+              onValueChange={(itemValue) => [
+                setStatus(itemValue),
+                setSelectStatus(itemValue),
+              ]}
+            >
+              <Picker.Item
+                style={SignUpPageStyle.label}
+                label={animal.Oldstatus}
+                value={null}
+              />
+              {list.map((type, index) => {
+                return (
+                  <Picker.Item key={list[index]} label={type} value={type} />
+                );
+              })}
+            </Picker>
+          </View>
         </View>
 
         <View style={createMed.actions}>

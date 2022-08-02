@@ -202,12 +202,28 @@ const infoStyles = StyleSheet.create({
     fontWeight: "300",
   },
   dropDown: {
-    width: 0.9 * windowWidth,
-    marginHorizontal: 0.05 * windowWidth,
-    borderWidth: 0.5,
+    width: 0.8 * windowWidth,
+    borderWidth: 1,
     borderColor: "#91BCA0",
     borderRadius: 5,
     marginVertical: 15,
+  },
+  inputs: {
+    width: 0.9 * windowWidth,
+    marginHorizontal: 0.1 * windowWidth,
+    borderColor: "#91BCA0",
+    borderRadius: 5,
+    marginVertical: 5,
+  },
+  inActiveInput: {
+    width: windowWidth * 0.8,
+    height: 50,
+    backgroundColor: "#F2F8F4",
+    paddingLeft: 10,
+    borderRadius: 5,
+    marginTop: 5,
+    borderWidth: 0.5,
+    borderColor: "grey",
   },
 });
 

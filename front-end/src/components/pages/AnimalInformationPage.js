@@ -25,7 +25,7 @@ import { AnimalCard } from "../UI/organisms";
 import { SecondaryHeader } from "../UI/atoms/SecondaryHeader";
 
 export function AnimalInformationPage({ navigation, route }) {
-  const { id } = route.params;
+  const { id, name, age, breed, status } = route.params;
   const { token } = useSelector((state) => state.user.user);
   const [animalData, setAnimalData] = useState(null);
   const [medicalRecord, setMedicalRecord] = useState([]);
