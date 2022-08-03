@@ -78,10 +78,22 @@ export function ProfilePage({ setUserData }) {
         <View style={{ marginVertical: 20 }}>
           <ProfileCard />
         </View>
-        <View>
-          <Text style={InputStyles.prompt}>Weekly Milk Data</Text>
-          {milkData && <GraphMain milkData={milkData} />}
-        </View>
+        {milkData ? (
+          <View>
+            <Text style={InputStyles.prompt}>Weekly Milk Data</Text>
+            {milkData && <GraphMain milkData={milkData} />}
+          </View>
+        ) : (
+          <>
+            <View style={profilePageStyles.emptyGraph}>
+              <Text style={profilePageStyles.primaryMessage}>No Data Yet</Text>
+              <Text style={profilePageStyles.secondaryMessage}>
+                Setup the Arduino to get daily milk volume measurements
+              </Text>
+            </View>
+          </>
+        )}
+
         <View>
           <Text style={InputStyles.prompt}>Top 5 Protein Sources</Text>
           {feedData && <FeedsGraph feedData={feedData} />}
