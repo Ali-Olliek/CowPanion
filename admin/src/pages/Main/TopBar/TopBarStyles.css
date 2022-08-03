@@ -6,7 +6,7 @@
 }
 
 .topBar {
-    height: calc(10vh - 40px);
+    height: calc(15vh - 40px);
     width: calc(85vw - 40px);
     top: 2.5vh;
     left: 15vw;
@@ -17,8 +17,10 @@
     padding-inline: 50px;
     align-items: center;
     margin-block: 20px;
-    border-radius: 20px;
+    border-radius: 10px;
     margin-inline: 20px;
+    border: 1px solid #307A55;
+    box-shadow: 5px 5px 5px #d7d7d7;
 }
 
 .weatherCards {
@@ -37,27 +39,26 @@
     justify-content: space-evenly;
     align-items: center;
     border-radius: 10px;
-    background-color: #344E41 ;
     border: 0px;
-    color: #fff;
+    color: #D46C4E;
+
 }
 
 .weatherValue {
-    color: #D46C4E;
-    font-size: 60px;
+    color: #2E302F;
+    font-size: 48px;
 }
 
 .date{
-    border: 1px solid black;
     max-width: 25vw;
     min-width: 15vw;
-    height: 12vh;
+    height: 8vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color:#344E41;
-    color: #fff;
+    background-color:#fff;
+    color: #2E302F;
     border-radius: 10px;
     border: 0px;
 }
