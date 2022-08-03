@@ -58,9 +58,14 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 > Uing the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 
-| Landing  | Home/Search  |
-| -----------------| -----|
-|  | ![Home/Search]() |
+| Home  | Animals List | Animal Profile | Reminders | Profile |
+| ------| -------------| ---------------| ----------| ----------|
+| ![Android Emulator - Pixel_4_API_29_5554 8_3_2022 10_41_29 AM](https://user-images.githubusercontent.com/105279237/182554241-91dbe443-e382-454a-a76b-56cda24074b6.png) |  
+![Android Emulator - Pixel_4_API_29_5554 8_3_2022 10_41_36 AM](https://user-images.githubusercontent.com/105279237/182554310-90799671-a376-4247-996f-42c9fa916557.png) | ![Android Emulator - Pixel_4_API_29_5554 8_3_2022 10_41_41 AM](https://user-images.githubusercontent.com/105279237/182554347-84d78143-1bb6-425e-ab1e-c837b0224f6b.png) | 
+![Android Emulator - Pixel_4_API_29_5554 8_3_2022 10_42_04 AM](https://user-images.githubusercontent.com/105279237/182554696-6897da74-e2ea-4472-9f02-16cfb864e198.png) | ![Android Emulator - Pixel_4_API_29_5554 8_3_2022 10_42_41 AM](https://user-images.githubusercontent.com/105279237/182554756-cc82a6ba-0374-4014-853f-21921a2ad052.png) |
+
+
+
 
 
 <br><br>
