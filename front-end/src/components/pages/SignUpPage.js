@@ -13,7 +13,7 @@ import { SignupInputs } from "../UI/molecules/SignupInputs";
 import { PrimaryAuthButton, SecondaryAuthButton } from "../UI/atoms/Auth";
 import { ErrorBox } from "../UI/atoms/ErrorBox";
 
-import { MainHeaderTitle } from "../UI/atoms";
+import { MainHeaderTitle, PhoneNumberInput } from "../UI/atoms";
 export function SignUpPage({ navigation }) {
   // States and Variables
 
@@ -55,12 +55,9 @@ export function SignUpPage({ navigation }) {
 
   const signUpURL = "api/v1/signUp/";
 
-  const signUp = (event) => {
+  const signUp = () => {
     if (
-      (NameInput === "" ||
-        EmailInput === "" ||
-        PhoneNumber === "" ||
-        PasswordInput === "") &&
+      (NameInput === "" || EmailInput === "" || PasswordInput === "") &&
       sendRequest === true
     ) {
       setEmptyInput(true);
@@ -156,8 +153,7 @@ export function SignUpPage({ navigation }) {
                 EmailInput &&
                 NameInput &&
                 PasswordInput &&
-                userType &&
-                PhoneNumber
+                (userType == 2 || userType == 3)
                   ? SignUpPageStyle.active
                   : SignUpPageStyle.inactive
               }
@@ -169,13 +165,13 @@ export function SignUpPage({ navigation }) {
           </View>
           <View style={SignUpPageStyle.secondary}>
             <Text style={SignUpPageStyle.secondaryText}>
-              Don't have an account?
+              Already have an account?
               <Text
                 style={SignUpPageStyle.link}
                 onPress={() => navigation.navigate("SignIn")}
               >
                 <Text> </Text>
-                Register
+                Log In
               </Text>
             </Text>
           </View>
