@@ -56,15 +56,16 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 ![title5](https://user-images.githubusercontent.com/105279237/182450544-1a7db30b-a2b0-4fd7-9d87-f9907d2ea791.svg)
 
 
-> Uing the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
+> Uing the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, this is a GIF displaying screenshots from the real app including home, animal's list, animal's profile, reminders, and profile page accordingly.
 
-| Home  | Animals List | Animal Profile | Reminders | Profile |
-| ------| -------------| ---------------| ----------| ----------|
-| ![Android Emulator - Pixel_4_API_29_5554 8_3_2022 10_41_29 AM](https://user-images.githubusercontent.com/105279237/182554241-91dbe443-e382-454a-a76b-56cda24074b6.png) |  
-![Android Emulator - Pixel_4_API_29_5554 8_3_2022 10_41_36 AM](https://user-images.githubusercontent.com/105279237/182554310-90799671-a376-4247-996f-42c9fa916557.png) | ![Android Emulator - Pixel_4_API_29_5554 8_3_2022 10_41_41 AM](https://user-images.githubusercontent.com/105279237/182554347-84d78143-1bb6-425e-ab1e-c837b0224f6b.png) | 
-![Android Emulator - Pixel_4_API_29_5554 8_3_2022 10_42_04 AM](https://user-images.githubusercontent.com/105279237/182554696-6897da74-e2ea-4472-9f02-16cfb864e198.png) | ![Android Emulator - Pixel_4_API_29_5554 8_3_2022 10_42_41 AM](https://user-images.githubusercontent.com/105279237/182554756-cc82a6ba-0374-4014-853f-21921a2ad052.png) |
+| CowPanion |
+| ------| 
+| ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/105279237/182556577-e3e1bfca-7cb1-47e0-aff9-4098cb4ad8b5.gif) |
 
 
+|Admin Panel|
+| ----------|
+| ![Admin Panel](https://user-images.githubusercontent.com/105279237/182556810-8917dcf0-1bc5-449b-a866-cf519d5763d1.PNG)|
 
 
 
