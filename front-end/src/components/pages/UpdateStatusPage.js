@@ -26,13 +26,12 @@ import { InputStyles } from "../../styles/InputStyles";
 //
 //
 export function UpdateStatusPage({ navigation, route }) {
-  console.log(route.params);
+  console.log(route.params.animal);
   //
   // States and Variables
   const { animal } = route.params;
   const [status, setStatus] = useState("");
-  const changeStatusUrl = "api/v1/animal/update/";
-  const data = { status: status, id: id };
+  const data = { status: status, id: animal.id };
   const { token } = useSelector((state) => state.user.user);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -41,6 +40,7 @@ export function UpdateStatusPage({ navigation, route }) {
 
   //
   // Create Request
+  const changeStatusUrl = "api/v1/animal/update/";
   const changeStatus = () => {
     axios({
       method: "POST",
@@ -73,7 +73,7 @@ export function UpdateStatusPage({ navigation, route }) {
       <View style={styles.header}>
         <SecondaryHeader
           subtitle={"update animal's status"}
-          title={`Animal #${id}`}
+          title={`Animal #${data.id}`}
         />
       </View>
       <KeyboardAvoidingView
