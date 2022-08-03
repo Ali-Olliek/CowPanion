@@ -10,6 +10,7 @@ import { styles } from "../../styles/AnimalsListStyle";
 import { MainHeaderTitle } from "../UI/atoms";
 import { FixingError } from "../UI/atoms";
 import { AnimalRecord, AttributeBoxes } from "../UI/molecules";
+import { Ionicons } from "@expo/vector-icons";
 
 export function AnimalsListPage({ navigation }) {
   //
@@ -90,7 +91,6 @@ export function AnimalsListPage({ navigation }) {
       .then((response) => {
         if (response.data.code === 200) {
           setVetAnimals(response.data.animals);
-          setFetchError(false);
         }
       })
       .catch((error) => {
@@ -118,18 +118,31 @@ export function AnimalsListPage({ navigation }) {
         </View>
         {fetchError ? <FixingError /> : null}
         <View style={styles.list}>
-          {animals.length === 0 && fetchError ? (
-            <View style={styles.messageContainer}>
-              <Text style={styles.messagePrimary}>No Animals</Text>
-              <Text style={styles.messageSecondary}>
-                Press The Plus Button To Add Animals
-              </Text>
-            </View>
+          {userType == 3 && vetAnimals.length == 0 ? (
+            <>
+              <View style={styles.messageContainer}>
+                <Ionicons name="add-outline" size={64} color="#2E302F" />
+                <Text style={styles.messagePrimary}>No Animals</Text>
+                <Text style={styles.messageSecondary}>
+                  Press The Plus Button To Add Animals
+                </Text>
+              </View>
+            </>
           ) : (
-            <AnimalRecord
-              navigation={navigation}
-              animals={userType == 3 ? vetAnimals : animals}
-            />
+            <AnimalRecord navigation={navigation} animals={vetAnimals} />
+          )}
+          {userType == 2 && animals.length == 0 ? (
+            <>
+              <View style={styles.messageContainer}>
+                <Ionicons name="add-outline" size={64} color="#2E302F" />
+                <Text style={styles.messagePrimary}>No Animals</Text>
+                <Text style={styles.messageSecondary}>
+                  Press The Plus Button To Add Animals
+                </Text>
+              </View>
+            </>
+          ) : (
+            <AnimalRecord navigation={navigation} animals={animals} />
           )}
         </View>
       </View>
