@@ -54,6 +54,26 @@ const profilePageStyles = StyleSheet.create({
     color: "#fff",
     fontWeight: "300",
   },
+  emptyGraph: {
+    height: 140,
+    marginLeft: -40,
+    width: 0.9 * windowWidth,
+    borderWidth: 0.5,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5,
+    marginBottom: 10,
+  },
+  primaryMessage: {
+    fontWeight: "bold",
+    fontSize: 22,
+    color: "#2E302F",
+  },
+  secondaryMessage: {
+    fontWeight: "300",
+    fontSize: 12,
+    textAlign: "center",
+  },
 });
 
 export { profilePageStyles };
