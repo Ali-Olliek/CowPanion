@@ -20,7 +20,10 @@ export default function MidSec() {
           <LeafletMap />
         </div>
         <div className="chartsSec">
-          <h4 className="chartTitle">Users Age Groups</h4>
+          <h4 className="chartTitle">
+            Users Age Groups<h6 className="chartTitle"> Using D3.JS</h6>
+          </h4>
+
           <PieChart users={users} />
         </div>
       </div>
