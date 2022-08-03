@@ -1,7 +1,5 @@
 import { TextInput, Text, View } from "react-native";
 import React from "react";
-import { inputFields } from "../../../../styles/InputFields";
-import { LoginPageStyle } from "../../../../styles";
 import { InputStyles } from "../../../../styles/InputStyles";
 
 export function EmailInput({ setEmailInput }) {

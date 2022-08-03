@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   AddAnimalButton: {
     fontSize: 64,
   },
-  messagePrimary: { fontSize: 20 },
+  messagePrimary: { fontSize: 24, color: "#2E302F", fontWeight: "bold" },
   messageSecondary: { fontSize: 10, color: "grey" },
   messageContainer: {
     justifyContent: "center",

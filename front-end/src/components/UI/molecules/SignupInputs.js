@@ -23,8 +23,7 @@ import { InputStyles } from "../../../styles/InputStyles";
 
 export function SignupInputs({ props }) {
   // States and Variables
-  const [farmer, setFarmer] = useState(false);
-  const [vet, setVet] = useState(false);
+
   const list = ["Farmer", "Veterinarian"];
   const [userTypeSelect, setUserTypeSelect] = useState(null);
 
@@ -63,7 +62,7 @@ export function SignupInputs({ props }) {
           {!datePickerDisplay && (
             <Pressable style={InputStyles.DOB} onPress={showDatePicker}>
               <Text style={{ color: "grey", fontWeight: "300" }}>
-                Date of Birth
+                {String(props.date.toDateString())}
               </Text>
             </Pressable>
           )}
