@@ -32,13 +32,8 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 | Farmer's User Flow  | Veterinarian's User Flow  |
 | -----------------| -----|
-| ![Landing]() | ![Home/Search]() |
+| ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/105279237/182549379-5ea46e06-c9bf-40d9-8a2c-3c1e61e9953a.gif) | ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/105279237/182549327-97727b40-11bb-4f54-87ac-860e8a0357fb.gif) |
 
-| Artists results  | Artist's Albums  |
-| -----------------| -----|
-| ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/105279237/182549379-5ea46e06-c9bf-40d9-8a2c-3c1e61e9953a.gif)
- | ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/105279237/182549327-97727b40-11bb-4f54-87ac-860e8a0357fb.gif)
- |
 
 
 <br><br>
@@ -65,7 +60,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 | Landing  | Home/Search  |
 | -----------------| -----|
-| ![Landing]() | ![Home/Search]() |
+|  | ![Home/Search]() |
 
 
 <br><br>
