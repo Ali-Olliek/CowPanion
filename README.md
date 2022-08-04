@@ -67,23 +67,23 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 Here's a brief high-level overview of the tech stack the Well app uses:
 
-- The **backend** was constructed using [Django Framework](https://www.djangoproject.com/). Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
+- The backend was constructed using [Django Framework](https://www.djangoproject.com/). Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
 <br>
-- The **frontend** experience was crafted using [React Native](https://reactnative.dev/docs/getting-started) and [Expo](https://expo.dev/). React Native lets you create truly native apps and doesn't compromise your users' experiences. While Expo is an open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React.
+- The frontend experience was crafted using [React Native](https://reactnative.dev/docs/getting-started) and [Expo](https://expo.dev/). React Native lets you create truly native apps and doesn't compromise your users' experiences. While Expo is an open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React.
 <br>
-- The **database** was built using [MySQL](https://www.mysql.com/) package which allows the app to create a custom storage schema and save it to a local database.
+- The database was built using [MySQL](https://www.mysql.com/) package which allows the app to create a custom storage schema and save it to a local database.
 <br>
-- **Admin's panel** was put together using [React](https://reactjs.org/). React is a free and open-source front-end JavaScript library for building user interfaces based on UI components.
+- Admin's panel was put together using [React](https://reactjs.org/). React is a free and open-source front-end JavaScript library for building user interfaces based on UI components.
 <br>
-- **Calculation of milk volume** was done using [NodeMCU Amica](https://www.nodemcu.com/index_en.html) microcontroller connected to a waterproof [Ultrasonic sensor](https://dronebotworkshop.com/waterproof-ultrasonic/) to measure the volume of milk inside a given container.
+- Calculation of milk volume was done using [NodeMCU Amica](https://www.nodemcu.com/index_en.html) microcontroller connected to a waterproof [Ultrasonic sensor](https://dronebotworkshop.com/waterproof-ultrasonic/) to measure the volume of milk inside a given container.
 <br>
-- **Animal identification** was accomplished using [QR codes](https://en.wikipedia.org/wiki/QR_code). QR codes are a machine-readable optical label that can contain information about the item to which they are attached to.
+- Animal identification was accomplished using [QR codes](https://en.wikipedia.org/wiki/QR_code). QR codes are a machine-readable optical label that can contain information about the item to which they are attached to.
 <br>
-- **Data visualization** was achieved using [D3.JS](https://d3js.org/). D3.js is a JavaScript library for manipulating documents based on data.
+- Data visualization was achieved using [D3.JS](https://d3js.org/). D3.js is a JavaScript library for manipulating documents based on data.
 <br>
-- **Weather data** was presented using [OpenWeatherAPI](https://openweathermap.org/). It is a simple, fast and free weather API that you have access to current weather data, hourly, 5- and 16-day forecasts.
+- Weather data was presented using [OpenWeatherAPI](https://openweathermap.org/). It is a simple, fast and free weather API that you have access to current weather data, hourly, 5- and 16-day forecasts.
 <br>
-- **Geographical representation** of Lebanon was done using [Google Maps](https://developers.google.com/maps), while for the admin the project used [Leaflet](https://leafletjs.com/)'s open source map.
+- Geographical representation of Lebanon was done using [Google Maps](https://developers.google.com/maps), while for the admin the project used [Leaflet](https://leafletjs.com/)'s open source map.
 
 <div>
 <br><br>
