@@ -56,6 +56,11 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 <br>
 
+|Veterinarian User Flow|
+|----------------------|
+|  ![VetFlow](https://user-images.githubusercontent.com/105279237/182947984-1af607d5-c379-48ec-960d-2d09f80aeada.gif) |
+<br>
+
 |Admin's Panel |
 |--------------|
 |![Admin](https://user-images.githubusercontent.com/105279237/182940303-7186cb22-f6c1-4cb3-9ff8-11113754831c.png) |
@@ -100,13 +105,17 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 |  Admin's Panel |
 |---|---|
-|   |
+| ![AdminPanelPNG](https://user-images.githubusercontent.com/105279237/182946884-34de4ed4-e246-4ac6-821d-5f78048dc69f.PNG)  |
 
+ | Admin's Map | Admin's User Age Groups Chart |
+ |----|-----|
+ | ![AdminMaps](https://user-images.githubusercontent.com/105279237/182947062-0e5559b5-237b-44f3-bc8d-ec21c4190a2c.gif) |  ![userAges](https://user-images.githubusercontent.com/105279237/182947218-45a356e9-988c-44f2-a1c1-978f3f469cf6.gif) |
+ 
 <br>
 
 |Diagram displaying how the hardware will work in a real farm|
 |-----|
-||
+| ![Diagram](https://user-images.githubusercontent.com/105279237/182946510-9b8d1d54-1e2c-4119-b929-205aa1e99dfa.gif) |
 
 <br>
 
