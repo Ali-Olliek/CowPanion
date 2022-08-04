@@ -57,7 +57,7 @@ export function AnimalsListPage({ navigation }) {
       }
     });
   };
-
+  console.log(animals);
   //
   // Sorting
   const idDescending = () => {
@@ -100,7 +100,7 @@ export function AnimalsListPage({ navigation }) {
 
   return (
     <>
-      <View>
+      <View style={{ flex: 1 }}>
         <View style={styles.header}>
           <MainHeaderTitle
             nav={"AddAnimal"}
@@ -122,9 +122,10 @@ export function AnimalsListPage({ navigation }) {
             <>
               <View style={styles.messageContainer}>
                 <Ionicons name="add-outline" size={64} color="#2E302F" />
-                <Text style={styles.messagePrimary}>No Animals</Text>
+                <Text style={styles.messagePrimary}>No Animals to Display</Text>
                 <Text style={styles.messageSecondary}>
-                  Press The Plus Button To Add Animals
+                  Animals will display here once someone assign you to be their
+                  farm's veterinarian
                 </Text>
               </View>
             </>

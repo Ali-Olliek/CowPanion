@@ -1,12 +1,5 @@
 // Modules
-
-import {
-  View,
-  TouchableHighlight,
-  Text,
-  StyleSheet,
-  Dimensions,
-} from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import axios from "axios";
 import { useFocusEffect } from "@react-navigation/native";
 import { useSelector } from "react-redux";
@@ -14,12 +7,10 @@ import { useCallback, useState } from "react";
 
 //
 // Styles
-import { styles } from "../../styles/AnimalsListStyle";
-import { infoStyles } from "../../styles";
+
 //
 // Components
-import { MainHeaderTitle } from "../UI/atoms";
-import { AnimalActions } from "../UI/molecules/AnimalActions";
+
 import { MedicalRecord } from "../UI/organisms/MedicalRecord";
 import { AnimalCard } from "../UI/organisms";
 import { SecondaryHeader } from "../UI/atoms/SecondaryHeader";
