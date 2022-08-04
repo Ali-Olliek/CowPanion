@@ -7,7 +7,6 @@ import { AddAnimalStyle } from "../../styles/AddAnimalStyle";
 import { infoStyles, SignUpPageStyle, styles } from "../../styles";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { inputFields } from "../../styles/InputFields";
 import { InputStyles } from "../../styles/InputStyles";
 import { Picker } from "@react-native-picker/picker";
 
@@ -47,6 +46,7 @@ export function AddAnimalPage({ navigation }) {
         setSuccess(true);
         setTimeout(() => {
           setSuccess(false);
+          navigation.navigate("Animals");
         }, 500);
       }
     });
