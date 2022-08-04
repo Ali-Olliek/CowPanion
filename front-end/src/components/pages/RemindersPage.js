@@ -1,7 +1,7 @@
 // Modules
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 import { View, Text, TouchableHighlight } from "react-native";
 
@@ -19,6 +19,8 @@ export function RemindersPage({ navigation }) {
   // States and variables
   const [remindersList, setRemindersList] = useState([]);
   const { id, token } = useSelector((state) => state.user.user);
+  const [deleted, setDeleted] = useState(false);
+
   //
   // Create Request
   const getRemindersUrl = `api/v1/farmReminders/?user_id=${id}`;
@@ -39,6 +41,11 @@ export function RemindersPage({ navigation }) {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    getReminders();
+  }, [deleted]);
+
   //
   // Call on Navigation
   useFocusEffect(
@@ -60,7 +67,7 @@ export function RemindersPage({ navigation }) {
       </View>
       <View style={Todos.midSec}></View>
       {remindersList.length !== 0 ? (
-        <TodosList todos={remindersList} />
+        <TodosList setDeleted={setDeleted} todos={remindersList} />
       ) : (
         <View style={Todos.empty}>
           <Feather name="bell" size={64} color="#2E302F" />

@@ -28,9 +28,9 @@ export function AnimalRecord({ animals, navigation, sorted }) {
                 navigation.navigate("Animal", { id: item.id }); // Passing the id with navigation
               }}
             >
-              <Text style={styles.animalAttr}>{item.id}</Text>
-              <Text style={styles.animalAttr}>{item.DOB}</Text>
-              <Text style={styles.animalAttr}>{item.name}</Text>
+              <Text style={styles.animalID}>{item.id}</Text>
+              <Text style={styles.animalDOB}>{item.DOB}</Text>
+              <Text style={styles.animalName}>{item.name}</Text>
               {item.status === "Lactating" ? (
                 <Text style={statusStyles.LactatingSm}>L</Text>
               ) : item.status === "Heifer" ? (
@@ -52,6 +52,7 @@ export function AnimalRecord({ animals, navigation, sorted }) {
     return (
       <FlatList
         data={sorted ? sorted : animals}
+        ListFooterComponent={<View style={{ height: 20 }} />}
         renderItem={({ item }) => (
           <>
             <TouchableOpacity

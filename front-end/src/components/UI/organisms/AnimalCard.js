@@ -46,7 +46,7 @@ export function AnimalCard({ navigation, info, id }) {
               })
             }
           >
-            <Text style={infoStyles.EditInfoText}>Edit Info</Text>
+            <Text style={infoStyles.EditInfoText}>Update Status</Text>
           </TouchableHighlight>
         </View>
       </View>

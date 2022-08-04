@@ -10,13 +10,12 @@ import { Todos } from "../../../styles/TodosStyle";
 import { inputFields } from "../../../styles/InputFields";
 import { InputStyles } from "../../../styles/InputStyles";
 
-export function Todo({ props }) {
+export function Todo({ props, setDeleted }) {
   //
   // States and variables
   const { token } = useSelector((state) => state.user.user);
   const [id, setId] = useState(null);
   const [selected, setSelected] = useState(false);
-  const [deleted, setDeleted] = useState(true);
 
   //
   // Calculate time left in days
@@ -36,7 +35,7 @@ export function Todo({ props }) {
       headers: { Authorization: token },
       data: data,
     }).then((response) => {
-      setDeleted(true);
+      setDeleted((current) => !current);
     });
   };
 

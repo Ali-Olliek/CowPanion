@@ -8,6 +8,15 @@ export function MainHeaderTitle({ title, subtitle, navigation, nav }) {
       <Text style={styles.subTitle}>{subtitle}</Text>
       <View style={styles.bottomTitle}>
         <Text style={styles.titles}>{title}</Text>
+        {userType == 3 && nav == "createReminder" ? (
+          <TouchableHighlight
+            underlayColor={"#307A55"}
+            onPress={() => navigation.navigate(nav)}
+            style={styles.AddAnimalButton}
+          >
+            <Text style={styles.plus}>+</Text>
+          </TouchableHighlight>
+        ) : null}
         {userType == 2 ? (
           <TouchableHighlight
             underlayColor={"#307A55"}
