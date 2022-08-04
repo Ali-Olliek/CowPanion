@@ -1,7 +1,6 @@
 import React from "react";
 import "../../pages/Main/TopBar/TopBarStyles.css";
 export default function WeatherCard({ reading }) {
-  console.log(reading);
   return (
     <>
       <div className="weatherCard">

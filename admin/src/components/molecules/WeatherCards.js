@@ -32,7 +32,7 @@ export default function WeatherCards() {
 
   return (
     <div className="weatherCards">
-      <WeatherCard reading={weatherData} />
+      {weatherData && <WeatherCard reading={weatherData} />}
     </div>
   );
 }
