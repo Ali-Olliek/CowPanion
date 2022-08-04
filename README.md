@@ -44,6 +44,7 @@
 > This design was planned before on paper, then moved to Figma app for the fine details.
 Note that i didn't use any styling library or theme, all from scratch and using pure css modules
 
+### Farmers
 
 | Farmer Log In  | Farmer Sign Up  | List of Animals |
 | -----------------| -----| ---|
@@ -56,10 +57,14 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 <br>
 
+### Veterinarians
+
 |Veterinarian User Flow|
 |----------------------|
 |  ![VetFlow](https://user-images.githubusercontent.com/105279237/182947984-1af607d5-c379-48ec-960d-2d09f80aeada.gif) |
 <br>
+
+### Admins
 
 |Admin's Panel |
 |--------------|
@@ -119,6 +124,8 @@ Here's a brief high-level overview of the tech stack the Well app uses:
  
 <br>
 
+ ### Hardware
+ 
 |Diagram displaying how the hardware will work in a real farm|
 |-----|
 | ![Diagram](https://user-images.githubusercontent.com/105279237/182946510-9b8d1d54-1e2c-4119-b929-205aa1e99dfa.gif) |
