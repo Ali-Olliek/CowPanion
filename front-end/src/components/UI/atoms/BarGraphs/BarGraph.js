@@ -2,6 +2,9 @@ import React, { PureComponent, useState } from "react";
 import { Dimensions, View } from "react-native";
 import { Svg, G, Rect, Text, Line } from "react-native-svg";
 import * as d3 from "d3";
+import { LogBox } from "react-native";
+LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 export function BarChart({ milkData }) {
   //
@@ -79,11 +82,11 @@ export function BarChart({ milkData }) {
             strokeWidth="0.5"
           />
           {/* bars & Tooltip */}
-          {quantityPerDay.map((item) => (
-            <>
+          {quantityPerDay.map((item, index) => (
+            <G key={index}>
               {tooltipDisplay ? (
                 <Text
-                  key={quantityPerDay[item]}
+                  key={index}
                   y={y(item.value) * -1 - 10}
                   x={x(item.day) - GRAPH_BAR_WIDTH / 2 - 5}
                   fontSize="8"
@@ -94,9 +97,9 @@ export function BarChart({ milkData }) {
                 </Text>
               ) : null}
               <Rect
+                key={index}
                 onPressIn={() => setTooltipDisplay(true)}
                 onPressOut={() => setTooltipDisplay(false)}
-                key={quantityPerDay[item]}
                 x={x(item.day) - GRAPH_BAR_WIDTH / 2}
                 y={y(item.value) * -1}
                 rx={1}
@@ -104,12 +107,12 @@ export function BarChart({ milkData }) {
                 height={y(item.value)}
                 fill={tooltipDisplay ? "#F17754" : colors.bars}
               />
-            </>
+            </G>
           ))}
           {/* labels */}
-          {quantityPerDay.map((item) => (
+          {quantityPerDay.map((item, index) => (
             <Text
-              key={quantityPerDay[item]}
+              key={index}
               fontSize="8"
               x={x(item.day)}
               y="10"

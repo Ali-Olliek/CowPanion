@@ -91,11 +91,11 @@ export function FeedsChart({ feedData }) {
               strokeWidth="0.5"
             />
             {/* bars & Tooltip */}
-            {proteinPerIngredient.map((item) => (
-              <G key={proteinPerIngredient[item]}>
+            {proteinPerIngredient.map((item, index) => (
+              <G key={index}>
                 {tooltipDisplay ? (
                   <Text
-                    key={proteinPerIngredient[item]}
+                    key={index}
                     y={y(item.value) * -1 - 5}
                     x={x(item.name) - GRAPH_BAR_WIDTH / 2 - 5}
                     fontSize="8"
@@ -108,7 +108,7 @@ export function FeedsChart({ feedData }) {
                 <Rect
                   onPressIn={() => setTooltipDisplay(true)}
                   onPressOut={() => setTooltipDisplay(false)}
-                  key={proteinPerIngredient[item]}
+                  key={proteinPerIngredient[index]}
                   x={x(item.name) - GRAPH_BAR_WIDTH / 2}
                   y={y(item.value) * -1}
                   rx={1}
@@ -119,9 +119,9 @@ export function FeedsChart({ feedData }) {
               </G>
             ))}
             {/* labels */}
-            {proteinPerIngredient.map((item) => (
+            {proteinPerIngredient.map((item, index) => (
               <Text
-                key={proteinPerIngredient[item]}
+                key={index}
                 fontSize="8"
                 x={x(item.name)}
                 y="10"
