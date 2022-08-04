@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   list: {
     height: "auto",
     width: "auto",
+    flex: 1,
   },
   Attributescontainer: {
     flexDirection: "row",

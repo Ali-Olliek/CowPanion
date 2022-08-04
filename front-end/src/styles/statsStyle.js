@@ -48,6 +48,18 @@ const statsStyle = StyleSheet.create({
     fontWeight: "900",
     color: "#307A55",
   },
+  unitMilk: {
+    textAlign: "center",
+    fontSize: 12,
+    color: "#2E302F",
+    fontWeight: "800",
+  },
+  titleMilk: {
+    textAlign: "center",
+    color: "#91BCA0",
+    fontSize: 14,
+    fontWeight: "bold",
+  },
 });
 
 export { statsStyle };

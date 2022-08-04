@@ -17,12 +17,13 @@ const profilePageStyles = StyleSheet.create({
   },
 
   profileCardContainer: {
-    width: 0.8 * windowWidth,
+    width: 0.9 * windowWidth,
     borderWidth: 0.5,
     backgroundColor: "#307A55",
     height: 60,
     borderRadius: 10,
     borderWidth: 0,
+    marginLeft: -40,
     paddingHorizontal: 20,
     elevation: 5,
   },
