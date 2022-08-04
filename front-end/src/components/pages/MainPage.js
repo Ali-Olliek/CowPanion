@@ -3,7 +3,6 @@ import { View } from "react-native";
 import React from "react";
 
 // Styles
-import { LandingPageStyle } from "../../styles";
 
 // Components
 import { FirstPageHeader } from "../UI/organisms";

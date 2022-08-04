@@ -54,11 +54,7 @@ export function LoginPage({ navigation }) {
       data: data,
     }).then((response) => {
       if (response.data.code === 200) {
-        if (response.data.user_type == 2) {
-          navigation.navigate("LandingPage");
-        } else if (response.data.user_type == 3) {
-          navigation.navigate("Animals");
-        }
+        navigation.navigate("LandingPage");
         // Store user_Type in Async Storage
         const storeData = async () => {
           try {
