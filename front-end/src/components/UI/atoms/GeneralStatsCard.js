@@ -49,8 +49,10 @@ export function GeneralStatsCard() {
           <TouchableHighlight>
             <View style={statsStyle.card}>
               <Text style={statsStyle.stat}>{milk}</Text>
-              <Text style={statsStyle.title}>cm3/day</Text>
-              <Text style={statsStyle.title}>Milk Quantity</Text>
+              <View>
+                <Text style={statsStyle.unitMilk}>cm3/day</Text>
+                <Text style={statsStyle.titleMilk}>Milk Quantity</Text>
+              </View>
             </View>
           </TouchableHighlight>
           <TouchableHighlight>
