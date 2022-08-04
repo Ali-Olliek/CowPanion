@@ -45,7 +45,10 @@ vet_urls = [
     '/api/v1/animal/',
     '/api/v1/updateMedicalRecord/',
     '/api/v1/getMedicalRecord/',
-    '/api/v1/getAssignedAnimals/'
+    '/api/v1/getAssignedAnimals/',
+    '/api/v1/createReminder/',
+    '/api/v1/farmReminders/',
+    '/api/v1/deleteReminder/',
 ]
 
 

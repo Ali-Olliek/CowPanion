@@ -239,24 +239,17 @@ def create_reminder(request):
         data = request.POST
 
         farmer_id = data['user_id']
-        farm = Farm.objects.filter(farmer_id=farmer_id).get()
+        farmer = User.objects.filter(id=farmer_id).get()
 
         task_title = data['task_title']
         task_description = data['task_description']
         due_time = data['due_time']
 
-        if not farm.id:
-            return JsonResponse({
-                "code": 500,
-                "status": "USGE",
-                "message": "Reminder needs either to be linked to either farm or animal"
-            })
-
         reminder = Reminder(
             due_time=due_time,
             task_title=task_title,
             task_description=task_description,
-            farm_id=farm.id,
+            user_id=farmer.id,
         )
 
         reminder.save()
@@ -277,10 +270,9 @@ def create_reminder(request):
 def get_farm_reminders(request):
 
     if request.method == "GET":
-        farmer = request.GET['user_id']
-        farm = Farm.objects.filter(farmer_id=farmer).get()
+        farmer_id = request.GET['user_id']
 
-        reminders = Reminder.objects.all().filter(farm_id=farm.id)
+        reminders = Reminder.objects.all().filter(user_id=farmer_id)
 
         reminders_json = object_to_json(reminders)
 

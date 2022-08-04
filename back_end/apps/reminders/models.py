@@ -1,6 +1,7 @@
 from django.db import models
 from ..animals.models import Animal
 from ..farms.models import Farm
+from ..users.models import User
 
 
 class Reminder(models.Model):
@@ -13,7 +14,9 @@ class Reminder(models.Model):
     # Models Relations
     animal = models.ForeignKey(
         Animal, on_delete=models.CASCADE, null=True, blank=True, default=None)
-    farm = models.ForeignKey(Farm, on_delete=models.CASCADE, default=None)
+    farm = models.ForeignKey(
+        Farm, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
 
     class Meta:
         db_table = "Reminders"
