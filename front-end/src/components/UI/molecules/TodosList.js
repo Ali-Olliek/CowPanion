@@ -6,13 +6,15 @@ import { InputStyles } from "../../../styles/InputStyles";
 // Components
 import { Todo } from "../atoms/Todo";
 
-export function TodosList({ todos }) {
+export function TodosList({ todos, setDeleted }) {
   return (
     <SafeAreaView style={Todos.container}>
       <Text style={InputStyles.prompt}>UPCOMING TASKS</Text>
       <FlatList
         data={todos}
-        renderItem={({ item, index }) => <Todo index={index} props={item} />}
+        renderItem={({ item, index }) => (
+          <Todo setDeleted={setDeleted} index={index} props={item} />
+        )}
       />
     </SafeAreaView>
   );
