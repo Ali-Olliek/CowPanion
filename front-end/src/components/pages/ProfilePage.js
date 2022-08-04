@@ -24,7 +24,7 @@ export function ProfilePage({ setUserData }) {
   // States and Variables
   const [milkData, setMilkData] = useState(null);
   const [feedData, setFeedData] = useState(null);
-  const { id, token, name } = useSelector((state) => state.user.user);
+  const { id, token, name, userType } = useSelector((state) => state.user.user);
 
   //
   // Creating Request to get Milk Data
@@ -78,26 +78,31 @@ export function ProfilePage({ setUserData }) {
         <View style={{ marginVertical: 20 }}>
           <ProfileCard />
         </View>
-        {milkData ? (
-          <View>
-            <Text style={InputStyles.prompt}>Weekly Milk Data</Text>
-            {milkData && <GraphMain milkData={milkData} />}
-          </View>
-        ) : (
+        {userType == 2 ? (
           <>
-            <View style={profilePageStyles.emptyGraph}>
-              <Text style={profilePageStyles.primaryMessage}>No Data Yet</Text>
-              <Text style={profilePageStyles.secondaryMessage}>
-                Setup the Arduino to get daily milk volume measurements
-              </Text>
+            {milkData ? (
+              <View>
+                <Text style={InputStyles.prompt}>Weekly Milk Data</Text>
+                {milkData && <GraphMain milkData={milkData} />}
+              </View>
+            ) : (
+              <>
+                <View style={profilePageStyles.emptyGraph}>
+                  <Text style={profilePageStyles.primaryMessage}>
+                    No Data Yet
+                  </Text>
+                  <Text style={profilePageStyles.secondaryMessage}>
+                    Setup the Arduino to get daily milk volume measurements
+                  </Text>
+                </View>
+              </>
+            )}
+            <View>
+              <Text style={InputStyles.prompt}>Top 5 Protein Sources</Text>
+              {feedData && <FeedsGraph feedData={feedData} />}
             </View>
           </>
-        )}
-
-        <View>
-          <Text style={InputStyles.prompt}>Top 5 Protein Sources</Text>
-          {feedData && <FeedsGraph feedData={feedData} />}
-        </View>
+        ) : null}
       </View>
     </>
   );
