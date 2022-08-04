@@ -1,4 +1,5 @@
-![title1](/assets/title1.svg)
+![title1](https://user-images.githubusercontent.com/105279237/182939104-ffcb321e-023f-4c1f-8758-17e53bae7f77.svg)
+
 
 <div align="center">
 
@@ -43,20 +44,31 @@
 > This design was planned before on paper, then moved to Figma app for the fine details.
 Note that i didn't use any styling library or theme, all from scratch and using pure css modules
 
+### Farmers
 
 | Farmer Log In  | Farmer Sign Up  | List of Animals |
 | -----------------| -----| ---|
-| ![Log In](/assets/Log%20In.gif) | ![Sign UP](/assets/Sign%20UP.gif) | ![update status](/assets/update%20status.gif) |
+| ![Log In](https://user-images.githubusercontent.com/105279237/182940019-1e93ccee-422b-4d47-b799-f5179b8a4699.gif) | ![Sign UP](https://user-images.githubusercontent.com/105279237/182940049-17a451cf-372d-4331-a5d8-2af0b9e4895c.gif) | ![update status](https://user-images.githubusercontent.com/105279237/182940128-8404fd32-162f-4cd3-bb0b-b13c4b4c26d1.gif) |
+
 
 |Create Reminder| Animal Scanning | Profile Dashboard|
 |----|----|---|
-| ![create reminder](/assets/create%20reminder.gif) | ![scan animal](/assets/scan%20animal_ncoaisoav.gif) | ![profile dashboard](/assets/profile%20dashboard.gif) |
+|  ![create reminder](https://user-images.githubusercontent.com/105279237/182940171-a8f3892d-681d-4d58-b764-919c12ec4cce.gif) | ![scan animal](https://user-images.githubusercontent.com/105279237/182940198-4c700f53-4bad-42aa-98ff-55a1e1738c21.gif)  | ![profile dashboard](https://user-images.githubusercontent.com/105279237/182940240-648e3886-ab3d-4297-a3e6-d477ff4f6612.gif) |
 
 <br>
 
+### Veterinarians
+
+|Veterinarian User Flow|
+|----------------------|
+|  ![VetFlow](https://user-images.githubusercontent.com/105279237/182947984-1af607d5-c379-48ec-960d-2d09f80aeada.gif) |
+<br>
+
+### Admins
+
 |Admin's Panel |
 |--------------|
-|![Admin](/assets/Admin.png)|
+|![Admin](https://user-images.githubusercontent.com/105279237/182940303-7186cb22-f6c1-4cb3-9ff8-11113754831c.png) |
 
 <br><br>
 
@@ -65,24 +77,15 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 Here's a brief high-level overview of the tech stack the Well app uses:
 
-- The **backend** was constructed using [Django Framework](https://www.djangoproject.com/). Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
-<br>
-- The **frontend** experience was crafted using [React Native](https://reactnative.dev/docs/getting-started) and [Expo](https://expo.dev/). React Native lets you create truly native apps and doesn't compromise your users' experiences. While Expo is an open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React.
-<br>
-- The **database** was built using [MySQL](https://www.mysql.com/) package which allows the app to create a custom storage schema and save it to a local database.
-<br>
-- **Admin's panel** was put together using [React](https://reactjs.org/). React is a free and open-source front-end JavaScript library for building user interfaces based on UI components.
-<br>
-- **Calculation of milk volume** was done using [NodeMCU Amica](https://www.nodemcu.com/index_en.html) microcontroller connected to a waterproof [Ultrasonic sensor](https://dronebotworkshop.com/waterproof-ultrasonic/) to measure the volume of milk inside a given container.
-<br>
-- **Animal identification** was accomplished using [QR codes](https://en.wikipedia.org/wiki/QR_code). QR codes are a machine-readable optical label that can contain information about the item to which they are attached to.
-<br>
-- **Data visualization** was achieved using [D3.JS](https://d3js.org/). D3.js is a JavaScript library for manipulating documents based on data.
-<br>
-- **Weather data** was presented using [OpenWeatherAPI](https://openweathermap.org/). It is a simple, fast and free weather API that you have access to current weather data, hourly, 5- and 16-day forecasts.
-<br>
-- **Geographical representation** of Lebanon was done using [Google Maps](https://developers.google.com/maps), while for the admin the project used [Leaflet](https://leafletjs.com/)'s open source map.
-
+- The backend was constructed using [Django Framework](https://www.djangoproject.com/). Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
+- The frontend experience was crafted using [React Native](https://reactnative.dev/docs/getting-started) and [Expo](https://expo.dev/). React Native lets you create truly native apps and doesn't compromise your users' experiences. While Expo is an open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React.
+- The database was built using [MySQL](https://www.mysql.com/) package which allows the app to create a custom storage schema and save it to a local database.
+- Admin's panel was put together using [React](https://reactjs.org/). React is a free and open-source front-end JavaScript library for building user interfaces based on UI components.
+- Calculation of milk volume was done using [NodeMCU Amica](https://www.nodemcu.com/index_en.html) microcontroller connected to a waterproof [Ultrasonic sensor](https://dronebotworkshop.com/waterproof-ultrasonic/) to measure the volume of milk inside a given container.
+- Animal identification was accomplished using [QR codes](https://en.wikipedia.org/wiki/QR_code). QR codes are a machine-readable optical label that can contain information about the item to which they are attached to.
+- Data visualization was achieved using [D3.JS](https://d3js.org/). D3.js is a JavaScript library for manipulating documents based on data.
+- Weather data was presented using [OpenWeatherAPI](https://openweathermap.org/). It is a simple, fast and free weather API that you have access to current weather data, hourly, 5- and 16-day forecasts.
+- Geographical representation of Lebanon was done using [Google Maps](https://developers.google.com/maps), while for the admin the project used [Leaflet](https://leafletjs.com/)'s open source map.
 <div>
 <br><br>
 
@@ -91,27 +94,47 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 > Uing the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, this is a GIF displaying screenshots from the real app including home, animal's list, animal's profile, reminders, and profile page accordingly.
 
-| CowPanion |
-| ------| 
-| ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/105279237/182556577-e3e1bfca-7cb1-47e0-aff9-4098cb4ad8b5.gif) |
+### Farmers
+ 
+| Farmer's Login | Farmer's Register | Farmer's Profile |
+| ------| --- | ---- |
+|    ![FARMERLOGIN GIF](https://user-images.githubusercontent.com/105279237/182949798-1cf27d26-90d3-42d0-b671-b360159cd2a6.gif) | ![Register](https://user-images.githubusercontent.com/105279237/182951829-eb0fae42-2296-4057-991f-046ced6aaada.gif) |![PROFILEGIF](https://user-images.githubusercontent.com/105279237/182949925-0c7b43c1-e76e-4c64-bca0-69f7a6862a7e.gif) |
 
-
+|Animals and Adding Animal| Farmer's Reminders | Animal QR Code Scan|
+|----|----|-----|
+| ![AddAnimalGIF](https://user-images.githubusercontent.com/105279237/182950380-252adf90-c9ea-4789-b707-d2c2a0bfaeef.gif) | ![FARMERREMINDERS](https://user-images.githubusercontent.com/105279237/182950711-ec563bc0-6e10-4a7e-a425-d5fc2f4906f2.gif) | ![SCANANIMALGIF](https://user-images.githubusercontent.com/105279237/182950882-3570829b-5f36-4cf0-9872-ad220b937273.gif) | 
+ 
+ <br><br>
+ 
+ ### Veterinarians
+ 
+ | Veterinarian Login | Update Medical Records | Vet Scan Animal |
+ |------| ---------| ----- |
+ |  ![VETLOGIN](https://user-images.githubusercontent.com/105279237/182952274-d306c652-43db-4967-943e-dd448dfea5dd.gif) |   ![CreateMedicalRecordGIF](https://user-images.githubusercontent.com/105279237/182952285-609de54e-0002-458c-951f-ba0d47186f89.gif) | ![VetScan](https://user-images.githubusercontent.com/105279237/182952761-98ae4b50-2614-425f-aa36-db0fe9b52d81.gif) |
+ 
+### Admins
+ 
 |  Admin's Panel |
-|---|---|
-| ![Admin Panel](/assets/Admin%20Panel_4vmolvg6h.gif)  |
+|---|
+| ![AdminPanelPNG](https://user-images.githubusercontent.com/105279237/182946884-34de4ed4-e246-4ac6-821d-5f78048dc69f.PNG)  |
 
+ | Admin's Map | Admin's User Age Groups Chart |
+ |----|-----|
+ | ![AdminMaps](https://user-images.githubusercontent.com/105279237/182947062-0e5559b5-237b-44f3-bc8d-ec21c4190a2c.gif) |  ![userAges](https://user-images.githubusercontent.com/105279237/182947218-45a356e9-988c-44f2-a1c1-978f3f469cf6.gif) |
+ 
 <br>
 
+ ### Hardware
+ 
 |Diagram displaying how the hardware will work in a real farm|
 |-----|
-|![Diagram](/assets/Diagram.gif)|
+| ![Diagram](https://user-images.githubusercontent.com/105279237/182946510-9b8d1d54-1e2c-4119-b929-205aa1e99dfa.gif) |
 
 <br>
 
 |  NodeMCU Amica  | HC-SR04 Ultrasonic Distance Sensor |
 |---|---|
-|  ![NodeMCU](/assets/NodeMCU.jpg) | ![Sensor](/assets/Sensor.jpg)  |
-
+|  ![NodeMCU](https://user-images.githubusercontent.com/105279237/182941237-954f452b-7927-4b92-8788-5e433f074f33.jpg) | ![Sensor](https://user-images.githubusercontent.com/105279237/182941257-33a3b2b1-2793-4e2d-acdf-9ebd5ccd3a77.jpg) |
 
 
 <div>
@@ -132,23 +155,31 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm install npm@latest -g
   ```
-
+* pip 
+   ```sh
+  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+  ```
+    ```sh
+  python get-pip.py
+  ```
+ 
+ 
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+ 
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/Ali-Olliek/CowPanion
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Install PIP package manage for Python
+    ```sh
+   pip install django
    ```
+
 
 
