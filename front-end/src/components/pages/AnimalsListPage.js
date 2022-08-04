@@ -57,7 +57,7 @@ export function AnimalsListPage({ navigation }) {
       }
     });
   };
-  console.log(animals);
+
   //
   // Sorting
   const idDescending = () => {

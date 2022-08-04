@@ -31,7 +31,6 @@ export default function LoginPage() {
         headers: { "content-type": "multipart/form-data" },
       })
         .then((response) => {
-          console.log(response.data);
           if (response.data.code === 200 && response.data.user_type === 1) {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("name", response.data.user_name);

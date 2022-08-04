@@ -58,7 +58,6 @@ export function CreateReminderPage({ navigation }) {
       data: data,
     }).then((response) => {
       navigation.goBack();
-      console.log(response.data);
     });
   };
 

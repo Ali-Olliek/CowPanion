@@ -33,7 +33,6 @@ export function CameraPage({ navigation }) {
     }
 
     setScanned(false);
-    console.log("Type: " + type + "\nData: " + data);
   };
 
   // Check permissions and return the screens
