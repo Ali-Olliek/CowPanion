@@ -1,10 +1,10 @@
-![title1](https://user-images.githubusercontent.com/105279237/182450353-e831f6e5-30cb-4408-93f8-dbdbb88208b1.svg)
+![title1](/assets/title1.svg)
 
 <div align="center">
 
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available. 
 
-**[PROJECT PHILOSOPHY](#) • [WIREFRAMES](#) • [TECH STACK](#) • [IMPLEMENTATION](#) • [HOW TO RUN?](#)**
+**[PROJECT PHILOSOPHY](#In-a-world) • [WIREFRAMES](#) • [TECH STACK](#) • [IMPLEMENTATION](#) • [HOW TO RUN?](#)**
 
 </div>
 
@@ -13,14 +13,27 @@
 ![title2](https://user-images.githubusercontent.com/105279237/182450471-80b7b409-9d35-4fc1-a3cc-c7b2f9062e73.svg)
 
 
-> The CowPanion app is soon to be farmer's best friend, from small to mid-range farm owners, it's aimed at giving the farmer insights over his farm and help him take better decision, monitor his animal's health along with production levels.
+> In a world fighting for **food security**, alot of the scarcity is due to following **ineffecient farming practices**. With **CowPanion** we aim to lessen the effect of these practices.
+>
+> The **CowPanion** app is soon to be included as an **essential tool** for farms, from small to mid-range farms, it's aimed at giving the farmers **insights** over their farm and help them take better decisions, **monitor** their animal's health along with keeping an eye on **production** levels.
 > 
-> With CowPanion, we want farmers and veterinarians to symbiotically exist on one platform and easily coordinate. We want for the farmers to recognize their farm performance patterns through visual data representation and help them take better decisions.
+> With **CowPanion**, we want farmers and veterinarians to **symbiotically exist** on one platform and **easily coordinate** for the betterment of their animals' health.
 
-### User Stories
-- As a farmer, I need quick and easy access to the medical history of my cows.
-- As a farmer I need visual representations of my farm's milk performance.
-- As a farmer, I want a seemless interaction with veterinarians.
+### Farmer's Stories
+- As a farmer, I need quick and **easy access** to my animals.
+- As a farmer, I want a **seemless interaction** with veterinarians.
+- As a farmer, I need **visual representations** of my farm's milk performance.
+- As a farmer, I need to keep track of **tasks** in hand.
+- As a farmer, I need to **monitor** my animal's current lifecycle stage.
+
+### Veterinarian's Stories
+- As a veterinarian, I want to have all the patients **at one place**.
+- As a veterinarian, I want to **grow** my career and network of farms.
+- As a veterinarian, I want to have **easy access** to patients as fast as possible.
+
+### Admin's Stories
+- As an admin, I need to **explore** my userbase's age groups and adjust my services accordingly.
+- As an admin, I need to see the **geographical distribution** of farms accross the country.
 
 <br><br>
 
@@ -30,11 +43,20 @@
 > This design was planned before on paper, then moved to Figma app for the fine details.
 Note that i didn't use any styling library or theme, all from scratch and using pure css modules
 
-| Farmer's User Flow  | Veterinarian's User Flow  |
-| -----------------| -----|
-| ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/105279237/182549379-5ea46e06-c9bf-40d9-8a2c-3c1e61e9953a.gif) | ![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/105279237/182549327-97727b40-11bb-4f54-87ac-860e8a0357fb.gif) |
 
+| Farmer Log In  | Farmer Sign Up  | List of Animals |
+| -----------------| -----| ---|
+| ![Log In](/assets/Log%20In.gif) | ![Sign UP](/assets/Sign%20UP.gif) | ![update status](/assets/update%20status.gif) |
 
+|Create Reminder| Animal Scanning | Profile Dashboard|
+|----|----|---|
+| ![create reminder](/assets/create%20reminder.gif) | ![scan animal](/assets/scan%20animal_ncoaisoav.gif) | ![profile dashboard](/assets/profile%20dashboard.gif) |
+
+<br>
+
+|Admin's Panel |
+|--------------|
+|![Admin](/assets/Admin.png)|
 
 <br><br>
 
@@ -43,14 +65,25 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 Here's a brief high-level overview of the tech stack the Well app uses:
 
-- This project uses the [Django Framework](https://www.djangoproject.com/). Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
-- For persistent storage (database), the app uses the [MySQL](https://www.mysql.com/) package which allows the app to create a custom storage schema and save it to a local database.
-- For the calculation of milk production per day the app uses 'NodeMCU Amica' microcontroller with an UltraSonic sensor attached to it to measure the volume of milk inside a given container.
-- The app uses QR Codes to identify animals.
-- The app uses the font ["Work Sans"](https://fonts.google.com/specimen/Work+Sans) as its main font, and the design of the app adheres to the material design guidelines.
+- The **backend** was constructed using [Django Framework](https://www.djangoproject.com/). Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
+<br>
+- The **frontend** experience was crafted using [React Native](https://reactnative.dev/docs/getting-started) and [Expo](https://expo.dev/). React Native lets you create truly native apps and doesn't compromise your users' experiences. While Expo is an open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React.
+<br>
+- The **database** was built using [MySQL](https://www.mysql.com/) package which allows the app to create a custom storage schema and save it to a local database.
+<br>
+- **Admin's panel** was put together using [React](https://reactjs.org/). React is a free and open-source front-end JavaScript library for building user interfaces based on UI components.
+<br>
+- **Calculation of milk volume** was done using [NodeMCU Amica](https://www.nodemcu.com/index_en.html) microcontroller connected to a waterproof [Ultrasonic sensor](https://dronebotworkshop.com/waterproof-ultrasonic/) to measure the volume of milk inside a given container.
+<br>
+- **Animal identification** was accomplished using [QR codes](https://en.wikipedia.org/wiki/QR_code). QR codes are a machine-readable optical label that can contain information about the item to which they are attached to.
+<br>
+- **Data visualization** was achieved using [D3.JS](https://d3js.org/). D3.js is a JavaScript library for manipulating documents based on data.
+<br>
+- **Weather data** was presented using [OpenWeatherAPI](https://openweathermap.org/). It is a simple, fast and free weather API that you have access to current weather data, hourly, 5- and 16-day forecasts.
+<br>
+- **Geographical representation** of Lebanon was done using [Google Maps](https://developers.google.com/maps), while for the admin the project used [Leaflet](https://leafletjs.com/)'s open source map.
 
-
-
+<div>
 <br><br>
 
 ![title5](https://user-images.githubusercontent.com/105279237/182450544-1a7db30b-a2b0-4fd7-9d87-f9907d2ea791.svg)
@@ -63,10 +96,25 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 | ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/105279237/182556577-e3e1bfca-7cb1-47e0-aff9-4098cb4ad8b5.gif) |
 
 
-|Admin Panel|
-| ----------|
-| ![Admin Panel](https://user-images.githubusercontent.com/105279237/182556810-8917dcf0-1bc5-449b-a866-cf519d5763d1.PNG)|
+|  Admin's Panel |
+|---|---|
+| ![Admin Panel](/assets/Admin%20Panel_4vmolvg6h.gif)  |
 
+<br>
+
+|Diagram displaying how the hardware will work in a real farm|
+|-----|
+|![Diagram](/assets/Diagram.gif)|
+
+<br>
+
+|  NodeMCU Amica  | HC-SR04 Ultrasonic Distance Sensor |
+|---|---|
+|  ![NodeMCU](/assets/NodeMCU.jpg) | ![Sensor](/assets/Sensor.jpg)  |
+
+
+
+<div>
 
 
 <br><br>
