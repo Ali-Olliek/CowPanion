@@ -1,4 +1,5 @@
-![title1](/assets/title1.svg)
+![title1](https://user-images.githubusercontent.com/105279237/182939104-ffcb321e-023f-4c1f-8758-17e53bae7f77.svg)
+
 
 <div align="center">
 
@@ -46,17 +47,18 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 | Farmer Log In  | Farmer Sign Up  | List of Animals |
 | -----------------| -----| ---|
-| ![Log In](/assets/Log%20In.gif) | ![Sign UP](/assets/Sign%20UP.gif) | ![update status](/assets/update%20status.gif) |
+| ![Log In](https://user-images.githubusercontent.com/105279237/182940019-1e93ccee-422b-4d47-b799-f5179b8a4699.gif) | ![Sign UP](https://user-images.githubusercontent.com/105279237/182940049-17a451cf-372d-4331-a5d8-2af0b9e4895c.gif) | ![update status](https://user-images.githubusercontent.com/105279237/182940128-8404fd32-162f-4cd3-bb0b-b13c4b4c26d1.gif) |
+
 
 |Create Reminder| Animal Scanning | Profile Dashboard|
 |----|----|---|
-| ![create reminder](/assets/create%20reminder.gif) | ![scan animal](/assets/scan%20animal_ncoaisoav.gif) | ![profile dashboard](/assets/profile%20dashboard.gif) |
+|  ![create reminder](https://user-images.githubusercontent.com/105279237/182940171-a8f3892d-681d-4d58-b764-919c12ec4cce.gif) | ![scan animal](https://user-images.githubusercontent.com/105279237/182940198-4c700f53-4bad-42aa-98ff-55a1e1738c21.gif)  | ![profile dashboard](https://user-images.githubusercontent.com/105279237/182940240-648e3886-ab3d-4297-a3e6-d477ff4f6612.gif) |
 
 <br>
 
 |Admin's Panel |
 |--------------|
-|![Admin](/assets/Admin.png)|
+|![Admin](https://user-images.githubusercontent.com/105279237/182940303-7186cb22-f6c1-4cb3-9ff8-11113754831c.png) |
 
 <br><br>
 
@@ -93,24 +95,25 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 | CowPanion |
 | ------| 
-| ![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/105279237/182556577-e3e1bfca-7cb1-47e0-aff9-4098cb4ad8b5.gif) |
+|  |
 
 
 |  Admin's Panel |
 |---|---|
-| ![Admin Panel](/assets/Admin%20Panel_4vmolvg6h.gif)  |
+|   |
 
 <br>
 
 |Diagram displaying how the hardware will work in a real farm|
 |-----|
-|![Diagram](/assets/Diagram.gif)|
+||
 
 <br>
 
 |  NodeMCU Amica  | HC-SR04 Ultrasonic Distance Sensor |
 |---|---|
-|  ![NodeMCU](/assets/NodeMCU.jpg) | ![Sensor](/assets/Sensor.jpg)  |
+|  ![NodeMCU](https://user-images.githubusercontent.com/105279237/182941237-954f452b-7927-4b92-8788-5e433f074f33.jpg) |  ![Sensor](https://user-images.githubusercontent.com/105279237/182941257-33a3b2b1-2793-4e2d-acdf-9ebd5ccd3a77.jpg)
+ |
 
 
 
