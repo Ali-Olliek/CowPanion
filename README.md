@@ -6,7 +6,7 @@
 
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available. 
 
-**[PROJECT PHILOSOPHY](#philosophy) • [WIREFRAMES](#wireframes) •  [TECH STACKS](#stacks) • [IMPLEMENTATION] (#implementation) • [HOW TO RUN?](#run)**
+**[PROJECT PHILOSOPHY](#philosophy) • [WIREFRAMES](#wireframes) •  [TECH STACKS](#stacks) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#run)**
 
 </div>
 
