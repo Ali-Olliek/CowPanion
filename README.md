@@ -1,4 +1,4 @@
-![title1](https://user-images.githubusercontent.com/105279237/183057635-be5aa754-cba4-4948-89a3-a1ab75e82f16.svg)
+![title1](https://user-images.githubusercontent.com/105279237/183063072-00079ba1-25ac-44bd-8867-0d83ce523d4a.svg)
 
 
 
@@ -6,7 +6,7 @@
 
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available. 
 
-**[PROJECT PHILOSOPHY](#philosophy) • [WIREFRAMES](#wireframes) • [TECH STACK](#stacks) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#run)**
+**[PROJECT PHILOSOPHY](#philosophy) • [WIREFRAMES](#wireframes) •  [TECH STACKS](#stacks) • [IMPLEMENTATION] (#implementation) • [HOW TO RUN?](#run)**
 
 </div>
 
@@ -62,9 +62,9 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 ### Veterinarians
 
-|Veterinarian User Flow|
-|----------------------|
-|  ![VetFlow](https://user-images.githubusercontent.com/105279237/182947984-1af607d5-c379-48ec-960d-2d09f80aeada.gif) |
+| Log In | Update Medical Records | Scan Animals |
+|----------------------|-------|----------|
+|  ![VETLOGINWF](https://user-images.githubusercontent.com/105279237/183062642-40aadb19-cf80-469e-8c30-042191daff2d.gif) | ![WFADDMED](https://user-images.githubusercontent.com/105279237/183062671-e15e413e-3a90-405a-a3ad-d48dcb3df4d9.gif) | ![VetSCANWF](https://user-images.githubusercontent.com/105279237/183062690-3024ac52-25d3-4952-8c7a-e4109e0eb328.gif) |
 <br>
 
 ### Admins
@@ -168,7 +168,15 @@ This is an example of how to list things you need to use the software and how to
     ```sh
   python get-pip.py
   ```
+
+* Expo CLI
+    ```sh
+  npm install --global expo-cli
+  ```
+* or Expo GO app 
  
+* [Arduino IDE](https://www.arduino.cc/en/software)
+* Get farm password and farm ID From Admin for Arduino Setup.
  
 ### Installation
 
@@ -186,6 +194,11 @@ _Below is an example of how you can instruct your audience on installing and set
     ```sh
    pip install django
    ```
-
-
-
+4. To launch the backend run: 
+     ```sh
+   python manage.py runserver
+   ```
+5. To launch the app run:
+    ```sh
+   expo start
+   ```
