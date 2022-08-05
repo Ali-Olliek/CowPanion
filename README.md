@@ -1,17 +1,20 @@
-![title1](https://user-images.githubusercontent.com/105279237/182939104-ffcb321e-023f-4c1f-8758-17e53bae7f77.svg)
+![title1](https://user-images.githubusercontent.com/105279237/183063072-00079ba1-25ac-44bd-8867-0d83ce523d4a.svg)
+
 
 
 <div align="center">
 
 > Hello world! This is the project’s summary that describes the project plain and simple, limited to the space available. 
 
-**[PROJECT PHILOSOPHY](#In-a-world) • [WIREFRAMES](#) • [TECH STACK](#) • [IMPLEMENTATION](#) • [HOW TO RUN?](#)**
+**[PROJECT PHILOSOPHY](#philosophy) • [WIREFRAMES](#wireframes) •  [TECH STACKS](#stacks) • [IMPLEMENTATION](#implementation) • [HOW TO RUN?](#run)**
 
 </div>
 
 <br><br>
 
-![title2](https://user-images.githubusercontent.com/105279237/182450471-80b7b409-9d35-4fc1-a3cc-c7b2f9062e73.svg)
+
+![title2 id="philosophy"](https://user-images.githubusercontent.com/105279237/183057835-f8f10a3f-cab0-4753-afb3-cbf0de5de13c.svg)
+
 
 
 > In a world fighting for **food security**, alot of the scarcity is due to following **ineffecient farming practices**. With **CowPanion** we aim to lessen the effect of these practices.
@@ -38,7 +41,7 @@
 
 <br><br>
 
-![title3](https://user-images.githubusercontent.com/105279237/182450491-e70cf25a-d1d4-4f5c-9692-396839d92c97.svg)
+![title3 id="wireframes"](https://user-images.githubusercontent.com/105279237/183058040-37903cf5-6ee9-462d-8fce-72b3b41508ac.svg)
 
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
@@ -59,9 +62,9 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 ### Veterinarians
 
-|Veterinarian User Flow|
-|----------------------|
-|  ![VetFlow](https://user-images.githubusercontent.com/105279237/182947984-1af607d5-c379-48ec-960d-2d09f80aeada.gif) |
+| Log In | Update Medical Records | Scan Animals |
+|----------------------|-------|----------|
+|  ![VETLOGINWF](https://user-images.githubusercontent.com/105279237/183062642-40aadb19-cf80-469e-8c30-042191daff2d.gif) | ![WFADDMED](https://user-images.githubusercontent.com/105279237/183062671-e15e413e-3a90-405a-a3ad-d48dcb3df4d9.gif) | ![VetSCANWF](https://user-images.githubusercontent.com/105279237/183062690-3024ac52-25d3-4952-8c7a-e4109e0eb328.gif) |
 <br>
 
 ### Admins
@@ -72,7 +75,8 @@ Note that i didn't use any styling library or theme, all from scratch and using 
 
 <br><br>
 
-![title4](https://user-images.githubusercontent.com/105279237/182450509-8384e315-deef-4bb1-a523-61a3e81a9076.svg)
+
+![title4 id="stacks"](https://user-images.githubusercontent.com/105279237/183058102-ead7c6ba-ad17-493a-b761-a68dc8e794f0.svg)
 
 
 Here's a brief high-level overview of the tech stack the Well app uses:
@@ -89,16 +93,17 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 <div>
 <br><br>
 
-![title5](https://user-images.githubusercontent.com/105279237/182450544-1a7db30b-a2b0-4fd7-9d87-f9907d2ea791.svg)
+
+![title5 id="implementation"](https://user-images.githubusercontent.com/105279237/183058128-5595d37f-916c-440e-a323-81207c5f0eb4.svg)
 
 
-> Uing the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, this is a GIF displaying screenshots from the real app including home, animal's list, animal's profile, reminders, and profile page accordingly.
+> Uing the above mentioned tech stacks and the wireframes build with figma from the user stories we have, the implementation of the app is shown as below, this is a GIF displaying screenshots from the real app including home, animal's list, animal's profile, reminders, and profile page accordingly.
 
 ### Farmers
  
 | Farmer's Login | Farmer's Register | Farmer's Profile |
 | ------| --- | ---- |
-|    ![FARMERLOGIN GIF](https://user-images.githubusercontent.com/105279237/182949798-1cf27d26-90d3-42d0-b671-b360159cd2a6.gif) | ![Register](https://user-images.githubusercontent.com/105279237/182951829-eb0fae42-2296-4057-991f-046ced6aaada.gif) |![PROFILEGIF](https://user-images.githubusercontent.com/105279237/182949925-0c7b43c1-e76e-4c64-bca0-69f7a6862a7e.gif) |
+|  ![LoginFarmerV2](https://user-images.githubusercontent.com/105279237/183056794-2ec16944-bbf1-45fa-bfd4-03442f1f3787.gif)   | ![Register](https://user-images.githubusercontent.com/105279237/182951829-eb0fae42-2296-4057-991f-046ced6aaada.gif) |![PROFILEGIF](https://user-images.githubusercontent.com/105279237/182949925-0c7b43c1-e76e-4c64-bca0-69f7a6862a7e.gif) |
 
 |Animals and Adding Animal| Farmer's Reminders | Animal QR Code Scan|
 |----|----|-----|
@@ -128,7 +133,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
  
 |Diagram displaying how the hardware will work in a real farm|
 |-----|
-| ![Diagram](https://user-images.githubusercontent.com/105279237/182946510-9b8d1d54-1e2c-4119-b929-205aa1e99dfa.gif) |
+|  ![HQDiagram](https://user-images.githubusercontent.com/105279237/183056504-f1d13650-e17f-43c4-8d5b-91eec3e94bb4.gif) |
 
 <br>
 
@@ -142,7 +147,8 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 <br><br>
 
-![title6](https://user-images.githubusercontent.com/105279237/182450571-c9c29231-8f9f-4e1b-8751-4f4e40a6e20d.svg)
+
+![title6 id="run"](https://user-images.githubusercontent.com/105279237/183058162-0900b104-ceb9-47ee-84d4-65e81eb1250f.svg)
 
 
 > This is an example of how you may give instructions on setting up your project locally.
@@ -162,7 +168,15 @@ This is an example of how to list things you need to use the software and how to
     ```sh
   python get-pip.py
   ```
+
+* Expo CLI
+    ```sh
+  npm install --global expo-cli
+  ```
+* or Expo GO app 
  
+* [Arduino IDE](https://www.arduino.cc/en/software)
+* Get farm password and farm ID From Admin for Arduino Setup.
  
 ### Installation
 
@@ -180,6 +194,11 @@ _Below is an example of how you can instruct your audience on installing and set
     ```sh
    pip install django
    ```
-
-
-
+4. To launch the backend run: 
+     ```sh
+   python manage.py runserver
+   ```
+5. To launch the app run:
+    ```sh
+   expo start
+   ```
