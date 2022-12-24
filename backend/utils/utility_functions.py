@@ -8,53 +8,53 @@ from django.core.serializers import serialize
 # Function To Create B64 Format
 
 
-def get_base64(image):
-    buffered = BytesIO()
-    image.save(buffered, format="JPEG")
-    img_str = base64.b64encode(buffered.getvalue())
-    return "data:image/jpeg;base64," + img_str.decode()
+class Utilities:
+    def __init__(self) -> None:
+        pass
 
-# turn csv to json
+    def get_base64(self, image):
+        buffered = BytesIO()
+        image.save(buffered, format="JPEG")
+        img_str = base64.b64encode(buffered.getvalue())
+        return "data:image/jpeg;base64," + img_str.decode()
 
+    # turn csv to json
 
-def convert_to_json(csvfile, jsonfile):
+    def convert_to_json(self, csvfile, jsonfile):
 
-    data = []
+        data = []
 
-    with open(csvfile, 'r', encoding='ISO 8859-1') as csvf:
-        csvReader = csv.DictReader(csvf)
+        with open(csvfile, 'r', encoding='ISO 8859-1') as csvf:
+            csvReader = csv.DictReader(csvf)
 
-        for rows in csvReader:
-            data.append(rows)
+            for rows in csvReader:
+                data.append(rows)
 
-    with open(jsonfile, 'w', encoding='utf-8') as jsonf:
-        jsonf.write(json.dumps(data))
+        with open(jsonfile, 'w', encoding='utf-8') as jsonf:
+            jsonf.write(json.dumps(data))
 
+    # scrape pdf tables
+    file = "C:/Users/Ollie/Desktop/feeds.pdf"  # directory of the pdf file
 
-# scrape pdf tables
-file = "C:/Users/Ollie/Desktop/feeds.pdf"  # directory of the pdf file
+    def scrape_data(file):
+        tabula.read_pdf(file, pages=92)  # Pages to read
+        tabula.convert_into(file, "utils/feeds.csv", pages="92-100",
+                            output_format="csv", stream=True)  # pages to convert
 
+        csvfile = 'utils/feeds.csv'
+        jsonfile = 'utils/feeds.json'
 
-def scrape_data(file):
-    tabula.read_pdf(file, pages=92)  # Pages to read
-    tabula.convert_into(file, "utils/feeds.csv", pages="92-100",
-                        output_format="csv", stream=True)  # pages to convert
+        Utilities.convert_to_json(csvfile, jsonfile)
 
-    csvfile = 'utils/feeds.csv'
-    jsonfile = 'utils/feeds.json'
+    # To populate the
+    # Json file we will
+    # invoke the function
+    # through an Admin API
 
-    convert_to_json(csvfile, jsonfile)
+    # serialize Json
 
-# To populate the
-# Json file we will
-# invoke the function
-# through an Admin API
+    def object_to_json(self, object):
+        to_json = serialize("json", object)
+        feeds_json = json.loads(to_json)
 
-# serialize Json
-
-
-def object_to_json(object):
-    to_json = serialize("json", object)
-    feeds_json = json.loads(to_json)
-
-    return feeds_json
+        return feeds_json

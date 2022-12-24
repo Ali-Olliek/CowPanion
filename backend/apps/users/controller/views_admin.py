@@ -6,11 +6,12 @@ from django.core.serializers import serialize
 from utils.utility_functions import scrape_data, object_to_json
 
 # Necessary Models
-
+from ....utils.HTTPServices import Responses
 from ...users.models import User
 from ...farms.models import Farm
 from ...animals.models import Animal
 from ...feeds.models import Feed
+from .views import UsersController
 
 # Response Status Codes (For Internal Handling):
 # 200 -- Request handled successfully
@@ -29,232 +30,202 @@ from ...feeds.models import Feed
 # Get all users in database (Farmers, and Vets)
 
 
-def get_users(request):
+class AdminController(UsersController):
+    def get_users(request):
 
-    if request.method == "GET":
+        if request.method == "GET":
 
-        users = User.objects.all().values('name', 'email', 'DOB',
-                                          'id', 'phone_number', 'user_Type')
+            users = User.objects.all().values('name', 'email', 'DOB',
+                                              'id', 'phone_number', 'user_Type')
+            users_list = []
+            for user in users:
+                users_list.append(user)
 
-        users_list = []
-        for user in users:
-            users_list.append(user)
+            return JsonResponse({
+                "Code": 200,
+                "Status": "success",
+                "Data": users_list
+            })
 
-        return JsonResponse({
-            "code": 200,
-            "status": "success",
-            "users": users_list,
-        })
+        return Responses["actionNotAllowed"]
 
-    return JsonResponse({
-        "code": 500,
-        "status": "USGE"
-    })
+    # Get all animals (regardless of farm)
 
+    def get_all_animals(request):
 
-# Get all animals (regardless of farm)
-def get_all_animals(request):
+        if request.method == "GET":
 
-    if request.method == "GET":
+            animals = Animal.objects.all().values(
+                'id', 'farm_id', 'name', 'DOB', 'status', 'breed')
 
-        animals = Animal.objects.all().values(
-            'id', 'farm_id', 'name', 'DOB', 'status', 'breed')
+            animals_list = []
+            for animal in animals:
+                animals_list.append(animal)
 
-        animals_list = []
-        for animal in animals:
-            animals_list.append(animal)
+            return JsonResponse({
+                "Code": 200,
+                "Status": "success",
+                "Data": animals_list
+            })
 
-        return JsonResponse({
-            "code": 200,
-            "status": "success",
-            "animals": animals_list
-        })
+        return Responses["actionNotAllowed"]
 
-    return JsonResponse({
-        "code": 500,
-        "status": "USGE"
-    })
+    # Get all animals of a specific farm/farmer
 
-# Get all animals of a specific farm/farmer
+    def get_farm_animals(request):
 
+        if request.method == "GET":
 
-def get_farm_animals(request):
+            farm_id = request.GET['farm_id']
+            animals = Animal.objects.all().filter(farm_id=farm_id).values(
+                'id', 'farm_id', 'name', 'DOB', 'status', 'breed')
 
-    if request.method == "GET":
+            animals_list = []
+            for animal in animals:
+                animals_list.append(animal)
 
-        farm_id = request.GET['farm_id']
-        animals = Animal.objects.all().filter(farm_id=farm_id).values(
-            'id', 'farm_id', 'name', 'DOB', 'status', 'breed')
+            return JsonResponse({
+                "Code": 200,
+                "Status": "success",
+                "Data": animals_list
+            })
 
-        animals_list = []
-        for animal in animals:
-            animals_list.append(animal)
+        return Responses['actionNotAllowed']
 
-        return JsonResponse({
-            "code": 200,
-            "status": "success",
-            "animals": animals_list
-        })
+    # Get All Farms
 
-    return JsonResponse({
-        "code": 500,
-        "status": "USGE"
-    })
+    def get_farms(request):
 
-# Get All Farms
+        if request.method == "GET":
 
+            farms = Farm.objects.all().values('id', 'name')
+            farms_list = []
+            for farm in farms:
+                farms_list.append(farm)
 
-def get_farms(request):
+            return JsonResponse({
+                "code": 200,
+                "status": "success",
+                "farms": farms_list
+            })
 
-    if request.method == "GET":
+        return Responses['actionNotAllowed']
 
-        farms = Farm.objects.all().values('id', 'name')
-        farms_list = []
-        for farm in farms:
-            farms_list.append(farm)
+    # Call Function to Update Data
 
-        return JsonResponse({
-            "code": 200,
-            "status": "success",
-            "farms": farms_list
-        })
+    def update_feed_data(request):
 
-    return JsonResponse({
-        "code": 500,
-        "status": "USGE"
-    })
+        if request.method == "GET":
+            scrape_data()
 
-# Call Function to Update Data
+            return JsonResponse({
+                "code": 200,
+                "status": "success"
+            })
 
+        return Responses['actionNotAllowed']
 
-def update_feed_data(request):
+    # fill data to database
 
-    if request.method == "GET":
-        scrape_data()
+    def add_feed_data(request):
 
-        return JsonResponse({
-            "code": 200,
-            "status": "success"
-        })
+        with open('utils/feeds.json') as file:
 
-    return JsonResponse({
-        "code": 500,
-        "status": "USGE"
-    })
+            data = json.load(file)
 
-# fill data to database
+            for i in data:
 
+                name = i['Ingredient']
+                CP = i['CP (%)']
+                EE = i['EE (%)']
+                CF = i['CF (%)']
+                NFE = i['NFE (%)']
+                ASH = i['Ash (%)']
+                NDF = i['NDF (%)']
+                ADF = i['ADF (%)']
+                Lignin = i['Lignin (%)']
+                ME = i['ME(Mcal/kg)']
 
-def add_feed_data(request):
+                # If a row has no values, it is a category title
+                if None in (name, CP, EE, CF, NFE, ASH, NDF, ADF, Lignin, ME):
+                    continue
 
-    with open('utils/feeds.json') as file:
+                feed = Feed(
+                    name=name,
+                    crude_protein_CP=CP,
+                    ether_extract_EE=EE,
+                    crude_fibre_CF=CF,
+                    nitrogen_free_extract_NFE=NFE,
+                    mineral_content_ASH=ASH,
+                    neutral_detergent_fibre_NDF=NDF,
+                    acid_detergent_fibre_ADF=ADF,
+                    Lignin=Lignin,
+                    Metabolizable_Energy_ME=ME,
+                )
 
-        data = json.load(file)
+                feed.save()
 
-        for i in data:
+            return JsonResponse({
+                "code": 201,
+                "status": "success"
+            })
 
-            name = i['Ingredient']
-            CP = i['CP (%)']
-            EE = i['EE (%)']
-            CF = i['CF (%)']
-            NFE = i['NFE (%)']
-            ASH = i['Ash (%)']
-            NDF = i['NDF (%)']
-            ADF = i['ADF (%)']
-            Lignin = i['Lignin (%)']
-            ME = i['ME(Mcal/kg)']
+    # get Feeds Data
 
-            # If a row has no values, it is a category title
-            if None in (name, CP, EE, CF, NFE, ASH, NDF, ADF, Lignin, ME):
-                continue
+    def get_feeds(request):
 
-            feed = Feed(
-                name=name,
-                crude_protein_CP=CP,
-                ether_extract_EE=EE,
-                crude_fibre_CF=CF,
-                nitrogen_free_extract_NFE=NFE,
-                mineral_content_ASH=ASH,
-                neutral_detergent_fibre_NDF=NDF,
-                acid_detergent_fibre_ADF=ADF,
-                Lignin=Lignin,
-                Metabolizable_Energy_ME=ME,
-            )
+        if request.method == "GET":
 
-            feed.save()
+            feeds = Feed.objects.all().values(
+                'crude_protein_CP', 'name').order_by('-crude_protein_CP')[3:8]
+            feeds_list = []
+            for feed in feeds:
+                feeds_list.append(feed)
 
-        return JsonResponse({
-            "code": 201,
-            "status": "success"
-        })
+            return JsonResponse({
+                "code": 200,
+                "status": "success",
+                "feeds": feeds_list
+            })
 
-# get Feeds Data
+        return Responses['actionNotAllowed']
 
+    # get only locations of registered farms
 
-def get_feeds(request):
+    def get_farm_locations(request):
+        if request.method == "GET":
+            farms = Farm.objects.all().values('location', 'name')
+            farms_location = []
+            for location in farms:
+                farms_location.append(location)
+            return JsonResponse({
+                "code": 200,
+                "status": "success",
+                "farms": farms_location
+            })
 
-    if request.method == "GET":
+        return Responses['actionNotAllowed']
 
-        feeds = Feed.objects.all().values(
-            'crude_protein_CP', 'name').order_by('-crude_protein_CP')[3:8]
-        feeds_list = []
-        for feed in feeds:
-            feeds_list.append(feed)
+    # get general stats
 
-        return JsonResponse({
-            "code": 200,
-            "status": "success",
-            "feeds": feeds_list
-        })
+    def get_admin_stats(request):
 
-    return JsonResponse({
-        "code": 500,
-        "status": "USGE"
-    })
+        if request.method == "GET":
 
-# get only locations of registered farms
+            vets = User.objects.filter(user_Type=3).count()
+            farmers = User.objects.filter(user_Type=2).count()
+            farms = Farm.objects.count()
+            animals = Animal.objects.count()
 
+            return JsonResponse({
+                "code": 200,
+                "status": "success",
+                "data": {
+                    "Farmers": farmers,
+                    "Veterinarians": vets,
+                    "Farms": farms,
+                    "Animals": animals
+                }
+            })
 
-def get_farm_locations(request):
-    if request.method == "GET":
-        farms = Farm.objects.all().values('location', 'name')
-        farms_location = []
-        for location in farms:
-            farms_location.append(location)
-        return JsonResponse({
-            "code": 200,
-            "status": "success",
-            "farms": farms_location
-        })
-    return JsonResponse({
-        "code": 500,
-        "status": "USGE"
-    })
-
-# get general stats
-
-
-def get_admin_stats(request):
-
-    if request.method == "GET":
-
-        vets = User.objects.filter(user_Type=3).count()
-        farmers = User.objects.filter(user_Type=2).count()
-        farms = Farm.objects.count()
-        animals = Animal.objects.count()
-
-        return JsonResponse({
-            "code": 200,
-            "status": "success",
-            "data": {
-                "Farmers": farmers,
-                "Veterinarians": vets,
-                "Farms": farms,
-                "Animals": animals
-            }
-        })
-
-    return JsonResponse({
-        "code": 500,
-        "status": "USGE"
-    })
+        return Responses['actionNotAllowed']
