@@ -93,7 +93,7 @@ WSGI_APPLICATION = 'back_end.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cowpanionDB',
+        'NAME': 'cowpanion2.0',
         'USER': 'root',
         'PASSWORD': None,
     }
