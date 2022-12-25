@@ -1,19 +1,17 @@
 # Veterinary Actions
 
 from django.http import HttpResponse, JsonResponse
-from utils.utility_functions import object_to_json
+from utils.utility_functions import Utilities
 
 
 # Necessary Models
-from ....utils.HTTPServices import HTTPServices
+from utils.HTTPServices import Responses
 from ...animals.models import Animal
 from apps.profiles.medicals.models import Medical
 from ...farms.models import Farm
 from .views import UsersController
 
 # Functions
-
-Response = HTTPServices
 
 
 class VetsController(UsersController):
@@ -50,7 +48,7 @@ class VetsController(UsersController):
             animal_id = request.GET['animal_id']
             medical_history = Medical.objects.filter(animal_id=animal_id)
 
-            medical_history_json = object_to_json(medical_history)
+            medical_history_json = Utilities.object_to_json(medical_history)
 
             return JsonResponse({
                 "code": 200,

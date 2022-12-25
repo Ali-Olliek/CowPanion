@@ -3,10 +3,10 @@ import re
 import json
 from django.http import JsonResponse
 from django.core.serializers import serialize
-from utils.utility_functions import scrape_data, object_to_json
+from utils.utility_functions import Utilities
 
 # Necessary Models
-from ....utils.HTTPServices import Responses
+from utils.HTTPServices import Responses
 from ...users.models import User
 from ...farms.models import Farm
 from ...animals.models import Animal
@@ -116,7 +116,7 @@ class AdminController(UsersController):
     def update_feed_data(request):
 
         if request.method == "GET":
-            scrape_data()
+            Utilities.scrape_data()
 
             return JsonResponse({
                 "code": 200,

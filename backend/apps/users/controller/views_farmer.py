@@ -2,11 +2,11 @@
 
 import datetime
 from qrcode import make as makeQR
-from django.http import HttpResponse, JsonResponse
-from utils.utility_functions import get_base64, object_to_json, convert_to_json
+from django.http import JsonResponse
+from utils.utility_functions import Utilities
 
 # Necessary models
-
+from utils.HTTPServices import Responses
 from ..models import User
 from ...farms.models import Farm
 from ...animals.models import Animal
@@ -39,34 +39,22 @@ class FarmersController(UsersController):
 
             data = request.POST
 
-            farm_name = data['name']
-            location = data['location']
-            milk_container_volume = data['milk_container_volume']
-            farm_password = data['farm_password']
-            vet = data['vet_id']
-
             farmer = User.objects.get(id=data['user_id'])
 
             farm = Farm(
-                name=farm_name,
+                name=data['name'],
                 farmer=farmer,
-                location=location,
-                milk_container_volume=milk_container_volume,
-                farm_password=farm_password,
-                vet=vet
+                location=data['location'],
+                milk_container_volume=data['milk_container_volume'],
+                farm_password=data['farm_password'],
+                vet=data['vet_id']
             )
 
             farm.save()
 
-            return JsonResponse({
-                "code": 201,
-                "status": "Farm Created Successfully"
-            })
+            return Responses["farmCreatedSuccess"]
 
-        return JsonResponse({
-            "code": 500,
-            "status": "Check Request Method"
-        })
+        Responses["actionNotAllowed"]
 
     # Assign Animal
 
@@ -84,6 +72,7 @@ class FarmersController(UsersController):
             user_id = data['user_id']
             farm = Farm.objects.filter(farmer_id=user_id).get()
             farm_id = farm.id
+
             # Get The Last Record in DB
             last_animal = Animal.objects.order_by('-id', 'pk').first()
 
@@ -91,11 +80,11 @@ class FarmersController(UsersController):
             if not last_animal:
                 QR_code = makeQR(
                     f'http://localhost/api/v1/animal/{1}')
-                B64_QR = get_base64(QR_code)
+                B64_QR = Utilities.get_base64(QR_code)
             else:
                 QR_code = makeQR(
                     f'http://localhost/api/v1/animal/{last_animal.id + 1}')
-                B64_QR = get_base64(QR_code)
+                B64_QR = Utilities.get_base64(QR_code)
 
             animal = Animal(
                 name=name,
@@ -178,7 +167,7 @@ class FarmersController(UsersController):
 
             animal = Animal.objects.filter(id=animal_id)
 
-            animal_json = object_to_json(animal)
+            animal_json = Utilities.object_to_json(animal)
 
             return JsonResponse({
                 "code": 200,
@@ -273,7 +262,7 @@ class FarmersController(UsersController):
 
             reminders = Reminder.objects.all().filter(user_id=farmer_id)
 
-            reminders_json = object_to_json(reminders)
+            reminders_json = Utilities.object_to_json(reminders)
 
             return JsonResponse({
                 "code": 200,
@@ -329,7 +318,7 @@ class FarmersController(UsersController):
 
             reminders = Reminder.objects.all().filter(animal_id=animal_id)
 
-            reminders_json = object_to_json(reminders)
+            reminders_json = Utilities.object_to_json(reminders)
 
             return JsonResponse({
                 "code": 200,
@@ -406,7 +395,7 @@ class FarmersController(UsersController):
             farm = Farm.objects.all().filter(farmer_id=user_id)
 
             milk_profile = Milk.objects.all().filter(Farm_id=farm[0].id)
-            milk_profile_json = object_to_json(milk_profile)
+            milk_profile_json = Utilities.object_to_json(milk_profile)
             return JsonResponse({
                 "code": 200,
                 "status": "success",
@@ -460,7 +449,7 @@ class FarmersController(UsersController):
             farm = Farm.objects.filter(farmer_id=user_id)
             recipe = Recipe.objects.filter(farm_id=farm[0].id).get()
             ingredients = recipe.ingredients.all()
-            ingredients_json = object_to_json(ingredients)
+            ingredients_json = Utilities.object_to_json(ingredients)
             return JsonResponse({
                 "code": 200,
                 "status": "success",
